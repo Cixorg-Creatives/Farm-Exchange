@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Buda:wght@300&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Prata&display=swap');
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -135,6 +135,22 @@
 }
 .buda {
   font-family: "Buda", serif;
+  font-weight: var(--font-weight);
+  font-style: normal;
+}
+.prata {
+  font-family: "Prata", serif;
+  font-weight: var(--font-weight);
+  font-style: normal;
+}
+.bodoni-moda {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: var(--font-weight);
+  font-style: normal;
+}
+.old-standard-tt {
+  font-family: "Old Standard TT", serif;
   font-weight: var(--font-weight);
   font-style: normal;
 }
