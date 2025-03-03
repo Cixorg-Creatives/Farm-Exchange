@@ -8,7 +8,7 @@ const Header = () => {
             <Link to="/">
                 <img src={assets.logo2} alt="" className='h-[57.6px] w-[54px] sm:h-[76.8px] sm:w-[71.91px]' />
             </Link>
-            <div className='hidden sm:flex gap-6 items-center justify-evenly inter'>
+            <div className='header hidden sm:flex gap-6 items-center justify-evenly inter'>
                 <NavLink to="/services" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">Our Services</NavLink>
                 <NavLink to="/journal" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">Farm Journal</NavLink>
                 <NavLink to="/about" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">About Us</NavLink>

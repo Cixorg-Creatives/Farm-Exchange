@@ -10,7 +10,7 @@ import Contact from './pages/Contact'
 
 const App = () => {
   return (
-    <div className='bg-[#F6FCDF]'>
+    <div className='bg-[#F6FCDF] inter'>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

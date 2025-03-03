@@ -113,7 +113,7 @@ const Contact = () => {
         </div>
       </div>
       <div className=''>
-        <div className='sm:w-[47.313rem] my-10 sm:my-20 flex flex-col gap-5'>
+        <div className='lg:w-[47.313rem] my-10 sm:my-20 flex flex-col gap-5'>
           <h1 className='old-standard-tt font-bold text-[#859F3E] text-lg sm:text-[1.75rem] leading-8 sm:leading-10 uppercase'>
             Benefits of joining us
           </h1>

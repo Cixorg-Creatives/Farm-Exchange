@@ -1,42 +1,48 @@
-import { assets } from '@/assets/assets'
-import { Mail, MapPin, Phone } from 'lucide-react'
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { assets } from '@/assets/assets';
+import { Mail, MapPin, Phone } from 'lucide-react';
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='relative w-full footer_bg sm:p-24 p-12 flex sm:flex-row flex-col sm:items-center items-start sm:justify-between justify-center gap-12 sm:gap-0'>
+        <div className='relative w-full footer_bg p-8 sm:p-12 md:p-16 lg:p-24 flex flex-col md:flex-row md:items-start lg:items-center md:justify-between gap-8 md:gap-12 lg:gap-0'>
             <div className='bg-black/60 absolute h-full w-full top-0 left-0'></div>
-            <div className='z-10 flex flex-col items-start sm:items-start sm:gap-20 gap-8 w-full sm:w-auto'>
-                <Link to="/" className='self-center sm:self-start'>
-                    <img src={assets.logo} alt="logo" className='sm:h-[203.34px] sm:w-[190.38px] h-32 w-auto' />
+            <div className='z-10 flex flex-col items-center md:items-start w-full md:w-auto gap-6 lg:gap-12'>
+                <Link to="/" className='self-center md:self-start'>
+                    <img src={assets.logo} alt="logo" className='h-24 w-auto md:h-32 lg:h-[203.34px] lg:w-[190.38px]' />
                 </Link>
-                <div className='flex sm:gap-6 gap-3 items-center justify-center'>
-                    <NavLink to="/services" className="text-[#EFE6DD] font-normal text-xs sm:text-xl leading-[24.2px] text-center">Our Services</NavLink>
-                    <NavLink to="/journal" className="text-[#EFE6DD] font-normal text-xs sm:text-xl leading-[24.2px] text-center">Farm Journal</NavLink>
-                    <NavLink to="/about" className="text-[#EFE6DD] font-normal text-xs sm:text-xl leading-[24.2px] text-center">About Us</NavLink>
-                    <NavLink to="/contact" className="text-[#EFE6DD] font-normal text-xs sm:text-xl leading-[24.2px] text-center">Contact Us</NavLink>
+                <div className='flex flex-wrap justify-center md:justify-start gap-4 md:gap-6'>
+                    <NavLink to="/services" className="text-[#EFE6DD] text-sm md:text-base lg:text-xl">Our Services</NavLink>
+                    <NavLink to="/journal" className="text-[#EFE6DD] text-sm md:text-base lg:text-xl">Farm Journal</NavLink>
+                    <NavLink to="/about" className="text-[#EFE6DD] text-sm md:text-base lg:text-xl">About Us</NavLink>
+                    <NavLink to="/contact" className="text-[#EFE6DD] text-sm md:text-base lg:text-xl">Contact Us</NavLink>
                 </div>
             </div>
-            <div className='z-10 flex flex-col items-start sm:items-start w-full sm:w-72 gap-7'>
-                <h1 className='text-[#FFFFFF] font-medium text-xl leading-[24.2px] text-center sm:text-left w-full'>Contact</h1>
-                <div className='flex flex-col items-start justify-center gap-6'>
-                    <div className='flex items-center gap-3 sm:gap-6'>
-                        <div className='bg-[#859F3E] size-7 sm:size-11 flex items-center justify-center'><Phone size={17} className='size-[10px] sm:size-[17px]' color='#EFE6DD' /></div>
-                        <div className='text-[#859F3E] font-normal text-xs sm:text-base leading-4 sm:leading-[19.36px] w-56 inter text-left'>+91 9848022338</div>
+            <div className='z-10 flex flex-col items-center md:items-start w-full md:w-72 gap-6'>
+                <h1 className='text-[#FFFFFF] text-lg md:text-xl font-medium'>Contact</h1>
+                <div className='flex flex-col gap-4 md:gap-6'>
+                    <div className='flex items-center gap-4 md:gap-6'>
+                        <div className='bg-[#859F3E] flex items-center justify-center p-2 md:p-3 size-11'>
+                            <Phone size={17} className='text-[#EFE6DD]' />
+                        </div>
+                        <span className='text-[#859F3E] text-sm leading-4 md:text-base w-48 md:w-56 text-left'>+91 9848022338</span>
                     </div>
-                    <div className='flex items-center gap-3 sm:gap-6'>
-                        <div className='bg-[#859F3E] size-7 sm:size-11 flex items-center justify-center'><Mail size={17} className='size-[10px] sm:size-[17px]' color='#EFE6DD' /></div>
-                        <div className='text-[#859F3E] font-normal text-xs sm:text-base leading-4 sm:leading-[19.36px] w-56 inter text-left'>info@email.com</div>
+                    <div className='flex items-center gap-4 md:gap-6'>
+                        <div className='bg-[#859F3E] flex items-center justify-center p-2 md:p-3 size-11'>
+                            <Mail size={17} className='text-[#EFE6DD]' />
+                        </div>
+                        <span className='text-[#859F3E] text-sm leading-4 md:text-base w-48 md:w-56 text-left'>info@email.com</span>
                     </div>
-                    <div className='flex items-center gap-3 sm:gap-6'>
-                        <div className='bg-[#859F3E] size-7 sm:size-11 flex items-center justify-center'><MapPin size={17} className='size-[10px] sm:size-[17px]' color='#EFE6DD' /></div>
-                        <div className='text-[#859F3E] font-normal text-xs sm:text-base leading-4 sm:leading-[19.36px] w-56 inter text-left'>Here comes the address of the company might be in two or three lines</div>
+                    <div className='flex items-center gap-4 md:gap-6'>
+                        <div className='bg-[#859F3E] flex items-center justify-center p-2 md:p-3 size-11'>
+                            <MapPin size={17} className='text-[#EFE6DD]' />
+                        </div>
+                        <span className='text-[#859F3E] text-sm leading-4 md:text-base w-48 md:w-56 text-left'>Here comes the address of the company might be in two or three lines</span>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;
