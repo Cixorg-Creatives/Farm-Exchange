@@ -11,7 +11,7 @@ const Footer = () => {
                 <Link to="/" className='self-center sm:self-start'>
                     <img src={assets.logo} alt="logo" className='sm:h-[203.34px] sm:w-[190.38px] h-32 w-auto' />
                 </Link>
-                <div className='flex sm:gap-6 gap-3 items-center justify-center sm:justify-evenly inter'>
+                <div className='flex sm:gap-6 gap-3 items-center justify-center'>
                     <NavLink to="/services" className="text-[#EFE6DD] font-normal text-xs sm:text-xl leading-[24.2px] text-center">Our Services</NavLink>
                     <NavLink to="/journal" className="text-[#EFE6DD] font-normal text-xs sm:text-xl leading-[24.2px] text-center">Farm Journal</NavLink>
                     <NavLink to="/about" className="text-[#EFE6DD] font-normal text-xs sm:text-xl leading-[24.2px] text-center">About Us</NavLink>

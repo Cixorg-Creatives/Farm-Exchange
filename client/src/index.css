@@ -119,14 +119,6 @@
   --font-weight: 400;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 .inter {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -157,4 +149,13 @@
 .footer_bg {
   background: url(./assets/footer-bg.png) no-repeat;
   background-size: cover;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 inter;
+  }
+  body {
+    @apply bg-[#F6FCDF] text-foreground ;
+  }
 }
