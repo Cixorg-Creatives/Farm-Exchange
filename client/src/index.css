@@ -152,7 +152,7 @@
 }
 
 .header a.active {
-  @apply border-b-[1px] border-[#859F3E] pb-0.5 scale-110 ease-in duration-300;
+  @apply border-b-[1px] border-[#859F3E] pb-0.5 scale-110;
 }
 
 @layer base {
