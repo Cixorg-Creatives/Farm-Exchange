@@ -11,6 +11,27 @@ import about_4 from './about_4.png';
 import about_5 from './about_5.png';
 import about_6 from './about_6.png';
 import about_7 from './about_7.png';
+import menu from './menu.png';
+import home_1 from './home_1.png';
+import home_2 from './home_2.png'; 
+import home_3 from './home_3.png';
+import home_4 from './home_4.png';
+import home_5 from './home_5.png';
+import home_6 from './home_6.png';
+import home_7 from './home_7.png'; 
+import home_8 from './home_8.png';
+import home_9 from './home_9.png';
+import home_10 from './home_10.png';
+import home_13 from './home_13.png';
+import home_14 from './home_14.png';
+import home_15 from './home_15.png';
+import home_16 from './home_16.png';
+import home_17 from './home_17.png';
+import home_18 from './home_18.png';
+import home_19 from './home_19.png';
+import home_20 from './home_20.png';
+import home_21 from './home_21.png';
+import home_22 from './home_22.png';
 
 export const assets = {
     logo,
@@ -26,4 +47,25 @@ export const assets = {
     about_5,
     about_6,
     about_7,
+    menu,
+    home_1,
+    home_2,
+    home_3,
+    home_4,
+    home_5,
+    home_6,
+    home_7,
+    home_8,
+    home_9,
+    home_10,
+    home_13,
+    home_14,
+    home_15,
+    home_16,
+    home_17,
+    home_18,
+    home_19,
+    home_20,
+    home_21,
+    home_22
 };
