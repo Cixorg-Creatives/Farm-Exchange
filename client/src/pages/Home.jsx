@@ -1,3 +1,4 @@
+import { assets } from '@/assets/assets'
 import Banner from '@/components/home/Banner'
 import Cities from '@/components/home/Cities'
 import Developers from '@/components/home/Developers'
@@ -9,15 +10,19 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div className='px-4 md:px-6 lg:px-24'>
-      <HomeHero />
-      <Grid />
-      <Properties />
-      <Cities />
-      <HomeJournal />
+    <>
+      <div className='px-4 md:px-6 lg:px-24'>
+        <HomeHero />
+        <Grid />
+        <Properties />
+        <Cities />
+        <HomeJournal />
+      </div>
       <Banner />
-      <Developers />
-    </div>
+      <div className='px-4 md:px-6 lg:px-24'>
+        <Developers />
+      </div>
+    </>
   )
 }
 

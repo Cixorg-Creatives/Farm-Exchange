@@ -4,7 +4,7 @@ import React from 'react';
 
 const Grid = () => {
   return (
-    <div className='bg-[#F6FCDF] py-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-4 md:px-6 lg:px-0'>
+    <div className='bg-[#F6FCDF] py-8 lg:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
       <div className='relative group overflow-hidden col-span-1 lg:row-span-3 rounded-2xl h-[23.438rem] md:h-[36rem] sm:h-[15rem]'>
         <img src={assets.home_3} alt='' className='w-full h-full group-hover:scale-105 duration-200 ease-in rounded-2xl object-cover' />
         <div className='absolute inset-0 bg-black/40 rounded-2xl p-5 md:p-6'>
