@@ -38,9 +38,9 @@ const HomeHero = () => {
         </div>
       </div>
       <div className='md:hidden'>
-        <div className='relative w-full h-full rounded-2xl'>
-          <img src={assets.home_1} alt="" className='rounded-2xl w-full h-full' />
-          <div className='absolute inset-0 bg-black/30 rounded-2xl flex flex-col items-start justify-center px-4'>
+        <div className='relative w-full h-full rounded-xl'>
+          <img src={assets.home_1} alt="" className='rounded-xl w-full h-full' />
+          <div className='absolute inset-0 bg-black/30 rounded-xl flex flex-col items-start justify-center px-4'>
             <div className='flex gap-3'>
               <motion.p className='uppercase text-white prata font-normal text-xl mb-1' initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0 }} viewport={{ once: true }}>CONNECTING</motion.p>
               <motion.p className='uppercase text-white prata font-normal text-2xl mb-1' initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5 }} viewport={{ once: true }}>FARMS,</motion.p>
@@ -59,8 +59,8 @@ const HomeHero = () => {
             </div>
           </div>
           <div className='relative'>
-            <img src={assets.home_2} alt="" className='size-40 rounded-r-3xl' />
-            <div className='absolute inset-0 bg-[#859F3E66] rounded-r-3xl'>
+            <img src={assets.home_2} alt="" className='size-40 rounded-r-xl' />
+            <div className='absolute inset-0 bg-[#859F3E66] rounded-r-xl'>
               <p className='uppercase text-[#073D2C] old-standard-tt font-bold text-sm py-4 px-3'>28% Market Insights Processed</p>
             </div>
           </div>
