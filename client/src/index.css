@@ -155,6 +155,10 @@
   @apply border-b-[1px] border-[#859F3E] pb-0.5 scale-110;
 }
 
+::-webkit-scrollbar{
+  @apply hidden;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
