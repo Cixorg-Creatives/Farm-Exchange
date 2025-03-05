@@ -22,6 +22,8 @@ import home_7 from './home_7.png';
 import home_8 from './home_8.png';
 import home_9 from './home_9.png';
 import home_10 from './home_10.png';
+import home_11 from './home_11.gif';
+import home_12 from './home_12.png';
 import home_13 from './home_13.png';
 import home_14 from './home_14.png';
 import home_15 from './home_15.png';
@@ -58,6 +60,8 @@ export const assets = {
     home_8,
     home_9,
     home_10,
+    home_11,
+    home_12,
     home_13,
     home_14,
     home_15,

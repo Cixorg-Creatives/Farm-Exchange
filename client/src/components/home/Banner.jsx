@@ -5,10 +5,10 @@ import { ArrowUpRight } from 'lucide-react'
 
 const Banner = () => {
   return (
-    <div className='py-4 md:py-10 lg:py-20'>
+    <div className='my-6 md:my-10 xl:my-14'>
       <div className='w-full relative'>
-        <img src={assets.home_21} alt="" className='w-full h-full object-cover' />
-        <div className='absolute inset-0 bg-black/40 flex flex-col items-center justify-center gap-6 md:gap-8 lg:gap-10 px-4 md:px-8'>
+        <img src={assets.home_21} alt="" className='w-full h-full lg:h-[90vh] object-cover' />
+        <div className='absolute inset-0 bg-black/50 flex flex-col items-center justify-center gap-6 md:gap-8 lg:gap-10 px-4 md:px-8'>
           <div className='w-full md:w-4/5 flex flex-col items-center gap-2 md:gap-4'>
             <p className='uppercase prata text-white text-center font-normal text-2xl md:text-4xl lg:text-7xl leading-tight lg:leading-[5rem]'>Unlock the Potential of your land<span className='text-xl md:text-2xl lg:text-4xl font-bold'>!</span></p>
             <p className='uppercase prata text-[#D9E2C3] text-center font-normal text-sm md:text-xxl lg:text-2xl leading-snug md:leading-9 lg:leading-[2.75rem] w-full md:w-3/4'><span className='text-base md:text-2xl lg:text-4xl'>P</span>ost <span className='text-base md:text-2xl lg:text-4xl'>Y</span>our <span className='text-base md:text-2xl lg:text-4xl'>P</span>roperty <span className='text-base md:text-2xl lg:text-4xl'>T</span>oday <span className='text-base md:text-2xl lg:text-4xl'>A</span>nd <span className='text-base md:text-2xl lg:text-4xl'>C</span>onnect <span className='text-base md:text-2xl lg:text-4xl'>W</span>ith <span className='text-base md:text-2xl lg:text-4xl'>I</span>nterested <span className='text-base md:text-2xl lg:text-4xl'>B</span>uyers!</p>
