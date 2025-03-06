@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className='relative w-full footer_bg p-8 sm:p-12 md:p-16 lg:p-24 flex flex-col md:flex-row md:items-start lg:items-center md:justify-between gap-8 md:gap-12 lg:gap-0'>
-            <div className='bg-black/60 absolute h-full w-full top-0 left-0'></div>
+            <div className='bg-black/70 backdrop-blur-xs absolute h-full w-full top-0 left-0'></div>
             <div className='z-10 flex flex-col items-center md:items-start w-full md:w-auto gap-6 lg:gap-12'>
                 <Link to="/" className='self-center md:self-start'>
                     <img src={assets.logo} alt="logo" className='h-24 w-auto md:h-32 lg:h-[203.34px] lg:w-[190.38px]' />
