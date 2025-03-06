@@ -62,7 +62,7 @@ const HeroForm = () => {
                                     <FormLabel className="text-[#859F3E] buda font-normal text-xl sm:text-2xl old-standard-tt">Full Name</FormLabel>
                                     <FormControl>
                                         <Input
-                                            className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E] focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
+                                            className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
                                             placeholder="Enter your fullname" {...field}
                                         />
                                     </FormControl>
@@ -78,7 +78,7 @@ const HeroForm = () => {
                                     <FormLabel className="text-[#859F3E] buda font-normal text-xl sm:text-2xl old-standard-tt">Email Id</FormLabel>
                                     <FormControl>
                                         <Input
-                                            className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E] focus-visible:ring-[#859F3E]/30"
+                                            className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:ring-[#859F3E]/30"
                                             type="email" placeholder="example@email.com" {...field}
                                         />
                                     </FormControl>
@@ -94,7 +94,7 @@ const HeroForm = () => {
                                     <FormLabel className="text-[#859F3E] buda font-normal text-xl sm:text-2xl old-standard-tt">Contact No</FormLabel>
                                     <FormControl>
                                         <Input
-                                            className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E] focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
+                                            className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
                                             type="tel" placeholder="+91 " {...field}
                                         />
                                     </FormControl>

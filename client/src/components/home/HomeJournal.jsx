@@ -10,7 +10,7 @@ const HomeJournal = () => {
           <p className="uppercase text-[#859F3E] font-bold text-3xl md:text-4xl leading-10 md:leading-12">
             The Farm
           </p>
-          <p className="uppercase text-[#073D2C] font-bold text-5xl md:text-6xl leading-16 md:leading-20">
+          <p className="uppercase text-[#073D2C] font-bold text-5xl md:text-[4rem] leading-16 md:leading-20">
             Journal
           </p>
         </div>
