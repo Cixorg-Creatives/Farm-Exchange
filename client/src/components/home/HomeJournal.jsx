@@ -32,7 +32,7 @@ const HomeJournal = () => {
           </div>
         </div>
         <div className='col-span-1 relative'>
-          <img src={assets.home_17} alt="" className='w-full h-auto' />
+          <img src={assets.home_17} alt="" className='w-full h-auto md:h-[49.375rem]' />
           <div className='z-10 border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-16 md:size-20 lg:size-[6.2rem] bg-[#859F3E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
             <div className='flex items-center justify-center h-full w-full'><Play className='size-8 md:size-12 lg:size-[3.75rem] text-white fill-white' /></div>
           </div>
