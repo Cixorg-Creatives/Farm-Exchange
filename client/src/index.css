@@ -146,6 +146,20 @@
   font-weight: var(--font-weight);
   font-style: normal;
 }
+@font-face {
+  font-family: font1;
+  src: url(./assets/font/impact.ttf);
+}
+
+.impact{
+  font-family: font1
+}
+
+.custom-text-stroke {
+  -webkit-text-stroke: 2px #31511E;
+  color: transparent;
+}
+
 .footer_bg {
   background: url(./assets/footer-bg.png) no-repeat;
   background-size: cover;
