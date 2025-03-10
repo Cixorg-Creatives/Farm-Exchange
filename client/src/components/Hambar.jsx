@@ -52,7 +52,7 @@ const Hambar = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="absolute top-16 right-0 bg-[#073D2C] w-40 p-4 flex flex-col gap-3 rounded-2xl shadow-lg"
+                            className="absolute z-50 top-16 right-0 bg-[#073D2C] w-40 p-4 flex flex-col gap-3 rounded-2xl shadow-lg"
                         >
                             <NavLink onClick={closeSheet} to="/services" className="text-[#859F3E] font-normal text-sm text-center">Our Services</NavLink>
                             <NavLink onClick={closeSheet} to="/journal" className="text-[#859F3E] font-normal text-sm text-center">Farm Journal</NavLink>
