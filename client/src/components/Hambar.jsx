@@ -1,39 +1,69 @@
-"use client"
-import React, { useState } from 'react'
-import { assets } from '@/assets/assets'
-import { Link, NavLink } from 'react-router-dom'
-import {
-    Sheet,
-    SheetContent,
-    SheetHeader,
-    SheetTrigger,
-} from "@/components/ui/sheet"
+"use client";
+import React, { useState } from "react";
+import { assets } from "@/assets/assets";
+import { NavLink } from "react-router-dom";
+import { X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Hambar = () => {
-
     const [open, setOpen] = useState(false);
     const closeSheet = () => setOpen(false);
 
     return (
-        <div className='lg:hidden'>
-            <Sheet open={open} onOpenChange={setOpen} className='relative'>
-                <SheetTrigger className='active:scale-50 duration-300 ease-in'><img src={assets.menu} alt="" className='size-8' /></SheetTrigger>
-                <SheetContent onClose={closeSheet}>
-                    <div className='bg-black/30 backdrop-blur-xs w-full h-full '>
-                        <SheetHeader className={`flex items-center justify-center w-full pt-10`}>
-                            <Link to='/'><img src={assets.logo2} alt="" className='w-32 h-auto' /></Link>
-                        </SheetHeader>
-                        <div className='flex flex-col justify-center gap-7 pt-7'>
-                            <NavLink to="/services" className="mx-6 py-2.5 bg-gradient-to-r from-[#859F3E] to-[#31511E] text-center align-middle text-white font-medium text-lg rounded-md transition-all duration-300 hover:to-[#9FBF4E] shadow-md active:scale-75">Our Services</NavLink>
-                            <NavLink to="/journal" className="mx-6 py-2.5 bg-gradient-to-r from-[#859F3E] to-[#31511E] text-center align-middle text-white font-medium text-lg rounded-md transition-all duration-300 hover:to-[#9FBF4E] shadow-md active:scale-75">Farm Journal</NavLink>
-                            <NavLink to="/about" className="mx-6 py-2.5 bg-gradient-to-r from-[#859F3E] to-[#31511E] text-center align-middle text-white font-medium text-lg rounded-md transition-all duration-300 hover:to-[#9FBF4E] shadow-md active:scale-75">About Us</NavLink>
-                            <NavLink to="/contact" className="mx-6 py-2.5 bg-gradient-to-r from-[#859F3E] to-[#31511E] text-center align-middle text-white font-medium text-lg rounded-md transition-all duration-300 hover:to-[#9FBF4E] shadow-md active:scale-75">Contact Us</NavLink>
-                        </div>
-                    </div>
-                </SheetContent>
-            </Sheet>
+        <div className="lg:hidden">
+            <div className="relative">
+                <motion.div
+                    className="cursor-pointer size-8 flex items-center justify-center"
+                    initial={false}
+                    animate={{ rotate: open ? 180 : 0, scale: [1, 1.2, 1] }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    onClick={() => setOpen(!open)}
+                >
+                    <AnimatePresence mode="wait">
+                        {open ? (
+                            <motion.div
+                                key="close"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.8 }}
+                                transition={{ duration: 0.3 }}
+                                className="absolute"
+                            >
+                                <X className="size-10 text-[#859F3E]" />
+                            </motion.div>
+                        ) : (
+                            <motion.img
+                                key="menu"
+                                src={assets.menu}
+                                alt="menu"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.8 }}
+                                transition={{ duration: 0.3 }}
+                                className="size-8 absolute"
+                            />
+                        )}
+                    </AnimatePresence>
+                </motion.div>
+                <AnimatePresence>
+                    {open && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="absolute top-16 right-0 bg-[#073D2C] w-40 p-4 flex flex-col gap-3 rounded-2xl shadow-lg"
+                        >
+                            <NavLink onClick={closeSheet} to="/services" className="text-[#859F3E] font-normal text-sm text-center">Our Services</NavLink>
+                            <NavLink onClick={closeSheet} to="/journal" className="text-[#859F3E] font-normal text-sm text-center">Farm Journal</NavLink>
+                            <NavLink onClick={closeSheet} to="/about" className="text-[#859F3E] font-normal text-sm text-center">About Us</NavLink>
+                            <NavLink onClick={closeSheet} to="/contact" className="text-[#859F3E] font-normal text-sm text-center">Contact Us</NavLink>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default Hambar
+export default Hambar;
