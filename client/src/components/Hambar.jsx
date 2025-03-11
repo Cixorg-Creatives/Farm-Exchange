@@ -1,12 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { assets } from "@/assets/assets";
 import { NavLink } from "react-router-dom";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Hambar = () => {
+const Hambar = ({ closeMenuTrigger }) => {
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        if (closeMenuTrigger) setOpen(false);
+    }, [closeMenuTrigger]);
+
     const closeSheet = () => setOpen(false);
 
     return (
