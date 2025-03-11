@@ -54,7 +54,7 @@ const Properties1 = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex'>
+            <div className='flex flex-row-reverse lg:flex-row justify-end w-full lg:w-auto'>
                 <div className='w-8 md:w-14 lg:w-20 relative'>
                     <div className='absolute lg:h-20 w-8 md:w-14 lg:w-20 bottom-0 left-0 -rotate-90 text-start uppercase impact text-3xl md:text-6xl lg:text-[4rem] font-normal custom-text-stroke flex items-center'>Harvest</div>
                 </div>
