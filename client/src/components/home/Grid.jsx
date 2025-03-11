@@ -21,7 +21,7 @@ const Grid = () => {
           <div className='flex flex-col items-start justify-end gap-2 md:gap-3 duration-200 ease-in h-full w-full md:w-1/2'>
             <p className='uppercase buda text-[#F6FCDF] font-light text-xl sm:text-3xl md:text-5xl lg:text-[3.5rem] leading-tight w-full text-right lg:text-start'>Farm House</p>
             <p className='buda text-[#F6FCDF] font-light text-sm sm:text-xl md:text-3xl leading-snug text-right lg:text-start'>Buy, Sell & Invest in Farm House with Ease</p>
-            <p className='text-[#859F3E] old-standard-tt text-xs sm:text-xs md:text-base font-normal leading-7 flex items-center w-full justify-end lg:justify-start gap-1 md:gap-2 lg:gap-3'>Explore Now <ArrowUpRight className='size-3 md:size-4 lg:size-5' /></p>
+            <p className='text-[#859F3E] old-standard-tt text-xs sm:text-base md:text-xl font-normal leading-7 flex items-center w-full justify-end lg:justify-start gap-1 md:gap-2 lg:gap-3'>Explore Now <ArrowUpRight className='size-3 md:size-4 lg:size-5' /></p>
           </div>
         </div>
       </div>
