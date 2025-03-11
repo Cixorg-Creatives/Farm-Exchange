@@ -37,6 +37,10 @@ import farmforest_1 from './farmforest_1.png'
 import farmforest_2 from './farmforest_2.png'
 import farmforest_3 from './farmforest_3.png'
 import journal_1 from './journal_1.png'
+import journal_2 from './journal_2.png'
+import journal_3 from './journal_3.png'
+import journal_4 from './journal_4.png'
+import journal_5 from './journal_5.png'
 
 export const assets = {
     logo,
@@ -78,4 +82,8 @@ export const assets = {
     farmforest_2,
     farmforest_3,
     journal_1,
+    journal_2,
+    journal_3,
+    journal_4,
+    journal_5,
 };
