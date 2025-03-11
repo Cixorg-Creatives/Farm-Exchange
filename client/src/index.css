@@ -125,33 +125,38 @@
   font-weight: var(--font-weight);
   font-style: normal;
 }
+
 .buda {
   font-family: "Buda", serif;
   font-weight: var(--font-weight);
   font-style: normal;
 }
+
 .prata {
   font-family: "Prata", serif;
   font-weight: var(--font-weight);
   font-style: normal;
 }
+
 .bodoni-moda {
   font-family: "Bodoni Moda", serif;
   font-optical-sizing: auto;
   font-weight: var(--font-weight);
   font-style: normal;
 }
+
 .old-standard-tt {
   font-family: "Old Standard TT", serif;
   font-weight: var(--font-weight);
   font-style: normal;
 }
+
 @font-face {
   font-family: font1;
   src: url(./assets/font/impact.ttf);
 }
 
-.impact{
+.impact {
   font-family: font1
 }
 
@@ -169,15 +174,27 @@
   @apply border-b-[1px] border-[#859F3E] pb-0.5 scale-110;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   @apply hidden;
+}
+
+.no-copy {
+  user-select: none;
+  /* Disables text selection */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-[#F6FCDF] text-foreground ;
+    @apply bg-[#F6FCDF] text-foreground;
   }
 }

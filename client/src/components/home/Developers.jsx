@@ -33,7 +33,7 @@ const Developers = () => {
   };
 
   return (
-    <div className='my-6 md:my-10 xl:my-14 old-standard-tt'>
+    <div className='my-6 md:my-10 xl:my-14 old-standard-tt no-copy'>
       <div className='w-full md:w-3/5 flex flex-col items-start justify-start gap-2 md:gap-5'>
         <p className='uppercase text-[#859F3E] font-bold text-base md:text-[1.75rem] md:leading-8'>featured developer</p>
         <p className='capitalize text-[#31511E] font-normal text-2xl md:text-6xl md:leading-20'>The Most Renowned and Influential Developers in the Industry</p>
