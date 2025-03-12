@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import fence from './fence.svg';
 import footer_bg from './footer-bg.png';
 import contact_1 from './contact_1.png';
 import contact_2 from './contact_2.png';
@@ -44,6 +45,7 @@ import journal_5 from './journal_5.png'
 
 export const assets = {
     logo,
+    fence,
     footer_bg,
     contact_1,
     contact_2,
