@@ -60,7 +60,7 @@ const Hambar = ({ closeMenuTrigger }) => {
                             className="absolute z-50 top-16 right-0 bg-[#073D2C] w-40 p-4 flex flex-col gap-3 rounded-2xl shadow-lg"
                         >
                             <NavLink onClick={closeSheet} to="/services" className="text-[#859F3E] font-normal text-sm text-center">Our Services</NavLink>
-                            <NavLink onClick={closeSheet} to="/journal" className="text-[#859F3E] font-normal text-sm text-center">Farm Journal</NavLink>
+                            <NavLink onClick={closeSheet} to="/journals" className="text-[#859F3E] font-normal text-sm text-center">Farm Journal</NavLink>
                             <NavLink onClick={closeSheet} to="/about" className="text-[#859F3E] font-normal text-sm text-center">About Us</NavLink>
                             <NavLink onClick={closeSheet} to="/contact" className="text-[#859F3E] font-normal text-sm text-center">Contact Us</NavLink>
                         </motion.div>

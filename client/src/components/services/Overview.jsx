@@ -4,7 +4,7 @@ import React from 'react'
 const Overview = () => {
   return (
     <div className='py-4 md:py-6 lg:py-8 w-full flex flex-col gap-2 md:gap-3 lg:gap-4'>
-      <div className='uppercase text-[#31511E] font-bold text-lg sm:text-xl md:text-2xl lg:text-[2rem]'>Overview</div>
+      <div className='uppercase sticky top-0 left-0 z-10 lg:relative text-[#31511E] font-bold bg-[#F6FCDF] text-[2rem]'>Overview</div>
       <div className='flex items-center justify-end'>
         <div className='relative flex flex-col lg:flex-row justify-end'>
           <img src={assets.farmforest_1} alt="" className='w-full lg:w-[70%] h-auto' />
