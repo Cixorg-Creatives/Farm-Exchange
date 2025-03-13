@@ -37,6 +37,17 @@ import home_22 from './home_22.png';
 import farmforest_1 from './farmforest_1.png'
 import farmforest_2 from './farmforest_2.png'
 import farmforest_3 from './farmforest_3.png'
+import farmforest_4 from './farmforest_4.png'
+import farmforest_5 from './farmforest_5.png'
+import farmforest_6 from './farmforest_6.png'
+import farmforest_7 from './farmforest_7.png'
+import farmforest_8 from './farmforest_8.png'
+import farmforest_9 from './farmforest_9.png'
+import farmforest_10 from './farmforest_10.png'
+import farmforest_11 from './farmforest_11.png'
+import farmforest_12 from './farmforest_12.png'
+import farmforest_13 from './farmforest_13.png'
+import farmforest_14 from './farmforest_14.png'
 import journal_1 from './journal_1.png'
 import journal_2 from './journal_2.png'
 import journal_3 from './journal_3.png'
@@ -83,6 +94,17 @@ export const assets = {
     farmforest_1,
     farmforest_2,
     farmforest_3,
+    farmforest_4,
+    farmforest_5,
+    farmforest_6,
+    farmforest_7,
+    farmforest_8,
+    farmforest_9,
+    farmforest_10,
+    farmforest_11,
+    farmforest_12,
+    farmforest_13,
+    farmforest_14,
     journal_1,
     journal_2,
     journal_3,

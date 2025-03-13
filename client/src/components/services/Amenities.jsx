@@ -1,10 +1,36 @@
+import { assets } from '@/assets/assets'
 import React from 'react'
 
 const Amenities = () => {
   return (
     <div className='py-4 md:py-6 lg:py-8 flex flex-col gap-2 md:gap-3 lg:gap-4'>
       <div className='uppercase sticky top-0 left-0 z-10 lg:relative text-[#31511E] font-bold bg-[#F6FCDF] text-[2rem]'>Amenities</div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam necessitatibus officia porro quidem, aut autem nihil iure, exercitationem ipsam a delectus alias sequi neque dolorem mollitia similique! Optio porro alias veritatis. Fuga nemo eum quia labore reprehenderit laboriosam? Neque dolorem sint optio eaque, tempora aut quasi. Officia, fugiat? Quae provident modi natus vel, quo fugiat saepe ducimus assumenda dolores sed reprehenderit repudiandae quidem soluta qui expedita necessitatibus ipsam magnam? Assumenda reiciendis, consectetur debitis, quod labore, sequi iusto dolorem ab repudiandae magni quam molestias rerum repellat id? Dicta neque, omnis odio quasi culpa vitae animi suscipit quod odit quam temporibus aspernatur debitis accusamus fugit doloribus repudiandae, quos illo maxime commodi? Temporibus, ullam! Ipsa, deleniti possimus alias eaque facere asperiores. Voluptatem ratione perferendis accusamus neque. Voluptate maxime unde molestias architecto ut soluta corporis explicabo libero perferendis totam laborum aliquid voluptatibus reprehenderit harum quia porro, corrupti impedit voluptas reiciendis a aspernatur! Ducimus debitis illum, cumque eum dicta voluptate aspernatur. Deserunt harum neque iste laborum dignissimos architecto fuga sunt, quo quas nihil, ratione maxime repellendus id perspiciatis, aut odit consequuntur vitae officia. Exercitationem dolorum aliquam odio officia at, suscipit amet laborum. Sapiente quam nesciunt rerum illum voluptatibus autem vitae, unde, repudiandae corrupti mollitia doloremque.</div>
+      <div className='grid grid-cols-3 gap-7'>
+        <div className='col-span-1 row-span-1 flex flex-col items-start w-full h-full relative'>
+          <img src={assets.farmforest_4} alt="" className='w-full h-auto border-1 border-[#ADBF7E]' />
+          <div className='capitalize p-1 md:p-1.5 lg:p-2.5 bg-[#799138] -translate-y-1/2 flex items-center justify-center text-white font-bold text-[10px] sm:text-sm md:text-lg lg:text-2xl'>Club House</div>
+        </div>
+        <div className='col-span-1 row-span-1 flex flex-col items-start w-full h-full relative'>
+          <img src={assets.farmforest_5} alt="" className='w-full h-auto border-1 border-[#ADBF7E]' />
+          <div className='capitalize p-1 md:p-1.5 lg:p-2.5 bg-[#799138] -translate-y-1/2 flex items-center justify-center text-white font-bold text-[10px] sm:text-sm md:text-lg lg:text-2xl'>Playing area</div>
+        </div>
+        <div className='col-span-1 row-span-1 flex flex-col items-start w-full h-full relative'>
+          <img src={assets.farmforest_6} alt="" className='w-full h-auto border-1 border-[#ADBF7E]' />
+          <div className='capitalize p-1 md:p-1.5 lg:p-2.5 bg-[#799138] -translate-y-1/2 flex items-center justify-center text-white font-bold text-[10px] sm:text-sm md:text-lg lg:text-2xl'>security</div>
+        </div>
+        <div className='col-span-1 row-span-1 flex flex-col items-start w-full h-full relative'>
+          <img src={assets.farmforest_7} alt="" className='w-full h-auto border-1 border-[#ADBF7E]' />
+          <div className='capitalize p-1 md:p-1.5 lg:p-2.5 bg-[#799138] -translate-y-1/2 flex items-center justify-center text-white font-bold text-[10px] sm:text-sm md:text-lg lg:text-2xl'>Compounded Project</div>
+        </div>
+        <div className='col-span-1 row-span-1 flex flex-col items-start w-full h-full relative'>
+          <img src={assets.farmforest_8} alt="" className='w-full h-auto border-1 border-[#ADBF7E]' />
+          <div className='capitalize p-1 md:p-1.5 lg:p-2.5 bg-[#799138] -translate-y-1/2 flex items-center justify-center text-white font-bold text-[10px] sm:text-sm md:text-lg lg:text-2xl'>Golf Pavilion</div>
+        </div>
+        <div className='col-span-1 row-span-1 flex flex-col items-start w-full h-full relative'>
+          <img src={assets.farmforest_9} alt="" className='w-full h-auto border-1 border-[#ADBF7E]' />
+          <div className='capitalize p-1 md:p-1.5 lg:p-2.5 bg-[#799138] -translate-y-1/2 flex items-center justify-center text-white font-bold text-[10px] sm:text-sm md:text-lg lg:text-2xl'>Amphitheatre</div>
+        </div>
+      </div>
     </div>
   )
 }
