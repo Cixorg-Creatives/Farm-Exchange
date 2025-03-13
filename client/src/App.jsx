@@ -9,6 +9,8 @@ import Journals from './pages/Journals'
 import Contact from './pages/Contact'
 import Journal from './pages/Journal'
 import ScrollToTop from './components/ScrollToTop'
+import FarmForest from './pages/FarmForest'
+import Properties from './pages/Properties'
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/journal/:journalId" element={<Journal />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/properties" element={<Properties />} />
+        <Route path="/farmforest" element={<FarmForest />} />
       </Routes>
       <Footer />
     </div>
