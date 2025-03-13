@@ -3,7 +3,7 @@ import { Calendar, Heart, IndianRupee, MessageSquareText } from 'lucide-react'
 import React from 'react'
 import { Button } from '../ui/button'
 
-const ServicesHero = () => {
+const FarmForestHero = () => {
   return (
     <div className='pt-6 md:pt-10 xl:pt-14 old-standard-tt'>
       <div className="w-full flex flex-col lg:flex-row justify-between ">
@@ -76,4 +76,4 @@ const ServicesHero = () => {
   )
 }
 
-export default ServicesHero
+export default FarmForestHero
