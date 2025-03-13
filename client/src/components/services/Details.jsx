@@ -42,7 +42,8 @@ const Details = () => {
         if (ref.current) {
             ref.current.scrollIntoView({ 
                 behavior: 'smooth', 
-                block: index === 0 ? 'start' : index === sectionRefs.length - 1 ? 'end' : 'center' 
+                // block: index === 0 ? 'start' : index === sectionRefs.length - 1 ? 'start' : 'start' 
+                block: 'start'
             });
         }
     };
