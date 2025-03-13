@@ -1,12 +1,49 @@
-import React from 'react'
+import { assets } from '@/assets/assets';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Gallery = () => {
+  const images = [
+    assets.farmforest_10,
+    assets.farmforest_11,
+    assets.farmforest_12,
+    assets.farmforest_13,
+    assets.farmforest_10,
+    assets.farmforest_11,
+    assets.farmforest_12,
+    assets.farmforest_13,
+  ];
+
+  const [selectedImage, setSelectedImage] = useState(images[0]);
+
   return (
     <div className='py-4 md:py-6 lg:py-8 flex flex-col gap-2 md:gap-3 lg:gap-4'>
       <div className='uppercase sticky top-0 left-0 z-10 lg:relative text-[#31511E] font-bold bg-[#F6FCDF] text-[2rem]'>Gallery</div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam necessitatibus officia porro quidem, aut autem nihil iure, exercitationem ipsam a delectus alias sequi neque dolorem mollitia similique! Optio porro alias veritatis. Fuga nemo eum quia labore reprehenderit laboriosam? Neque dolorem sint optio eaque, tempora aut quasi. Officia, fugiat? Quae provident modi natus vel, quo fugiat saepe ducimus assumenda dolores sed reprehenderit repudiandae quidem soluta qui expedita necessitatibus ipsam magnam? Assumenda reiciendis, consectetur debitis, quod labore, sequi iusto dolorem ab repudiandae magni quam molestias rerum repellat id? Dicta neque, omnis odio quasi culpa vitae animi suscipit quod odit quam temporibus aspernatur debitis accusamus fugit doloribus repudiandae, quos illo maxime commodi? Temporibus, ullam! Ipsa, deleniti possimus alias eaque facere asperiores. Voluptatem ratione perferendis accusamus neque. Voluptate maxime unde molestias architecto ut soluta corporis explicabo libero perferendis totam laborum aliquid voluptatibus reprehenderit harum quia porro, corrupti impedit voluptas reiciendis a aspernatur! Ducimus debitis illum, cumque eum dicta voluptate aspernatur. Deserunt harum neque iste laborum dignissimos architecto fuga sunt, quo quas nihil, ratione maxime repellendus id perspiciatis, aut odit consequuntur vitae officia. Exercitationem dolorum aliquam odio officia at, suscipit amet laborum. Sapiente quam nesciunt rerum illum voluptatibus autem vitae, unde, repudiandae corrupti mollitia doloremque.</div>
+      <div className='grid lg:grid-cols-[3fr_1fr] gap-5 lg:h-[35.5rem]'>
+        <motion.div 
+          className='grid-cols-1'
+          key={selectedImage} 
+          initial={{ opacity: 0, scale: 0.75 }} 
+          animate={{ opacity: 1, scale: 1 }} 
+          transition={{ duration: 0.5 }}
+        >
+          <img src={selectedImage} alt='' className='w-full h-auto lg:h-full border border-black' />
+        </motion.div>
+        <div className='grid-cols-1 flex flex-row lg:flex-col gap-4 overflow-auto'>
+          {images.map((image, index) => (
+            <motion.img
+              key={index}
+              src={image}
+              alt='Thumbnail'
+              className='w-1/5 h-auto lg:w-full lg:h-1/5 border border-black cursor-pointer hover:opacity-75'
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setSelectedImage(image)}
+            />
+          ))}
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;
