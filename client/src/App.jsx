@@ -8,11 +8,13 @@ import Services from './pages/Services'
 import Journals from './pages/Journals'
 import Contact from './pages/Contact'
 import Journal from './pages/Journal'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
   return (
     <div className='bg-[#F6FCDF] inter'>
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
