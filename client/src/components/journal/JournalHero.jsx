@@ -1,22 +1,22 @@
-import { assets } from '@/assets/assets'
-import { ArrowUpRight } from 'lucide-react'
-import React from 'react'
+import React from 'react';
 
 const JournalHero = () => {
-  return (
-    <div className='py-6 md:py-10 xl:py-14 flex flex-col gap-5 md:gap-11 old-standard-tt'>
-      <div className='flex flex-col md:flex-row gap-2 md:gap-[6.625rem]'>
-        <div className='uppercase text-[#859F3E] font-bold text-2xl md:text-4xl lg:text-[3.5rem] leading-tight md:leading-snug'>Top 15 Farmlands for Sale near Bangalore with High ROI Potential</div>
-        <div className='md:py-5 flex flex-col gap-0.5 md:gap-9 items-start md:items-end'>
-          <p className='text-[#747474] capitalize font-normat text-sm md:text-base lg:text-xl md:text-right'>this beautiful city in Karnataka is famous for its cultural heritage, beautiful scenery, and rapid advancement.</p>
-          <p className='flex group cursor-pointer gap-2 md:gap-4 text-[#859F3E] font-normal text-xs md:text-sm lg:text-2xl leading-6 md:leading-8'>Read Now <ArrowUpRight className='size-6 md:size-8 group-hover:rotate-45 ease-in duration-150' /></p>
+    return (
+        <div className='py-10 md:py-20 lg:py-44 flex flex-col items-start'>
+            <p className='uppercase old-standard-tt text-[#31511E] font-normal text-lg md:text-2xl lg:text-[2rem]'>March 12, 2025</p>
+            <p className='uppercase prata text-[#31511E] font-bold text-3xl md:text-6xl lg:text-[6.25rem] leading-tight md:leading-snug'>The Story Behind Farm Exchange</p>
+            <div className='w-3/4 lg:w-1/2 flex flex-row items-start justify-between old-standard-tt gap-4 md:gap-8 mt-6'>
+                <div className='flex flex-col items-start justify-between'>
+                    <p className='capitalize text-black font-normal text-base md:text-xl lg:text-3xl'>Written By</p>
+                    <p className='uppercase text-[#859F3E] font-medium text-lg md:text-2xl lg:text-[2rem]'>Abcdefghi</p>
+                </div>
+                <div className='flex flex-col items-start justify-between'>
+                    <p className='capitalize text-black font-normal text-base md:text-xl lg:text-3xl'>Category</p>
+                    <p className='uppercase text-[#859F3E] font-medium text-lg md:text-2xl lg:text-[2rem]'>Abcdefghi</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div>
-        <img src={assets.journal_1} alt="" className='w-full h-auto border-4 border-[#758A68]' />
-      </div>
-    </div>
-  )
-}
+    );
+};
 
-export default JournalHero
+export default JournalHero;

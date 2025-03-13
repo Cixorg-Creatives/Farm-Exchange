@@ -170,6 +170,13 @@
   background-size: cover;
 }
 
+.journal_bg {
+  background: url(./assets/journal_bg.png) no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+
+
 .header a.active {
   @apply border-b-[1px] border-[#859F3E] pb-0.5 scale-110;
 }
