@@ -34,7 +34,7 @@ const Cities = () => {
         <p className='w-4/5'>Our Farm Exchange is now available in five major cities, connecting farmers and buyers seamlessly. Explore our trusted network in</p>
       </div>
       <div className='grid grid-cols-1 lg:grid-cols-[1fr_3fr] relative'>
-      <div className='bg-[#F6FCDF] rounded-lg grid-cols-1 lg:hidden max-w-full overflow-x-auto flex items-center justify-between py-2'>
+      <div className='bg-[#F6FCDF] rounded-xs grid-cols-1 lg:hidden max-w-full overflow-x-auto flex items-center justify-between py-2'>
           {
             Object.keys(citiesDetails).map((city) => (
               <p key={city} className={`capitalize font-normal text-xs cursor-pointer transition-all duration-200 w-1/5 py-1.5 flex items-center justify-center text-[#747474] rounded-md ${selectedCity === city ? 'bg-[#31511E] text-[#F6FCDF]' : ''}`} onClick={() => setSelectedCity(city)}>{citiesDetails[city].title}</p>
