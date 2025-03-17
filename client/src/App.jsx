@@ -5,12 +5,15 @@ import { Route, Routes } from 'react-router-dom'
 import About from './pages/About'
 import Home from './pages/Home'
 import Services from './pages/Services'
-import Journals from './pages/Journals'
+import Blogs from './pages/Blogs'
 import Contact from './pages/Contact'
-import Journal from './pages/Journal'
+import Blog from './pages/Blog'
 import ScrollToTop from './components/ScrollToTop'
 import FarmForest from './pages/FarmForest'
 import Properties from './pages/Properties'
+import Journal from './pages/Journal'
+import Image from './pages/Image'
+import Video from './pages/Video'
 
 const App = () => {
   return (
@@ -20,8 +23,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/journals" element={<Journals />} />
-        <Route path="/journal/:journalId" element={<Journal />} />
+        <Route path="/journal" element={<Journal />} />
+        <Route path="/journal/blog" element={<Blogs />} />
+        <Route path="/journal/blog/:blogId" element={<Blog />} />
+        <Route path="/journal/image" element={<Image />} />
+        <Route path="/journal/video" element={<Video />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/properties" element={<Properties />} />

@@ -22,7 +22,7 @@ const Header = () => {
                     </Link>
                     <div className='header hidden lg:flex gap-6 items-center justify-evenly inter'>
                         <NavLink to="/services" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">Our Services</NavLink>
-                        <NavLink to="/journals" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">Farm Journal</NavLink>
+                        <NavLink to="/journal" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">Farm Journal</NavLink>
                         <NavLink to="/about" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">About Us</NavLink>
                         <NavLink to="/contact" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">Contact Us</NavLink>
                     </div>

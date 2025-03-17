@@ -54,6 +54,9 @@ import journal_2 from './journal_2.png'
 import journal_3 from './journal_3.png'
 import journal_4 from './journal_4.png'
 import journal_5 from './journal_5.png'
+import journal_12 from './journal_12.png'
+import journal_13 from './journal_13.png'
+import journal_14 from './journal_14.png'
 import properties_1 from './properties_1.png'
 import properties_2 from './properties_2.png'
 
@@ -114,6 +117,9 @@ export const assets = {
     journal_3,
     journal_4,
     journal_5,
+    journal_12,
+    journal_13,
+    journal_14,
     properties_1,
     properties_2,
 };
