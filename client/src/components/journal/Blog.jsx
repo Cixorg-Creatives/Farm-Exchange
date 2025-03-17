@@ -42,9 +42,9 @@ const Blog = () => {
         </div>
         <div className='col-span-1 bg-[#859F3E1A] py-14 px-6 hidden lg:block'>
           <div className='grid grid-rows-[1fr_1fr_1fr] gap-11'>
-            <div className='bg-[#F1F8DB] p-4 w-full flex items-center justify-between'>
-              <div className='size-42'><img src={assets.home_18} alt="" className='size-42' /></div>
-              <div className='group flex flex-col h-full items-start justify-endgap-6w-2/3'>
+            <div className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
+              <div className='size-36 md:size-42'><img src={assets.home_18} alt="" className='size-36 md:size-42' /></div>
+              <div className='group flex flex-col h-full items-start justify-end gap-2 md:gap-6 w-1/2 md:w-2/3'>
                 <p className='capitalise text-[#31511E] font-normal text-xs sm:text-2xl leading-6 md:leading-8'>Whispers Of Bali - A serene Farmhouse Retreat In Hyderabad</p>
                 <Link to={'/journal/blog/1'} className='flex items-center gap-2 md:gap-4 text-[#859F3E] font-normal text-xs md:text-2xl leading-6 md:leading-8'>Read Now <ArrowUpRight className='size-7 group-hover:rotate-45' /></Link>
               </div>
