@@ -54,6 +54,9 @@ import journal_2 from './journal_2.png'
 import journal_3 from './journal_3.png'
 import journal_4 from './journal_4.png'
 import journal_5 from './journal_5.png'
+import journal_6 from './journal_6.png'
+import journal_7 from './journal_7.png'
+import journal_8 from './journal_8.png'
 import journal_12 from './journal_12.png'
 import journal_13 from './journal_13.png'
 import journal_14 from './journal_14.png'
@@ -69,6 +72,9 @@ import properties_1 from './properties_1.png'
 import properties_2 from './properties_2.png'
 import open_double_quotes from './open_double_quotes.png'
 import close_double_quotes from './close_double_quotes.png'
+import ellipse from './Ellipse.png'
+import ellipse1 from './Ellipse1.png'
+import ellipse2 from './Ellipse2.png'
 
 export const assets = {
     logo,
@@ -127,6 +133,9 @@ export const assets = {
     journal_3,
     journal_4,
     journal_5,
+    journal_6,
+    journal_7,
+    journal_8,
     journal_12,
     journal_13,
     journal_14,
@@ -142,4 +151,7 @@ export const assets = {
     properties_2,
     open_double_quotes,
     close_double_quotes,
+    ellipse,
+    ellipse1,
+    ellipse2,
 };

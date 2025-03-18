@@ -7,7 +7,7 @@ import React from 'react'
 
 const Journal = () => {
   return (
-    <div>
+    <div className=''>
       <JournalHero />
       <div className='px-4 md:px-6 lg:px-24'>
         <Explore />
