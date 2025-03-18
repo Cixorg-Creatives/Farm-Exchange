@@ -1,9 +1,73 @@
-import React from 'react'
+import { assets } from '@/assets/assets';
+import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+
+const data = [assets.journal_20, assets.journal_21, assets.journal_20, assets.journal_21];
 
 const Video = () => {
-  return (
-    <div>Video</div>
-  )
-}
+  const scrollRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const totalItems = data.length;
 
-export default Video
+  const handleScroll = (direction) => {
+    if (scrollRef.current) {
+      let newIndex = direction === 'left' ? Math.max(0, currentIndex - 1) : Math.min(totalItems - 1, currentIndex + 1);
+      setCurrentIndex(newIndex);
+      const scrollElement = scrollRef.current.children[newIndex];
+      if (scrollElement) {
+        scrollElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      }
+    }
+  };
+
+  return (
+    <div className='py-6 md:py-10 lg:py-14'>
+      <div className='px-4 md:px-6 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-2 md:gap-4 lg:gap-0'>
+        <p className='uppercase text-[#073D2C]/50 font-normal text-5xl md:text-7xl lg:text-[7.5rem] prata'>Videos</p>
+        <p className='capitalize old-standard-tt text-[#747474] font-normal text-xs md:text-base lg:text-xl lg:w-[37%] lg:text-right'>Experience the beauty of nature through our farmland gallery. From lush green fields to golden harvests, every frame tells a story of hard work and dedication. Witness the harmony between </p>
+      </div>
+      <div className='pl-4 md:pl-6 lg:pl-24 pt-6 md:pt-12 lg:pt-16 flex items-center gap-2 md:gap-4 lg:gap-6'>
+        <div className='flex flex-col items-center justify-center gap-3 md:gap-4 lg:gap-5'>
+          <button
+            className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'
+            onClick={() => handleScroll('left')}
+            disabled={currentIndex === 0}
+          >
+            <ChevronLeft className='text-white size-2.5 md:size-3.5 lg:size-5' />
+          </button>
+          <button
+            className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'
+            onClick={() => handleScroll('right')}
+            disabled={currentIndex === totalItems - 1}
+          >
+            <ChevronRight className='text-white size-2.5 md:size-3.5 lg:size-5' />
+          </button>
+        </div>
+        <div className='flex flex-col overflow-x-auto w-full'>
+          <div className='border-t-2 border-[#859F3E] border-dashed w-[11rem] md:w-[22rem] lg:w-[33rem]'></div>
+          <div className='flex'>
+            <div className='border-l-2 border-[#859F3E] border-dashed h-[10rem] md:h-[20rem] lg:h-[30rem]'></div>
+            <div ref={scrollRef} className='overflow-x-auto mt-2 md:mt-4 lg:mt-6 ml-2 md:ml-4 lg:ml-6 w-full cursor-pointer scroll-smooth flex gap-3 md:gap-4 lg:gap-5'>
+              {data.map((item, index) => (
+                <div key={index} className='w-[60vw] flex flex-col items-start gap-3 md:gap-4 lg:gap-5 shrink-0'>
+                  <div className='relative'>
+                    <img src={item} alt='' className='w-full h-auto' />
+                    <div className='absolute inset-0 bg-black/50 flex items-center justify-center'>
+                      <button className='flex items-center justify-center border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-12 md:size-20 lg:size-[6.2rem] bg-[#859F3E] cursor-pointer active:scale-75 ease-in duration-150'>
+                        <Play className='size-6 md:size-12 lg:size-[3.75rem] text-white fill-white' />
+                      </button>
+                    </div>
+                  </div>
+                  <div className='capitalize text-[#1E1E1E] font-normal text-[10px] md:text-base lg:text-xl text-left'>Nandi Hills, Chikballapur, Karnataka</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default Video;
