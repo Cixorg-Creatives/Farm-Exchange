@@ -57,10 +57,18 @@ import journal_5 from './journal_5.png'
 import journal_12 from './journal_12.png'
 import journal_13 from './journal_13.png'
 import journal_14 from './journal_14.png'
+import journal_15 from './journal_15.png'
+import journal_16 from './journal_16.png'
+import journal_17 from './journal_17.png'
+import journal_18 from './journal_18.png'
+import journal_19 from './journal_19.png'
 import journal_20 from './journal_20.png'
 import journal_21 from './journal_21.png'
+import journal_22 from './journal_22.png'
 import properties_1 from './properties_1.png'
 import properties_2 from './properties_2.png'
+import open_double_quotes from './open_double_quotes.png'
+import close_double_quotes from './close_double_quotes.png'
 
 export const assets = {
     logo,
@@ -122,8 +130,16 @@ export const assets = {
     journal_12,
     journal_13,
     journal_14,
+    journal_15,
+    journal_16,
+    journal_17,
+    journal_18,
+    journal_19,
     journal_20,
     journal_21,
+    journal_22,
     properties_1,
     properties_2,
+    open_double_quotes,
+    close_double_quotes,
 };
