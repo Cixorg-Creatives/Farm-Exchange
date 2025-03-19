@@ -35,6 +35,8 @@ import home_20 from './home_20.png';
 import home_21 from './home_21.png';
 import home_22 from './home_22.png';
 import home_23 from './home_23.png';
+import home_24 from './home_24.png';
+import home_25 from './home_25.png';
 import farmforest_1 from './farmforest_1.png'
 import farmforest_2 from './farmforest_2.png'
 import farmforest_3 from './farmforest_3.png'
@@ -114,6 +116,8 @@ export const assets = {
     home_21,
     home_22,
     home_23,
+    home_24,
+    home_25,
     farmforest_1,
     farmforest_2,
     farmforest_3,

@@ -18,7 +18,7 @@ const data = [
     },
 ]
 
-const Properties1 = () => {
+const Featured = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -73,4 +73,4 @@ const Properties1 = () => {
     )
 }
 
-export default Properties1
+export default Featured
