@@ -7,7 +7,7 @@ const Suggestions = () => {
     return (
         <div className='py-6 md:py-10 xl:py-14 old-standard-tt'>
             <div className='w-full h-12 flex items-center justify-between pb-2 md:pb-4 lg:pb-8'>
-                <p className='uppercase text-[#859F3E] font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl'>Latest blogs</p>
+                <p className='uppercase text-[#859F3E] font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl'>people also read</p>
                 <p className='flex group gap-2 md:gap-4 text-[#859F3E] font-normal text-base lg:text-2xl leading-6 md:leading-8 cursor-pointer'>View More <ArrowUpRight className='size-5 sm:size-6 md:size-8 group-hover:rotate-45 ease-in duration-150' /></p>
             </div>
             <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-1.5 md:gap-x-3 lg:gap-x-5 gap-y-2.5 md:gap-y-5 lg:gap-y-9'>
