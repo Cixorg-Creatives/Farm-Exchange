@@ -14,7 +14,7 @@ const Banner = () => {
             <p className='uppercase prata text-[#D9E2C3] text-center font-normal text-sm md:text-xxl lg:text-2xl leading-snug md:leading-9 lg:leading-[2.75rem] w-full md:w-3/4'><span className='text-base md:text-2xl lg:text-4xl'>P</span>ost <span className='text-base md:text-2xl lg:text-4xl'>Y</span>our <span className='text-base md:text-2xl lg:text-4xl'>P</span>roperty <span className='text-base md:text-2xl lg:text-4xl'>T</span>oday <span className='text-base md:text-2xl lg:text-4xl'>A</span>nd <span className='text-base md:text-2xl lg:text-4xl'>C</span>onnect <span className='text-base md:text-2xl lg:text-4xl'>W</span>ith <span className='text-base md:text-2xl lg:text-4xl'>I</span>nterested <span className='text-base md:text-2xl lg:text-4xl'>B</span>uyers!</p>
           </div>
           <div>
-            <Link to={'/post-property'} className='group flex items-center justify-center gap-1 md:gap-2 lg:gap-3 bg-[#859F3E] w-40 h-12 md:w-60 md:h-16 lg:w-72 lg:h-20 old-standard-tt text-white text-sm md:text-lg lg:text-2xl font-bold leading-6 md:leading-7 lg:leading-8 active:scale-75 duration-300 ease-in-out rounded-xl'>
+            <Link to={'/post-property'} className='group flex items-center justify-center gap-1 md:gap-2 lg:gap-3 bg-[#859F3E] w-40 h-12 md:w-60 md:h-16 lg:w-72 lg:h-20 old-standard-tt text-white text-sm md:text-lg lg:text-2xl font-bold leading-6 md:leading-7 lg:leading-8 active:scale-75 duration-300 ease-in-out rounded-md md:rounded-lg lg:rounded-xl'>
               Post Property <ArrowUpRight className='group-hover:rotate-45 w-3.5 md:size-5 lg:w-6 h-auto' />
             </Link>
           </div>
