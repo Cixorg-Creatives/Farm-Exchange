@@ -24,8 +24,8 @@ const data = [
 
 const floatAnimation = {
   hover: {
-    y: [0, -10, 0],
-    rotate:[-15, -10, -15],
+    y: [0, -20, 0],
+    rotate:[-10, -5, -10],
     transition: {
       duration: 2,
       ease: 'easeInOut',
