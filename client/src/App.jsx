@@ -14,6 +14,7 @@ import Properties from './pages/Properties'
 import Journal from './pages/Journal'
 import Image from './pages/Image'
 import Video from './pages/Video'
+import PostProperty from './pages/PostProperty'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/journal/video" element={<Video />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/post-property" element={<PostProperty />} />
         <Route path="/properties" element={<Properties />} />
         <Route path="/properties/:propertiesId" element={<FarmForest />} />
       </Routes>
