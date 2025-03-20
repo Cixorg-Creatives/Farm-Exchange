@@ -73,14 +73,14 @@ const Recommended = () => {
                 </div>
                 <div ref={scrollRef} className="w-4/5 h-full overflow-x-auto flex items-center justify-start">
                     {data.map((item, index) => (
-                        <div key={index} className='relative w-1/3 flex-shrink-0 border-y-1 border-[#31511E]'>
+                        <div key={index} className='relative w-1/3 flex-shrink-0 border-y-[0.25px] lg:border-y-1 border-[#31511E]'>
                             <img src={item.image} alt="" className="w-full h-full" />
                             {index === currentIndex + 1 && (
                                 <>
-                                    <div className='absolute inset-0 -translate-x-full z-1 group bg-[#D9E2C3] border-x-1 border-[#31511E] hover:bg-[#5E722D66] hover:duration-300 ease-in flex items-start justify-center p-3 md:p-6 lg:p-9'>
+                                    <div className='absolute inset-0 -translate-x-full z-1 group bg-[#D9E2C3] border-x-[0.25px] lg:border-x-1 border-[#31511E] hover:bg-[#5E722D66] hover:duration-300 ease-in flex items-start justify-center p-3 md:p-6 lg:p-9'>
                                         <p className='uppercase group-hover:text-white text-black font-normal duration-300 ease-in text-[11px] md:text-lg lg:text-[2.5rem]'>{item.title}</p>
                                     </div>
-                                    <div className='absolute inset-0 translate-x-full z-1 group bg-[#5E722D] border-x-1 border-[#31511E] hover:bg-[#859F3E33] duration-300 ease-in flex items-end justify-center p-1.5 md:p-3 lg:p-6'>
+                                    <div className='absolute inset-0 translate-x-full z-1 group bg-[#5E722D] border-x-[0.25px] lg:border-x-1 border-[#31511E] hover:bg-[#859F3E33] duration-300 ease-in flex items-end justify-center p-1.5 md:p-3 lg:p-6'>
                                         <div className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
                                             <div className='flex items-end'>
                                                 <IndianRupee className='h-5 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
