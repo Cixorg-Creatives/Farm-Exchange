@@ -13,7 +13,7 @@ const Featured = () => {
       <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-x-2 md:gap-x-3 lg:gap-x-5 gap-y-6 md:gap-y-10 lg:gap-y-16'>
         {
           [...Array(6)].map((item, index) => (
-            <Link to={'/farmforest'} key={index} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6'>
+            <Link to={'/properties/1'} key={index} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6'>
               <div className='relative'>
                 <img src={assets.properties_1} alt="" className='w-full h-auto' />
                 <div className='absolute inset-0 bg-[#00000033]'></div>

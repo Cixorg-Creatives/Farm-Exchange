@@ -77,6 +77,10 @@ import close_double_quotes from './close_double_quotes.png'
 import ellipse from './Ellipse.png'
 import ellipse1 from './Ellipse1.png'
 import ellipse2 from './Ellipse2.png'
+import services_1 from './services_1.png'
+import services_2 from './services_2.png'
+import services_3 from './services_3.png'
+import services_4 from './services_4.png'
 
 export const assets = {
     logo,
@@ -158,4 +162,8 @@ export const assets = {
     ellipse,
     ellipse1,
     ellipse2,
+    services_1,
+    services_2,
+    services_3,
+    services_4,
 };
