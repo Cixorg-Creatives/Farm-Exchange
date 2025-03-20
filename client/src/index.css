@@ -176,14 +176,6 @@
   background-position: top center;
 }
 
-.clip-path1{
-  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
-}
-.clip-path2{
-  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
-}
-
-
 .header a.active {
   @apply border-b-[1px] border-[#859F3E] pb-0.5 scale-110;
 }
