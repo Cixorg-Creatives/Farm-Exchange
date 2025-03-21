@@ -24,8 +24,8 @@ const data = [
 
 const floatAnimation = {
   hover: {
-    y: [0, -20, 0],
-    rotate:[-10, -5, -10],
+    rotate: [-10, -5, -10],
+    y: [0, 50, 0],
     transition: {
       duration: 2,
       ease: 'easeInOut',
@@ -37,7 +37,7 @@ const floatAnimation = {
 const Difference = () => {
   return (
     <div className='py-6 md:py-10 xl:py-14 old-standard-tt'>
-      <h1 className='uppercase text-[#859F3E] font-bold text-xs md:text-lg lg:text-4xl text-center'>How are we different from others</h1>
+      <h1 className='uppercase text-[#859F3E] font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center'>How are we different from others</h1>
       <div className='w-full pt-6 md:pt-10 xl:pt-14 flex flex-col gap-4 md:gap-8 lg:gap-12'>
         {
           data.map((item, index) => (
@@ -49,7 +49,7 @@ const Difference = () => {
               <div className='flex items-center'>
                 <ArrowUpRight className='group-hover:block hidden duration-150 ease-in w-4 md:w-6 lg:w-10 h-auto' />
               </div>
-              <motion.div 
+              <motion.div
                 className='lg:group-hover:block hidden absolute inset-0'
                 variants={floatAnimation}
                 whileHover="hover"
