@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { ArrowUpRight } from 'lucide-react'
-import Benefits from '@/components/contact/benefits'
 
 // ✅ Define form validation schema
 const formSchema = z.object({
@@ -29,6 +28,27 @@ const formSchema = z.object({
         message: "Phone number must be at least 10 characters.",
     }),
 })
+
+const formData = [
+    {
+        name: "fullName",
+        label: "Full Name",
+        placeholder: "Enter your fullname",
+        type: "text",
+    },
+    {
+        name: "email",
+        label: "Email Id",
+        placeholder: "example@gmail.com",
+        type: "email",
+    },
+    {
+        name: "phone",
+        label: "Contact No",
+        placeholder: "+91",
+        type: "tel",
+    },
+]
 
 const HeroForm = () => {
 
@@ -54,56 +74,28 @@ const HeroForm = () => {
                 </h1>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-6">
-                        <FormField
-                            control={form.control}
-                            name="fullName"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel className="text-[#859F3E] buda font-normal text-xl sm:text-2xl old-standard-tt">Full Name</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
-                                            placeholder="Enter your fullname" {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel className="text-[#859F3E] buda font-normal text-xl sm:text-2xl old-standard-tt">Email Id</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:ring-[#859F3E]/30"
-                                            type="email" placeholder="example@email.com" {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="phone"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel className="text-[#859F3E] buda font-normal text-xl sm:text-2xl old-standard-tt">Contact No</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
-                                            type="tel" placeholder="+91 " {...field}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                        {
+                            formData.map((item, index) => (
+                                <FormField
+                                    control={form.control}
+                                    name={item.name}
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel className="text-[#859F3E] buda font-normal text-xl sm:text-2xl old-standard-tt">{item.label}</FormLabel>
+                                            <FormControl>
+                                                <Input type={item.type}
+                                                    className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
+                                                    placeholder={item.placeholder} {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                            ))
+                        }
                         <div className="flex justify-center lg:justify-start">
-                            <Button type="submit" className="w-full sm:w-64 h-12 sm:h-16 bg-[#859F3E] text-white old-standard-tt font-bold text-xl sm:text-2xl leading-8 flex items-center justify-center">
+                            <Button type="submit" className="w-fit px-3 py-6 bg-[#859F3E] text-white old-standard-tt font-bold text-xl sm:text-2xl leading-tight flex items-center justify-center">
                                 Contact Now <ArrowUpRight size={28} className="ml-2" />
                             </Button>
                         </div>

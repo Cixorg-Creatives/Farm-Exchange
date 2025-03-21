@@ -81,6 +81,7 @@ import services_1 from './services_1.png'
 import services_2 from './services_2.png'
 import services_3 from './services_3.png'
 import services_4 from './services_4.png'
+import post_1 from './post_1.png'
 
 export const assets = {
     logo,
@@ -166,4 +167,5 @@ export const assets = {
     services_2,
     services_3,
     services_4,
+    post_1,
 };
