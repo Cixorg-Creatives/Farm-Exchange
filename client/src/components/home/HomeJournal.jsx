@@ -53,8 +53,8 @@ const HomeJournal = () => {
             <p className='uppercase text-[#859F3E] font-bold text-xl md:text-2xl leading-7 md:leading-9'>Knowledge hub</p>
             <p className='capitalize text-[#31511E] font-normal text-2xl md:text-[2.5rem] leading-10 md:leading-14'>Your Go-To Resource for Farming & Farmland Insights</p>
           </div>
-          <div className='col-span-1 bg-[#859F3E1A] py-7 md:py-10 px-3 md:py-4 lg:hidden'>
-            <div className='grid grid-rows-[1fr_1fr_1fr] gap-11'>
+          <div className='col-span-1 bg-[#859F3E1A] py-5 md:py-10 px-3 md:px-4 lg:hidden'>
+            <div className='grid grid-rows-[1fr_1fr_1fr] gap-5 md:gap-11'>
               <div className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
                 <div className='size-36 md:size-42'><img src={assets.home_18} alt="" className='size-36 md:size-42' /></div>
                 <div className='flex flex-col h-full items-start justify-end gap-6 w-1/2 md:w-2/3'>
