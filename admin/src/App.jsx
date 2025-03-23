@@ -22,9 +22,9 @@ const App = () => {
         ) : (
           <div className='bg-[#F6FCDF]'>
             <Navbar />
-            <div className='flex flex-1 overflow-hidden'>
+            <div className='flex flex-1 overflow-hidden justify-between'>
               <Sidebar />
-              <div className="w-[70%] h-full overflow-auto mx-auto ml-[max(5vw,25px)] my-8 pb-10 text-gray-600 text-base">
+              <div className="w-[82%] h-full overflow-auto mx-5 md:mx-8 lg:mx-12 my-8 pb-10 text-gray-600 text-base">
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/properties" element={<Properties />} />
