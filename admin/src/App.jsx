@@ -11,20 +11,20 @@ import Request from './pages/Request'
 import Sidebar from './components/Sidebar'
 import Login from './pages/Login'
 
-const token='jisg';
+const token='dg';
 
 const App = () => {
   return (
-    <div>
+    <div className='h-screen overflow-hidden flex flex-col'>
       {
         token === '' ? (
           <Login />
         ) : (
-          <div className='bg-[#F6FCDF]'>
+          <div className=''>
             <Navbar />
-            <div className='flex flex-1 overflow-hidden justify-between'>
+            <div className='flex flex-1'>
               <Sidebar />
-              <div className="w-[82%] h-full overflow-auto mx-5 md:mx-8 lg:mx-12 my-8 pb-10 text-gray-600 text-base">
+              <div className="w-[82%] h-[80vh] overflow-auto my-8 pb-10 text-gray-600 text-base">
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/properties" element={<Properties />} />
