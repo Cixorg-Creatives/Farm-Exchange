@@ -30,7 +30,7 @@ const AuthUi = ({ children }) => {
                             Streamline your management with ease and precision. Organize, monitor, and elevate your platform operations to deliver luxury and excellence to your customers.
                         </p>
                     </div>
-                    <div className='flex flex-col gap-2 infine moving'>
+                    <div className='flex flex-col gap-2'>
                         <motion.div variants={floatAnimation} animate="hover" className='flex justify-start'><img src={assets.login_1} alt="Files" width={250} height={250} className="rounded-lg" /></motion.div>
                         <motion.div variants={floatAnimation} animate="hover" className='flex justify-end'><img src={assets.login_2} alt="Files" width={250} height={250} className="rounded-lg" /></motion.div>
                     </div>
