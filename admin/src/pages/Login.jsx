@@ -9,7 +9,7 @@ const Login = ({ setToken }) => {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (e) => {
-    
+    setLoading(true)
   }
 
   return (
@@ -24,8 +24,8 @@ const Login = ({ setToken }) => {
 
         {
           loading ?
-            <button className='bg-black text-white font-light h-16 px-8 py-2 mt-4 w-full rounded-full flex items-center justify-center'><LoaderCircle size={32} className='animate-spin' /></button> :
-            <button className='bg-black text-white font-light h-16 px-8 py-2 mt-4 w-full rounded-full'>Login</button>
+            <button className='bg-[#85a03f] text-white font-normal text-2xl px-8 py-2 mt-4 w-full rounded-full flex items-center justify-center'><LoaderCircle size={32} className='animate-spin' /></button> :
+            <button className='bg-[#85a03f] text-white font-normal text-2xl px-8 py-2 mt-4 w-full rounded-full'>Login</button>
               
           }
       </form>
