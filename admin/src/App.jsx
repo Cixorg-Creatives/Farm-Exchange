@@ -24,7 +24,7 @@ const App = () => {
             <Navbar />
             <div className='flex flex-1'>
               <Sidebar />
-              <div className="w-[82%] h-[80vh] overflow-auto my-8 pb-10 text-gray-600 text-base">
+              <div className="w-[82%] h-[85vh] overflow-auto my-8 pb-10 text-gray-600 text-base">
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/properties" element={<Properties />} />
