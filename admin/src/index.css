@@ -112,30 +112,30 @@
 }
 
 @font-face {
-  font-family: ImpactCustom;
+  font-family: 'Impact';
   src: url(./assets/font/impact.ttf);
 }
 
 @font-face {
-  font-family: Boska;
-  src: url(./assets/font/Boska.otf);
+  font-family: 'Boska';
+  src: url(./assets/font/Boska.ttf);
 }
 
 @font-face {
-  font-family: ClashDisplay;
+  font-family: 'ClashDisplay';
   src: url(./assets/font/ClashDisplay.ttf);
 }
 
 .impact {
-  font-family: ImpactCustom
+  font-family: 'Impact'
 }
 
 .boska {
-  font-family: Boska;
+  font-family: 'Boska';
 }
 
 .clashdisplay {
-  font-family: ClashDisplay;
+  font-family: 'ClashDisplay';
 }
 
 .custom-text-stroke {
