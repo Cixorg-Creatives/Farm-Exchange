@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 const List = () => {
     return (
-        <div className='my-6 md:my-10 xl:my-14 clashdisplay'>
-            <div className='grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-1.5 md:gap-x-3 lg:gap-x-5 gap-y-2.5 md:gap-y-5 lg:gap-y-9'>
+        <div className='my-2 md:my-4 xl:my-6 clashdisplay'>
+            <div className='grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-1.5 md:gap-x-3 lg:gap-x-5 gap-y-2 md:gap-y-4 lg:gap-y-6'>
                 {
                     [...Array(6)].map((item, index) => (
                         <Link to={'/journal/blog/1'} key={index} className='grid-cols-1 px-2 md:px-4 lg:px-8 py-2.5 md:py-5 lg:py-9 border-1 border-[#D9E1C3] flex flex-col items-start gap-1 md:gap-2 lg:gap-4 cursor-pointer'>
