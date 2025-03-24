@@ -26,7 +26,6 @@ const SearchBar = () => {
                             placeholder="Search"
                         />
                     </div>
-                    {/* Custom Dropdown for Sorting */}
                     <Select options={filterOptions} onSelect={setSelectedFilter} selectedOption={selectedFilter} />
                 </div>
             </div>
