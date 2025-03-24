@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Blogs = () => {
   return (
     <div className='px-5 md:px-8 lg:px-12'>
-      <Button link={'/blogs/add-blog'} title={"Add Blog"} icon={'show'} symbol={''} />
+      <Link to={'/blogs/add-blog'}><Button title={"Add Blog"} variant='primary' icon={'show'} symbol={''} /></Link>
       <SearchBar />
       <List />
     </div>
