@@ -18,7 +18,7 @@ import PostProperty from './pages/PostProperty'
 
 const App = () => {
   return (
-    <div className='bg-[#F6FCDF] boska'>
+    <div className='bg-[#F6FCDF] clashdisplay'>
       <Header />
       <ScrollToTop />
       <Routes>

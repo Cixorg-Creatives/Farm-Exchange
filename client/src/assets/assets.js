@@ -90,6 +90,9 @@ import video_1 from './video_1.png'
 import video_2 from './video_2.png'
 import image_1 from './image_1.png'
 import image_2 from './image_2.png'
+import testimonials_1 from './testimonials_1.png'
+import testimonials_2 from './testimonials_2.png'
+import faq_1 from './faq_1.png'
 
 export const assets = {
     logo,
@@ -184,4 +187,7 @@ export const assets = {
     video_2,
     image_1,
     image_2,
+    testimonials_1,
+    testimonials_2,
+    faq_1,
 };

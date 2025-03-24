@@ -37,8 +37,8 @@ const floatAnimation = {
 const Difference = () => {
   return (
     <div className='py-6 md:py-10 xl:py-14 old-standard-tt'>
-      <h1 className='uppercase text-[#859F3E] font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center'>How are we different from others</h1>
-      <div className='w-full pt-6 md:pt-10 xl:pt-14 flex flex-col gap-4 md:gap-8 lg:gap-12'>
+      <h1 className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>How are we different from others</h1>
+      <div className='w-full flex flex-col gap-4 md:gap-8 lg:gap-12'>
         {
           data.map((item, index) => (
             <motion.div key={index} className='relative group hover:bg-[#D9E1C3] duration-150 ease-in px-1 md:px-3 lg:px-5 py-2 md:py-4 lg:py-6 flex justify-between shadow-inner shadow-black/25'>

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const IntrestingReads = () => {
   return (
     <div className='py-6 md:py-10 xl:py-14 old-standard-tt'>
-      <div className='w-full h-12 flex items-center justify-center pb-2 md:pb-4 lg:pb-8'>
-        <p className='uppercase text-[#859F3E] font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl'>Interesting Reads</p>
+      <div className='w-full h-12 flex items-center justify-center'>
+        <p className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>Interesting Reads</p>
       </div>
       <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-x-3 md:gap-x-6 lg:gap-x-12'>
         {
