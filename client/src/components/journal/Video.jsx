@@ -1,6 +1,6 @@
 import { assets } from '@/assets/assets';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const data = [assets.journal_20, assets.journal_21, assets.journal_20, assets.journal_21];
 
@@ -19,6 +19,25 @@ const Video = () => {
       }
     }
   };
+
+  useEffect(() => {
+    const preventHorizontalScroll = (event) => {
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+        event.preventDefault();
+      }
+    };
+
+    const container = scrollRef.current;
+    if (container) {
+      container.addEventListener("wheel", preventHorizontalScroll, { passive: false });
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("wheel", preventHorizontalScroll);
+      }
+    };
+  }, []);
 
   return (
     <div className='py-6 md:py-10 lg:py-14'>
