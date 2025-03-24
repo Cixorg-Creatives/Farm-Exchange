@@ -83,6 +83,9 @@ import services_3 from './services_3.png'
 import services_4 from './services_4.png'
 import services_5 from './services_5.png'
 import post_1 from './post_1.png'
+import post_2 from './post_2.png'
+import post_3 from './post_3.png'
+import post_4 from './post_4.png'
 import video_1 from './video_1.png'
 import video_2 from './video_2.png'
 import image_1 from './image_1.png'
@@ -174,6 +177,9 @@ export const assets = {
     services_4,
     services_5,
     post_1,
+    post_2,
+    post_3,
+    post_4,
     video_1,
     video_2,
     image_1,

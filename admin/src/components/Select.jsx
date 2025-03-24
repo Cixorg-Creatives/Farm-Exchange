@@ -7,7 +7,7 @@ const Select = ({ options, onSelect, selectedOption }) => {
     return (
         <div className="relative w-[15rem] md:w-fit clashdisplay">
             <button
-                className="w-[15rem] flex items-center justify-between bg-[#C7D3A6] capitalize text-sm md:text-base lg:text-xl font-normal px-6 py-3 md:py-4 rounded-md lg:rounded-lg cursor-pointer"
+                className="w-[15rem] flex items-center justify-between bg-[#C7D3A6] capitalize text-sm md:text-base lg:text-xl font-normal px-6 py-2.5 md:py-3 lg:py-3.5 rounded-md lg:rounded-lg cursor-pointer h-12 lg:h-14"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
