@@ -143,6 +143,12 @@
   color: transparent;
 }
 
+.journal_bg {
+  background: url(./assets/journal_bg.png) no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+
 ::-webkit-scrollbar {
   @apply hidden;
 }

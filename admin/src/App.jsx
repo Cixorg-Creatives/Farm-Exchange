@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Request from './pages/Request'
 import Sidebar from './components/Sidebar'
 import Login from './pages/Login'
+import Blog from './pages/Blog'
 
 const token='dg';
 
@@ -30,7 +31,8 @@ const App = () => {
                   <Route path="/properties" element={<Properties />} />
                   <Route path="/add-property" element={<AddProperties />} />
                   <Route path="/blogs" element={<Blogs />} />
-                  <Route path="/add-blog" element={<AddBlogs />} />
+                  <Route path="/blogs/blog/:blogId" element={<Blog />} />
+                  <Route path="/blogs/add-blog" element={<AddBlogs />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/post-property-request" element={<Request />} />
                 </Routes>
