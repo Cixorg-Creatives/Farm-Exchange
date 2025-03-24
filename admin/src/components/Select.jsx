@@ -10,7 +10,7 @@ const Select = ({ options, onSelect, selectedOption }) => {
                 className="w-[15rem] flex items-center justify-between bg-[#C7D3A6] capitalize text-sm md:text-base lg:text-xl font-normal px-6 py-3 md:py-4 rounded-md lg:rounded-lg cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <span className="flex items-center">
+                <span className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
                     {selectedOption.includes("latest") || selectedOption.includes("low-high") ? (
                         <ArrowUp className="h-4 md:h-5 lg:h-6 w-auto text-black" />
                     ) : (
@@ -32,7 +32,7 @@ const Select = ({ options, onSelect, selectedOption }) => {
                                 setIsOpen(false);
                             }}
                         >
-                            <span className="flex items-center gap-2">
+                            <span className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
                                 {option.value.includes("latest") || option.value.includes("low-high") ? (
                                     <ArrowUp className="h-4 md:h-6 w-auto text-black" />
                                 ) : (
