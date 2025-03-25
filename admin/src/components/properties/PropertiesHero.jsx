@@ -37,8 +37,8 @@ const PropertiesHero = () => {
 
     return (
         <div className='my-2 md:my-4 xl:my-6 clashdisplay'>
-            <div className="w-full bg-[#9DB265] px-2 md:px-4 lg:px-8 py-3 md:py-7 lg:py-11 flex flex-col items-center gap-4 md:gap-7 lg:gap-10">
-                <h1 className="w-full uppercase text-black font-normal text-base md:text-lg lg:text-[2rem] text-start align-middle">
+            <div className="w-full bg-[#D9E1C3] px-2 md:px-4 lg:px-8 py-3 md:py-7 lg:py-11 flex flex-col items-center gap-4 md:gap-7 lg:gap-10 rounded-sm md:rounded-md lg:rounded-lg">
+                <h1 className="boska w-full uppercase text-black font-semibold text-base md:text-lg lg:text-[2rem] text-start align-middle">
                     Find the best place
                 </h1>
                 <form className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
