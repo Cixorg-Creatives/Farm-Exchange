@@ -15,7 +15,7 @@ const SearchBar = () => {
     return (
         <div className="my-2 md:my-4 xl:my-6">
             <div className="w-full md:h-24 bg-[#D9E1C3] flex flex-col lg:flex-row items-center justify-between py-3 md:py-0 px-2 md:px-4 lg:px-8 rounded-sm md:rounded-md lg:rounded-lg gap-2 md:gap-3 lg:gap-0">
-                <div className="uppercase text-[#31511E] font-semibold text-xl md:text-2xl lg:text-[1.75rem]">
+                <div className="boska uppercase text-[#31511E] font-semibold text-xl md:text-2xl lg:text-[1.75rem]">
                     FARM BLOGS
                 </div>
                 <div className="flex flex-col lg:flex-row items-center gap-2 md:gap-3 lg:gap-4">

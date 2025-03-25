@@ -12,7 +12,7 @@ import Sidebar from './components/Sidebar'
 import Login from './pages/Login'
 import Blog from './pages/Blog'
 
-const token='dg';
+const token='cxdb';
 
 const App = () => {
   return (
@@ -29,7 +29,7 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/properties" element={<Properties />} />
-                  <Route path="/add-property" element={<AddProperties />} />
+                  <Route path="/properties/add-property" element={<AddProperties />} />
                   <Route path="/blogs" element={<Blogs />} />
                   <Route path="/blogs/blog/:blogId" element={<Blog />} />
                   <Route path="/blogs/add-blog" element={<AddBlogs />} />
