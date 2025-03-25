@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
-    faq: "What types of properties are available on Farmland Bazaar?",
-    answer: "Farmland Bazaar provides an extensive selection of properties, including farmlands, farmhouses, coffee estates, and agricultural land, along with managed farmlands. As the largest online platform for farmland listings, it offers the widest range of options to suit various needs.",
+    faq: "What types of properties are available on Farm Exchange?",
+    answer: "Farm Exchange provides an extensive selection of properties, including farmlands, farmhouses, coffee estates, and agricultural land, along with managed farmlands. As the largest online platform for farmland listings, it offers the widest range of options to suit various needs.",
   },
   {
     faq: "How can I buy or sell farmland on your platform?",
@@ -28,10 +28,14 @@ const faqs = [
     faq: "How does managed farmland investment work?",
     answer: "Managed farmland investment allows you to own agricultural land while professionals manage it for you, ensuring hassle-free income generation.",
   },
+  {
+    faq: "Does Farm Exchange assist with legal documentation and due diligence?",
+    answer: "Yes, we provide legal assistance to ensure smooth transactions. Our team helps with title verification, due diligence, and other legal formalities required for farmland purchases."
+  }
 ];
 
 const Faq = () => {
-  const [show, setShow] = useState(Array(faqs.length).fill(false));
+  const [show, setShow] = useState(Array(7).fill(false));
 
   const toggleFaq = (index) => {
     setShow((prev) => prev.map((item, i) => (i === index ? !item : item)));
@@ -39,41 +43,45 @@ const Faq = () => {
 
   return (
     <div className='py-6 md:py-10 xl:py-14 clash-display'>
-      <p className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>Frequently Asked Questions</p>
-      <div className='flex items-center justify-between'>
+      <p className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>
+        Frequently Asked Questions
+      </p>
+      <div className='flex items-start justify-between'>
         <div className='w-3/5 flex flex-col items-center gap-2 md:gap-3 lg:gap-4'>
           {faqs.map((item, index) => (
             <div key={index} className='flex flex-col gap-2 md:gap-3 lg:gap-4 w-full h-auto'>
-              <div 
-                onClick={() => toggleFaq(index)} 
+              <div
+                onClick={() => toggleFaq(index)}
                 className='cursor-pointer flex items-center justify-between border border-[#D9D9D9] py-3 md:py-4 lg:py-5 px-3 md:px-5 lg:px-7 rounded-lg'
               >
-                <div className='capitalize text-[#31511E] font-medium text-[10px] md:text-lg lg:text-2xl'>{item.faq}</div>
+                <div className='capitalize text-[#31511E] font-medium text-[10px] md:text-lg lg:text-2xl'>
+                  {item.faq}
+                </div>
                 <div className='text-[#31511E]'>
-                  {show[index] ? (
-                    <Minus className='h-4 md:h-5 lg:h-6 w-auto' />
-                  ) : (
-                    <Plus className='h-4 md:h-5 lg:h-6 w-auto' />
-                  )}
+                  {show[index] ? <Minus className='h-4 md:h-5 lg:h-6 w-auto' /> : <Plus className='h-4 md:h-5 lg:h-6 w-auto' />}
                 </div>
               </div>
               <AnimatePresence>
                 {show[index] && (
-                  <motion.p 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className='w-[90%] capitalize text-[#758A68] font-normal text-[8px] lg:text-xl py-1 md:py-2 lg:py-3 px-3 md:px-5 lg:px-7'
+                  <motion.div
+                    initial={{ maxHeight: 0, opacity: 0 }}
+                    animate={{ maxHeight: 500, opacity: 1 }}
+                    exit={{ maxHeight: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className='overflow-hidden'
                   >
-                    {item.answer}
-                  </motion.p>
+                    <p className='w-[90%] capitalize text-[#758A68] font-normal text-[8px] lg:text-xl py-1 md:py-2 lg:py-3 px-3 md:px-5 lg:px-7'>
+                      {item.answer}
+                    </p>
+                  </motion.div>
                 )}
               </AnimatePresence>
             </div>
           ))}
         </div>
-        <img src={assets.faq_1} alt="" className='w-1/3 h-auto hidden lg:block' />
+        <div className='w-1/3 flex-shrink-0 hidden lg:block'>
+          <img src={assets.faq_1} alt="FAQ Illustration" className='w-full h-auto' />
+        </div>
       </div>
     </div>
   );
