@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 const PropertiesList = () => {
     return (
-        <div className='my-2 md:my-4 xl:my-6 relative'>
-            <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-1.5 md:gap-x-3 lg:gap-x-5 gap-y-2 md:gap-y-4 lg:gap-y-6'>
+        <div className='my-2 md:my-4 xl:my-6 relative clashdisplay'>
+            <div className='grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-1.5 md:gap-x-3 lg:gap-x-5 gap-y-2 md:gap-y-4 lg:gap-y-6'>
                 {
                     [...Array(6)].map((item, index) => (
                         <Link to={'/properties/1'} key={index} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6 text-[#31511E]'>
