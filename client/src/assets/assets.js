@@ -93,7 +93,7 @@ import image_2 from './image_2.png'
 import testimonials_1 from './testimonials_1.png'
 import testimonials_2 from './testimonials_2.png'
 import faq_1 from './faq_1.png'
-
+import properties_hero_1 from './properties_hero_1.png'
 export const assets = {
     logo,
     fence,
@@ -190,4 +190,5 @@ export const assets = {
     testimonials_1,
     testimonials_2,
     faq_1,
+    properties_hero_1
 };

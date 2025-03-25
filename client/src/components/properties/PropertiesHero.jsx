@@ -1,23 +1,144 @@
-import { assets } from '@/assets/assets'
-import React from 'react'
+import { useState } from "react";
+import { assets } from "@/assets/assets";
+import Filter from "../Filter";
+import Sort from "../Sort";
+import Button from "../Button";
 
 const PropertiesHero = () => {
+    const [selectedCityFilter, setSelectedCityFilter] = useState("hyderabad");
+    const [selectedTypeFilter, setselectedTypeFilter] = useState("farmland");
+    const [selectedCategoryFilter, setselectedCategoryFilter] = useState("elite");
+    const [selectedSort, setSelectedSort] = useState("latest");
+
+    const cityFilter = [
+        { value: "hyderabad", label: "Hyderabad" },
+        { value: "bengaluru", label: "Bengaluru" },
+        { value: "delhi", label: "Delhi" },
+        { value: "chennai", label: "Chennai" },
+    ];
+    const typeFilter = [
+        { value: "farmland", label: "Farm Land" },
+        { value: "farmhouse", label: "Farm House" },
+        { value: "agricultureland", label: "Agriculture Land" },
+        { value: "coffee", label: "Coffee Estate" },
+    ];
+    const categoryFilter = [
+        { value: "elite", label: "Elite Properties" },
+        { value: "featured", label: "Featured Properties" },
+    ];
+    const sortOptions = [
+        { value: "latest", label: "Date Modified" },
+        { value: "earliest", label: "Date Modified" },
+        { value: "rec_low-high", label: "Recommendation" },
+        { value: "rec_high-low", label: "Recommendation" },
+        { value: "area_low-high", label: "Area" },
+        { value: "area_high-low", label: "Area" },
+    ];
+
     return (
-        <div className='py-6 md:py-10 xl:py-14 flex flex-col gap-5 md:gap-11 old-standard-tt'>
-            <div className='flex flex-col lg:flex-row lg:justify-between gap-2 lg:gap-0 '>
-                <div className='w-full lg:w-2/3 uppercase text-[#859F3E] font-bold text-2xl md:text-4xl lg:text-[4rem]'>Heading in two lines will be written</div>
-                <div className='lg:w-1/3 flex items-end lg:justify-end'>
-                    <p className='w-2/3 lg:w-3/4 capitalize text-[#747474] font-normal text-xs md:text-base lg:text-xl lg:text-right'>this beautiful city in Karnataka is famous for its cultural heritage, beautiful scenery.</p>
+        <div className="pb-6 md:pb-10 xl:pb-14">
+            <div className="relative hidden lg:block">
+                <img src={assets.properties_hero_1} alt="" className="w-full h-auto" />
+                <div className="absolute inset-0 bg-[#00000080] px-3 md:px-6 lg:px-9 py-6 md:py-12 lg:py-24 flex flex-col items-center justify-end gap-4 md:gap-6 lg:gap-8">
+                    <h1 className="w-full text-start align-middle capitalize text-white font-semibold text-2xl lg:text-[4rem]">Build Your future ,<br />one property at a time</h1>
+                    <div className="w-full bg-[#9DB265] px-2 md:px-4 lg:px-8 py-3 md:py-7 lg:py-11 flex flex-col items-center gap-4 md:gap-7 lg:gap-10">
+                        <h1 className="w-full uppercase text-black font-normal text-xs md:text-lg lg:text-[2rem] text-start align-middle">
+                            Find the best place
+                        </h1>
+                        <form className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
+                            <div className="grid grid-cols-[3fr_1fr] gap-3 md:gap-5 lg:gap-7">
+                                <div className="grid-cols-3 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                                    <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                        Name of property
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-[8px] md:text-xs lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14"
+                                        placeholder="Property, budget, name"
+                                    />
+                                </div>
+                                <div className="w-full h-full grid-cols-1 flex items-end justify-end">
+                                    <Button title='Search' variant="secondary" className="!text-[#F6FCDF]" />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr] gap-3 md:gap-5 lg:gap-7">
+                                <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                                    <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                        City
+                                    </label>
+                                    <Filter options={cityFilter} onSelect={setSelectedCityFilter} selectedOption={selectedCityFilter} />
+                                </div>
+                                <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                                    <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                        Property type
+                                    </label>
+                                    <Filter options={typeFilter} onSelect={setselectedTypeFilter} selectedOption={selectedTypeFilter} />
+                                </div>
+                                <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                                    <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                        Project Category
+                                    </label>
+                                    <Filter options={categoryFilter} onSelect={setselectedCategoryFilter} selectedOption={selectedCategoryFilter} />
+                                </div>
+                                <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                                    <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                        Project Price
+                                    </label>
+                                    <Sort options={sortOptions} onSort={setSelectedSort} SortedOption={selectedSort} />
+                                </div></div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div className='relative'>
-                <img src={assets.journal_1} alt="" className='w-full h-auto border-4 border-[#758A68]' />
-                <div className='absolute inset-0 bg-[#0000004D] flex items-end justify-end'>
-                    <p className='uppercase text-white font-bold text-xl md:text-2xl lg:text-[3.5rem] mr-3 md:mr-6 lg:mr-8'>Farm Lands</p>
-                </div>
+            <div className="w-full lg:hidden bg-[#9DB265] px-2 md:px-4 lg:px-8 py-3 md:py-7 lg:py-11 flex flex-col items-center gap-4 md:gap-7 lg:gap-10">
+                <h1 className="w-full uppercase text-black font-normal text-base md:text-lg lg:text-[2rem] text-start align-middle">
+                    Find the best place
+                </h1>
+                <form className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
+                    <div className="grid grid-cols-[3fr_1fr] gap-3 md:gap-5 lg:gap-7">
+                        <div className="grid-cols-3 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                Name of property
+                            </label>
+                            <input
+                                type="text"
+                                className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-[8px] md:text-xs lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14"
+                                placeholder="Property, budget, name"
+                            />
+                        </div>
+                        <div className="w-full h-full grid-cols-1 flex items-end justify-end">
+                            <Button title='Search' variant="secondary" className="!text-[#F6FCDF]" />
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr] gap-3 md:gap-5 lg:gap-7">
+                        <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                City
+                            </label>
+                            <Filter options={cityFilter} onSelect={setSelectedCityFilter} selectedOption={selectedCityFilter} />
+                        </div>
+                        <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                Property type
+                            </label>
+                            <Filter options={typeFilter} onSelect={setselectedTypeFilter} selectedOption={selectedTypeFilter} />
+                        </div>
+                        <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                Project Category
+                            </label>
+                            <Filter options={categoryFilter} onSelect={setselectedCategoryFilter} selectedOption={selectedCategoryFilter} />
+                        </div>
+                        <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+                                Project Price
+                            </label>
+                            <Sort options={sortOptions} onSort={setSelectedSort} SortedOption={selectedSort} />
+                        </div></div>
+                </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default PropertiesHero
+export default PropertiesHero;
