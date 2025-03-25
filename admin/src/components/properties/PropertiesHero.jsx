@@ -49,7 +49,7 @@ const PropertiesHero = () => {
                             </label>
                             <input
                                 type="text"
-                                className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-[8px] md:text-xs lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg"
+                                className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg"
                                 placeholder="Property, budget, name"
                             />
                         </div>

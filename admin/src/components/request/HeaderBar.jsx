@@ -16,7 +16,7 @@ const HeaderBar = () => {
                 <h1 className="boska w-full uppercase text-black font-semibold text-base md:text-lg lg:text-[2rem] text-start align-middle">
                     post property request
                 </h1>
-                <div className='lg:w-[15rem]'><Filter options={filterOptions} onSelect={setSelectedFilter} selectedOption={selectedFilter} /></div>
+                <div className='w-full lg:w-[15rem]'><Filter options={filterOptions} onSelect={setSelectedFilter} selectedOption={selectedFilter} /></div>
                 {/* <div className='w-full md:w-1/3 bg-[#C7D3A6] h-4 md:h-8 lg:h-14 py-4 px-6 flex items-center justify-start gap-1 md:gap-2 lg:gap-3 rounded-sm md:rounded-md lg:rounded-lg clashdisplay'>
                     <Search className='h-4 md:h-6 w-auto text-black' />
                     <input className="h-4 md:h-6 capitalize text-sm md:text-base lg:text-xl font-normal outline-none bg-transparent" placeholder="Search" />
