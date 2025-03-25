@@ -1,4 +1,6 @@
 import Button from '@/components/Button'
+import PropertiesHero from '@/components/properties/PropertiesHero'
+import PropertiesList from '@/components/properties/PropertiesList'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -9,6 +11,8 @@ const Properties = () => {
         <Link to={'/properties/add-property'}><Button title={"Add Properties"} variant='primary' icon={'show'} symbol={''} /></Link>
         <Button title={"Add City"} variant='primary' icon={'show'} symbol={''} />
       </div>
+      <PropertiesHero />
+      <PropertiesList />
     </div>
   )
 }

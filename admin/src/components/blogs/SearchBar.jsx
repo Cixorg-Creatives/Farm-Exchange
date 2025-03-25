@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
-import Select from "../Select";
+import Filter from "../Filter";
 
 const SearchBar = () => {
     const [selectedFilter, setSelectedFilter] = useState("latest");
@@ -26,7 +26,7 @@ const SearchBar = () => {
                             placeholder="Search"
                         />
                     </div>
-                    <Select options={filterOptions} onSelect={setSelectedFilter} selectedOption={selectedFilter} />
+                    <div className='lg:w-[15rem]'><Filter options={filterOptions} onSelect={setSelectedFilter} selectedOption={selectedFilter} /></div>
                 </div>
             </div>
         </div>

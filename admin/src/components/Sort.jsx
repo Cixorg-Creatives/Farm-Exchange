@@ -1,34 +1,34 @@
 import { useState } from "react";
 import { ArrowDown, ArrowUp, Check, ChevronDown, ChevronUp } from "lucide-react";
 
-const Select = ({ options, onSelect, selectedOption }) => {
+const Sort = ({ options, onSort, SortedOption }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="relative w-[15rem] md:w-fit clashdisplay">
-            <button
-                className="w-[15rem] flex items-center justify-between bg-[#C7D3A6] capitalize text-sm md:text-base lg:text-xl font-normal px-6 py-2.5 md:py-3 lg:py-3.5 rounded-md lg:rounded-lg cursor-pointer h-12 lg:h-14"
+        <div className="relative w-full clashdisplay">
+            <div
+                className="w-full flex items-center justify-between bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-[8px] md:text-xs lg:text-base p-2 md:p-3 lg:p-4 rounded-md lg:rounded-lg cursor-pointer h-10 md:h-12 lg:h-14"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
-                    {selectedOption.includes("latest") || selectedOption.includes("low-high") ? (
+                    {SortedOption.includes("latest") || SortedOption.includes("low-high") ? (
                         <ArrowUp className="h-4 md:h-5 lg:h-6 w-auto text-black" />
                     ) : (
                         <ArrowDown className="h-4 md:h-5 lg:h-6 w-auto text-black" />
                     )}
-                    {options.find(option => option.value === selectedOption)?.label}
+                    {options.find(option => option.value === SortedOption)?.label}
                 </span>
                 {isOpen ? <ChevronUp className="h-4 md:h-6 w-auto text-black" /> : <ChevronDown className="h-4 md:h-6 w-auto text-black" />}
-            </button>
+            </div>
             {isOpen && (
-                <div className="absolute left-0 mt-2 w-[15rem] bg-[#C7D3A6] rounded-md shadow-lg z-10">
+                <div className="absolute left-0 mt-2 w-full rounded-md bg-[#C7D3A6] shadow-lg z-10">
                     {options.map((option) => (
                         <div
                             key={option.value}
-                            className={`flex items-center justify-between px-6 py-3 hover:bg-[#B8C597] cursor-pointer ${selectedOption === option.value ? "font-semibold" : ""
+                            className={`flex items-center justify-between px-6 py-3 hover:bg-[#B8C597] cursor-pointer ${SortedOption === option.value ? "font-semibold" : ""
                                 }`}
                             onClick={() => {
-                                onSelect(option.value);
+                                onSort(option.value);
                                 setIsOpen(false);
                             }}
                         >
@@ -40,7 +40,7 @@ const Select = ({ options, onSelect, selectedOption }) => {
                                 )}
                                 {option.label}
                             </span>
-                            {selectedOption === option.value && <Check className="h-4 md:h-6 w-auto text-black" />}
+                            {SortedOption === option.value && <Check className="h-4 md:h-6 w-auto text-black" />}
                         </div>
                     ))}
                 </div>
@@ -49,4 +49,4 @@ const Select = ({ options, onSelect, selectedOption }) => {
     );
 };
 
-export default Select;
+export default Sort;
