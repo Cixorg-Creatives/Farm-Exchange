@@ -74,7 +74,7 @@ const HomeJournal = () => {
                 <div key={index} className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
                   <div className='size-16 lg:size-42'><img src={item.image} alt="" className='size-16 lg:size-42' /></div>
                   <div className='flex flex-col h-full items-start justify-between py-1 md:py-2 lg:py-4 w-1/2 md:w-2/3'>
-                    <p className='capitalise text-[#31511E] font-semibold text-[7px] md:text-sm lg:text-2xl leading-tight'>{item.title}</p>
+                    <p className='capitalize text-[#31511E] font-semibold text-[7px] md:text-sm lg:text-2xl leading-tight'>{item.title}</p>
                     <Link to={'/journal/blog/1'}><Button title={'Read More'} icon={'show'} className='!text-[#859F3E] !p-0 text-[10px]' /></Link>
                   </div>
                 </div>
