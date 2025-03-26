@@ -92,7 +92,7 @@ const HeroForm = () => {
                                     name={item.name}
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="text-[#859F3E] buda font-semibold text-base md:text-xl lg::text-2xl old-standard-tt">{item.label}</FormLabel>
+                                            <FormLabel className="text-[#859F3E] buda font-semibold text-base md:text-xl lg::text-2xl">{item.label}</FormLabel>
                                             <FormControl>
                                                 {
                                                     item.name === 'message' ? (
@@ -115,7 +115,7 @@ const HeroForm = () => {
                             ))
                         }
                         <div className="flex justify-center lg:justify-start">
-                            <Button type="submit" className="w-fit px-3 py-6 bg-[#859F3E] text-white old-standard-tt font-bold text-xl sm:text-2xl leading-tight flex items-center justify-center">
+                            <Button type="submit" className="w-fit px-3 py-6 bg-[#859F3E] text-white font-bold text-xl sm:text-2xl leading-tight flex items-center justify-center">
                                 Contact Now <ArrowUpRight size={28} className="ml-2" />
                             </Button>
                         </div>
