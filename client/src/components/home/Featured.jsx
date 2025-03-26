@@ -35,7 +35,7 @@ const Featured = () => {
     };
 
     return (
-        <div className='h-full flex flex-row items-start lg:items-center justify-between'>
+        <div className='w-full h-full grid grid-cols-[1fr_1fr]'>
             <div className='h-full flex flex-col justify-between'>
                 <div className='flex flex-col items-start justify-center gap-1 md:gap-2 lg:gap-4'>
                     <h1 className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>
@@ -53,12 +53,11 @@ const Featured = () => {
                         ))}
                     </div>
                 </div>
-                <Link to='/properties?category=featured'>
+                <Link to='/properties?category=featured' className='mt-auto'>
                     <Button title='View All' variant='primary' icon='show' className='w-fit' />
                 </Link>
             </div>
-
-            <div className='flex flex-row justify-end w-1/2'>
+            <div className='h-full flex flex-row justify-end'>
                 <div className='w-7 md:w-10 lg:w-20 relative'>
                     <div className='absolute lg:h-20 w-7 md:w-10 lg:w-20 bottom-0 left-0 -rotate-90 text-start uppercase impact text-xl md:text-3xl lg:text-[4rem] font-normal custom-text-stroke flex items-center'>
                         Harvest
