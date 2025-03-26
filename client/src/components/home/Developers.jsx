@@ -2,6 +2,22 @@
 import { assets } from '@/assets/assets'
 import { ArrowUpRight } from 'lucide-react'
 import React, { useRef, useState } from 'react'
+import Button from '../Button'
+
+const data = [
+  {
+    stat: '2014',
+    detail: 'Year Established',
+  },
+  {
+    stat: '6',
+    detail: 'Active Properties',
+  },
+  {
+    stat: '14',
+    detail: 'Total Properties',
+  }
+]
 
 const Developers = () => {
 
@@ -33,12 +49,12 @@ const Developers = () => {
   };
 
   return (
-    <div className='my-6 md:my-10 xl:my-14 old-standard-tt no-copy'>
+    <div className='py-6 md:py-10 xl:py-14 no-copy'>
       <div className='w-full md:w-3/5 flex flex-col items-start justify-start gap-2 md:gap-5'>
-        <p className='uppercase text-[#859F3E] font-bold text-base md:text-[1.75rem] md:leading-8'>featured developer</p>
-        <p className='capitalize text-[#31511E] font-normal text-2xl md:text-6xl md:leading-20'>The Most Renowned and Influential Developers in the Industry</p>
+        <h1 className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>featured developer</h1>
+        <p className='capitalize text-[#31511E] font-semibold text-xl md:text-3xl lg:text-6xl leading-tight'>The Most Renowned and <br /> Influential Developers in <br /> the Industry</p>
       </div>
-      <div className='overflow-x-auto w-full cursor-pointer' ref={scrollRef} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
+      <div className='overflow-x-auto w-full cursor-pointer mt-4 md:mt-8 lg:mt-12' ref={scrollRef} onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
         <div className='flex gap-6 md:gap-12 w-full md:w-[180%] h-66 md:h-88'>
           {
             [...Array(3)].map((item, index) => (
@@ -54,27 +70,25 @@ const Developers = () => {
                 </div>
                 <div className='bg-[#233A15] w-[35rem] p-6 flex flex-col items-start justify-center gap-6 md:gap-10'>
                   <div className='flex flex-col gap-1 md:gap-2'>
-                    <p className='uppercase text-[#859F3E] font-bold text-base md:text-2xl md:leading-8'>Blooms</p>
-                    <p className='capitalize text-[#5A744B] font-normal text-xs md:text-base md:leading-5'>Building dreams, shaping skylines Blooms is a trusted leader in real estate development. With a commitment to quality, innovation, and sustainability, we create spaces that inspire and elevate lifestyles.</p>
+                    <p className='uppercase text-[#859F3E] font-bold text-xs md:text-lg lg:text-2xl leading-tight'>Blooms</p>
+                    <p className='capitalize text-[#5A744B] font-normal text-[10px] md:text-xs lg:text-sm leading-tight'>Building dreams, shaping skylines Blooms is a trusted leader in real estate development. With a commitment to quality, innovation, and sustainability, we create spaces that inspire and elevate lifestyles.</p>
                   </div>
                   <div className='flex items-center justify-start gap-4 md:gap-7'>
-                    <div className='flex flex-col gap-0.5 md:gap-1'>
-                      <p className='text-[#F2F9DE] font-bold text-base md:text-2xl md:leading-8'>2014</p>
-                      <p className='capitalize text-[#5A744B] font-normal text-xs md:text-base md:leading-5'>Year Established</p>
-                    </div>
-                    <div className='flex flex-col gap-0.5 md:gap-1'>
-                      <p className='text-[#F2F9DE] font-bold text-base md:text-2xl md:leading-8'>6</p>
-                      <p className='capitalize text-[#5A744B] font-normal text-xs md:text-base md:leading-5'>Active Properties</p>
-                    </div>
-                    <div className='flex flex-col gap-0.5 md:gap-1'>
-                      <p className='text-[#F2F9DE] font-bold text-base md:text-2xl md:leading-8'>14</p>
-                      <p className='capitalize text-[#5A744B] font-normal text-xs md:text-base md:leading-5'>Total Properties</p>
-                    </div>
+                    {
+                      data.map((item, index) => (
+                        <div key={index} className='flex flex-col gap-0.5 md:gap-1'>
+                          <p className='text-[#F2F9DE] font-semibold text-xs md:text-lg lg:text-2xl leading-tight'>{item.stat}</p>
+                          <p className='capitalize text-[#5A744B] font-normal text-[10px] md:text-xs lg:text-sm leading-tight'>{item.detail}</p>
+                        </div>
+                      ))
+                    }
                   </div>
-                  <div className='flex-col items-center justify-start w-44 gap-1 md:gap-3'>
-                    <p className='uppercase text-[#859F3E] font-normal text-xs md:text-base md:leading-5'>Popular Projects</p>
-                    <p className='capitalize text-[#F2F9DE] font-normal text-xs md:text-base md:leading-5 flex gap-2 items-start'>Tapovan <ArrowUpRight className='size-4' /> </p>
-                    <p className='capitalize text-[#F2F9DE] font-normal text-xs md:text-base md:leading-5 flex gap-2 items-start'>Mayurvan Farmland <ArrowUpRight className='size-4' /> </p>
+                  <div className='flex-col items-center justify-start'>
+                    <div className='uppercase text-[#859F3E] font-semibold text-xs md:text-sm lg:text-base leading-tight mb-1 md:mb-2 lg:mb-3'>Popular Projects</div>
+                    <div className='flex flex-col items-start gap-0'>
+                      <Button title='Tapovan' icon='show' className='text-[#F2F9DE] font-semibold text-xs md:text-sm lg:text-base leading-tight !p-0' />
+                      <Button title='Mayurvan Farmland' icon='show' className='text-[#F2F9DE] font-semibold text-xs md:text-sm lg:text-base leading-tight !p-0' />
+                    </div>
                   </div>
                 </div>
               </div>
