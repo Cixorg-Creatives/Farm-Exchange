@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Grid = () => {
   return (
     <div className='bg-[#F6FCDF] my-6 md:my-10 xl:my-14 grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-2 md:gap-3 lg:gap-5'>
-      <Link className='relative group overflow-hidden col-span-1 lg:row-span-3 rounded-2xl h-[15rem] sm:h-[18rem] md:h-[36rem]'>
+      <Link to={'/properties?type=farmland'} className='relative group overflow-hidden col-span-1 lg:row-span-3 rounded-2xl h-[15rem] sm:h-[18rem] md:h-[36rem]'>
         <img src={assets.home_3} alt='' className='w-full h-full group-hover:scale-105 duration-200 ease-in rounded-2xl object-cover' />
         <div className='absolute inset-0 bg-black/40 rounded-2xl p-5 md:p-6'>
           <div className='h-full flex flex-col items-start justify-end lg:justify-start gap-2 md:gap-3 duration-200 ease-in'>
@@ -16,7 +16,7 @@ const Grid = () => {
           </div>
         </div>
       </Link>
-      <Link className='relative group overflow-hidden col-span-1 lg:col-span-2 rounded-2xl lg:row-span-3 h-[15rem] sm:h-[18rem] md:h-[36rem]'>
+      <Link to={'/properties?type=coffee'} className='relative group overflow-hidden col-span-1 lg:col-span-2 rounded-2xl lg:row-span-3 h-[15rem] sm:h-[18rem] md:h-[36rem]'>
         <img src={assets.home_4} alt='' className='w-full h-full group-hover:scale-105 duration-200 ease-in rounded-2xl object-cover' />
         <div className='absolute inset-0 bg-black/40 rounded-2xl p-5 md:p-6'>
           <div className='flex flex-col items-start justify-end gap-2 md:gap-3 duration-200 ease-in h-full w-full md:w-1/2'>
@@ -26,7 +26,7 @@ const Grid = () => {
           </div>
         </div>
       </Link>
-      <Link className='relative group overflow-hidden col-span-1 lg:col-span-2 rounded-2xl h-[15rem] sm:h-[18rem] md:h-[24rem]'>
+      <Link to={'/properties?type=agricultureland'} className='relative group overflow-hidden col-span-1 lg:col-span-2 rounded-2xl h-[15rem] sm:h-[18rem] md:h-[24rem]'>
         <img src={assets.home_5} alt='' className='w-full h-full group-hover:scale-105 duration-200 ease-in rounded-2xl object-cover' />
         <div className='absolute inset-0 bg-black/40 rounded-2xl p-5 md:p-6'>
           <div className='flex flex-col items-start justify-end lg:justify-center gap-2 md:gap-3 duration-200 ease-in h-full w-full'>
@@ -36,7 +36,7 @@ const Grid = () => {
           </div>
         </div>
       </Link>
-      <Link className='relative group overflow-hidden col-span-1 rounded-2xl h-[15rem] sm:h-[18rem] md:h-[24rem]'>
+      <Link to={'/properties?type=farmhouse'} className='relative group overflow-hidden col-span-1 rounded-2xl h-[15rem] sm:h-[18rem] md:h-[24rem]'>
         <img src={assets.home_6} alt='' className='w-full h-full group-hover:scale-105 duration-200 ease-in rounded-2xl object-cover' />
         <div className='absolute inset-0 bg-black/40 rounded-2xl p-5 md:p-6'>
           <div className='flex flex-col items-start justify-end gap-2 md:gap-3 duration-200 ease-in h-full text-right'>
