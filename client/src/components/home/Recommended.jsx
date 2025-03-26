@@ -53,9 +53,9 @@ const Recommended = () => {
     return (
         <div className='mt-6 md:mt-10 xl:mt-14 flex flex-col gap-3 md:gap-6 lg:gap-12'>
             <div className='flex items-end justify-between'>
-                <div className='flex flex-col items-start gap-2.5 md:gap-3.5 lg:gap-5'>
+                <div className='relative w-fit flex flex-col items-start gap-2.5 md:gap-3.5 lg:gap-5'>
                     <div className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>
-                        Highly recommended Properties
+                        Highly recommended <br className='lg:hidden'/> Properties
                     </div>
                     <div className='capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight lg:leading-[4.5rem]'>
                         Explore top farms and <br /> premium produce, handpicked <br /> for quality.

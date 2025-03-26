@@ -2,6 +2,22 @@ import { assets } from '@/assets/assets'
 import { ArrowUpRight, Play } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../Button'
+
+const data=[
+  {
+    image: assets.home_18,
+    title: 'Whispers Of Bali - A serene Farmhouse Retreat In Hyderabad',
+  },
+  {
+    image: assets.home_19,
+    title: '5 farmlands near Mysuru on our site you can look at',
+  },
+  {
+    image: assets.home_20,
+    title: 'The vermicompost pioneet of Kashmir',
+  },
+]
 
 const HomeJournal = () => {
   return (
@@ -21,89 +37,49 @@ const HomeJournal = () => {
           </p>
         </div>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 md:gap-20 py-3 md:py-16'>
-        <div className='col-span-1 h-full flex flex-col items-start md:justify-between gap-3 md:gap-0 py-4 md:py-12'>
-          <div className='w-2/3 flex flex-col gap-3 md:gap-5'>
-            <p className='uppercase text-[#859F3E] font-bold text-xl md:text-2xl leading-7 md:leading-9'>Trending Videos</p>
-            <p className='capitalize text-[#31511E] font-normal text-2xl md:text-[2.5rem] leading-10 md:leading-14'>Wooden valley By rugvedha developers</p>
+      <div className='grid grid-cols-[1fr_1fr] gap-4 md:gap-10 lg:gap-20 py-3 md:py-16'>
+        <div className='col-span-1 h-full flex flex-col items-start justify-between py-4 md:py-8 lg:py-12'>
+          <div className='flex flex-col gap-3 md:gap-5'>
+            <p className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>Trending Videos</p>
+            <p className='capitalize text-[#31511E] font-semibold text-xs md:text-xl lg:text-[2.5rem] leading-tight'>Wooden valley By <br /> rugvedha developers</p>
           </div>
-          <div className='col-span-1 relative lg:hidden'>
-            <img src={assets.home_17} alt="" className='w-full h-auto md:h-[49.375rem]' />
-            <div className='z-10 border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-16 md:size-20 lg:size-[6.2rem] bg-[#859F3E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
-              <div className='flex items-center justify-center h-full w-full'><Play className='size-8 md:size-12 lg:size-[3.75rem] text-white fill-white' /></div>
-            </div>
-            <div className='absolute w-full h-full top-0 left-0 bg-black/50'></div>
-          </div>
-          <div className='flex flex-col gap-2 md:gap-3'>
-            <p className='capitalize text-[#31511E] font-normal text-lg md:text-2xl leading-7 md:leading-8'>Discover top farms and premium produce, carefully selected for quality.</p>
-            <Link to={'/journal/video'} className='group flex gap-2 md:gap-4 text-[#859F3E] font-normal text-lg md:text-2xl leading-7 md:leading-8'>View all <ArrowUpRight className='size-6 md:size-8 group-hover:rotate-45' /></Link>
+          <div className='flex flex-col gap-0.5 md:gap-1 lg:gap-3'>
+            <p className='capitalize text-[#31511E] font-semibold text-[8px] md:text-sm lg:text-2xl leading-tight'>Discover top farms and premium produce, carefully selected for quality.</p>
+            <Link to={'/journal/video'}><Button title={'View All'} icon={'show'} className='!text-[#859F3E] !p-0' /></Link>
           </div>
         </div>
-        <div className='col-span-1 relative hidden lg:block'>
+        <div className='col-span-1 relative'>
           <img src={assets.home_17} alt="" className='w-full h-auto md:h-[49.375rem]' />
-          <div className='z-10 border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-16 md:size-20 lg:size-[6.2rem] bg-[#859F3E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
-            <div className='flex items-center justify-center h-full w-full'><Play className='size-8 md:size-12 lg:size-[3.75rem] text-white fill-white' /></div>
+          <div className='z-10 border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-8 md:size-16 lg:size-24 bg-[#859F3E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+            <div className='flex items-center justify-center h-full w-full'><Play className='size-4 md:size-8 lg:size-12 text-white fill-white' /></div>
           </div>
           <div className='absolute w-full h-full top-0 left-0 bg-black/50'></div>
         </div>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-[1fr_1fr] md:[&>*:nth-child(1)]:order-2 gap-6 md:gap-20 py-3 md:py-16'>
-        <div className='col-span-1 h-full flex flex-col items-start md:justify-between gap-3 md:gap-0 py-4 md:py-12'>
-          <div className='w-[90%] flex flex-col gap-3 md:gap-5'>
-            <p className='uppercase text-[#859F3E] font-bold text-xl md:text-2xl leading-7 md:leading-9'>Knowledge hub</p>
-            <p className='capitalize text-[#31511E] font-normal text-2xl md:text-[2.5rem] leading-10 md:leading-14'>Your Go-To Resource for Farming & Farmland Insights</p>
+      <div className='grid grid-cols-[1fr_1fr] [&>*:nth-child(1)]:order-2 gap-4 md:gap-10 lg:gap-20 py-3 md:py-16'>
+        <div className='col-span-1 h-full flex flex-col items-start justify-between py-4 md:py-8 lg:py-12'>
+          <div className='flex flex-col gap-3 md:gap-5'>
+            <p className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>Knowledge hub</p>
+            <p className='capitalize text-[#31511E] font-semibold text-xs md:text-xl lg:text-[2.5rem] leading-tight'>Your Go-To Resource for <br /> Farming & Farmland <br /> Insights</p>
           </div>
-          <div className='col-span-1 bg-[#859F3E1A] py-5 md:py-10 px-3 md:px-4 lg:hidden'>
-            <div className='grid grid-rows-[1fr_1fr_1fr] gap-5 md:gap-11'>
-              <div className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
-                <div className='size-36 md:size-42'><img src={assets.home_18} alt="" className='size-36 md:size-42' /></div>
-                <div className='flex flex-col h-full items-start justify-end gap-6 w-1/2 md:w-2/3'>
-                  <p className='capitalise text-[#31511E] font-normal text-xs sm:text-2xl leading-tight'>Whispers Of Bali - A serene Farmhouse Retreat In Hyderabad</p>
-                  <Link to={'/journal/blog/1'} className='group flex items-center gap-1 md:gap-2 text-[#859F3E] font-normal text-xs md:text-2xl leading-6 md:leading-8'>Read Now <ArrowUpRight className='size-4 md:size-8 group-hover:rotate-45' /></Link>
-                </div>
-              </div>
-              <div className='bg-[#F1F8DB] p-2 md:p-4 w-full flex flex-row-reverse items-center justify-between'>
-                <div className='size-36 md:size-42'><img src={assets.home_19} alt="" className='size-36 md:size-42' /></div>
-                <div className='flex flex-col h-full items-start justify-end gap-6 w-1/2 md:w-2/3'>
-                  <p className='capitalise text-[#31511E] font-normal text-xs md:text-2xl leading-tight'>5 farmlands near Mysuru on our site you can look at</p>
-                  <Link to={'/journal/blog/1'} className='group flex items-center gap-1 md:gap-2 text-[#859F3E] font-normal text-xs md:text-2xl leading-6 md:leading-8'>Read Now <ArrowUpRight className='size-4 md:size-8 group-hover:rotate-45' /></Link>
-                </div>
-              </div><div className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
-                <div className='size-36 md:size-42'><img src={assets.home_20} alt="" className='size-36 md:size-42' /></div>
-                <div className='flex flex-col h-full items-start justify-end gap-6 w-1/2 md:w-2/3'>
-                  <p className='capitalise text-[#31511E] font-normal text-xs md:text-2xl leading-tight'>The vermicompost pioneet of Kashmir</p>
-                  <Link to={'/journal/blog/1'} className='group flex items-center gap-1 md:gap-2 text-[#859F3E] font-normal text-xs md:text-2xl leading-6 md:leading-8'>Read Now <ArrowUpRight className='size-4 md:size-8 group-hover:rotate-45' /></Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='flex flex-col gap-2 md:gap-3'>
-            <p className='capitalize text-[#31511E] font-normal text-lg md:text-2xl leading-7 md:leading-8'>Explore farming insights, market trends, and investment strategies. Gain expert knowledge to make informed decisions.</p>
-            <Link to={'/journal/blog'} className='group flex gap-2 md:gap-4 text-[#859F3E] font-normal text-lg md:text-2xl leading-7 md:leading-8'>View all <ArrowUpRight className='size-6 md:size-8 group-hover:rotate-45' /></Link>
+          <div className='flex flex-col gap-0.5 md:gap-1 lg:gap-3'>
+            <p className='capitalize text-[#31511E] font-semibold text-[8px] md:text-sm lg:text-2xl leading-tight'>Explore farming insights, market trends, and investment strategies. Gain expert knowledge to make informed decisions.</p>
+            <Link to={'/journal/blog'}><Button title={'View All'} icon={'show'} className='!text-[#859F3E] !p-0' /></Link>
           </div>
         </div>
-        <div className='col-span-1 bg-[#859F3E1A] py-14 px-6 hidden lg:block'>
-          <div className='grid grid-rows-[1fr_1fr_1fr] gap-11'>
-            <div className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
-              <div className='size-36 md:size-42'><img src={assets.home_18} alt="" className='size-36 md:size-42' /></div>
-              <div className='flex flex-col h-full items-start justify-end gap-2 md:gap-6 w-1/2 md:w-2/3'>
-                <p className='capitalise text-[#31511E] font-normal text-xs sm:text-2xl leading-6 md:leading-8'>Whispers Of Bali - A serene Farmhouse Retreat In Hyderabad</p>
-                <Link to={'/journal/blog/1'} className='group flex items-center gap-2 text-[#859F3E] font-normal text-xs md:text-2xl leading-6 md:leading-8'>Read Now <ArrowUpRight className='size-6 group-hover:rotate-45' /></Link>
-              </div>
-            </div>
-            <div className='bg-[#F1F8DB] p-2 md:p-4 w-full flex flex-row-reverse items-center justify-between'>
-              <div className='size-36 md:size-42'><img src={assets.home_19} alt="" className='size-36 md:size-42' /></div>
-              <div className='flex flex-col h-full items-start justify-end gap-2 md:gap-6 w-1/2 md:w-2/3'>
-                <p className='capitalise text-[#31511E] font-normal txet-xs md:text-2xl leading-6 md:leading-8'>5 farmlands near Mysuru on our site you can look at</p>
-                <Link to={'/journal/blog/1'} className='group flex items-center gap-2 text-[#859F3E] font-normal text-xs md:text-2xl leading-6 md:leading-8'>Read Now <ArrowUpRight className='size-6 group-hover:rotate-45' /></Link>
-              </div>
-            </div><div className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
-              <div className='size-36 md:size-42'><img src={assets.home_20} alt="" className='size-36 md:size-42' /></div>
-              <div className='flex flex-col h-full items-start justify-end gap-2 md:gap-6 w-1/2 md:w-2/3'>
-                <p className='capitalise text-[#31511E] font-normal txet-xs md:text-2xl leading-6 md:leading-8'>The vermicompost pioneet of Kashmir</p>
-                <Link to={'/journal/blog/1'} className='group flex items-center gap-2 text-[#859F3E] font-normal text-xs md:text-2xl leading-6 md:leading-8'>Read Now <ArrowUpRight className='size-6 group-hover:rotate-45' /></Link>
-              </div>
-            </div>
+        <div className='col-span-1 bg-[#859F3E1A] py-3.5 md:py-7 lg:py-14 px-1.5 md:px-3 lg:px-6'>
+          <div className='grid grid-rows-[1fr_1fr_1fr] gap-3 md:gap-7 lg:gap-11'>
+            {
+              data.map((item, index) => (
+                <div key={index} className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
+                  <div className='size-16 lg:size-42'><img src={item.image} alt="" className='size-16 lg:size-42' /></div>
+                  <div className='flex flex-col h-full items-start justify-between py-1 md:py-2 lg:py-4 w-1/2 md:w-2/3'>
+                    <p className='capitalise text-[#31511E] font-semibold text-[7px] md:text-sm lg:text-2xl leading-tight'>{item.title}</p>
+                    <Link to={'/journal/blog/1'}><Button title={'Read More'} icon={'show'} className='!text-[#859F3E] !p-0 text-[10px]' /></Link>
+                  </div>
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>
