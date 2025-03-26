@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom'
 
 const HomeJournal = () => {
   return (
-    <div className='my-6 md:my-10 xl:my-14 old-standard-tt'>
-      <div className="flex flex-col md:flex-row items-center justify-between w-full py-4 md:py-11">
-        <div className="w-full md:w-1/2 flex flex-col items-start justify-between h-full text-center md:text-left">
-          <p className="uppercase text-[#859F3E] font-bold text-2xl md:text-3xl lg:text-4xl md:leading-10 lg:leading-12">
+    <div className='py-6 md:py-10 xl:py-14'>
+      <div className="w-full flex flex-row items-end justify-between py-4 md:py-11">
+        <div className="flex flex-col items-start justify-between h-full text-center md:text-left">
+          <p className="uppercase text-[#859F3E] font-semibold text-xs md:text-xl lg:text-[2.5rem] leading-tight">
             The Farm
           </p>
-          <p className="uppercase text-[#073D2C] font-bold text-4xl md:text-5xl lg:text-[4rem] md:leading-16 lg:leading-20">
+          <p className="uppercase text-[#073D2C] font-semibold text-base md:text-3xl lg:text-[4rem] leading-tight">
             Journal
           </p>
         </div>
-        <div className="w-full md:w-1/2 flex flex-col items-start lg:items-end justify-start h-full text-start lg:text-right">
-          <p className="capitalize text-[#859F3E] font-bold text-xl md:text-2xl lg:text-4xl lg:leading-12">
+        <div className="w-fit flex flex-col items-start lg:items-end justify-start h-full text-start lg:text-right">
+          <p className="capitalize text-[#859F3E] font-bold text-xs md:text-2xl lg:text-4xl leading-tight text-right">
             Discover Stories, tips, and trends <br /> from the land
           </p>
         </div>

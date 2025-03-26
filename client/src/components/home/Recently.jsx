@@ -51,7 +51,7 @@ const Recently = () => {
     };
 
     return (
-        <div className='py-6 md:py-10 xl:py-14 flex flex-col gap-6 md:gap-12 lg:gap-24'>
+        <div className='my-6 md:my-10 xl:my-14 flex flex-col gap-6 md:gap-12 lg:gap-24'>
             <div className='flex items-end justify-between'>
                 <Link to='/properties?sort=latest'>
                     <Button title='View More' variant='primary' icon='show' />
