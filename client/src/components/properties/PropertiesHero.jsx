@@ -42,6 +42,7 @@ const PropertiesHero = () => {
         { value: "all", label: "All" },
         { value: "elite", label: "Elite Properties" },
         { value: "featured", label: "Featured Properties" },
+        { value: "highrec", label: "Highly recommended" },
     ];
     const sortOptions = [
         { value: "alpha_low-high", label: "Alphabetical" },
