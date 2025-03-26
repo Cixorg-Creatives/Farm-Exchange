@@ -37,7 +37,7 @@ const Featured = () => {
     return (
         <div className='w-full h-full grid grid-cols-[1fr_1fr]'>
             <div className='h-full flex flex-col justify-between'>
-                <div className='flex flex-col items-start justify-center gap-1 md:gap-2 lg:gap-4'>
+                <div className='flex flex-col items-start justify-center gap-2.5 md:gap-3.5 lg:gap-5'>
                     <h1 className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>
                         Featured Properties
                     </h1>
@@ -54,7 +54,7 @@ const Featured = () => {
                     </div>
                 </div>
                 <Link to='/properties?category=featured' className='mt-auto'>
-                    <Button title='View All' variant='primary' icon='show' className='w-fit' />
+                    <Button title='View More' variant='primary' icon='show' className='w-fit' />
                 </Link>
             </div>
             <div className='h-full flex flex-row justify-end'>

@@ -1,6 +1,8 @@
 import { assets } from '@/assets/assets';
 import { ChevronLeft, ChevronRight, IndianRupee } from 'lucide-react';
 import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Button from '../Button';
 
 const data = [
     { image: assets.home_24 },
@@ -49,14 +51,19 @@ const Elite = () => {
     };
 
     return (
-        <div className='py-6 md:py-10 xl:py-14 flex flex-col gap-6 md:gap-12 lg:gap-24 old-standard-tt'>
-            <div className='flex flex-col items-start gap-2.5 md:gap-3.5 lg:gap-5'>
-                <div className='uppercase text-[#859F3E] font-bold text-lg md:text-xl lg:text-[1.75rem]'>
-                    Elite Properties
+        <div className='py-6 md:py-10 xl:py-14 flex flex-col gap-3 md:gap-6 lg:gap-12 old-standard-tt'>
+            <div className='flex items-end justify-between'>
+                <div className='flex flex-col items-start gap-2.5 md:gap-3.5 lg:gap-5'>
+                    <div className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>
+                        Elite Properties
+                    </div>
+                    <div className='capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight lg:leading-[4.5rem]'>
+                        Explore top farms and <br /> premium produce, handpicked <br /> for quality.
+                    </div>
                 </div>
-                <div className='lg:w-2/3 capitalize text-[#31511E] font-normal text-2xl md:text-4xl lg:text-6xl leading-tight lg:leading-[4.5rem]'>
-                    Explore top farms and premium produce, handpicked for quality.
-                </div>
+                <Link to='/properties?category=elite'>
+                    <Button title='View More' variant='primary' icon='show' />
+                </Link>
             </div>
             <div className="w-full flex flex-col-reverse lg:flex-row items-end justify-end gap-2 md:gap-3 lg:gap-0">
                 <div className='w-full lg:w-fit relative z-2 lg:translate-y-1/3 lg:translate-x-1/2 flex items-center justify-center gap-3 md:gap-4 lg:gap-5'>
@@ -77,14 +84,14 @@ const Elite = () => {
                 </div>
                 <div ref={scrollRef} className="lg:w-4/5 h-full overflow-x-auto flex items-center justify-start">
                     {data.map((item, index) => (
-                        <div key={index} className='relative w-1/3 flex-shrink-0 border-y-[0.25px] lg:border-y-1 border-[#31511E]'>
+                        <div key={index} className='relative w-1/3 flex-shrink-0'>
                             <img src={item.image} alt="" className="w-full h-full" />
                             {index === currentIndex + 1 && (
                                 <>
-                                    <div className='absolute inset-0 -translate-x-full z-1 group bg-[#D9E2C3] border-x-[0.25px] lg:border-x-1 border-[#31511E] hover:bg-[#5E722D66] hover:duration-300 ease-in flex items-start justify-center p-3 md:p-6 lg:p-9'>
+                                    <div className='absolute inset-0 -translate-x-full z-1 group bg-[#D9E2C3] hover:bg-[#5E722D66] hover:duration-300 ease-in flex items-start justify-center p-3 md:p-6 lg:p-9'>
                                         <p className='uppercase group-hover:text-white text-black font-normal duration-300 ease-in text-sm md:text-lg lg:text-[2.5rem]'>{item.title}</p>
                                     </div>
-                                    <div className='absolute inset-0 translate-x-full z-1 group bg-[#5E722D] border-x-[0.25px] lg:border-x-1 border-[#31511E] hover:bg-[#859F3E33] duration-300 ease-in flex items-end justify-center p-1.5 md:p-3 lg:p-6'>
+                                    <div className='absolute inset-0 translate-x-full z-1 group bg-[#5E722D] hover:bg-[#859F3E33] duration-300 ease-in flex items-end justify-center p-1.5 md:p-3 lg:p-6'>
                                         <div className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
                                             <div className='flex items-end'>
                                                 <IndianRupee className='h-6 md:h-9 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
