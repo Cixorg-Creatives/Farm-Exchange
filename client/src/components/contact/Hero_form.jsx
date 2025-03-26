@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { ArrowUpRight } from 'lucide-react'
+import { Textarea } from '../ui/textarea'
 
 // ✅ Define form validation schema
 const formSchema = z.object({
@@ -26,6 +27,9 @@ const formSchema = z.object({
     }),
     phone: z.string().min(10, {
         message: "Phone number must be at least 10 characters.",
+    }),
+    message: z.string().min(5, {
+        message: "Message must be of enough length",
     }),
 })
 
@@ -48,6 +52,12 @@ const formData = [
         placeholder: "+91",
         type: "tel",
     },
+    {
+        name: "message",
+        label: "Your Message",
+        placeholder: "Enter your message",
+        type: "text",
+    },
 ]
 
 const HeroForm = () => {
@@ -58,6 +68,7 @@ const HeroForm = () => {
             fullName: "",
             email: "",
             phone: "",
+            message: "",
         },
     })
 
@@ -67,13 +78,13 @@ const HeroForm = () => {
 
 
     return (
-        <div className='flex flex-col-reverse lg:flex-row items-center lg:items-start justify-between px-4 sm:px-8 md:px-16'>
+        <div className='py-6 md:py-10 xl:py-14 flex flex-col-reverse lg:flex-row items-center justify-between clashdisplay'>
             <div className='w-full lg:w-1/2'>
-                <h1 className='prata text-[#31511E] font-normal text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight uppercase text-center lg:text-left'>
+                <h1 className='text-[#31511E] font-semibold text-[2.5rem] md:text-6xl lg:text-[5rem] leading-tight uppercase text-center lg:text-left'>
                     We&apos;re Here to Help
                 </h1>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-6">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:space-y-4 lg:space-y-6 mt-6">
                         {
                             formData.map((item, index) => (
                                 <FormField
@@ -81,12 +92,21 @@ const HeroForm = () => {
                                     name={item.name}
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="text-[#859F3E] buda font-normal text-xl sm:text-2xl old-standard-tt">{item.label}</FormLabel>
+                                            <FormLabel className="text-[#859F3E] buda font-semibold text-base md:text-xl lg::text-2xl old-standard-tt">{item.label}</FormLabel>
                                             <FormControl>
-                                                <Input type={item.type}
-                                                    className="w-full h-12 sm:h-14 border-[1px] border-[#859F3E] px-4 sm:px-5 sm:py-3 old-standard-tt font-normal text-lg sm:text-xl leading-7 text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
-                                                    placeholder={item.placeholder} {...field}
-                                                />
+                                                {
+                                                    item.name === 'message' ? (
+                                                        <Textarea type={item.type}
+                                                            className="w-full h-10 md:h-12 lg:h-14 border-[1px] border-[#859F3E] p-2 md:p-3 lg:p-4 font-normal text-xs md:text-sm lg:text-base leading-tight text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
+                                                            placeholder={item.placeholder} {...field}
+                                                        />
+                                                    ) : (
+                                                        <Input type={item.type}
+                                                            className="w-full h-10 md:h-12 lg:h-14 border-[1px] border-[#859F3E] p-2 md:p-3 lg:p-4 font-normal text-xs md:text-sm lg:text-base leading-tight text-[#859F3E] placeholder:text-[#859F3E]/50 focus-visible:border-[#859F3E] focus-visible:ring-[#859F3E]/30"
+                                                            placeholder={item.placeholder} {...field}
+                                                        />
+                                                    )
+                                                }
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -102,8 +122,8 @@ const HeroForm = () => {
                     </form>
                 </Form>
             </div>
-            <div className="w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0 lg:ml-4">
-                <img src={assets.contact_1} alt="Contact" className='w-full sm:w-auto max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl' />
+            <div className="w-1/2 flex justify-center">
+                <img src={assets.contact_1} alt="Contact" className='w-full h-auto' />
             </div>
         </div>
     )
