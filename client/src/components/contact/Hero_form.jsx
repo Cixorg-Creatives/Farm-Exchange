@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
@@ -16,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { ArrowUpRight } from 'lucide-react'
 import { Textarea } from '../ui/textarea'
+import Button from '../Button'
 
 // ✅ Define form validation schema
 const formSchema = z.object({
@@ -74,6 +74,7 @@ const HeroForm = () => {
 
     const onSubmit = (values) => {
         console.log("Form Submitted:", values)
+        form.reset();
     }
 
 
@@ -114,10 +115,8 @@ const HeroForm = () => {
                                 />
                             ))
                         }
-                        <div className="flex justify-center lg:justify-start">
-                            <Button type="submit" className="w-fit px-3 py-6 bg-[#859F3E] text-white font-bold text-xl sm:text-2xl leading-tight flex items-center justify-center">
-                                Contact Now <ArrowUpRight size={28} className="ml-2" />
-                            </Button>
+                        <div className="flex justify-start">
+                            <Button type="submit" title='Contact Now' variant='primary' icon='show' />
                         </div>
                     </form>
                 </Form>

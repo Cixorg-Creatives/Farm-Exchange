@@ -22,7 +22,7 @@ const HomeHero = () => {
           <div className='h-full flex items-center justify-between pl-5'>
             <div className='h-full flex flex-col justify-between'>
               <div className='uppercase boska text-[#859F3E] font-normal text-2xl leading-tight w-80'>Seamlessly connect <br /> growers and buyers <br /> for a fair <br /> marketplace.</div>
-              <Link to={'/post-property'}><Button title='Explore Services' variant='primary' icon='show' /></Link>
+              <Link to={'/services'}><Button title='Explore Services' variant='primary' icon='show' /></Link>
             </div>
             <div className='relative'>
               <img src={assets.home_2} alt="" className='h-52 w-52 rounded-r-3xl' />
@@ -48,7 +48,7 @@ const HomeHero = () => {
         <div className='h-32 md:h-44 flex items-center justify-between pl-4'>
           <div className='h-full flex flex-col justify-between w-1/2'>
             <div className='uppercase boska text-[#859F3E] font-normal text-sm md:text-base leading-tight'>Seamlessly connect <br /> growers and buyers <br /> for a fair <br />marketplace.</div>
-            <Link to={'/post-property'}><Button title='Explore Services' variant='primary' icon='show' /></Link>
+            <Link to={'/services'}><Button title='Explore Services' variant='primary' icon='show' /></Link>
           </div>
           <div className='relative w-1/3'>
             <img src={assets.home_2} alt="" className='h-32 md:h-44 w-full rounded-r-xl' />
