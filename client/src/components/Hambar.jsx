@@ -5,6 +5,25 @@ import { NavLink } from "react-router-dom";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const data = [
+    {
+        name: 'Our Services',
+        link: '/services',
+    },
+    {
+        name: 'Farm Journal',
+        link: '/journal',
+    },
+    {
+        name: 'About Us',
+        link: '/about',
+    },
+    {
+        name: 'Contact Us',
+        link: '/contact',
+    },
+]
+
 const Hambar = ({ closeMenuTrigger }) => {
     const [open, setOpen] = useState(false);
 
@@ -57,12 +76,13 @@ const Hambar = ({ closeMenuTrigger }) => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
-                            className="absolute z-50 top-16 right-0 bg-[#073D2C] w-40 p-4 flex flex-col gap-3 rounded-2xl shadow-lg"
+                            className="absolute z-50 top-16 -right-3 bg-[#073D2C] w-40 p-4 flex flex-col gap-3 rounded-2xl shadow-lg"
                         >
-                            <NavLink onClick={closeSheet} to="/services" className="text-[#859F3E] font-normal text-sm text-center">Our Services</NavLink>
-                            <NavLink onClick={closeSheet} to="/journal" className="text-[#859F3E] font-normal text-sm text-center">Farm Journal</NavLink>
-                            <NavLink onClick={closeSheet} to="/about" className="text-[#859F3E] font-normal text-sm text-center">About Us</NavLink>
-                            <NavLink onClick={closeSheet} to="/contact" className="text-[#859F3E] font-normal text-sm text-center">Contact Us</NavLink>
+                            {
+                                data.map((item, index) => (
+                                    <NavLink key={index} onClick={closeSheet} to={item.link} className="text-[#859F3E] font-normal text-sm md:text-base text-center">{item.name}</NavLink>
+                                ))
+                            }
                         </motion.div>
                     )}
                 </AnimatePresence>

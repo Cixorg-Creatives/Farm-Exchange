@@ -4,6 +4,24 @@ import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import Hambar from './Hambar'
 
+const data=[
+    {
+        name: 'Our Services',
+        link: '/services',
+    },
+    {
+        name: 'Farm Journal',   
+        link: '/journal',
+    },
+    {
+        name: 'About Us',
+        link: '/about',
+    },
+    {
+        name: 'Contact Us',
+        link: '/contact',
+    },
+]
 
 const Header = () => {
 
@@ -19,10 +37,11 @@ const Header = () => {
                 <img src={assets.logo} alt="" className='h-[57.6px] w-[54px] sm:h-[76.8px] sm:w-[71.91px]' />
             </Link>
             <div className='header hidden lg:flex gap-6 items-center justify-evenly inter'>
-                <NavLink to="/services" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">Our Services</NavLink>
-                <NavLink to="/journal" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">Farm Journal</NavLink>
-                <NavLink to="/about" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">About Us</NavLink>
-                <NavLink to="/contact" className="text-[#859F3E] font-normal text-xl leading-[24.2px] text-center">Contact Us</NavLink>
+                {
+                    data.map((item,index)=>(
+                        <NavLink key={index} to={item.link} className='text-[#859F3E] font-normal text-xl leading-tight text-center'>{item.name}</NavLink>
+                    ))
+                }
             </div>
             <Hambar closeMenuTrigger={closeMenuTrigger} />
         </div>
