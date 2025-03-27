@@ -7,6 +7,7 @@ const Button = ({ title, icon, variant = 'default', className = '', symbol, link
         default: '',
         primary: 'bg-[#859F3E]',
         secondary: 'bg-[#31511E]',
+        ternary: 'bg-[#073D2C]',
         destructive: 'bg-red-700',
     };
 
