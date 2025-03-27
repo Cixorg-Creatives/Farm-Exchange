@@ -3,7 +3,7 @@ import React from 'react'
 
 const Vision = () => {
     return (
-        <div className='py-6 md:py-10 lg:py-14 flex flex-col lg:flex-row items-center justify-between'>
+        <div className='py-6 md:py-10 lg:py-0 lg:pt-14 flex flex-col lg:flex-row items-center justify-between'>
             <div className='w-full lg:w-3/5 flex flex-col lg:flex-row justify-between lg:relative'>
                 <div className='lg:w-2/5'>
                     <div className='lg:absolute lg:inset-0 lg:-translate-x-1/4 z-10 lg:w-[85vh] uppercase text-[#073D2C]/50 font-semibold text-5xl md:text-7xl lg:text-[6.25rem] leading-tight lg:-rotate-90 text-left'>our Vision</div>
