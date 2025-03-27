@@ -27,8 +27,8 @@ const Weekend = () => {
             </div>
             <div className='relative w-2/5'>
                 <img src={assets.about_4} alt='' className='h-auto w-full object-cover' />
-                <div className='z-10 border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-16 md:size-20 lg:size-[6.2rem] bg-[#859F3E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
-                    <div className='flex items-center justify-center h-full w-full'><Play className='size-8 md:size-12 lg:size-[3.75rem] text-white fill-white' /></div>
+                <div className='active:scale-75 ease-in-out duration-150 z-10 border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-8 md:size-16 lg:size-24 bg-[#859F3E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+                    <div className='flex items-center justify-center h-full w-full'><Play className='size-4 md:size-8 lg:size-12 text-white fill-white' /></div>
                 </div>
                 <div className='absolute w-full h-full top-0 left-0 bg-black/50'></div>
             </div>
