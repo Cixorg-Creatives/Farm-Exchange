@@ -4,7 +4,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../Button'
 
-const data=[
+const data = [
   {
     image: assets.home_18,
     title: 'Whispers Of Bali - A serene Farmhouse Retreat In Hyderabad',
@@ -50,7 +50,7 @@ const HomeJournal = () => {
         </div>
         <div className='col-span-1 relative'>
           <img src={assets.home_17} alt="" className='w-full h-auto md:h-[49.375rem]' />
-          <div className='z-10 border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-8 md:size-16 lg:size-24 bg-[#859F3E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+          <div className='active:scale-75 ease-in-out duration-150 z-10 border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-8 md:size-16 lg:size-24 bg-[#859F3E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
             <div className='flex items-center justify-center h-full w-full'><Play className='size-4 md:size-8 lg:size-12 text-white fill-white' /></div>
           </div>
           <div className='absolute w-full h-full top-0 left-0 bg-black/50'></div>

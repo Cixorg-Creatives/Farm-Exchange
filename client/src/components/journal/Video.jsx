@@ -42,8 +42,8 @@ const Video = () => {
   return (
     <div className='py-6 md:py-10 lg:py-14'>
       <div className='px-4 md:px-6 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-2 md:gap-4 lg:gap-0'>
-        <p className='uppercase text-[#073D2C]/50 font-normal text-5xl md:text-7xl lg:text-[7.5rem] prata'>Videos</p>
-        <p className='capitalize old-standard-tt text-[#747474] font-normal text-xs md:text-base lg:text-xl lg:w-[37%] lg:text-right'>Experience the beauty of nature through our farmland gallery. From lush green fields to golden harvests, every frame tells a story of hard work and dedication. Witness the harmony between </p>
+        <p className='uppercase text-[#073D2C]/50 font-semibold text-5xl md:text-7xl lg:text-[6.25rem] leading-tight text-left'>Videos</p>
+        <p className='capitalize old-standard-tt text-[#747474] font-normal text-[10px] md:text-base lg:text-xl lg:text-right'>Experience the beauty of nature through our <br /> farmland gallery. From lush green fields to <br /> golden harvests, every frame tells a story of hard <br /> work and dedication. Witness the harmony <br /> between </p>
       </div>
       <div className='pl-4 md:pl-6 lg:pl-24 pt-6 md:pt-12 lg:pt-16 flex items-center gap-2 md:gap-4 lg:gap-6'>
         <div className='flex flex-col items-center justify-center gap-3 md:gap-4 lg:gap-5'>
@@ -72,12 +72,12 @@ const Video = () => {
                   <div className='relative'>
                     <img src={item} alt='' className='w-full h-auto' />
                     <div className='absolute inset-0 bg-black/50 flex items-center justify-center'>
-                      <button className='flex items-center justify-center border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-12 md:size-20 lg:size-[6.2rem] bg-[#859F3E] cursor-pointer active:scale-75 ease-in duration-150'>
-                        <Play className='size-6 md:size-12 lg:size-[3.75rem] text-white fill-white' />
-                      </button>
+                      <div className='active:scale-75 ease-in-out duration-150 z-10 border-[0.1875rem] md:border-[0.25rem] lg:border-[0.3125rem] border-white rounded-full size-8 md:size-16 lg:size-24 bg-[#859F3E] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+                        <div className='flex items-center justify-center h-full w-full'><Play className='size-4 md:size-8 lg:size-12 text-white fill-white' /></div>
+                      </div>
                     </div>
                   </div>
-                  <div className='capitalize text-[#1E1E1E] font-normal text-[10px] md:text-base lg:text-xl text-left'>Nandi Hills, Chikballapur, Karnataka</div>
+                  <div className='capitalize text-[#31511E] font-normal text-[10px] md:text-base lg:text-xl text-left'>Nandi Hills, Chikballapur, Karnataka</div>
                 </div>
               ))}
             </div>
