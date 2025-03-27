@@ -43,7 +43,7 @@ const Difference = () => {
           data.map((item, index) => (
             <motion.div key={index} className='relative group hover:bg-[#D9E1C3] duration-150 ease-in px-1 md:px-3 lg:px-5 py-2 md:py-4 lg:py-6 flex justify-between shadow-inner shadow-black/25'>
               <div className='flex items-center gap-5 md:gap-7 lg:gap-10'>
-                <p className='text-[#B3B3B3] font-bold text-sm md:text-lg lg:text-2xl'>{item.index}</p>
+                <p className='boska text-[#B3B3B3] font-bold text-sm md:text-lg lg:text-2xl'>{item.index}</p>
                 <p className='capitalize text-[#02542D] font-normal text-base md:text-2xl lg:text-[2.5rem]'>{item.title}</p>
               </div>
               <div className='flex items-center'>
