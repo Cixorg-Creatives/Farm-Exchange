@@ -47,7 +47,7 @@ const Faq = () => {
         Frequently Asked Questions
       </p>
       <div className='flex items-start justify-between'>
-        <div className='w-3/5 flex flex-col items-center gap-2 md:gap-3 lg:gap-4'>
+        <div className='md:w-3/5 flex flex-col items-center gap-2 md:gap-3 lg:gap-4'>
           {faqs.map((item, index) => (
             <div key={index} className='flex flex-col gap-2 md:gap-3 lg:gap-4 w-full h-auto'>
               <div
@@ -70,7 +70,7 @@ const Faq = () => {
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className='overflow-hidden'
                   >
-                    <p className='w-[90%] capitalize text-[#758A68] font-normal text-[8px] lg:text-xl py-1 md:py-2 lg:py-3 px-3 md:px-5 lg:px-7'>
+                    <p className='w-[90%] capitalize text-[#758A68] font-normal text-[10px] md:text-sm lg:text-xl py-1 md:py-2 lg:py-3 px-3 md:px-5 lg:px-7'>
                       {item.answer}
                     </p>
                   </motion.div>
@@ -79,7 +79,7 @@ const Faq = () => {
             </div>
           ))}
         </div>
-        <div className='w-1/3 flex-shrink-0 hidden lg:block'>
+        <div className='w-1/3 flex-shrink-0 hidden md:block'>
           <img src={assets.faq_1} alt="FAQ Illustration" className='w-full h-auto' />
         </div>
       </div>
