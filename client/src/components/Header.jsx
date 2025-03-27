@@ -36,7 +36,7 @@ const Header = () => {
             <Link onClick={handleLogoClick} to="/">
                 <img src={assets.logo} alt="" className='h-[57.6px] w-[54px] sm:h-[76.8px] sm:w-[71.91px]' />
             </Link>
-            <div className='header hidden lg:flex gap-6 items-center justify-evenly inter'>
+            <div className='header hidden md:flex gap-6 items-center justify-evenly inter'>
                 {
                     data.map((item,index)=>(
                         <NavLink key={index} to={item.link} className='text-[#859F3E] font-normal text-xl leading-tight text-center'>{item.name}</NavLink>

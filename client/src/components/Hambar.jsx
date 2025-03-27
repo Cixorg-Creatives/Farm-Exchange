@@ -34,7 +34,7 @@ const Hambar = ({ closeMenuTrigger }) => {
     const closeSheet = () => setOpen(false);
 
     return (
-        <div className="lg:hidden">
+        <div className="md:hidden">
             <div className="relative">
                 <motion.div
                     className="cursor-pointer size-8 flex items-center justify-center"
