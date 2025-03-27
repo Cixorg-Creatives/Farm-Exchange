@@ -13,8 +13,8 @@ const IntrestingReads = () => {
           [...Array(3)].map((item, index) => (
             <Link to={'/journal/blog/1'} key={index} className='grid-cols-1 px-2 md:px-4 lg:px-8 py-2.5 md:py-5 lg:py-9 flex flex-col items-start gap-1 md:gap-2 lg:gap-4 cursor-pointer'>
               <img src={assets.journal_5} alt="" className='w-full h-auto' />
-              <p className='uppercase text-black font-bold text-[8px] md:text-[10px] lg:text-xs'>Small Text</p>
-              <p className='capitalize text-black font-bold text-sm md:text-lg lg:text-2xl'>Women’s Day Special: <br /> Honoring India’s Women Farmers and Their Legacy of Resilience</p>
+              <p className='uppercase text-[#859F3E] font-semibold text-[8px] md:text-[10px] lg:text-xs'>Small Text</p>
+              <p className='capitalize text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl'>Women’s Day Special: Honoring India’s Women Farmers and Their Legacy of Resilience</p>
             </Link>
           ))
         }
