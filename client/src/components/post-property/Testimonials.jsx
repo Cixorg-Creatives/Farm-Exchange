@@ -37,16 +37,16 @@ const Testimonials = () => {
         <AnimatePresence mode='wait'>
           <motion.div key={currentIndex} initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} transition={{ duration: 0.5 }} className='flex flex-col items-center gap-6 md:gap-12'>
             <div className='flex justify-around lg:justify-between items-center'>
-              <img src={data[currentIndex].image[0]} alt="" className='w-2/5 lg:w-1/5 h-auto' />
-              <div className='w-[30%] hidden lg:block relative'>
-                <p className='capitalize text-[#31511E] font-normal lg:text-xl'>{data[currentIndex].testimonial}</p>
+              <img src={data[currentIndex].image[0]} alt="" className='w-2/5 md:w-1/5 h-auto' />
+              <div className='w-[30%] hidden md:block relative'>
+                <p className='capitalize text-[#31511E] font-normal text-base lg:text-xl'>{data[currentIndex].testimonial}</p>
                 <img src={assets.open_double_quotes} alt="" className='absolute top-0 -translate-x-1/2 -translate-y-[130%] left-0 size-4 md:size-8 lg:size-16' />
                 <img src={assets.close_double_quotes} alt="" className='absolute bottom-0 translate-x-1/2 translate-y-4/5 right-0 size-4 md:size-8 lg:size-16' />
               </div>
-              <img src={data[currentIndex].image[1]} alt="" className='w-2/5 lg:w-1/5 h-auto' />
+              <img src={data[currentIndex].image[1]} alt="" className='w-2/5 md:w-1/5 h-auto' />
             </div>
-            <div className='w-4/5 lg:hidden relative'>
-              <p className='capitalize text-[#31511E] font-normal lg:text-xl'>{data[currentIndex].testimonial} </p>
+            <div className='w-4/5 md:hidden relative'>
+              <p className='capitalize text-[#31511E] font-normal text-base md:text-xl'>{data[currentIndex].testimonial} </p>
               <img src={assets.open_double_quotes} alt="" className='absolute top-0 -translate-x-[125%] -translate-y-1/3 left-0 size-5 md:size-10' />
               <img src={assets.close_double_quotes} alt="" className='absolute bottom-0 translate-x-0 translate1/3 right-0 size-5 md:size-10' />
             </div>
