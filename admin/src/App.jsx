@@ -12,6 +12,8 @@ import Request from "./pages/Request";
 import Login from "./pages/Login";
 import Blog from "./pages/Blog";
 import { lookInSession } from "./common/session";
+import EditProfile from "./pages/EditProfile";
+import { Toaster } from "react-hot-toast";
 
 export const UserContext = createContext({});
 
@@ -27,6 +29,7 @@ const App = () => {
 
   return (
     <UserContext.Provider value={{ userAuth, setUserAuth }}>
+      <Toaster />
       <div className="h-screen overflow-hidden flex flex-col">
         {userAuth.access_token ? (
           <div>
@@ -36,6 +39,7 @@ const App = () => {
               <div className="w-[82%] h-[85vh] overflow-auto my-8 pb-10 text-gray-600 text-base">
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
+                  <Route path="/profile" element={<EditProfile />} />
                   <Route path="/properties" element={<Properties />} />
                   <Route path="/properties/add-property" element={<AddProperties />} />
                   <Route path="/blogs" element={<Blogs />} />

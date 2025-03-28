@@ -39,7 +39,7 @@ const Login = ({ setToken }) => {
       const { data } = await axios.post(import.meta.env.VITE_SERVER_DOMAIN + '/signin', { email, password });
       storeInSession('user', JSON.stringify(data));
       setUserAuth(data);
-      setToken(data.access_token);
+      toast.success('Welcome back, Admin!');
     } catch (error) {
       toast.error(error.response?.data?.error || 'Login failed');
     } finally {
