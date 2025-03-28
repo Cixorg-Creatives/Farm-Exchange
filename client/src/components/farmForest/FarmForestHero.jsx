@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const FarmForestHero = () => {
   return (
-    <div className='pt-6 md:pt-10 xl:pt-14 old-standard-tt'>
+    <div className='py-6 md:py-10 xl:py-14'>
       <div className="w-full flex flex-col lg:flex-row justify-between ">
         <div className="flex flex-col items-start justify-between gap-5 w-full lg:w-2/3">
           <div className="uppercase text-[#31511E] font-semibold text-[2.5rem] md:text-6xl lg:text-[5rem] leading-tight">
