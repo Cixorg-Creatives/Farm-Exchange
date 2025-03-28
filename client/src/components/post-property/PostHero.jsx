@@ -73,7 +73,7 @@ const PostHero = () => {
   }
 
   return (
-    <div className='py-6 md:py-10 xl:py-14 old-standard-tt'>
+    <div className='py-6 md:py-10 xl:py-14'>
       <div className='grid lg:grid-cols-[9fr_17fr] gap-2 md:gap-3 lg:gap-4'>
         <div className='hidden lg:block col-span-1 w-full h-auto'>
           <img src={assets.post_1} alt="" className='w-full h-auto' />

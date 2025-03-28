@@ -26,7 +26,7 @@ const data = {
 
 const Explore = () => {
   return (
-    <div className='py-6 md:py-10 lg:py-14 flex-col gap-4 md:gap-6 lg:gap-8'>
+    <div className='py-6 md:py-10 xl:py-14 flex-col gap-4 md:gap-6 lg:gap-8'>
       <div className='flex flex-col lg:flex-row items-center justify-between gap-2 md:gap-4 lg:gap-0 mb-4 md:mb-8 lg:mb-16'>
         <div className='text-[#859F3E] uppercase font-semibold text-3xl md:text-4xl lg:text-[3.5rem] leading-tight text-center lg:text-left'>Explore Farming <br className='hidden lg:block' /> Through</div>
         <div className='lg:w-1/2 capitalize text-[#747474] font-normal text-xs md:text-base lg:text-xl leading-tight flex justify-end items-center '>

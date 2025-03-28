@@ -3,7 +3,7 @@ import React from 'react'
 
 const VideoHero = () => {
     return (
-        <div className='py-6 md:py-10 xl:py-14 old-standard-tt'>
+        <div className='py-6 md:py-10 xl:py-14'>
             <div className='relative grid grid-cols-2'>
                 <img src={assets.video_1} alt="" className='col-span-1 w-full h-full' />
                 <img src={assets.video_2} alt="" className='col-span-1 w-full h-full' />

@@ -36,7 +36,7 @@ const ProjectHighlight = () => {
     };
 
     return (
-        <div className='flex flex-col lg:flex-row items-start justify-center gap-4 lg:gap-11 py-6 md:py-10 lg:py-14 old-standard-tt'>
+        <div className='flex flex-col lg:flex-row items-start justify-center gap-4 lg:gap-11 py-6 md:py-10 xl:py-14'>
             <div className='flex flex-col items-start justify-start gap-0.5 lg:gap-5 w-full sm:w-[90%] md:w-[80%] lg:w-[495px]'>
                 <p className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase text-left'>Farm Exchange</p>
                 <h1 className='font-medium text-[#31511E] text-xl md:text-3xl lg:text-6xl leading-tight'>Project Highlights</h1>

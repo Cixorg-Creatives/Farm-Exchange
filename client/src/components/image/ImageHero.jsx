@@ -6,7 +6,7 @@ import Button from '../Button';
 
 const ImageHero = () => {
     return (
-        <div className='pb-6 md:pb-10 xl:pb-14 old-standard-tt'>
+        <div className='pb-6 md:pb-10 xl:pb-14'>
             <div className='grid grid-cols-1 lg:grid-cols-2'>
                 <div className='relative'>
                     <img src={assets.image_1} alt="" className='w-full h-auto object-cover hidden lg:block' />

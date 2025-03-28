@@ -8,7 +8,7 @@ import Button from '../Button'
 const HomeHero = () => {
   return (
     <div className='py-6 md:py-10 xl:py-14'>
-      <div className='hidden md:flex relative w-full h-full rounded-3xl'>
+      <div className='hidden xl:flex relative w-full h-full rounded-3xl'>
         <img src={assets.home_12} alt="" className='rounded-3xl w-full lg:h-[90vh]' />
         <div className='absolute left-16 top-1/3 bg-transparent flex flex-col'>
           <div className='flex gap-2 md:gap-4 lg:gap-6'>
@@ -33,7 +33,7 @@ const HomeHero = () => {
           </div>
         </div>
       </div>
-      <div className='md:hidden flex flex-col gap-2'>
+      <div className='xl:hidden flex flex-col gap-2'>
         <div className='relative w-full h-full rounded-xl'>
           <img src={assets.home_1} alt="" className='rounded-xl w-full h-full' />
           <div className='absolute inset-0 bg-black/30 rounded-xl flex flex-col items-start justify-center px-4'>

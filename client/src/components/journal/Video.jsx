@@ -40,7 +40,7 @@ const Video = () => {
   }, []);
 
   return (
-    <div className='py-6 md:py-10 lg:py-14'>
+    <div className='py-6 md:py-10 xl:py-14'>
       <div className='px-4 md:px-6 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-2 md:gap-4 lg:gap-0'>
         <p className='uppercase text-[#073D2C]/50 font-semibold text-5xl md:text-7xl lg:text-[6.25rem] leading-tight text-left'>Videos</p>
         <p className='capitalize old-standard-tt text-[#747474] font-normal text-[10px] md:text-base lg:text-xl lg:text-right'>Experience the beauty of nature through our <br /> farmland gallery. From lush green fields to <br /> golden harvests, every frame tells a story of hard <br /> work and dedication. Witness the harmony <br /> between </p>

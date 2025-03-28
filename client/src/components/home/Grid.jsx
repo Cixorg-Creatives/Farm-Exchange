@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Grid = () => {
   return (
-    <div className='py-6 md:py-10 lg:py-14 grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-2 md:gap-3 lg:gap-5'>
+    <div className='py-6 md:py-10 xl:py-14 grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-2 md:gap-3 lg:gap-5'>
       <Link to={'/properties?type=farmland'} className='relative group overflow-hidden col-span-1 md:row-span-3 rounded-2xl h-[15rem] sm:h-[18rem] md:h-[36rem]'>
         <img src={assets.home_3} alt='' className='w-full h-full group-hover:scale-105 duration-200 ease-in rounded-2xl object-cover' />
         <div className='absolute inset-0 bg-black/40 rounded-2xl p-5 md:p-6'>

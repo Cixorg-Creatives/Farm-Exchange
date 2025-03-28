@@ -20,7 +20,7 @@ const data = [
 
 const Blog = () => {
   return (
-    <div className='py-6 md:py-10 lg:py-14'>
+    <div className='py-6 md:py-10 xl:py-14'>
       <div className='grid grid-cols-[1fr_1fr] gap-4 md:gap-10 lg:gap-20 py-3 md:py-16'>
         <div className='col-span-1 h-full flex flex-col items-start justify-between py-4 md:py-8 lg:py-12'>
           <div className='flex flex-col gap-3 md:gap-5'>

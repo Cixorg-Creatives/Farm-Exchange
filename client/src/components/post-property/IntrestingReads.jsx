@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const IntrestingReads = () => {
   return (
-    <div className='py-6 md:py-10 xl:py-14 old-standard-tt'>
+    <div className='py-6 md:py-10 xl:py-14'>
       <div className='w-full h-12 flex items-center justify-center'>
         <p className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>Interesting Reads</p>
       </div>

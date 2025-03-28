@@ -6,9 +6,9 @@ import Button from '../Button';
 
 const Weekend = () => {
     return (
-        <div className='flex flex-row items-center justify-between py-6 md:py-10 lg:py-14'>
+        <div className='flex flex-row items-center justify-between py-6 md:py-10 xl:py-14'>
             <div className='flex w-1/2'>
-                <div className='w-full flex flex-col items-start gap-2 md:gap-4 md:gap-6'>
+                <div className='w-full flex flex-col items-start gap-2 md:gap-4 lg:gap-6'>
                     <div className='w-full flex flex-col gap-1 md:gap-2 lg:gap-3'>
                         <h2 className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase text-left'>
                             BUILD A COOL AND  COMFORTABLE

@@ -8,7 +8,7 @@ const back = [assets.journal_19, assets.journal_22]
 
 const Image = () => {
   return (
-    <div className='py-6 md:py-10 lg:py-14 old-standard-tt flex flex-col gap-5 md:gap-10 lg:gap-20'>
+    <div className='py-6 md:py-10 xl:py-14 old-standard-tt flex flex-col gap-5 md:gap-10 lg:gap-20'>
       <div className='flex items-center justify-center'>
         <div className='relative w-4/5 md:w-3/4 lg:w-[64%] pl-2 md:pl-4 lg:pl-8'>
           <p className='uppercase text-[#859F3E] font-medium text-2xl md:text-4xl lg:text-[3.5rem] leading-tight text-center'>Capturing Nature's Essence, One Field at a Time.</p>

@@ -42,7 +42,7 @@ const Faq = () => {
   };
 
   return (
-    <div className='py-6 md:py-10 xl:py-14 clash-display'>
+    <div className='py-6 md:py-10 xl:py-14'>
       <p className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>
         Frequently Asked Questions
       </p>
