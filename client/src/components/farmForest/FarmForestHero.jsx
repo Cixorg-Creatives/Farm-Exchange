@@ -57,12 +57,12 @@ const FarmForestHero = () => {
       </div>
       <div className='pt-12 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6'>
         <div className='col-span-1 row-span-1 h-auto'>
-          <img src={assets.farmforest_1} alt="" className='w-full' />
+          <img src={assets.farmforest_1} alt="" className='w-full h-auto' />
         </div>
-        <div className='flex flex-col'>
+        <div className='h-full flex flex-col items-start gap-6 md:gap-18 lg:gap-14'>
           <div className='grid grid-cols-[1fr_1fr] gap-3 md:gap-5 h-2/3'>
-            <img src={assets.farmforest_2} alt="" className='w-full h-2/3' />
-            <img src={assets.farmforest_3} alt="" className='w-full h-2/3' />
+            <img src={assets.farmforest_2} alt="" className='col-span-1 w-full h-auto' />
+            <img src={assets.farmforest_3} alt="" className='col-span-1 w-full h-auto' />
           </div>
           <div className='flex items-center justify-start gap-3 md:gap-6'>
             <Button title='Scheduled Visit' variant='primary' icon='show' symbol='visit' />

@@ -49,7 +49,7 @@ const Details = () => {
     };
 
     return (
-        <div className='py-6 md:py-10 xl:py-14 flex justify-between old-standard-tt'>
+        <div className='py-6 md:py-10 xl:py-14 flex justify-between'>
             <div className='h-auto w-full lg:w-3/5 flex flex-col items-start justify-start'>
                 <div ref={overviewRef}><Overview /></div>
                 <div ref={aboutRef}><About /></div>
@@ -62,7 +62,7 @@ const Details = () => {
                     <div
                         key={section}
                         onClick={() => scrollToSection(sectionRefs[index], index)}
-                        className={`capitalize font-bold text-[2rem] w-full h-28 flex items-center justify-end border-b-1 border-[#ADBF7E] cursor-pointer transition-colors duration-300 ${
+                        className={`capitalize font-semibold text-[2rem] w-full h-28 flex items-center justify-end border-b-1 border-[#ADBF7E] cursor-pointer transition-colors duration-300 ${
                             index <= activeSection ? 'text-[#31511E]' : 'text-[#A0AF98]'
                         }`}
                     >
