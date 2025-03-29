@@ -39,7 +39,7 @@ const Blog = () => {
                 setLoading(false);
             })
             .catch(err => {
-                console.error(err);
+                console.log("Failed");
                 setLoading(false);
             });
     };
@@ -61,7 +61,7 @@ const Blog = () => {
             ) : (
                 <BlogContext.Provider value={{ blog, setBlog }}>
                     <div className="px-5 md:px-8 lg:px-12">
-                        <BlogSettings />
+                        <BlogSettings blog_id={blogId} />
                         <BlogPreview blog={blog} />
                         
                         {/* Blog Content */}

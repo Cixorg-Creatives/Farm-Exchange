@@ -157,7 +157,7 @@ const BlogEditor = () => {
             <Toaster />
             <AnimationWrapper>
                 <section className="px-5 md:px-8 lg:px-12 clashdisplay">
-                    <div className="bg-[#F6FCDF] sticky z-1 top-0 flex w-full items-center justify-end gap-2 md:gap-4 lg:gap-6 py-2 md:py-4 xl:py-6">
+                    <div className="bg-[#F6FCDF] sticky z-50 top-0 flex w-full items-center justify-end gap-2 md:gap-4 lg:gap-6 pb-1 md:pb-2 xl:pb-4">
                         <Button title='Publish' variant="secondary" onClick={handlePublishEvent} />
                         <Button title='Save to Draft' variant="destructive" onClick={handleSaveDraft} />
                     </div>

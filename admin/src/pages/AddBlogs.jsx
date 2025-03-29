@@ -19,7 +19,9 @@ export const EditorContext = createContext({});
 
 const AddBlogs = () => {
 
-  let { blog_id } = useParams();
+  let { blogId } = useParams();
+
+  // console.log(blog_id)
 
   const [blog, setBlog] = useState(blogStructure)
 
@@ -31,11 +33,11 @@ const AddBlogs = () => {
   let { userAuth: { access_token, isAdmin } } = useContext(UserContext)
 
   useEffect(() => {
-    if (!blog_id) {
+    if (!blogId) {
       return setLoading(false);
     }
 
-    axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/get-blog", { blog_id, draft: true, mode: 'edit' })
+    axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/get-blog", { blog_id: blogId, draft: true, mode: 'edit' })
       .then(({ data: { blog } }) => {
         setBlog(blog);
         setLoading(false);
@@ -43,9 +45,11 @@ const AddBlogs = () => {
       .catch(err => {
         setBlog(null);
         setLoading(false)
+        console.log("Failed")
       })
 
   }, [])
+
 
   return (
     <EditorContext.Provider value={{ blog, setBlog, editorState, setEditorState, textEditor, setTextEditor }}>
