@@ -15,10 +15,12 @@ import Journal from './pages/Journal'
 import Image from './pages/Image'
 import Video from './pages/Video'
 import PostProperty from './pages/PostProperty'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   return (
     <div className='bg-[#F6FCDF] clashdisplay'>
+      <Toaster />
       <Header />
       <ScrollToTop />
       <Routes>
