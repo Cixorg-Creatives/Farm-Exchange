@@ -1,10 +1,12 @@
 import { assets } from '@/assets/assets';
-import BlogHero from '@/components/blogs/BlogHero';
 import BlogSettings from '@/components/blogs/BlogSettings';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
+import BlogPreview from '@/components/blogs/BlogPreview';
+
+export const BlogContext = createContext({ });
 
 const Blog = () => {
     const { blog_id } = useParams();
@@ -39,7 +41,7 @@ const Blog = () => {
     return (
         <div className='px-5 md:px-8 lg:px-12'>
             <BlogSettings handleDelete={handleDelete} />
-            {loading ? <Loader2 /> : <BlogHero blog={blog} />}
+            {loading ? <Loader2 /> : <BlogPreview blog={blog} />}
         </div>
     );
 };

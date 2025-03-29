@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BlogHero = () => {
+const BlogPreview = () => {
     return (
         <div className='my-2 md:my-4 xl:my-6 flex flex-col items-start clashdisplay'>
             <p className='uppercase text-[#31511E] font-normal text-lg md:text-2xl lg:text-[2rem]'>March 12, 2025</p>
@@ -19,4 +19,4 @@ const BlogHero = () => {
     );
 };
 
-export default BlogHero;
+export default BlogPreview;
