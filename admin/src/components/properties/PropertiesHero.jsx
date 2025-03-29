@@ -43,40 +43,40 @@ const PropertiesHero = () => {
                 </h1>
                 <form className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
                     <div className="grid grid-cols-[3fr_1fr] gap-3 md:gap-5 lg:gap-7">
-                        <div className="grid-cols-3 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
                             <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
                                 Name of property
                             </label>
                             <input
                                 type="text"
-                                className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg"
+                                className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg outline-none"
                                 placeholder="Property, budget, name"
                             />
                         </div>
-                        <div className="w-full h-full grid-cols-1 flex items-end justify-end">
+                        <div className="w-full h-full col-span-1 flex items-end justify-end">
                             <Button title='Search' variant="secondary" className="!text-[#F6FCDF]" />
                         </div>
                     </div>
                     <div className="grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr] gap-3 md:gap-5 lg:gap-7">
-                        <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
                             <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
                                 City
                             </label>
                             <Filter options={cityFilter} onSelect={setSelectedCityFilter} selectedOption={selectedCityFilter} />
                         </div>
-                        <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
                             <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
                                 Property type
                             </label>
                             <Filter options={typeFilter} onSelect={setselectedTypeFilter} selectedOption={selectedTypeFilter} />
                         </div>
-                        <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
                             <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
                                 Project Category
                             </label>
                             <Filter options={categoryFilter} onSelect={setselectedCategoryFilter} selectedOption={selectedCategoryFilter} />
                         </div>
-                        <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
                             <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
                                 Project Price
                             </label>

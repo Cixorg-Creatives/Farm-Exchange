@@ -1,4 +1,4 @@
-import { ArrowUpRight, Edit2, Trash2, X } from 'lucide-react';
+import { ArrowUpRight, Edit2, Plus, Trash2, X } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -16,6 +16,7 @@ const Button = ({ title, icon, variant = 'default', className = '', symbol, link
     const iconMap = {
         edit: <Edit2 className={`${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
         delete: <Trash2 className={`${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
+        add: <Plus className={`${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
         default: <ArrowUpRight className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
         close: <X className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
     };

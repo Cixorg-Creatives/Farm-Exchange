@@ -6,6 +6,7 @@ import blogs_1 from './blogs_1.png'
 import journal_bg from './journal_bg.png'
 import properties_1 from './properties_1.png'
 import banner from './Banner.png'
+import upload from './upload.png'
 
 export const assets = {
     logo,
@@ -16,4 +17,5 @@ export const assets = {
     journal_bg,
     properties_1,
     banner,
+    upload,
 }
