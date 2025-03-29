@@ -30,7 +30,7 @@ const App = () => {
   return (
     <UserContext.Provider value={{ userAuth, setUserAuth }}>
       <Toaster />
-      <div className="h-screen overflow-hidden flex flex-col">
+      <div className="h-screen overflow-hidden flex flex-col clashdisplay">
         {userAuth.access_token ? (
           <div>
             <Navbar />

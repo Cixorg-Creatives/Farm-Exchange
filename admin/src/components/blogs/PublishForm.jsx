@@ -19,7 +19,7 @@ const PublishForm = () => {
     const handleCloseEvent = () => setEditorState("editor");
 
     const handleChange = (e, key) => setBlog({ ...blog, [key]: e.target.value });
-    
+
     const handleKeyDone = (e) => {
         if (e.key === "Enter" || e.key === ",") {
             e.preventDefault();
@@ -60,34 +60,35 @@ const PublishForm = () => {
 
     return (
         <AnimationWrapper>
-            <div className="px-6 md:px-12 lg:px-16 font-sans">
+            <div className="px-6 md:px-12 lg:px-16 clashdisplay">
                 <section className="w-full grid md:grid-cols-2 gap-6 items-start">
                     <Toaster />
                     <Button onClick={handleCloseEvent} icon="show" symbol="close" className="absolute top-4 right-4" />
                     <div className="flex flex-col gap-4">
-                        <p className="text-green-700 text-xs uppercase font-semibold">Preview</p>
+                        <p className="col-span-1 capitalize text-black font-normal text-base md:text-xl lg:text-2xl">Preview</p>
                         <div className="w-full aspect-video rounded-2xl overflow-hidden bg-gray-200">
                             <img src={banner} className="w-full h-full object-cover" alt="Blog Banner" />
                         </div>
-                        <h1 className="text-xl md:text-2xl font-semibold text-gray-800 capitalize">{title}</h1>
-                        <p className="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-4">{des}</p>
+                        <h1 className="capitalize text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl">{title}</h1>
+                        <p className="capitalize text-[#758A68] font-normal text-xs md:text-sm lg:text-base line-clamp-3">{des}</p>
                     </div>
-                    <div className="bg-white shadow-lg rounded-xl p-6 border border-gray-200">
-                        <p className="text-gray-500 mb-2">Blog Title</p>
-                        <input type="text" placeholder="Blog Title" value={title} className="w-full rounded-lg p-3 border border-gray-300 focus:ring-2 focus:ring-green-500" onChange={(e) => handleChange(e, "title")} />
+                    <div className="col-span-1 rounded-xl p-6 border border-[#31511E]/50 flex flex-col gap-2 md:gap-4 lg:gap-6">
+                        <p className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">Blog Title</p>
+                        <input type="text" placeholder="Blog Title" value={title} className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg" onChange={(e) => handleChange(e, "title")} />
 
-                        <p className="text-gray-500 mt-6 mb-2">Short description about your blog</p>
-                        <textarea maxLength={characterLimit} value={des} className="w-full h-32 rounded-lg p-3 border border-gray-300 focus:ring-2 focus:ring-green-500" onChange={(e) => handleChange(e, "des")} />
-                        <p className="text-right text-gray-400 text-sm">{characterLimit - des.length} characters left</p>
+                        <p className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">Short description about your blog</p>
+                        <textarea maxLength={characterLimit} value={des} className="w-full h-24 md:h-28 lg:h-32 bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight rounded-md lg:rounded-lg" onChange={(e) => handleChange(e, "des")} />
+                        <p className="uppercase text-[#859F3E] font-semibold text-[8px] md:text-[10px] lg:text-xs">{characterLimit - des.length} characters left</p>
 
-                        <p className="text-gray-500 mt-6 mb-2">Topics - (Helps in searching and ranking)</p>
-                        <div className="flex flex-wrap gap-2 p-3 bg-gray-100 rounded-lg border border-gray-300">
-                            <input type="text" placeholder="Add a topic" className="flex-1 p-2 border-none bg-transparent focus:outline-none" onKeyDown={handleKeyDone} />
-                            {tags.map((tag, i) => <Tag key={i} tag={tag} tagIndex={i} />)}
+                        <p className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">Topics - (Helps in searching and ranking)</p>
+                        <div className="flex flex-col gap-2 rounded-lg">
+                            <input type="text" placeholder="Add a topic" className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg" onKeyDown={handleKeyDone} />
+                            <div className="flex flex-wrap items-center gap-0.5 md:gap-1 lg:gap-2">
+                                {tags.map((tag, i) => <Tag key={i} tag={tag} tagIndex={i} />)}
+                            </div>
                         </div>
-                        <p className="text-right text-gray-400 text-sm">{tagLimit - tags.length} Tags left</p>
-
-                        <button className="w-full bg-green-600 text-white font-medium rounded-lg py-3 mt-6 hover:bg-green-700 transition" onClick={publishBlog}>Publish</button>
+                        <p className="uppercase text-[#859F3E] font-semibold text-[8px] md:text-[10px] lg:text-xs">{tagLimit - tags.length} Tags left</p>
+                        <Button onClick={publishBlog} title={'Publish'} variant="ternary" />
                     </div>
                 </section>
             </div>

@@ -184,14 +184,14 @@ const BlogEditor = () => {
                         <textarea
                             defaultValue={title}
                             placeholder="Blog Title"
-                            className=" text-2xl md:text-4xl lg:text-6xl h-8 md:h-24 lg:h-20 leading-tight text-[#31511E] font-semibold w-full outline-none resize-none placeholder:opacity-40 my-2 md:my-4 xl:my-6"
+                            className=" text-2xl md:text-4xl lg:text-6xl leading-tight text-[#31511E] font-semibold w-full outline-none resize-none placeholder:opacity-40 my-2 md:my-4 xl:my-6"
                             onKeyDown={handleTitleKeyDown}
                             onChange={handleTitleChange}
                         ></textarea>
-                        <hr className="w-full opacity-10 my-2 md:my-4 xl:my-6" />
+                        <hr className="w-full bg-[#31511E]" />
                         <div
                             id="textEditor"
-                            className=""
+                            className="w-full"
                         ></div>
                     </div>
                 </section>

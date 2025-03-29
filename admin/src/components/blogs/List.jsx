@@ -11,7 +11,7 @@ const List = ({ blogs }) => {
                         <img src={blog.banner} alt="" className='w-full h-auto aspect-[4/3] object-cover border-1 border-[#000000]' />
                         <p className='uppercase text-[#859F3E] font-semibold text-[8px] md:text-[10px] lg:text-xs'>{getFullDay(blog.publishedAt)}</p>
                         <p className='capitalize text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl'>{blog.title}</p>
-                        <p className='capitalize text-[#758A68] font-normal text-xs md:text-sm lg:text-base line-clamp-4'>{blog.des}</p>
+                        <p className='capitalize text-[#758A68] font-normal text-xs md:text-sm lg:text-base line-clamp-3'>{blog.des}</p>
                     </Link>
                 ))}
             </div>

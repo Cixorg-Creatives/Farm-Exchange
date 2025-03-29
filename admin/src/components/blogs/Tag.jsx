@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { EditorContext } from "@/pages/AddBlogs";
+import { X } from "lucide-react";
 
 const Tag = ({ tag, tagIndex }) => {
 
@@ -11,7 +12,7 @@ const Tag = ({ tag, tagIndex }) => {
     }
 
     const handleTagEdit = (e) => {
-        if(e.keyCode == 13 || e.keyCode == 188) {
+        if (e.keyCode == 13 || e.keyCode == 188) {
 
             e.preventDefault();
 
@@ -31,11 +32,10 @@ const Tag = ({ tag, tagIndex }) => {
     }
 
     return (
-        <div className="relative p-2 mt-2 mr-2 px-5 bg-white rounded-full inline-block hover:opacity-50 pr-10">
+        <div className="relative p-2 mt-2 mr-2 px-5 w-fit bg-[#D9E2C3] rounded-full inline-block hover:opacity-50 pr-10">
             <p className="outline-none" onKeyDown={handleTagEdit} onClick={addEditable}>{tag}</p>
-
-            <button className="mt-[2px] rounded-full absolute right-3 top-1/2 -translate-y-1/2" onClick={handleTagDelete}>
-                <i className="fi fi-br-cross text-[12px] pointer-events-none"></i>
+            <button className="rounded-full absolute right-3 top-1/2 -translate-y-1/2" onClick={handleTagDelete}>
+                <X />
             </button>
         </div>
     )
