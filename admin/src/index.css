@@ -162,3 +162,34 @@
     @apply bg-[#F6FCDF] text-foreground;
   }
 }
+
+#textEditor h2,
+h2 {
+  @apply font-['Inter'] text-[38px] leading-normal font-bold max-md:text-[28px] max-md:leading-snug;
+}
+
+#textEditor h3,
+h3 {
+  @apply font-['Inter'] text-[28px] leading-loose max-md:text-[20px] max-md:leading-normal;
+}
+
+#textEditor *,
+.blog-page-content * {
+  @apply font-['Gelasio'] text-[16px] leading-10 md:text-[20px];
+}
+
+#textEditor a,
+.blog-page-content a {
+  @apply text-[#8b46ff] underline hover:opacity-50;
+}
+
+.ce-block__content,
+.ce-toolbar__content {
+  max-width: 90%;
+}
+
+.cdx-settings-button[data-tune='withBorder'],
+.cdx-settings-button[data-tune='withBackground'],
+.cdx-settings-button[data-tune='stretched'] {
+  display: none;
+}
