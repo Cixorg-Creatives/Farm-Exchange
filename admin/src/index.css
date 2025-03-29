@@ -165,17 +165,17 @@
 
 #textEditor h2,
 h2 {
-  @apply font-['Inter'] text-[38px] leading-normal font-bold max-md:text-[28px] max-md:leading-snug;
+  @apply text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl leading-snug ;
 }
 
 #textEditor h3,
 h3 {
-  @apply font-['Inter'] text-[28px] leading-loose max-md:text-[20px] max-md:leading-normal;
+  @apply text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl leading-tight;
 }
 
 #textEditor *,
 .blog-page-content * {
-  @apply font-['Gelasio'] text-[16px] leading-10 md:text-[20px];
+  @apply text-[16px] leading-10 md:text-[20px];
 }
 
 #textEditor a,
@@ -187,7 +187,9 @@ h3 {
 .ce-toolbar__content {
   max-width: 95%;
 }
-
+.cdx-marker {
+  @apply !bg-purple-200
+}
 .cdx-settings-button[data-tune='withBorder'],
 .cdx-settings-button[data-tune='withBackground'],
 .cdx-settings-button[data-tune='stretched'] {

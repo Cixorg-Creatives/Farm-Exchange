@@ -68,7 +68,7 @@ const Blog = () => {
                         <div className="my-12">
                             {blog.content.length > 0 ? (
                                 blog.content.map((section, i) => (
-                                    <div key={i} className="space-y-6 md:space-y-10">
+                                    <div key={i} className="space-y-4 md:space-y-6 lg:space-y-8">
                                         {section.blocks?.map((block, j) => (
                                             <BlogContent key={j} block={block} />
                                         ))}
