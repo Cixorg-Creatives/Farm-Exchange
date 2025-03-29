@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Button from '../Button'
-import Sort from '../Sort'
 import Filter from '../Filter';
 
 const PropertiesHero = () => {
@@ -8,7 +7,7 @@ const PropertiesHero = () => {
     const [selectedCityFilter, setSelectedCityFilter] = useState("hyderabad");
     const [selectedTypeFilter, setselectedTypeFilter] = useState("farmland");
     const [selectedCategoryFilter, setselectedCategoryFilter] = useState("elite");
-    const [selectedSort, setSelectedSort] = useState("latest");
+    const [selectedListFilter, setSelectedListFilter] = useState("all");
 
     const cityFilter = [
         { value: "hyderabad", label: "Hyderabad" },
@@ -26,13 +25,10 @@ const PropertiesHero = () => {
         { value: "elite", label: "Elite Properties" },
         { value: "featured", label: "Featured Properties" },
     ];
-    const sortOptions = [
-        { value: "latest", label: "Date Modified" },
-        { value: "earliest", label: "Date Modified" },
-        { value: "rec_low-high", label: "Recommendation" },
-        { value: "rec_high-low", label: "Recommendation" },
-        { value: "area_low-high", label: "Area" },
-        { value: "area_high-low", label: "Area" },
+    const listFilter = [
+        { value: "all", label: "All" },
+        { value: "list", label: "Listed" },
+        { value: "draft", label: "Draft" },
     ];
 
     return (
@@ -78,9 +74,9 @@ const PropertiesHero = () => {
                         </div>
                         <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
                             <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
-                                Project Price
+                                List
                             </label>
-                            <Sort options={sortOptions} onSort={setSelectedSort} SortedOption={selectedSort} />
+                            <Filter options={listFilter} onSelect={setSelectedListFilter} selectedOption={selectedListFilter} />
                         </div></div>
                 </form>
             </div>
