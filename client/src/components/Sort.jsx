@@ -7,7 +7,7 @@ const Sort = ({ options, onSort, SortedOption }) => {
     return (
         <div className="relative w-full clashdisplay">
             <div
-                className="w-full flex items-center justify-between bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 cursor-pointer h-10 md:h-12 lg:h-14"
+                className="w-full flex items-center justify-between bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 rounded-md lg:rounded-lg cursor-pointer h-10 md:h-12 lg:h-14"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
@@ -21,7 +21,7 @@ const Sort = ({ options, onSort, SortedOption }) => {
                 {isOpen ? <ChevronUp className="h-4 md:h-6 w-auto text-black" /> : <ChevronDown className="h-4 md:h-6 w-auto text-black" />}
             </div>
             {isOpen && (
-                <div className="absolute left-0 mt-2 w-full bg-[#C7D3A6] shadow-lg z-10">
+                <div className="absolute left-0 mt-2 w-full rounded-md bg-[#C7D3A6] shadow-lg z-10">
                     {options.map((option) => (
                         <div
                             key={option.value}
