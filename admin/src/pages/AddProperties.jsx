@@ -277,7 +277,53 @@ const AddProperties = () => {
           </div>
           <Button title='Add' variant='secondary' onClick={handleAddAmenity} />
         </div>
-        <div className="flex w-full items-center justify-end gap-2 md:gap-4 lg:gap-6">
+        <div className="col-span-1 w-full flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+          <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+            Locality
+          </label>
+          <input
+            type="text"
+            className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg outline-none"
+            placeholder="Locality"
+          />
+        </div>
+        <div className="col-span-1 w-full flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+          <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+            City
+          </label>
+          <input
+            type="text"
+            className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg outline-none"
+            placeholder="City"
+          />
+        </div>
+        <div className="col-span-1 w-full flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+          <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+            State
+          </label>
+          <input
+            type="text"
+            className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg outline-none"
+            placeholder="State"
+          />
+        </div>
+        <div className="col-span-1 w-full flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+          <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+            Pin Code
+          </label>
+          <input
+            type="text"
+            className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg outline-none"
+            placeholder="Pin Code"
+          />
+        </div>
+        <div className="col-span-4 w-full flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+          <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+            Loaction
+          </label>
+          {/* Map Location Here */}
+        </div>
+        <div className="col-span-4 flex w-full items-center justify-end gap-2 md:gap-4 lg:gap-6">
           <Button title='Add to Properties' variant="secondary"/>
           <Button title='Save to Draft' variant="destructive"/>
         </div>
