@@ -1,21 +1,23 @@
 import { useState } from "react";
 import Button from "../Button";
 
-const LoadMore = ({ state, fetchDataFun, additionalParam }) => {
+const LoadMore = ({ state, fetchDataFun }) => {
     const [loading, setLoading] = useState(false);
 
-    if (state == null || state.totalDocs <= state.results.length) {
+    if (!state || state.totalDocs <= state.results.length) {
         return null;
     }
 
     const handleLoadMore = async () => {
         setLoading(true);
-        await fetchDataFun({ ...additionalParam, page: state.page + 1 });
+        await fetchDataFun();
         setLoading(false);
     };
 
     return (
-        <Button onClick={handleLoadMore} title="Load More" icon={loading ? "show" : ""} loading={loading} />
+        <div className="flex justify-center mt-6">
+            <Button onClick={handleLoadMore} title="Load More" variant="primary" icon={loading ? "show" : ""} loading={loading} />
+        </div>
     );
 };
 
