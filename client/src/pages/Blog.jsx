@@ -5,6 +5,7 @@ import AnimationWrapper from "@/common/page-animation";
 import { Loader2 } from "lucide-react";
 import BlogContent from "@/components/blog/BlogContent";
 import BlogHero from "@/components/blog/BlogHero";
+import Suggestions from "@/components/blog/Suggestions";
 
 export const BlogContext = createContext({});
 
@@ -51,6 +52,7 @@ const Blog = () => {
             })
             .catch(err => console.error(err));
     };
+    console.log("Simmilar blogs : ", similarBlogs)
 
     return (
         <AnimationWrapper>
@@ -61,9 +63,9 @@ const Blog = () => {
             ) : (
                 <BlogContext.Provider value={{ blog, setBlog }}>
                     <div className="px-4 md:px-6 lg:px-24 journal_bg blog">
-                        <BlogHero blog={blog} />                        
+                        <BlogHero blog={blog} />
                         {/* Blog Content */}
-                        <div className="my-12">
+                        <div className="py-6 md:py-10 xl:py-14">
                             {blog.content.length > 0 ? (
                                 blog.content.map((section, i) => (
                                     <div key={i} className="space-y-4 md:space-y-6 lg:space-y-8">
@@ -76,6 +78,7 @@ const Blog = () => {
                                 <p className="text-gray-500">No content available</p>
                             )}
                         </div>
+                        {/* <Suggestions blog={similarBlogs}/> */}
                     </div>
                 </BlogContext.Provider>
             )}

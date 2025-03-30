@@ -34,13 +34,13 @@ const BlogContent = ({ block }) => {
     let { type, data } = block;
 
     if (type == "paragraph") {
-        return <p className="text-[#747474] text-xs md:text-base lg:text-xl font-normal leading-tight" dangerouslySetInnerHTML={{ __html: data.text }}></p>
+        return <p className="text-[#747474] text-base md:text-lg lg:text-2xl font-normal leading-tight" dangerouslySetInnerHTML={{ __html: data.text }}></p>
     }
     if (type == "header") {
         if (data.level == 3) {
             return <h3 className="text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl leading-tight" dangerouslySetInnerHTML={{ __html: data.text }}></h3>
         }
-        return <h2 className="text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl leading-snug" dangerouslySetInnerHTML={{ __html: data.text }}></h2>
+        return <h2 className="text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl leading-snug text-center" dangerouslySetInnerHTML={{ __html: data.text }}></h2>
     }
     if (type == "image") {
         return <Img url={data.file.url} caption={data.caption} />
