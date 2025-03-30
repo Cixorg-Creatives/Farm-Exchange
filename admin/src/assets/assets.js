@@ -7,6 +7,7 @@ import journal_bg from './journal_bg.png'
 import properties_1 from './properties_1.png'
 import banner from './Banner.png'
 import upload from './upload.png'
+import fence from './fence.svg'
 
 export const assets = {
     logo,
@@ -18,4 +19,5 @@ export const assets = {
     properties_1,
     banner,
     upload,
+    fence,
 }

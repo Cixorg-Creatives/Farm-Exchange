@@ -14,6 +14,7 @@ import Blog from "./pages/Blog";
 import { lookInSession } from "./common/session";
 import EditProfile from "./pages/EditProfile";
 import { Toaster } from "react-hot-toast";
+import Property from "./pages/Property";
 
 export const UserContext = createContext({});
 
@@ -41,7 +42,9 @@ const App = () => {
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/profile" element={<EditProfile />} />
                   <Route path="/properties" element={<Properties />} />
+                  <Route path="/properties/:propertyId" element={<Property />} />
                   <Route path="/properties/add-property" element={<AddProperties />} />
+                  <Route path="/properties/edit-property/:propertyId" element={<AddProperties />} />
                   <Route path="/blogs" element={<Blogs />} />
                   <Route path="/blogs/blog/:blogId" element={<Blog />} />
                   <Route path="/blogs/add-blog" element={<AddBlogs />} />
