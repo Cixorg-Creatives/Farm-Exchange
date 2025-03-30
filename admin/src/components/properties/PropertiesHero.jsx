@@ -1,30 +1,13 @@
-import React, { useState } from 'react'
-import Button from '../Button'
+import React, { useState } from 'react';
+import Button from '../Button';
 import Filter from '../Filter';
+import { Search, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const PropertiesHero = () => {
-
-    const [selectedCityFilter, setSelectedCityFilter] = useState("hyderabad");
-    const [selectedTypeFilter, setselectedTypeFilter] = useState("farmland");
-    const [selectedCategoryFilter, setselectedCategoryFilter] = useState("elite");
     const [selectedListFilter, setSelectedListFilter] = useState("all");
+    const [searchQuery, setSearchQuery] = useState("");
 
-    const cityFilter = [
-        { value: "hyderabad", label: "Hyderabad" },
-        { value: "bengaluru", label: "Bengaluru" },
-        { value: "delhi", label: "Delhi" },
-        { value: "chennai", label: "Chennai" },
-    ];
-    const typeFilter = [
-        { value: "farmland", label: "Farm Land" },
-        { value: "farmhouse", label: "Farm House" },
-        { value: "agricultureland", label: "Agriculture Land" },
-        { value: "coffee", label: "Coffee Estate" },
-    ];
-    const categoryFilter = [
-        { value: "elite", label: "Elite Properties" },
-        { value: "featured", label: "Featured Properties" },
-    ];
     const listFilter = [
         { value: "all", label: "All" },
         { value: "list", label: "Listed" },
@@ -39,49 +22,40 @@ const PropertiesHero = () => {
                 </h1>
                 <form className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
                     <div className="grid grid-cols-[3fr_1fr] gap-3 md:gap-5 lg:gap-7">
-                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
-                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
-                                Name of property
-                            </label>
-                            <input
-                                type="text"
-                                className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg outline-none"
-                                placeholder="Property, budget, name"
-                            />
+                        <div className="w-full col-span-1 bg-[#C7D3A6] px-2 md:px-4 lg:px-6 flex items-center justify-between rounded-md lg:rounded-lg">
+                            <div className="flex items-center gap-1 md:gap-2 lg:gap-3 w-full">
+                                <Search className="h-4 md:h-5 lg:h-6 w-auto text-black" />
+                                <input
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="w-full capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg bg-transparent outline-none"
+                                    placeholder="Search"
+                                />
+                            </div>
+                            <AnimatePresence>
+                                {searchQuery && (
+                                    <motion.button
+                                        key="clear-button"
+                                        onClick={() => setSearchQuery("")}
+                                        className="p-2 text-black"
+                                        initial={{ opacity: 0, rotate: -90 }}
+                                        animate={{ opacity: 1, rotate: 0 }}
+                                        exit={{ opacity: 0, rotate: 90 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <X className="h-4 md:h-5 lg:h-6 w-auto" />
+                                    </motion.button>
+                                )}
+                            </AnimatePresence>
                         </div>
-                        <div className="w-full h-full col-span-1 flex items-end justify-end">
-                            <Button title='Search' variant="secondary" className="!text-[#F6FCDF]" />
+                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                            <Filter options={listFilter} onSelect={setSelectedListFilter} selectedOption={selectedListFilter} />
                         </div>
                     </div>
-                    <div className="grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr] gap-3 md:gap-5 lg:gap-7">
-                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
-                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
-                                City
-                            </label>
-                            <Filter options={cityFilter} onSelect={setSelectedCityFilter} selectedOption={selectedCityFilter} />
-                        </div>
-                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
-                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
-                                Property type
-                            </label>
-                            <Filter options={typeFilter} onSelect={setselectedTypeFilter} selectedOption={selectedTypeFilter} />
-                        </div>
-                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
-                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
-                                Project Category
-                            </label>
-                            <Filter options={categoryFilter} onSelect={setselectedCategoryFilter} selectedOption={selectedCategoryFilter} />
-                        </div>
-                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
-                            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
-                                List
-                            </label>
-                            <Filter options={listFilter} onSelect={setSelectedListFilter} selectedOption={selectedListFilter} />
-                        </div></div>
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default PropertiesHero
+export default PropertiesHero;
