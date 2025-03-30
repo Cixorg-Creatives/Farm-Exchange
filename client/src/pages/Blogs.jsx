@@ -31,7 +31,7 @@ const Blogs = () => {
 
   return (
     <div className='px-4 md:px-6 lg:px-24'>
-      {/* <BlogsHero /> */}
+      <BlogsHero />
       <SearchBar />
       {loading ? (
         <div className='flex justify-center items-center w-full h-96'>

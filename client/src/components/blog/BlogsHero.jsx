@@ -14,7 +14,7 @@ const BlogsHero = () => {
         </div>
       </div>
       <div>
-        <img src={assets.journal_1} alt="" className='w-full h-auto border-4 border-[#758A68]' />
+        <img src={assets.journal_7} alt="" className='w-full h-auto aspect-2/1 border-4 border-[#758A68]' />
       </div>
     </div>
   )
