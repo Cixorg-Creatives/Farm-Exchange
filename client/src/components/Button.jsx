@@ -2,7 +2,7 @@ import { ArrowUpRight, Edit2, Trash2, X, Calendar, Loader2 } from 'lucide-react'
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Button = ({ title, icon, variant = 'default', className = '', symbol, loading,symbolClassName }) => {
+const Button = ({ title, icon, variant = 'default', className = '', symbol, loading }) => {
     const variants = {
         default: '',
         primary: 'bg-[#859F3E]',
@@ -14,11 +14,11 @@ const Button = ({ title, icon, variant = 'default', className = '', symbol, load
     const symbolClass = 'w-4 md:w-5 lg:w-6 h-auto duration-300 ease-in';
 
     const iconMap = {
-        edit: <Edit2 className={`${symbolClass} ${symbolClassName}`} />,
-        delete: <Trash2 className={`${symbolClass} ${symbolClassName}`} />,
-        visit: <Calendar className={`${symbolClass} ${symbolClassName}`} />,
-        default: <ArrowUpRight className={`group-active:rotate-45 ${symbolClass} ${symbolClassName}`} />,
-        close: <X className={`group-active:rotate-45 ${symbolClass} ${symbolClassName}`} />,
+        edit: <Edit2 className={`${symbolClass}`} />,
+        delete: <Trash2 className={`${symbolClass}`} />,
+        visit: <Calendar className={`${symbolClass}`} />,
+        default: <ArrowUpRight className={`group-active:rotate-45 ${symbolClass}`} />,
+        close: <X className={`group-active:rotate-45 ${symbolClass}`} />,
     };
 
     return (
