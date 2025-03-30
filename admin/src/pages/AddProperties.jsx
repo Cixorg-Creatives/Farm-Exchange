@@ -30,6 +30,7 @@ const AddProperties = () => {
   const categorySelect = [
     { value: "elite", label: "Elite Properties" },
     { value: "featured", label: "Featured Properties" },
+    { value: "recommended", label: "Highly Recommended" },
   ];
 
   const priceUnitSelect = [
