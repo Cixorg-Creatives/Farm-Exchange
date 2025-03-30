@@ -192,8 +192,16 @@
   background-position: top center;
 }
 
+.blog a {
+  @apply text-[#31511E] underline hover:opacity-50;
+}
+
 .header a.active {
   @apply border-b-[1px] border-[#859F3E] pb-0.5 scale-110;
+}
+
+.cdx-marker {
+  @apply !bg-purple-200
 }
 
 ::-webkit-scrollbar {
