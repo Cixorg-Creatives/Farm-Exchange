@@ -98,18 +98,18 @@ const HomeJournal = () => {
             {fetchedBlogs.length > 0 ? fetchedBlogs.map((item, index) => (
               <div key={index} className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
                 <img src={item.banner} alt='' className='size-16 lg:size-42 aspect-square' />
-                <div className='flex flex-col h-full items-start justify-between py-1 md:py-2 lg:py-4 w-1/2 md:w-2/3'>
+                <div className='flex flex-col h-full items-start justify-between py-1 md:py-2 lg:py-4 w-1/2 md:w-3/5'>
                   <p className='capitalize text-[#31511E] font-semibold text-[7px] md:text-sm lg:text-2xl leading-tight'>{item.title}</p>
-                  <Link to={`/journal/blog/${item.blog_id}`}><Button title={'Read More'} icon={'show'} className='!text-[#859F3E] !p-0 text-[10px]' /></Link>
+                  <Link to={`/journal/blog/${item.blog_id}`}><Button title={'Read More'} icon={'show'} className='!text-[#859F3E] !p-0 text-[8px]' symbolClassName="!w-2" /></Link>
                 </div>
               </div>
-            )) : (
+            )) : (    
               [...Array(3)].map((_, index) => (
                 <div key={index} className="bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between animate-pulse">
                   <div className="size-16 lg:size-42 aspect-square bg-[#c7d3a7] rounded-md"></div>
                   <div className="flex flex-col h-full items-start justify-between py-1 md:py-2 lg:py-4 w-1/2 md:w-2/3">
                     <div className="bg-[#c7d3a7] h-6 md:h-10 lg:h-14 w-3/4 rounded-md"></div>
-                    <Button title={'Read More'} icon={'show'} className='!text-[#c7d3a7] !p-0 text-[10px]'/>
+                    <Button title={'Read More'} icon={'show'} className='!text-[#c7d3a7] !p-0 text-[8px]' symbolClassName="!w-2"/>
                   </div>
                 </div>
               ))
