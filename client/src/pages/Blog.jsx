@@ -8,7 +8,7 @@ import BlogHero from "@/components/blog/BlogHero";
 
 export const BlogContext = createContext({});
 
-const blogStructure = {
+export const blogStructure = {
     title: "",
     des: "",
     content: [],
@@ -23,6 +23,7 @@ const Blog = () => {
     const [blog, setBlog] = useState(blogStructure);
     const [similarBlogs, setSimilarBlogs] = useState(null);
     const [loading, setLoading] = useState(true);
+    console.log(blog)
 
     useEffect(() => {
         fetchBlog();
