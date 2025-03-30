@@ -24,7 +24,6 @@ const Blog = () => {
     const [blog, setBlog] = useState(blogStructure);
     const [similarBlogs, setSimilarBlogs] = useState(null);
     const [loading, setLoading] = useState(true);
-    console.log(blog)
 
     useEffect(() => {
         fetchBlog();
@@ -52,7 +51,6 @@ const Blog = () => {
             })
             .catch(err => console.error(err));
     };
-    console.log("Simmilar blogs : ", similarBlogs)
 
     return (
         <AnimationWrapper>
@@ -78,7 +76,7 @@ const Blog = () => {
                                 <p className="text-gray-500">No content available</p>
                             )}
                         </div>
-                        {/* <Suggestions blog={similarBlogs}/> */}
+                        {/* <Suggestions suggested={similarBlogs}/> */}
                     </div>
                 </BlogContext.Provider>
             )}

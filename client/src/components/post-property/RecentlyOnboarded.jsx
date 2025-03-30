@@ -9,13 +9,13 @@ const RecentlyOnboarded = () => {
       <div className='w-full h-12 flex items-center justify-center'>
         <p className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>Recently Onboarded Properties</p>
       </div>
-      <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-x-2 md:gap-x-3 lg:gap-x-5 gap-y-6 md:gap-y-10 lg:gap-y-16'>
+      <div className='grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-x-3 md:gap-x-6 lg:gap-x-12 gap-y-6 md:gap-y-10 lg:gap-y-16'>
         {
-          [...Array(3)].map((item, index) => (
+          [...Array(3)].slice(0, window.innerWidth < 768 ? 2 : 3).map((item, index) => (
             <Link to={'/properties/1'} key={index} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6 text-[#31511E]'>
               <div className='relative'>
-                <img src={assets.properties_1} alt="" className='w-full h-auto' />
-                <div className='absolute inset-0 bg-[#00000033]'></div>
+                <img src={assets.properties_1} alt="" className='w-full h-auto aspect-4/3 object-cover border-1 md:border-2 border-[#ADBF7E] rounded-sm md:rounded-md lg:rounded-lg' />
+                <div className='absolute inset-0 bg-[#00000033] rounded-sm md:rounded-md lg:rounded-lg'></div>
               </div>
               <div className='flex flex-col items-start gap-2 md:gap-3 lg:gap-4'>
                 <div className='flex flex-col gap-0.5 md:gap-1 lg:gap-2'>
