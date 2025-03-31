@@ -10,24 +10,11 @@ const Properties = () => {
 
   return (
     <div className='px-5 md:px-8 lg:px-12'>
-      <div className='flex items-center justify-between gap-2 md:gap-3 lg:gap-4 mb-4'>
-        <h1 className="text-2xl font-bold">Properties Management</h1>
-        <Link to={'/properties/add-property'}>
-          <Button 
-            title={'Add Property'} 
-            variant='primary' 
-            icon={'show'} 
-            symbol={'plus'} 
-          />
-        </Link>
-      </div>
-      
-      <PropertiesHero 
+      <PropertiesHero
         onSearch={setSearchQuery}
         onStatusFilter={setStatusFilter}
       />
-      
-      <PropertiesList 
+      <PropertiesList
         searchQuery={searchQuery}
         statusFilter={statusFilter}
       />

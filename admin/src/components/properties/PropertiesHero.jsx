@@ -3,10 +3,11 @@ import Button from '../Button';
 import Filter from '../Filter';
 import { Search, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-const PropertiesHero = ({ 
-  onSearch, 
-  onStatusFilter,  
+const PropertiesHero = ({
+    onSearch,
+    onStatusFilter,
 }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedStatusFilter, setSelectedStatusFilter] = useState("all");
@@ -29,11 +30,21 @@ const PropertiesHero = ({
     };
 
     return (
-        <div className='my-2 md:my-4 xl:my-6 clashdisplay'>
+        <div className='mb-2 md:mb-4 xl:mb-6 clashdisplay'>
             <div className="w-full bg-[#D9E1C3] px-2 md:px-4 lg:px-8 py-3 md:py-7 lg:py-11 flex flex-col items-center gap-4 md:gap-7 lg:gap-10 rounded-sm md:rounded-md lg:rounded-lg">
-                <h1 className="boska w-full uppercase text-black font-semibold text-base md:text-lg lg:text-[2rem] text-start align-middle">
-                    Find the best place
-                </h1>
+                <div className='w-full flex items-center justify-between'>
+                    <h1 className="boska w-fit uppercase text-black font-semibold text-base md:text-lg lg:text-[2rem] text-start align-middle">
+                        Properties Management
+                    </h1>
+                    <Link to={'/properties/add-property'}>
+                        <Button
+                            title={'Add Property'}
+                            variant='primary'
+                            icon={'show'}
+                            symbol={'plus'}
+                        />
+                    </Link>
+                </div>
                 <form className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8">
                     <div className="grid grid-cols-[3fr_1fr] gap-3 md:gap-5 lg:gap-7">
                         <div className="w-full col-span-1 bg-[#C7D3A6] px-2 md:px-4 lg:px-6 flex items-center justify-between rounded-md lg:rounded-lg">
@@ -64,13 +75,13 @@ const PropertiesHero = ({
                             </AnimatePresence>
                         </div>
                         <div className="col-span-1 flex items-center gap-2">
-                            <Filter 
-                                options={statusFilters} 
+                            <Filter
+                                options={statusFilters}
                                 onSelect={(value) => {
                                     setSelectedStatusFilter(value);
                                     onStatusFilter(value);
-                                }} 
-                                selectedOption={selectedStatusFilter} 
+                                }}
+                                selectedOption={selectedStatusFilter}
                             />
                         </div>
                     </div>
