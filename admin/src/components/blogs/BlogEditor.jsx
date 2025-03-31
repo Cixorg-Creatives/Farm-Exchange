@@ -91,6 +91,9 @@ const BlogEditor = () => {
                     } else {
                         return toast.error("Write something in your blog to publish it");
                     }
+                    setTimeout(() => {
+                        navigate("/blogs");
+                    }, 500);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -124,7 +127,7 @@ const BlogEditor = () => {
                 axios
                     .post(
                         import.meta.env.VITE_SERVER_DOMAIN + "/create-blog",
-                        { ...blogObj, blog_id: blogId  },
+                        { ...blogObj, blog_id: blogId },
                         {
                             headers: {
                                 Authorization: `Bearer ${access_token}`,
@@ -138,7 +141,7 @@ const BlogEditor = () => {
                         toast.success("Saved 👍");
 
                         setTimeout(() => {
-                            navigate("/dashboard/blogs?tab=draft");
+                            navigate("/blogs");
                         }, 500);
                     })
                     .catch(({ response }) => {
@@ -157,10 +160,6 @@ const BlogEditor = () => {
             <Toaster />
             <AnimationWrapper>
                 <section className="px-5 md:px-8 lg:px-12 clashdisplay">
-                    <div className="bg-[#F6FCDF] sticky z-50 top-0 flex w-full items-center justify-end gap-2 md:gap-4 lg:gap-6 pb-1 md:pb-2 xl:pb-4">
-                        <Button title='Publish' variant="secondary" onClick={handlePublishEvent} />
-                        <Button title='Save to Draft' variant="destructive" onClick={handleSaveDraft} />
-                    </div>
                     <div className="w-full my-2 md:my-4 xl:my-6">
                         <div className="relative aspect-video hover:opacity-80 bg-white border-4 border-[#f3f3f3] my-2 md:my-4 xl:my-6">
                             <label
@@ -193,6 +192,10 @@ const BlogEditor = () => {
                             id="textEditor"
                             className="w-full"
                         ></div>
+                    </div>
+                    <div className="bg-[#F6FCDF] flex w-full items-center justify-end gap-2 md:gap-4 lg:gap-6 pb-1 md:pb-2 xl:pb-4">
+                        <Button title='Publish' variant="secondary" onClick={handlePublishEvent} />
+                        <Button title='Save to Draft' variant="destructive" onClick={handleSaveDraft} />
                     </div>
                 </section>
             </AnimationWrapper>
