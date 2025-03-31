@@ -19,7 +19,7 @@ import Property from "./Schema/Property.js";
 import { body, validationResult } from "express-validator";
 
 const server = express();
-let PORT = 3000;
+const PORT = 4000;
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccountKey),

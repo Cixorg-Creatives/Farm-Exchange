@@ -26,11 +26,11 @@ const PropertiesList = ({
 
   useEffect(() => {
     const fetchProperties = async () => {
+      setLoading(true)
       try {
         const params = new URLSearchParams();
         if (statusFilter !== "all") params.append("status", statusFilter);
         if (searchQuery) params.append("search", searchQuery);
-        console.log(statusFilter)
 
         const url = `http://localhost:3000/list-properties?${params.toString()}`;
         const response = await fetch(url);
@@ -54,7 +54,7 @@ const PropertiesList = ({
     <div className="my-2 md:my-4 xl:my-6 relative clashdisplay">
       <div className="grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-1.5 md:gap-x-3 lg:gap-x-5 gap-y-2 md:gap-y-4 lg:gap-y-6">
         {
-          !(loading||error||properties.length===0) ? (
+          !(loading&&error&&properties.length===0) ? (
             [...Array(3)].map((item, index) => (
               <Skeleton />
             ))
@@ -123,7 +123,7 @@ const Skeleton = () => {
       </div>
       <div className="flex flex-col items-start gap-2 md:gap-3 lg:gap-4 w-full">
         <div className="flex flex-col gap-0.5 md:gap-1 lg:gap-2">
-          <div className="w-32 h-5 bg-[#F1F8DB] rounded" />
+          <div className="w-32 h-5 bg-[#c7d3a7] rounded" />
           <div className="w-48 h-4 bg-[#c7d3a7] rounded" />
         </div>
         <div className="flex gap-2 md:gap-4 h-full items-end">
