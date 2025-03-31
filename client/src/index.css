@@ -181,6 +181,11 @@
   color: transparent;
 }
 
+.featured-text-stroke {
+  -webkit-text-stroke: 2px #e0e0e0;
+  color: transparent;
+}
+
 .footer_bg {
   background: url(./assets/footer-bg.png) no-repeat;
   background-size: cover;

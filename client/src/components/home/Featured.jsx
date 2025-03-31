@@ -4,7 +4,7 @@ import { assets } from '@/assets/assets'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Button from '../button'
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const data = [
     {
@@ -21,6 +21,7 @@ const features = ["Fertile Lands", "High Yield", "Sustainable Growth"]
 
 const Featured = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState(1);
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
@@ -33,6 +34,24 @@ const Featured = () => {
             prevIndex === data.length - 1 ? 0 : prevIndex + 1
         );
     };
+
+    const variants = {
+        enter: (direction) => ({
+            x: direction * 100,
+            opacity: 0,
+        }),
+        center: {
+            x: 0,
+            opacity: 1,
+            transition: { duration: 0.8, ease: "easeInOut" }
+        },
+        exit: (direction) => ({
+            x: -direction * 100,
+            opacity: 0,
+            transition: { duration: 0.8, ease: "easeInOut" }
+        })
+    };
+
 
     return (
         <div className='mb-6 md:mb-10 xl:mb-14 w-full h-full grid grid-cols-[1fr_1fr]'>
@@ -63,29 +82,32 @@ const Featured = () => {
                         Harvest
                     </div>
                 </div>
-                <motion.div
-                    key={currentIndex}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 1.0 }}
-                    className='relative h-auto w-full'
-                >
-                    <img src={data[currentIndex].image} alt="" className='w-full h-full object-cover' />
-                    <div className='absolute inset-0 h-full w-full bg-gradient-to-b from-[#FFFFFF00] to-[#00000080] flex flex-col justify-between p-1 md:p-2 lg:p-4'>
-                        <div className='w-full text-start uppercase impact text-xl md:text-3xl lg:text-[4rem] font-normal custom-text-stroke'>
-                            {data[currentIndex].title}
+                <AnimatePresence custom={direction} mode='wait'>
+                    <motion.div
+                        key={currentIndex}
+                        variants={variants}
+                        initial='enter'
+                        animate='center'
+                        exit='exit'
+                        custom={direction}
+                        className='relative h-auto w-full aspect-4/5 overflow-hidden'
+                    >
+                        <img src={data[currentIndex].image} alt="" className='w-full h-full object-cover' />
+                        <div className='absolute inset-0 h-full w-full bg-gradient-to-t from-[#00000080] via-[#FFFFFF00] to-[#00000080] flex flex-col justify-between p-1 md:p-2 lg:p-4'>
+                            <div className='w-full text-start uppercase impact text-xl md:text-3xl lg:text-[4rem] font-normal featured-text-stroke'>
+                                {data[currentIndex].title}
+                            </div>
+                            <div className='flex gap-1 md:gap-2 lg:gap-4 w-full justify-end'>
+                                <button onClick={handlePrev} disabled={currentIndex === 0} className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'>
+                                    <ChevronLeft className='text-white size-2.5 md:size-3.5 lg:size-5' />
+                                </button>
+                                <button onClick={handleNext} disabled={currentIndex === data.length - 1} className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'>
+                                    <ChevronRight className='text-white size-2.5 md:size-3.5 lg:size-5' />
+                                </button>
+                            </div>
                         </div>
-                        <div className='flex gap-1 md:gap-2 lg:gap-4 w-full justify-end'>
-                            <button onClick={handlePrev} disabled={currentIndex === 0} className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'>
-                                <ChevronLeft className='text-white size-2.5 md:size-3.5 lg:size-5' />
-                            </button>
-                            <button onClick={handleNext} disabled={currentIndex === data.length - 1} className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'>
-                                <ChevronRight className='text-white size-2.5 md:size-3.5 lg:size-5' />
-                            </button>
-                        </div>
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </div>
     )
