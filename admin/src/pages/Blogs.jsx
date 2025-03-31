@@ -64,8 +64,8 @@ const Blogs = () => {
 
   const filteredBlogs =
     filter === "all" ? allBlogs
-    : filter === "published" ? blogs
-    : drafts;
+      : filter === "published" ? blogs
+        : drafts;
 
   return (
     <div className='px-5 md:px-8 lg:px-12'>
@@ -75,8 +75,12 @@ const Blogs = () => {
       <SearchBar setQuery={setQuery} setFilter={setFilter} />
 
       {filteredBlogs == null ? (
-        <div className='flex justify-center items-center w-full h-96'>
-          <Loader2 className="size-12 md:size-18 lg:size-24 animate-spin"/>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-1.5 md:gap-x-3 lg:gap-x-5 gap-y-2 md:gap-y-4 lg:gap-y-6'>
+          {
+            [...Array(3)].map((item, index) => (
+              <Skeleton />
+            ))
+          }
         </div>
       ) : filteredBlogs.results.length ? (
         <List blogs={filteredBlogs.results} />
@@ -88,3 +92,14 @@ const Blogs = () => {
 };
 
 export default Blogs;
+
+const Skeleton = () => {
+  return (
+    <div className="grid-cols-1 px-2 md:px-4 lg:px-8 py-2.5 md:py-5 lg:py-9 border border-[#D9E1C3] flex flex-col items-start gap-1 md:gap-2 lg:gap-4 cursor-pointer opacity-70 animate-pulse">
+      <div className='w-full h-auto aspect-[4/3] bg-[#c7d3a7]'></div>
+      <div className='w-1/3 h-3 bg-[#c7d3a7] rounded'></div>
+      <div className='w-2/3 h-6 bg-[#c7d3a7] rounded'></div>
+      <div className='w-full h-12 bg-[#c7d3a7] rounded'></div>
+    </div>
+  )
+}
