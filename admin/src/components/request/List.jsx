@@ -45,8 +45,24 @@ const List = () => {
         }
     };
 
-    if (loading) return <p>Loading properties...</p>;
-    if (error) return <p className="text-red-500">{error}</p>;
+    if (loading) return (
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-1.5 md:gap-x-3 lg:gap-x-5 gap-y-2 md:gap-y-4 lg:gap-y-6'>
+            {
+                [...Array(6)].map((item, index) => (
+                    <Skeleton />
+                ))
+            }
+        </div>
+    )
+    if (error) return (
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-1.5 md:gap-x-3 lg:gap-x-5 gap-y-2 md:gap-y-4 lg:gap-y-6'>
+            {
+                [...Array(6)].map((item, index) => (
+                    <Skeleton />
+                ))
+            }
+        </div>
+    )
 
     return (
         <div className='my-2 md:my-4 xl:my-6 clashdisplay'>
@@ -55,11 +71,11 @@ const List = () => {
                     properties.map((property) => (
                         <div key={property._id} className='relative px-2 md:px-4 lg:px-8 py-2.5 md:py-5 lg:py-9 border border-[#D9E1C3] flex flex-col items-start gap-0.5 md:gap-[3px] lg:gap-1 cursor-pointer rounded-sm md:rounded-md lg:rounded-lg'>
                             <div className='absolute right-2 md:right-3 lg:right-4 top-2 md:top-4 lg:top-4'>
-                                <Button 
-                                    variant='destructive' 
-                                    symbol='delete' 
-                                    icon='show' 
-                                    className='delete-button' 
+                                <Button
+                                    variant='destructive'
+                                    symbol='delete'
+                                    icon='show'
+                                    className='delete-button'
                                     onClick={() => deleteProperty(property._id)}
                                 />
                             </div>
@@ -81,3 +97,15 @@ const List = () => {
 };
 
 export default List;
+
+const Skeleton = () => {
+    return (
+        <div className='relative px-2 md:px-4 lg:px-8 py-2.5 md:py-5 lg:py-9 border border-[#D9E1C3] flex flex-col items-start gap-0.5 md:gap-[3px] lg:gap-1 cursor-pointer rounded-sm md:rounded-md lg:rounded-lg animate-pulse'>
+            <div className='w-20 h-3 md:h-4 lg:h-5 bg-[#c7d3a7] rounded'></div>
+            <div className='w-36 h-4 md:h-6 lg:h-8 bg-[#c7d3a7] rounded'></div>
+            <div className='w-40 h-3 md:h-4 lg:h-5 bg-[#c7d3a7] rounded'></div>
+            <div className='w-36 h-3 md:h-4 lg:h-5 bg-[#c7d3a7] rounded'></div>
+            <div className='w-full h-10 md:h-12 lg:h-14 bg-[#c7d3a7] rounded'></div>
+        </div>
+    )
+}

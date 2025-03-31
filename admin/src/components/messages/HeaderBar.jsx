@@ -3,11 +3,11 @@ import Filter from '../Filter';
 
 const HeaderBar = () => {
 
-    const [selectedFilter, setSelectedFilter] = useState("latest");
+    const [selectedFilter, setSelectedFilter] = useState("responded");
 
     const filterOptions = [
-        { value: "latest", label: "Date Modified" },
-        { value: "earliest", label: "Date Modified" },
+        { value: "responded", label: "Responded" },
+        { value: "notresponded", label: "Not Responded" },
     ];
 
     return (
