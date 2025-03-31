@@ -9,18 +9,18 @@ import { blogStructure } from '@/pages/Blog';
 const Skeleton = ({ index }) => {
   return (
     <div key={index} className="min-w-full snap-center relative">
-      <div className="w-full h-auto aspect-[2/1] rounded-md md:rounded-lg bg-[#a0af98] animate-pulse flex flex-col items-start justify-end gap-4 md:gap-6 lg:gap-8 p-2 md:p-3 lg:p-4">
+      <div className="w-full h-auto aspect-[2/1] rounded-md md:rounded-lg bg-[#F1F8DB] border-1 md:border-2 lg:border-4 border-[#758A68]/50 animate-pulse flex flex-col items-start justify-end gap-4 md:gap-6 lg:gap-8 p-2 md:p-3 lg:p-4">
         <div className='flex items-end justify-between pb-4 md:pb-8 lg:pb-12 w-full'>
-          <div className="w-1/2 h-full bg-[#d9e2c3] animate-pulse rounded-md md:rounded-lg"></div>
+          <div className="w-1/2 h-full bg-[#c7d3a7] animate-pulse rounded-md md:rounded-lg"></div>
           <div className="w-2/5 flex flex-col items-end justify-end">
-            <div className="w-full h-10 md:h-16 lg:h-20 bg-[#d9e2c3] animate-pulse rounded-md md:rounded-lg"></div>
-            <Button title={'Read More'} icon={'show'} />
+            <div className="w-full h-10 md:h-16 lg:h-20 bg-[#c7d3a7] animate-pulse rounded-md md:rounded-lg"></div>
+            <Button title={'Read More'} icon={'show'} className='!text-[#c7d3a7]' />
           </div>
         </div>
         <div className='w-full z-10 flex item-center justify-center gap-2'>
           {
             [...Array(3)].map((item, index) => (
-              <div className='w-1 md:w-2 lg:w-3 bg-gray-200 rounded-full'></div>
+              <div className='w-1 md:w-2 lg:w-3 bg-[#c7d3a7] rounded-full'></div>
             ))
           }
         </div>
@@ -148,7 +148,7 @@ const BlogsHero = () => {
                 <img
                   src={item?.banner}
                   alt=""
-                  className="w-full h-auto aspect-[2/1] border-4 border-[#758A68] rounded-md md:rounded-lg"
+                  className="w-full h-auto aspect-[2/1] border-1 md:border-2 lg:border-4 border-[#758A68] rounded-md md:rounded-lg"
                 />
                 <div className="absolute inset-0 bg-black/60 rounded-md md:rounded-lg flex flex-col items-start justify-end gap-4 md:gap-6 lg:gap-8 p-2 md:p-4 lg:p-6">
                   <div className='flex items-end justify-between pb-4 md:pb-8 lg:pb-12 w-full'>
