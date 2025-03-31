@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, IndianRupee } from 'lucide-react';
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../Button';
+import { motion } from 'framer-motion';
 
 const data = [
     { image: assets.home_24 },
@@ -50,6 +51,34 @@ const Elite = () => {
         }
     };
 
+    const leftAnimation = {
+        initial: { x: 200, opacity: 0 },
+        animate: {
+            x: 0,
+            opacity: 1,
+            transition: { duration: 2, ease: "easeOut", type: "spring", damping: 15 }
+        },
+        exit: {
+            x: 200,
+            opacity: 0,
+            transition: { duration: 1, ease: "easeInOut", type: "spring", damping: 15 }
+        },
+    };
+
+    const rightAnimation = {
+        initial: { x: -200, opacity: 0 },
+        animate: {
+            x: 0,
+            opacity: 1,
+            transition: { duration: 2, ease: "easeOut", type: "spring", damping: 15 }
+        },
+        exit: {
+            x: -200,
+            opacity: 0,
+            transition: { duration: 1, ease: "easeInOut", type: "spring", damping: 15 }
+        },
+    };
+
     return (
         <div className='my-6 md:my-10 xl:my-14 flex flex-col gap-3 md:gap-6 lg:gap-12'>
             <div className='flex items-end justify-between'>
@@ -88,10 +117,13 @@ const Elite = () => {
                             <img src={item.image} alt="" className="w-full h-full" />
                             {index === currentIndex + 1 && (
                                 <>
-                                    <div className='absolute inset-0 -translate-x-full z-1 group bg-[#D9E2C3] hover:bg-[#5E722D66] hover:duration-300 ease-in flex items-start justify-center p-3 md:p-6 lg:p-9'>
-                                        <p className='uppercase group-hover:text-white text-[#31511E] font-medium duration-300 ease-in text-base md:text-xl lg:text-[2.5rem] leading-tight'>{item.title}</p>
-                                    </div>
-                                    <div className='absolute inset-0 translate-x-full z-1 group bg-[#5E722D] hover:bg-[#859F3E33] duration-300 ease-in flex items-end justify-center p-1.5 md:p-3 lg:p-6'>
+                                    <motion.div variants={leftAnimation} initial="initial" animate="animate" exit="exit" className='absolute inset-0 -translate-x-full z-1 group bg-[#D9E2C3] hover:bg-[#5E722D66] hover:duration-300 ease-in flex items-start justify-center p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out'
+                                    >
+                                        <p className='uppercase group-hover:text-white text-[#31511E] font-medium text-base md:text-xl lg:text-[2.5rem] leading-tight'>
+                                            {item.title}
+                                        </p>
+                                    </motion.div>
+                                    <motion.div variants={rightAnimation} initial="initial" animate="animate" exit="exit" className='absolute inset-0 translate-x-full z-1 group bg-[#5E722D] hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out'>
                                         <div className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
                                             <div className='flex items-end'>
                                                 <IndianRupee className='h-5 md:h-8 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
@@ -102,7 +134,7 @@ const Elite = () => {
                                             <p className='capitalize text-white font-medium text-[9px] md:text-sm lg:text-xl'>{item.location}</p>
                                             <p className='capitalize text-[#D9D9D9] font-medium text-[7px] md:text-xs lg:text-base'>Project Area - {item.area}</p>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 </>
                             )}
                         </div>
