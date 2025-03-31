@@ -4,15 +4,29 @@ import Filter from '../Filter';
 import { Search, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const PropertiesHero = () => {
-    const [selectedListFilter, setSelectedListFilter] = useState("all");
+const PropertiesHero = ({ 
+  onSearch, 
+  onStatusFilter,  
+}) => {
     const [searchQuery, setSearchQuery] = useState("");
+    const [selectedStatusFilter, setSelectedStatusFilter] = useState("all");
 
-    const listFilter = [
-        { value: "all", label: "All" },
-        { value: "list", label: "Listed" },
-        { value: "draft", label: "Draft" },
+    const statusFilters = [
+        { value: "all", label: "All Status" },
+        { value: "published", label: "Published" },
+        { value: "draft", label: "Draft" }
     ];
+
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchQuery(value);
+        onSearch(value);
+    };
+
+    const handleClearSearch = () => {
+        setSearchQuery("");
+        onSearch("");
+    };
 
     return (
         <div className='my-2 md:my-4 xl:my-6 clashdisplay'>
@@ -27,16 +41,17 @@ const PropertiesHero = () => {
                                 <Search className="h-4 md:h-5 lg:h-6 w-auto text-black" />
                                 <input
                                     value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    onChange={handleSearchChange}
                                     className="w-full capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg bg-transparent outline-none"
-                                    placeholder="Search"
+                                    placeholder="Search by name, location, etc."
                                 />
                             </div>
                             <AnimatePresence>
                                 {searchQuery && (
                                     <motion.button
                                         key="clear-button"
-                                        onClick={() => setSearchQuery("")}
+                                        type="button"
+                                        onClick={handleClearSearch}
                                         className="p-2 text-black"
                                         initial={{ opacity: 0, rotate: -90 }}
                                         animate={{ opacity: 1, rotate: 0 }}
@@ -48,8 +63,15 @@ const PropertiesHero = () => {
                                 )}
                             </AnimatePresence>
                         </div>
-                        <div className="col-span-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
-                            <Filter options={listFilter} onSelect={setSelectedListFilter} selectedOption={selectedListFilter} />
+                        <div className="col-span-1 flex items-center gap-2">
+                            <Filter 
+                                options={statusFilters} 
+                                onSelect={(value) => {
+                                    setSelectedStatusFilter(value);
+                                    onStatusFilter(value);
+                                }} 
+                                selectedOption={selectedStatusFilter} 
+                            />
                         </div>
                     </div>
                 </form>

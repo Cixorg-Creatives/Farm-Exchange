@@ -15,6 +15,8 @@ import Notification from "./Schema/Notification.js";
 import Comment from "./Schema/Comment.js";
 import Contact from "./Schema/Contact.js";
 import Post from "./Schema/Post.js";
+import Property from "./Schema/Property.js";
+import { body, validationResult } from "express-validator";
 
 const server = express();
 let PORT = 3000;
@@ -1135,6 +1137,217 @@ server.post("/delete-post-property", async (req, res) => {
     }
 });
 
+server.post('/properties', 
+  [
+    body('name').notEmpty().withMessage('Property name is required'),
+    body('availabilityStatus').isIn(['available', 'not-available']).withMessage('Invalid availability status'),
+    body('type').isIn(['farmland', 'farmhouse', 'agricultureland', 'coffee']).withMessage('Invalid property type'),
+    body('category').isIn(['elite', 'featured', 'recommended']).withMessage('Invalid category'),
+    body('banner').notEmpty().withMessage('Banner image is required'),
+    body('price.value').isNumeric().withMessage('Price must be a number'),
+    body('price.unit').isIn(['lakh', 'crore']).withMessage('Invalid price unit'),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const {
+        name,
+        availabilityStatus,
+        type,
+        category,
+        banner,
+        gallery,
+        price,
+        pricePerArea,
+        plotArea,
+        totalProjectArea,
+        propertyDescription,
+        projectDescription,
+        projectAbout,
+        amenities,
+        location,
+        status = 'draft'
+      } = req.body;
+
+      const newProperty = new Property({
+        name,
+        availabilityStatus,
+        type,
+        category,
+        banner,
+        gallery: gallery || [],
+        price,
+        pricePerArea,
+        plotArea,
+        totalProjectArea,
+        propertyDescription,
+        projectDescription,
+        projectAbout,
+        amenities: amenities || [],
+        location,
+        status
+      });
+
+      const savedProperty = await newProperty.save();
+
+      res.status(200).json({
+        success: true,
+        message: 'Property created successfully',
+        property: savedProperty
+      });
+    } catch (error) {
+      console.error('Error creating property:', error);
+      res.status(500).json({
+        success: false,
+        message: 'Error creating property',
+        error: error.message
+      });
+    }
+  }
+);
+
+server.get('/list-properties', async (req, res) => {
+  try {
+    const { status, search } = req.query;
+
+    const query = {};
+    if (status && status !== 'all') query.status = status;
+
+    if (search) {
+      query.$or = [
+        { name: { $regex: search, $options: 'i' } },
+        { 'location.city': { $regex: search, $options: 'i' } },
+        { 'location.state': { $regex: search, $options: 'i' } },
+        { 'location.locality': { $regex: search, $options: 'i' } },
+        { type: { $regex: search, $options: 'i' } }
+      ];
+    }
+
+    const properties = await Property.find(query)
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: properties.length,
+      data: properties
+    });
+  } catch (error) {
+    console.error('Error fetching properties:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error fetching properties',
+      error: error.message
+    });
+  }
+});
+
+server.get('/get-properties/:id', async (req, res) => {
+  try {
+    const property = await Property.findById(req.params.id);
+    
+    if (!property) {
+      return res.status(404).json({
+        success: false,
+        message: 'Property not found'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: property
+    });
+  } catch (error) {
+    console.error('Error fetching property:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error fetching property',
+      error: error.message
+    });
+  }
+});
+
+server.get('/edit-properties/:id', async (req, res) => {
+  try {
+    const property = await Property.findById(req.params.id);
+    
+    if (!property) {
+      return res.status(404).json({
+        success: false,
+        message: 'Property not found'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: property
+    });
+  } catch (error) {
+    console.error('Error fetching property:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error fetching property',
+      error: error.message
+    });
+  }
+});
+
+server.put('/edit-properties/:id', async (req, res) => {
+  try {
+    const property = await Property.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    
+    if (!property) {
+      return res.status(404).json({
+        success: false,
+        message: 'Property not found'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: property
+    });
+  } catch (error) {
+    console.error('Error updating property:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error updating property',
+      error: error.message
+    });
+  }
+});
+
+server.delete('/delete-properties/:id', async (req, res) => {
+  try {
+    const property = await Property.findByIdAndDelete(req.params.id);
+    
+    if (!property) {
+      return res.status(404).json({
+        success: false,
+        message: 'Property not found'
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: 'Property deleted successfully'
+    });
+  } catch (error) {
+    console.error('Error deleting property:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error deleting property',
+      error: error.message
+    });
+  }
+});
 
 server.listen(PORT, () => {
   console.log("listening on port -> " + PORT);
