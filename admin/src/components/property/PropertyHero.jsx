@@ -130,9 +130,7 @@ const PropertyHero = () => {
                         ))}
                     </div>
                     <div className='flex items-center justify-start gap-3 md:gap-6'>
-                        <Button title='Schedule Visit' variant='primary' icon='show' symbol='visit' />
-                        <Link to={'/contact'}><button className='size-10 md:size-14 flex items-center justify-center bg-[#D9E1C3] cursor-pointer hover:bg-[#D9E1C3] rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out'><MessageSquareText className='size-5 md:size-7 text-[#31511E] ' /></button></Link>
-                        <button className='size-10 md:size-14 flex items-center justify-center bg-[#D9E1C3] cursor-pointer hover:bg-[#D9E1C3] rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out'><Heart className='size-5 md:size-7 text-[#31511E] ' /></button>
+                        <Button link={'/properties/add-property'} title='add property' variant='primary' icon='show' symbol='visit' />
                     </div>
                 </div>
             </div>

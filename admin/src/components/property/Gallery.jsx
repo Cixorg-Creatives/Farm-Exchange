@@ -1,6 +1,6 @@
 import { assets } from '@/assets/assets';
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useParams } from 'react-router-dom';
 
 const Gallery = () => {
@@ -73,32 +73,28 @@ const Gallery = () => {
         Gallery
       </div>
       <div className='grid lg:grid-cols-[3fr_1fr] gap-5 lg:h-[35.5rem]'>
-        {selectedImage ? (
-          <motion.div 
-            className='grid-cols-1'
-            key={selectedImage} 
-            initial={{ opacity: 0, scale: 0.75 }} 
-            animate={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 0.5 }}
-          >
-            <img 
-              src={selectedImage} 
-              alt='Property gallery' 
-              className='w-full h-auto lg:h-full object-cover border border-black' 
+        <div className='col-span-1 w-full h-full overflow-hidden'>
+          <AnimatePresence mode='wait'>
+            <motion.img
+              key={selectedImage}
+              src={selectedImage}
+              alt='Property gallery'
+              className='w-full h-auto lg:h-full object-cover border-2 md:border-3 lg:border-4 rounded-sm md:rounded-md lg:rounded-lg border-[#31511E]/50'
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -50, opacity: 0 }}
+              transition={{ duration: 0.5 }}
             />
-          </motion.div>
-        ) : (
-          <div className='w-full h-full bg-gray-200 border border-black'></div>
-        )}
-        
+          </AnimatePresence>
+        </div>        
         <div className='grid-cols-1 flex flex-row lg:flex-col gap-4 overflow-auto'>
           {property.gallery.map((image, index) => (
             <motion.img
               key={index}
               src={image}
               alt={`Gallery thumbnail ${index + 1}`}
-              className={`w-1/5 h-auto lg:w-full lg:h-1/5 object-cover border border-black cursor-pointer hover:opacity-75 ${
-                selectedImage === image ? 'ring-2 ring-[#799138]' : ''
+              className={`w-1/5 h-auto lg:w-full lg:h-1/5 object-cover border-1 md:border-2 lg:border-3 rounded-sm md:rounded-md lg:rounded-lg cursor-pointer hover:opacity-75 ${
+                selectedImage === image ? 'border-[#000000]/50' : ''
               }`}
               whileTap={{ scale: 0.9 }}
               onClick={() => setSelectedImage(image)}

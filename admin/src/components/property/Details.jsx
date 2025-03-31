@@ -57,7 +57,7 @@ const Details = () => {
                 <div ref={galleryRef}><Gallery /></div>
                 <div ref={locationRef}><Location /></div>
             </div>
-            <aside className='hidden lg:sticky lg:flex flex-col items-end gap-1 w-[30%] top-2.5 right-0 overflow-y-auto max-h-[90vh] md:max-h-[85vh]'>
+            <aside className='hidden lg:sticky lg:flex flex-col items-end gap-1 w-[30%] -top-4 right-0 overflow-y-auto max-h-[90vh] md:max-h-[85vh]'>
                 {sectionIds.map((section, index) => (
                     <div
                         key={section}
