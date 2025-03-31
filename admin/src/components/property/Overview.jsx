@@ -57,7 +57,7 @@ const Overview = () => {
 
   return (
     <div className='py-4 md:py-6 lg:py-8 w-full flex flex-col gap-2 md:gap-3 lg:gap-4'>
-      <div className='uppercase sticky top-0 left-0 z-10 lg:relative text-[#31511E] font-semibold bg-[#F6FCDF] text-[2rem]'>
+      <div className='uppercase sticky -top-7.5 left-0 z-10 lg:relative text-[#31511E] font-semibold bg-[#F6FCDF] text-[2rem]'>
         Overview
       </div>
       <div className='flex items-center justify-end'>

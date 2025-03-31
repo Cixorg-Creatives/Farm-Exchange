@@ -31,13 +31,15 @@ const App = () => {
   return (
     <UserContext.Provider value={{ userAuth, setUserAuth }}>
       <Toaster />
-      <div className="h-screen overflow-hidden flex flex-col clashdisplay">
+      <div className="flex flex-col clashdisplay">
         {userAuth.access_token ? (
           <div>
             <Navbar />
-            <div className="flex flex-1">
+            <div className="w-full h-[10vh] md:h-[90bh]"></div>
+            <div className="flex flex-1 mt-auto">
               <Sidebar />
-              <div className="w-[82%] h-[85vh] overflow-auto my-8 pb-10 text-gray-600 text-base">
+              <div className="w-[18%]"></div>
+              <div className="fixed bottom-0 right-0 w-[82%] h-[90vh] md:h-[85vh] overflow-scroll py-8 pb-10 text-gray-600 text-base">
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/profile" element={<EditProfile />} />

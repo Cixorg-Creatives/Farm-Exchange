@@ -31,7 +31,7 @@ const Location = () => {
   if (loading) {
     return (
       <div className='py-4 md:py-6 lg:py-8 flex flex-col gap-2 md:gap-3 lg:gap-4'>
-        <div className='uppercase sticky top-0 left-0 z-10 lg:relative text-[#31511E] font-bold bg-[#F6FCDF] text-[2rem]'>
+        <div className='uppercase sticky -top-7.5 left-0 z-10 lg:relative text-[#31511E] font-bold bg-[#F6FCDF] text-[2rem]'>
           Location
         </div>
         <div className='flex flex-col gap-4 md:gap-8 lg:gap-11'>
