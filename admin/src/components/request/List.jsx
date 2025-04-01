@@ -6,6 +6,8 @@ const List = () => {
     const [properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [deleteConfirm, setDeleteConfirm] = useState(null);
+    const [deleteLoading, setDeleteLoading] = useState(false);
 
     useEffect(() => {
         const fetchProperties = async () => {
@@ -19,9 +21,11 @@ const List = () => {
                 } else {
                     setProperties([]);
                     console.error("Error: API did not return an array");
+                    toast.error("Error: API did not return an array");
                 }
             } catch (error) {
                 console.error('Error fetching properties:', error);
+                toast.error('Error fetching properties:', error);
                 setError('Failed to load properties');
             } finally {
                 setLoading(false);
@@ -32,6 +36,7 @@ const List = () => {
     }, []);
 
     const deleteProperty = async (id) => {
+        setDeleteLoading(true)
         try {
             const response = await axios.post('http://localhost:3000/delete-post-property', { id });
 
@@ -42,6 +47,10 @@ const List = () => {
             }
         } catch (error) {
             console.error("Error deleting property:", error);
+            setDeleteLoading(false)
+        } finally {
+            setDeleteLoading(false)
+            setDeleteConfirm(null)
         }
     };
 
@@ -76,7 +85,7 @@ const List = () => {
                                     symbol='delete'
                                     icon='show'
                                     className='delete-button'
-                                    onClick={() => deleteProperty(property._id)}
+                                    onClick={() => setDeleteConfirm(property)}
                                 />
                             </div>
                             <p className='uppercase text-[#859F3E] font-semibold text-[10px] md:text-xs lg:text-sm leading-tight'>
@@ -92,6 +101,17 @@ const List = () => {
                     <p className="text-gray-500">No properties found.</p>
                 )}
             </div>
+            {deleteConfirm && (
+                <div className='fixed inset-0 flex items-center justify-center backdrop-blur-sm p-4' onClick={() => setDeleteConfirm(null)}>
+                    <div className='bg-[#F6FCDF] px-4 py-6 border-1 border-[#31511E]/50 max-w-sm w-full flex flex-col items-center rounded-md shadow-lg gap-1 md:gap-2 lg:gap-3' onClick={(e) => e.stopPropagation()}>
+                        <p className='text-[#31511E] font-semibold text-base md:text-xl lg:text-3xl leading-tight'>Are you sure?</p>
+                        <p className='text-[#859F3E] font-medium text-xs md:text-sm lg:text-base leading-tight'>Do you really want to delete this contact?</p>
+                        <div className='flex gap-3 mt-4'>
+                            <Button loading={deleteLoading} icon='show' symbol='delete' variant='destructive' onClick={() => deleteProperty(deleteConfirm._id)}>Delete</Button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

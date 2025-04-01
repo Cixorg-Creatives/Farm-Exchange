@@ -1,8 +1,8 @@
-import { ArrowUpRight, Edit2, Plus, Trash2, X } from 'lucide-react';
+import { ArrowUpRight, Check, Edit2, Plus, Trash2, X, Loader2 } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Button = ({ title, icon, variant = 'default', className = '', symbol, link, onClick, type }) => {
+const Button = ({ title, icon, variant = 'default', className = '', symbol, link, onClick, type, loading }) => {
     const variants = {
         default: '',
         primary: 'bg-[#859F3E]',
@@ -19,6 +19,8 @@ const Button = ({ title, icon, variant = 'default', className = '', symbol, link
         add: <Plus className={`${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
         default: <ArrowUpRight className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
         close: <X className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
+        check: <Check className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
+        loader: <Loader2 className={`${symbolClass} animate-spin`} />,
     };
 
     const buttonClasses = `capitalize cursor-pointer clashdisplay group flex items-center justify-center gap-0.5 md:gap-1 lg:gap-1.5 text-white font-normal text-base md:text-lg lg:text-2xl py-1 md:py-2 lg:py-3 px-2 md:px-4 lg:px-6 rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out ${variants[variant] || variants.default} ${className}`;
@@ -27,15 +29,15 @@ const Button = ({ title, icon, variant = 'default', className = '', symbol, link
         return (
             <Link to={link} className={buttonClasses}>
                 {title}
-                {iconMap[symbol] || iconMap.default}
+                {loading ? iconMap.loader : iconMap[symbol] || iconMap.default}
             </Link>
         );
     }
 
     return (
-        <button className={buttonClasses} onClick={onClick} type={type}>
+        <button className={buttonClasses} onClick={onClick} type={type} disabled={loading}>
             {title}
-            {iconMap[symbol] || iconMap.default}
+            {loading ? iconMap.loader : iconMap[symbol] || iconMap.default}
         </button>
     );
 };
