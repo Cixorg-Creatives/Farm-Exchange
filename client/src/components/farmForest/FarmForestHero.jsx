@@ -1,8 +1,8 @@
 import { assets } from '@/assets/assets'
 import { Heart, IndianRupee, MessageSquareText } from 'lucide-react'
 import React from 'react'
-import Button from '../button'
 import { Link } from 'react-router-dom'
+import Button from '../Button'
 
 const FarmForestHero = () => {
   return (
@@ -65,7 +65,8 @@ const FarmForestHero = () => {
             <img src={assets.farmforest_3} alt="" className='col-span-1 w-full h-auto' />
           </div>
           <div className='flex items-center justify-start gap-3 md:gap-6'>
-            <Button title='Scheduled Visit' variant='primary' icon='show' symbol='visit' />
+            <Button
+             title='Scheduled Visit' variant='primary' icon='show' symbol='visit' />
             <Link to={'/contact'}><button className='size-10 md:size-14 flex items-center justify-center bg-[#D9E1C3] cursor-pointer hover:bg-[#D9E1C3] rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out'><MessageSquareText className='size-5 md:size-7 text-[#31511E] ' /></button></Link>            
             <button className='size-10 md:size-14 flex items-center justify-center bg-[#D9E1C3] cursor-pointer hover:bg-[#D9E1C3] rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out'><Heart className='size-5 md:size-7 text-[#31511E] ' /></button>
           </div>
