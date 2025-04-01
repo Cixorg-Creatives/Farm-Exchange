@@ -69,9 +69,6 @@ const Blogs = () => {
 
   return (
     <div className='px-5 md:px-8 lg:px-12'>
-      <Link to={'/blogs/add-blog'}>
-        <Button title={"Add Blog"} variant='primary' icon={'show'} symbol={''} />
-      </Link>
       <SearchBar setQuery={setQuery} setFilter={setFilter} />
 
       {filteredBlogs == null ? (
