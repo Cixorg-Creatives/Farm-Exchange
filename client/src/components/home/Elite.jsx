@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, IndianRupee } from "lucide-react";
 import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import axios from "axios";
 
 const Elite = () => {
@@ -37,6 +37,7 @@ const Elite = () => {
   const data = [
     { image: assets.home_24 },
     ...eliteProperties.map((property) => ({
+      _id: property._id,
       image: property.banner,
       title: property.name,
       area: `${property.plotArea.value} ${property.plotArea.unit}`,
@@ -67,44 +68,6 @@ const Elite = () => {
     }
   };
 
-  const leftAnimation = {
-    initial: { x: 200, opacity: 0 },
-    animate: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 2, ease: "easeOut", type: "spring", damping: 15 },
-    },
-    exit: {
-      x: 200,
-      opacity: 0,
-      transition: {
-        duration: 1,
-        ease: "easeInOut",
-        type: "spring",
-        damping: 15,
-      },
-    },
-  };
-
-  const rightAnimation = {
-    initial: { x: -200, opacity: 0 },
-    animate: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 2, ease: "easeOut", type: "spring", damping: 15 },
-    },
-    exit: {
-      x: -200,
-      opacity: 0,
-      transition: {
-        duration: 1,
-        ease: "easeInOut",
-        type: "spring",
-        damping: 15,
-      },
-    },
-  };
-
   if (loading) {
     return (
       <div className="my-6 md:my-10 xl:my-14">Loading elite properties...</div>
@@ -121,7 +84,7 @@ const Elite = () => {
 
   if (eliteProperties.length === 0) {
     return (
-        <></>
+      <></>
     )
   }
 
@@ -141,7 +104,7 @@ const Elite = () => {
           <Button title="View More" variant="primary" icon="show" />
         </Link>
       </div>
-      <div className="w-full flex flex-col-reverse lg:flex-row items-end justify-end gap-2 md:gap-3 lg:gap-0">
+      <div className="relative w-full flex flex-col-reverse lg:flex-row items-end justify-end gap-2 md:gap-3 lg:gap-0">
         <div className="w-full lg:w-fit relative z-2 lg:translate-y-1/3 lg:translate-x-1/2 flex items-center justify-center gap-3 md:gap-4 lg:gap-5">
           <button
             className="size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]"
@@ -158,58 +121,34 @@ const Elite = () => {
             <ChevronRight className="text-white size-2.5 md:size-3.5 lg:size-5" />
           </button>
         </div>
-        <div
-          ref={scrollRef}
-          className="lg:w-4/5 h-full overflow-x-auto flex items-center justify-start"
-        >
+        <div ref={scrollRef} className="lg:w-4/5 h-full overflow-x-auto flex items-center justify-start">
           {data.map((item, index) => (
             <div key={index} className="relative w-1/3 flex-shrink-0">
               <img src={item.image} alt="" className="w-full h-full aspect-[2/3] object-cover" />
-              {index === currentIndex + 1 && (
-                <>
-                  <motion.div
-                    variants={leftAnimation}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    className="absolute inset-0 -translate-x-full z-1 group bg-[#D9E2C3] hover:bg-[#5E722D66] hover:duration-300 ease-in flex items-start justify-center p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out"
-                  >
-                    <p className="uppercase group-hover:text-white text-[#31511E] font-medium text-base md:text-xl lg:text-[2.5rem] leading-tight">
-                      {item.title}
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    variants={rightAnimation}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    className="absolute inset-0 translate-x-full z-1 group bg-[#5E722D] hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out"
-                  >
-                    <div className="group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2">
-                      <div className="flex items-end">
-                        <IndianRupee className="h-5 md:h-8 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2" />
-                        <p className="text-white font-semibold text-sm md:text-xl lg:text-4xl mr-0.5 md:mr-1 lg:mr-1.5">
-                          {item.price}
-                        </p>
-                        <p className="text-white font-semibold text-xs md:text-lg lg:text-3xl mr-0.5 md:mr-1 lg:mr-1.5">
-                          {item.price_unit}
-                        </p>
-                        <p className="text-[#D9D9D9] font-normal text-[8px] md:text-xs lg:text-base my-0.5 md:my-[3px] lg:my-1 mr-0.5 md:mr-1 lg:mr-1.5">
-                          Onwards
-                        </p>
-                      </div>
-                      <p className="capitalize text-white font-medium text-[9px] md:text-sm lg:text-xl">
-                        {item.location}
-                      </p>
-                      <p className="capitalize text-[#D9D9D9] font-medium text-[7px] md:text-xs lg:text-base">
-                        Project Area - {item.area}
-                      </p>
-                    </div>
-                  </motion.div>
-                </>
-              )}
             </div>
           ))}
+        </div>
+        <div className="absolute top-0 right-0 w-full lg:w-4/5 h-full flex items-start justify-between">
+          <div className='w-1/3 aspect-2/3 bg-[#BFC9B9] border border-[#31511E] group hover:bg-[#5E722D66] flex items-start p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out'>
+            <AnimatePresence mode='wait'>
+              <motion.div key={currentIndex} initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} exit={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} transition={{ duration: 1, ease: "easeInOut" }} className='uppercase group-hover:text-white text-[#31511E] font-medium text-base md:text-xl lg:text-[2.5rem] leading-tight text-left hover:duration-400 hover:ease-in-out'>{data[currentIndex + 1].title}</motion.div>
+            </AnimatePresence>
+          </div>
+          <Link to={`/properties/${data[currentIndex + 1]._id}`} className='w-1/3 h-full bg-transparent'></Link>
+          <div className='w-1/3 aspect-2/3 bg-[#5E722D] border border-[#31511E] group hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out'>
+            <AnimatePresence mode='wait'>
+              <motion.div key={currentIndex} initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} exit={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} transition={{ duration: 1, ease: "easeInOut" }} className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
+                <div className='flex items-end'>
+                  <IndianRupee className='h-5 md:h-8 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
+                  <p className='text-white font-semibold text-sm md:text-xl lg:text-4xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex + 1].price}</p>
+                  <p className='text-white font-semibold text-xs md:text-lg lg:text-3xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex + 1].price_unit}</p>
+                  <p className='text-[#D9D9D9] font-normal text-[8px] md:text-xs lg:text-base my-0.5 md:my-[3px] lg:my-1 mr-0.5 md:mr-1 lg:mr-1.5'>Onwards</p>
+                </div>
+                <p className='capitalize text-white font-medium text-[9px] md:text-sm lg:text-xl'>{data[currentIndex + 1].location}</p>
+                <p className='capitalize text-[#D9D9D9] font-medium text-[7px] md:text-xs lg:text-base'>Project Area - {data[currentIndex + 1].area}</p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>
