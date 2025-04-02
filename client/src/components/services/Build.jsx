@@ -9,8 +9,7 @@ const Build = () => {
       <h1 className='capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight pb-2 md:pb-4 lg:pb-8'>Build Your future , <br /> one property at a time</h1>
       <div className='grid grid-cols-1 md:grid-cols-[5fr_8.8fr] gap-2 md:gap-4 lg:gap-6'>
         <div className='col-span-1 relative'>
-          <img src={assets.services_2} alt="" className='w-full h-auto hidden md:block' />
-          <img src={assets.services_5} alt="" className='w-full h-auto md:hidden' />
+          <img src={assets.services_2} alt="" className='w-full h-full object-cover' />
           <div className='absolute bg-[#00000033] inset-0'></div>
         </div>
         <div className='col-span-1 h-full flex flex-col items-center justify-between gap-2 md:gap-3 lg:gap-0'>
@@ -20,7 +19,7 @@ const Build = () => {
               <p className='capitalize text-[#757575] font-normal text-xs md:text-base lg:text-xl leading-tight'>Big things can happen in <br /> small Big things can happen <br /> in small Big things can <br /> happen in small Big things <br /> can happen in small Big <br /> things can happen in small</p>
             </div>
             <div className='bg-[#D9E1C3] col-span-1 h-full w-full flex flex-col items-center gap-2 md:gap-4 lg:gap-6'>
-              <img src={assets.services_3} alt="" className='w-full h-auto' />
+              <img src={assets.services_3} alt="" className='w-full h-auto aspect-3/2 object-cover' />
               <div className='flex flex-col items-center justify-center gap-2 md:gap-3.5 lg:gap-5 py-2 md:py-4 lg:py-6'>
                 <p className='capitalize text-[#02542D] font-medium text-base md:text-xl lg:text-[2rem] leading-tight text-center '>Big things can <br /> happen in small </p>
                 <Link to={'/properties'}><Button title='Explore Properties' variant='primary' icon='show' className='text-xs' /></Link>

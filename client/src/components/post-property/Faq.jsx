@@ -47,7 +47,7 @@ const Faq = () => {
         Frequently Asked Questions
       </p>
       <div className='flex items-start justify-between'>
-        <div className='md:w-3/5 flex flex-col items-center gap-2 md:gap-3 lg:gap-4'>
+        <div className='w-full md:w-3/5 flex flex-col items-center gap-2 md:gap-3 lg:gap-4'>
           {faqs.map((item, index) => (
             <div key={index} className='flex flex-col gap-2 md:gap-3 lg:gap-4 w-full h-auto'>
               <div
