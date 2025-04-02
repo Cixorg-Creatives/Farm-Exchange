@@ -36,8 +36,24 @@ const Recommended = () => {
       <div className="py-6 md:py-10 xl:py-14 relative old-standard-tt">
         <div className="flex flex-col items-start gap-2 md:gap-3 lg:gap-5 pb-4 md:pb-6 lg:pb-8">
           <p className="boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase">
-            Loading featured properties...
+            highly recommended properties
           </p>
+          <p className="capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight">
+            The Most Renowned and <br /> Influential Developers in the <br />
+            Industry
+          </p>
+        </div>
+        <div className='py-6 md:py-10 xl:py-14 relative'>
+          <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-x-2 md:gap-x-3 lg:gap-x-5 gap-y-6 md:gap-y-10 lg:gap-y-16'>
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6 text-[#31511E] animate-pulse'>
+                <div className='relative w-full bg-[#c7d3a7] h-48 md:h-64 lg:h-80 rounded-lg'></div>
+                <div className='w-full h-6 bg-[#c7d3a7] rounded'></div>
+                <div className='w-3/4 h-4 bg-[#c7d3a7] rounded'></div>
+                <div className='w-1/2 h-8 bg-[#c7d3a7] rounded'></div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
@@ -48,11 +64,24 @@ const Recommended = () => {
       <div className="py-6 md:py-10 xl:py-14 relative old-standard-tt">
         <div className="flex flex-col items-start gap-2 md:gap-3 lg:gap-5 pb-4 md:pb-6 lg:pb-8">
           <p className="boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase">
-            Error loading properties
+            highly recommended properties
           </p>
           <p className="capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight">
-            {error}
+            The Most Renowned and <br /> Influential Developers in the <br />
+            Industry
           </p>
+        </div>
+        <div className='py-6 md:py-10 xl:py-14 relative'>
+          <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-x-2 md:gap-x-3 lg:gap-x-5 gap-y-6 md:gap-y-10 lg:gap-y-16'>
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6 text-[#31511E] animate-pulse'>
+                <div className='relative w-full bg-[#c7d3a7] h-48 md:h-64 lg:h-80 rounded-lg'></div>
+                <div className='w-full h-6 bg-[#c7d3a7] rounded'></div>
+                <div className='w-3/4 h-4 bg-[#c7d3a7] rounded'></div>
+                <div className='w-1/2 h-8 bg-[#c7d3a7] rounded'></div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

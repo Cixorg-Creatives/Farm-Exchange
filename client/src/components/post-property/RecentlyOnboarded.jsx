@@ -41,23 +41,47 @@ const RecentlyOnboarded = () => {
 
   if (loading) {
     return (
-      <div className='py-6 md:py-10 xl:py-14'>
+      <div className="py-6 md:py-10 xl:py-14 relative old-standard-tt">
         <div className='w-full h-12 flex items-center justify-center'>
           <p className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>
-            Loading recently onboarded properties...
+            Recently Onboarded Properties
           </p>
+        </div>
+        <div className='py-6 md:py-10 xl:py-14 relative'>
+          <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-x-2 md:gap-x-3 lg:gap-x-5 gap-y-6 md:gap-y-10 lg:gap-y-16'>
+            {[...Array(3)].slice(0, windowWidth < 768 ? 2 : 3).map((_, index) => (
+              <div key={index} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6 text-[#31511E] animate-pulse'>
+                <div className='relative w-full bg-[#c7d3a7] h-48 md:h-64 lg:h-80 rounded-lg'></div>
+                <div className='w-full h-6 bg-[#c7d3a7] rounded'></div>
+                <div className='w-3/4 h-4 bg-[#c7d3a7] rounded'></div>
+                <div className='w-1/2 h-8 bg-[#c7d3a7] rounded'></div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     )
   }
 
-  if (error) {
+  if (!error) {
     return (
-      <div className='py-6 md:py-10 xl:py-14'>
+      <div className="py-6 md:py-10 xl:py-14 relative old-standard-tt">
         <div className='w-full h-12 flex items-center justify-center'>
           <p className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>
-            Error loading properties: {error}
+            Recently Onboarded Properties
           </p>
+        </div>
+        <div className='py-6 md:py-10 xl:py-14 relative'>
+          <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-x-2 md:gap-x-3 lg:gap-x-5 gap-y-6 md:gap-y-10 lg:gap-y-16'>
+            {[...Array(3)].slice(0, windowWidth < 768 ? 2 : 3).map((_, index) => (
+              <div key={index} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6 text-[#31511E] animate-pulse'>
+                <div className='relative w-full bg-[#c7d3a7] h-48 md:h-64 lg:h-80 rounded-lg'></div>
+                <div className='w-full h-6 bg-[#c7d3a7] rounded'></div>
+                <div className='w-3/4 h-4 bg-[#c7d3a7] rounded'></div>
+                <div className='w-1/2 h-8 bg-[#c7d3a7] rounded'></div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     )

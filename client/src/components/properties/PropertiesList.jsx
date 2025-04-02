@@ -10,10 +10,10 @@ const PropertiesList = ({ properties = [], loading }) => {
                 <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-x-2 md:gap-x-3 lg:gap-x-5 gap-y-6 md:gap-y-10 lg:gap-y-16'>
                     {[...Array(6)].map((_, index) => (
                         <div key={index} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6 text-[#31511E] animate-pulse'>
-                            <div className='relative w-full bg-gray-200 h-48 md:h-64 lg:h-80 rounded-lg'></div>
-                            <div className='w-full h-6 bg-gray-200 rounded'></div>
-                            <div className='w-3/4 h-4 bg-gray-200 rounded'></div>
-                            <div className='w-1/2 h-8 bg-gray-200 rounded'></div>
+                            <div className='relative w-full bg-[#c7d3a7] h-48 md:h-64 lg:h-80 rounded-lg'></div>
+                            <div className='w-full h-6 bg-[#c7d3a7] rounded'></div>
+                            <div className='w-3/4 h-4 bg-[#c7d3a7] rounded'></div>
+                            <div className='w-1/2 h-8 bg-[#c7d3a7] rounded'></div>
                         </div>
                     ))}
                 </div>
@@ -26,7 +26,7 @@ const PropertiesList = ({ properties = [], loading }) => {
     if (safeProperties.length === 0) {
         return (
             <div className='py-6 md:py-10 xl:py-14 relative'>
-                <p className='text-center text-[#31511E] text-lg md:text-xl lg:text-2xl'>
+                <p className='text-center text-[#31511E] font-semibold text-xs md:text-lg lg:text-2xl'>
                     No properties found matching your criteria.
                 </p>
             </div>

@@ -1,8 +1,8 @@
-import { ArrowUpRight, Edit2, Trash2, X, Calendar, Loader2 } from 'lucide-react';
+import { ArrowUpRight, Check, Edit2, Plus, Trash2, X, Loader2 } from 'lucide-react';
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
-const Button = ({ title, icon, variant = 'default', className = '', symbol, loading }) => {
+const Button = ({ title, icon, variant = 'default', className = '', symbol, link, onClick, type, loading }) => {
     const variants = {
         default: '',
         primary: 'bg-[#859F3E]',
@@ -14,42 +14,30 @@ const Button = ({ title, icon, variant = 'default', className = '', symbol, load
     const symbolClass = 'w-4 md:w-5 lg:w-6 h-auto duration-300 ease-in';
 
     const iconMap = {
-        edit: <Edit2 className={`${symbolClass}`} />,
-        delete: <Trash2 className={`${symbolClass}`} />,
-        visit: <Calendar className={`${symbolClass}`} />,
-        default: <ArrowUpRight className={`group-active:rotate-45 ${symbolClass}`} />,
-        close: <X className={`group-active:rotate-45 ${symbolClass}`} />,
+        edit: <Edit2 className={`${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
+        delete: <Trash2 className={`${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
+        add: <Plus className={`${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
+        default: <ArrowUpRight className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
+        close: <X className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
+        check: <Check className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
+        loader: <Loader2 className={`${symbolClass} animate-spin`} />,
     };
 
+    const buttonClasses = `capitalize cursor-pointer clashdisplay group flex items-center justify-center gap-0.5 md:gap-1 lg:gap-1.5 text-white font-normal text-base md:text-lg lg:text-2xl py-1 md:py-2 lg:py-3 px-2 md:px-4 lg:px-6 rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out ${variants[variant] || variants.default} ${className}`;
+
+    if (link) {
+        return (
+            <Link to={link} className={buttonClasses}>
+                {title}
+                {loading ? iconMap.loader : iconMap[symbol] || iconMap.default}
+            </Link>
+        );
+    }
+
     return (
-        <button
-            className={`capitalize cursor-pointer clashdisplay group flex items-center justify-center gap-0.5 md:gap-1 lg:gap-1.5 text-white font-semibold text-base md:text-lg lg:text-2xl py-1 md:py-2 lg:py-3 px-2 md:px-4 lg:px-6 rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out ${variants[variant] || variants.default} ${className}`}
-            disabled={loading}
-        >
+        <button className={buttonClasses} onClick={onClick} type={type} disabled={loading}>
             {title}
-            <AnimatePresence mode="wait">
-                {loading ? (
-                    <motion.div
-                        key="loader"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.8 }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        <Loader2 className="animate-spin w-4 md:w-5 lg:w-6 h-auto" />
-                    </motion.div>
-                ) : (
-                    <motion.div
-                        key="icon"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.8 }}
-                        transition={{ duration: 0.1 }}
-                    >
-                        {iconMap[symbol] || iconMap.default}
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            {loading ? iconMap.loader : iconMap[symbol] || iconMap.default}
         </button>
     );
 };
