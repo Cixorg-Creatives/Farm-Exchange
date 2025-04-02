@@ -3,9 +3,9 @@ import { ChevronLeft, ChevronRight, IndianRupee } from 'lucide-react';
 import React, { useRef, useState, useEffect } from 'react';
 import Button from '../Button';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import axios from 'axios';
-import { property } from 'lodash';
+// import { property } from 'lodash';
 
 const Recently = () => {
     const scrollRef = useRef(null);
@@ -62,34 +62,6 @@ const Recently = () => {
         }
     };
 
-    const leftAnimation = {
-        initial: { x: 200, opacity: 0 },
-        animate: {
-            x: 0,
-            opacity: 1,
-            transition: { duration: 2, ease: "easeOut", type: "spring", damping: 15 }
-        },
-        exit: {
-            x: 200,
-            opacity: 0,
-            transition: { duration: 1, ease: "easeInOut", type: "spring", damping: 15 }
-        },
-    };
-
-    const rightAnimation = {
-        initial: { x: -200, opacity: 0 },
-        animate: {
-            x: 0,
-            opacity: 1,
-            transition: { duration: 2, ease: "easeOut", type: "spring", damping: 15 }
-        },
-        exit: {
-            x: -200,
-            opacity: 0,
-            transition: { duration: 1, ease: "easeInOut", type: "spring", damping: 15 }
-        },
-    };
-
     if (loading) {
         return <div className='my-6 md:my-10 xl:my-14'>Loading recent properties...</div>;
     }
@@ -119,20 +91,24 @@ const Recently = () => {
                 </div>
                 <div className='absolute inset-0 lg:w-4/5 flex items-start justify-between'>
                     <div className='w-1/3 aspect-2/3 bg-[#BFC9B9] border border-[#31511E] group hover:bg-[#5E722D66] flex items-start p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out'>
-                        <motion.p className='uppercase group-hover:text-white text-[#31511E] font-medium text-base md:text-xl lg:text-[2.5rem] leading-tight text-left duration-400 ease-in-out'>{data[currentIndex + 1].title}</motion.p>
+                        <AnimatePresence mode='wait'>
+                            <motion.div key={currentIndex} initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} exit={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} transition={{ duration: 1, ease: "easeInOut" }} className='uppercase group-hover:text-white text-[#31511E] font-medium text-base md:text-xl lg:text-[2.5rem] leading-tight text-left hover:duration-400 hover:ease-in-out'>{data[currentIndex + 1].title}</motion.div>
+                        </AnimatePresence>
                     </div>
-                    <Link to={`/properties/${data[currentIndex+1]._id}`} className='w-1/3 h-full bg-transparent'></Link>
+                    <Link to={`/properties/${data[currentIndex + 1]._id}`} className='w-1/3 h-full bg-transparent'></Link>
                     <div className='w-1/3 aspect-2/3 bg-[#5E722D] border border-[#31511E] group hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out'>
-                        <div className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
-                            <div className='flex items-end'>
-                                <IndianRupee className='h-5 md:h-8 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
-                                <p className='text-white font-semibold text-sm md:text-xl lg:text-4xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex+1].price}</p>
-                                <p className='text-white font-semibold text-xs md:text-lg lg:text-3xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex+1].price_unit}</p>
-                                <p className='text-[#D9D9D9] font-normal text-[8px] md:text-xs lg:text-base my-0.5 md:my-[3px] lg:my-1 mr-0.5 md:mr-1 lg:mr-1.5'>Onwards</p>
-                            </div>
-                            <p className='capitalize text-white font-medium text-[9px] md:text-sm lg:text-xl'>{data[currentIndex+1].location}</p>
-                            <p className='capitalize text-[#D9D9D9] font-medium text-[7px] md:text-xs lg:text-base'>Project Area - {data[currentIndex+1].area}</p>
-                        </div>
+                        <AnimatePresence mode='wait'>
+                            <motion.div key={currentIndex} initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} exit={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} transition={{ duration: 1, ease: "easeInOut" }} className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
+                                <div className='flex items-end'>
+                                    <IndianRupee className='h-5 md:h-8 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
+                                    <p className='text-white font-semibold text-sm md:text-xl lg:text-4xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex + 1].price}</p>
+                                    <p className='text-white font-semibold text-xs md:text-lg lg:text-3xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex + 1].price_unit}</p>
+                                    <p className='text-[#D9D9D9] font-normal text-[8px] md:text-xs lg:text-base my-0.5 md:my-[3px] lg:my-1 mr-0.5 md:mr-1 lg:mr-1.5'>Onwards</p>
+                                </div>
+                                <p className='capitalize text-white font-medium text-[9px] md:text-sm lg:text-xl'>{data[currentIndex + 1].location}</p>
+                                <p className='capitalize text-[#D9D9D9] font-medium text-[7px] md:text-xs lg:text-base'>Project Area - {data[currentIndex + 1].area}</p>
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
                 </div>
                 <div className='w-full lg:w-fit relative z-2 lg:translate-y-1/3 lg:-translate-x-1/4 flex items-center justify-center gap-3 md:gap-4 lg:gap-5'>
