@@ -63,7 +63,7 @@ const RecentlyOnboarded = () => {
     )
   }
 
-  if (!error) {
+  if (error) {
     return (
       <div className="py-6 md:py-10 xl:py-14 relative old-standard-tt">
         <div className='w-full h-12 flex items-center justify-center'>
