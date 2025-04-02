@@ -16,7 +16,7 @@ const Benefits = () => {
                 <div className='relative w-full lg:w-auto'>
                     <img src={assets.contact_2} alt='' className='w-full xl:!w-[868px] h-auto xl:h-[491px]' />
                     <div className='hidden xl:flex lg:absolute lg:top-84 lg:right-4 bg-[#31511E] bg-opacity-50 lg:bg-opacity-100 sm:w-full lg:w-[40.563rem] sm:h-full lg:h-[22.813rem]'></div>
-                    <div className='absolute inset-0 xl:inset-auto xl:top-80 xl:right-8 bg-[#859F3E]/80 xl:bg-[#859F3E] sm:w-full xl:w-[40.563rem] sm:h-full xl:h-[22.813rem] flex flex-col justify-between p-6 sm:p-10'>
+                    <div className='cursor-pointer absolute inset-0 xl:inset-auto hover:xl:top-84 hover:xl:right-4 xl:top-80 xl:right-8 duration-200 ease-in-out bg-[#859F3E]/80 xl:bg-[#859F3E] sm:w-full xl:w-[40.563rem] sm:h-full xl:h-[22.813rem] flex flex-col justify-between p-6 sm:p-10'>
                         <h1 className='uppercase boska text-[#F6FCDF] font-normal text-2xl md:text-3xl lg:text-5xl leading-tight '>
                             Join Us to Grow, <br /> Succeed, and Thrive <br /> Together!
                         </h1>
