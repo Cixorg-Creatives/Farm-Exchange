@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowDown, ArrowUp, Check, ChevronDown, ChevronUp } from "lucide-react";
 
-const Sort = ({ options, onSort, SortedOption }) => {
+const Sort = ({ options, onSort, SortedOption = 'latest' }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -11,12 +11,12 @@ const Sort = ({ options, onSort, SortedOption }) => {
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
-                    {SortedOption.includes("latest") || SortedOption.includes("low-high") ? (
+                    {SortedOption?.includes("latest") || SortedOption?.includes("low-high") ? (
                         <ArrowUp className="h-4 md:h-5 lg:h-6 w-auto text-black" />
                     ) : (
                         <ArrowDown className="h-4 md:h-5 lg:h-6 w-auto text-black" />
                     )}
-                    {options.find(option => option.value === SortedOption)?.label}
+                    {options.find(option => option.value === SortedOption)?.label || 'Sort'}
                 </span>
                 {isOpen ? <ChevronUp className="h-4 md:h-6 w-auto text-black" /> : <ChevronDown className="h-4 md:h-6 w-auto text-black" />}
             </div>

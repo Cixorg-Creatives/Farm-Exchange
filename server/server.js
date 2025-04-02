@@ -1210,13 +1210,14 @@ server.post('/properties',
   }
 );
 
+
 server.get('/list-properties', async (req, res) => {
   try {
     const { status, search } = req.query;
-
+    
     const query = {};
     if (status && status !== 'all') query.status = status;
-
+    
     if (search) {
       query.$or = [
         { name: { $regex: search, $options: 'i' } },
@@ -1226,10 +1227,10 @@ server.get('/list-properties', async (req, res) => {
         { type: { $regex: search, $options: 'i' } }
       ];
     }
-
+    
     const properties = await Property.find(query)
-      .sort({ createdAt: -1 });
-
+    .sort({ createdAt: -1 });
+    
     res.status(200).json({
       success: true,
       count: properties.length,
@@ -1242,6 +1243,70 @@ server.get('/list-properties', async (req, res) => {
       message: 'Error fetching properties',
       error: error.message
     });
+  }
+});
+
+server.get('/list', async (req, res) => {
+  try {
+    const { city, type, category, sort, search } = req.query;
+    
+    const filter = { status: 'published' };
+    
+    if (city && city !== 'all') {
+      filter['location.city'] = { 
+        $regex: city.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 
+        $options: 'i' 
+      };
+    }
+    
+    if (type && type !== 'all') filter.type = type;
+    
+    if (category && category !== 'all') {
+      let categoryValue;
+      switch(category) {
+        case 'elite': categoryValue = 'elite'; break;
+        case 'featured': categoryValue = 'featured'; break;
+        case 'highrec': categoryValue = 'recommended'; break;
+        default: categoryValue = category;
+      }
+      filter.category = categoryValue;
+    }
+    
+    if (search) {
+      const searchRegex = new RegExp(search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
+      filter.$or = [
+        { name: searchRegex },
+        { 'location.locality': searchRegex },
+        { 'location.city': searchRegex },
+        { 'location.state': searchRegex },
+        { propertyDescription: searchRegex },
+        { projectDescription: searchRegex }
+      ];
+    }
+    
+    let sortOption = {};
+    if (sort) {
+      switch (sort) {
+        case 'alpha_low-high': sortOption.name = 1; break;
+        case 'alpha_high-low': sortOption.name = -1; break;
+        case 'latest': sortOption.createdAt = -1; break;
+        case 'earliest': sortOption.createdAt = 1; break;
+        case 'rec_low-high': sortOption.category = 1; break;
+        case 'rec_high-low': sortOption.category = -1; break;
+        case 'area_low-high': sortOption['plotArea.value'] = 1; break;
+        case 'area_high-low': sortOption['plotArea.value'] = -1; break;
+        case 'price_low-high': sortOption['price.value'] = 1; break;
+        case 'price_high-low': sortOption['price.value'] = -1; break;
+        default: sortOption.createdAt = -1;
+      }
+    } else {
+      sortOption.createdAt = -1;
+    }
+    
+    const properties = await Property.find(filter).sort(sortOption);
+    res.json(properties);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -1348,6 +1413,55 @@ server.delete('/delete-properties/:id', async (req, res) => {
     });
   }
 });
+
+// server.get('/list-properties-client', async (req, res) => {
+//   try {
+//     const { search, type, category, city, sort = 'newest' } = req.query;
+
+//     // 1. Build the query
+//     const query = { status: 'published' };
+    
+//     if (search) {
+//       query.$or = [
+//         { name: { $regex: search, $options: 'i' } },
+//         { 'location.city': { $regex: search, $options: 'i' } }
+//       ];
+//     }
+    
+//     if (type && type !== 'all') query.type = type;
+//     if (category && category !== 'all') query.category = category;
+//     if (city && city !== 'all') query['location.city'] = city;
+
+//     // 2. Set sorting
+//     const sortOptions = {
+//       newest: { createdAt: -1 },
+//       oldest: { createdAt: 1 },
+//       price_asc: { 'price.value': 1 },
+//       price_desc: { 'price.value': -1 }
+//     };
+    
+//     // 3. Execute query
+//     const properties = await Property.find(query)
+//       .sort(sortOptions[sort] || sortOptions.newest)
+//       .lean();
+
+//     // 4. Return standardized response
+//     res.status(200).json({
+//       success: true,
+//       data: properties,
+//       count: properties.length,
+//       message: 'Properties fetched successfully'
+//     });
+
+//   } catch (error) {
+//     console.error('Server Error:', error);
+//     res.status(500).json({
+//       success: false,
+//       message: 'Failed to fetch properties',
+//       error: error.message
+//     });
+//   }
+// });
 
 server.listen(PORT, () => {
   console.log("listening on port -> " + PORT);

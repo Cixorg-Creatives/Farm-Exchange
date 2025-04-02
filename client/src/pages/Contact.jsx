@@ -1,4 +1,4 @@
-import Benefits from '@/components/contact/Benefits'
+import Benefits from '@/components/contact/benefits'
 import HeroForm from '@/components/contact/Hero_form'
 
 import React from 'react'

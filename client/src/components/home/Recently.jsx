@@ -1,43 +1,52 @@
 import { assets } from '@/assets/assets';
 import { ChevronLeft, ChevronRight, IndianRupee } from 'lucide-react';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Button from '../Button';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
-const data = [
-    { image: assets.home_24 },
-    {
-        image: assets.home_6,
-        title: 'The Forest Farms',
-        area: '55 acres',
-        location: 'Nandi Hills, Chikballapur, Karnataka',
-        price: '1.75',
-        price_unit: 'cr'
-    },
-    {
-        image: assets.home_8,
-        title: 'The Forest Farms',
-        area: '55 acres',
-        location: 'Nandi Hills, Chikballapur, Karnataka',
-        price: '1.75',
-        price_unit: 'cr'
-    },
-    {
-        image: assets.home_2,
-        title: 'The Forest Farms',
-        area: '55 acres',
-        location: 'Nandi Hills, Chikballapur, Karnataka',
-        price: '1.75',
-        price_unit: 'cr'
-    },
-    { image: assets.home_25 },
-];
+import axios from 'axios';
 
 const Recently = () => {
-
     const scrollRef = useRef(null);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [recentProperties, setRecentProperties] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchRecentProperties = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/list', {
+                    params: {
+                        sort: 'latest',
+                        status: 'published'
+                    }
+                });
+                setRecentProperties(response.data);
+                setLoading(false);
+            } catch (err) {
+                setError(err.message);
+                setLoading(false);
+                console.error('Error fetching recent properties:', err);
+            }
+        };
+
+        fetchRecentProperties();
+    }, []);
+
+    const data = [
+        { image: assets.home_24 },
+        ...recentProperties.map(property => ({
+            image: property.banner,
+            title: property.name,
+            area: `${property.plotArea.value} ${property.plotArea.unit}`,
+            location: `${property.location.locality}, ${property.location.city}, ${property.location.state}`,
+            price: property.price.value.toString(),
+            price_unit: property.price.unit
+        })),
+        { image: assets.home_25 }
+    ];
+
     const totalItems = data.length - 2;
 
     const handleScroll = (direction) => {
@@ -79,6 +88,14 @@ const Recently = () => {
         },
     };
 
+    if (loading) {
+        return <div className='my-6 md:my-10 xl:my-14'>Loading recent properties...</div>;
+    }
+
+    if (error) {
+        return <div className='my-6 md:my-10 xl:my-14'>Error loading recent properties: {error}</div>;
+    }
+
     return (
         <div className='my-6 md:my-10 xl:my-14 flex flex-col gap-6 md:gap-12 lg:gap-24'>
             <div className='flex items-end justify-between'>
@@ -91,49 +108,49 @@ const Recently = () => {
                 </div>
             </div>
             <div className="w-full flex flex-col lg:flex-row items-end justify-start gap-2 md:gap-3 lg:gap-0">
-                <div ref={scrollRef} className="lg:w-4/5 h-full overflow-x-auto flex items-center justify-start">
-                    {data.map((item, index) => (
-                        <div key={index} className='relative w-1/3 flex-shrink-0'>
-                            <img src={item.image} alt="" className="w-full h-full" />
-                            {index === currentIndex + 1 && (
-                                <>
-                                    <motion.div variants={leftAnimation} initial="initial" animate="animate" exit="exit" className='absolute inset-0 -translate-x-full z-1 group bg-[#BFC9B9] hover:bg-[#5E722D66] flex items-start justify-center p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out'>
-                                        <p className='uppercase group-hover:text-white text-[#31511E] font-medium text-base md:text-xl lg:text-[2.5rem] leading-tight'>{item.title}</p>
-                                    </motion.div>
-                                    <motion.div variants={rightAnimation} initial="initial" animate="animate" exit="exit" className='absolute inset-0 translate-x-full z-1 group bg-[#5E722D] hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out'>
-                                        <div className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
-                                            <div className='flex items-end'>
-                                                <IndianRupee className='h-5 md:h-8 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
-                                                <p className='text-white font-semibold text-sm md:text-xl lg:text-4xl mr-0.5 md:mr-1 lg:mr-1.5'>{item.price}</p>
-                                                <p className='text-white font-semibold text-xs md:text-lg lg:text-3xl mr-0.5 md:mr-1 lg:mr-1.5'>{item.price_unit}</p>
-                                                <p className='text-[#D9D9D9] font-normal text-[8px] md:text-xs lg:text-base my-0.5 md:my-[3px] lg:my-1 mr-0.5 md:mr-1 lg:mr-1.5'>Onwards</p>
-                                            </div>
-                                            <p className='capitalize text-white font-medium text-[9px] md:text-sm lg:text-xl'>{item.location}</p>
-                                            <p className='capitalize text-[#D9D9D9] font-medium text-[7px] md:text-xs lg:text-base'>Project Area - {item.area}</p>
-                                        </div>
-                                    </motion.div>
-                                </>
-                            )}
-                        </div>
-                    ))}
-                </div>
-                <div className='w-full lg:w-fit relative z-2 lg:translate-y-1/3 lg:-translate-x-1/4 flex items-center justify-center gap-3 md:gap-4 lg:gap-5'>
-                    <button
-                        className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]'
-                        onClick={() => handleScroll('left')}
-                        disabled={currentIndex === 0}
-                    >
-                        <ChevronLeft className='text-white size-2.5 md:size-3.5 lg:size-5' />
-                    </button>
-                    <button
-                        className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]'
-                        onClick={() => handleScroll('right')}
-                        disabled={currentIndex === totalItems - 1}
-                    >
-                        <ChevronRight className='text-white size-2.5 md:size-3.5 lg:size-5' />
-                    </button>
-                </div>
-            </div>
+                 <div ref={scrollRef} className="lg:w-4/5 h-full overflow-x-auto flex items-center justify-start">
+                     {data.map((item, index) => (
+                         <div key={index} className='relative w-1/3 flex-shrink-0'>
+                             <img src={item.image} alt="" className="w-full h-full aspect-[2/3] object-cover" />
+                             {index === currentIndex + 1 && (
+                                 <>
+                                     <motion.div variants={leftAnimation} initial="initial" animate="animate" exit="exit" className='absolute inset-0 -translate-x-full z-1 group bg-[#BFC9B9] hover:bg-[#5E722D66] flex items-start justify-center p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out'>
+                                         <p className='uppercase group-hover:text-white text-[#31511E] font-medium text-base md:text-xl lg:text-[2.5rem] leading-tight'>{item.title}</p>
+                                     </motion.div>
+                                     <motion.div variants={rightAnimation} initial="initial" animate="animate" exit="exit" className='absolute inset-0 translate-x-full z-1 group bg-[#5E722D] hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out'>
+                                         <div className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
+                                             <div className='flex items-end'>
+                                                 <IndianRupee className='h-5 md:h-8 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
+                                                 <p className='text-white font-semibold text-sm md:text-xl lg:text-4xl mr-0.5 md:mr-1 lg:mr-1.5'>{item.price}</p>
+                                                 <p className='text-white font-semibold text-xs md:text-lg lg:text-3xl mr-0.5 md:mr-1 lg:mr-1.5'>{item.price_unit}</p>
+                                                 <p className='text-[#D9D9D9] font-normal text-[8px] md:text-xs lg:text-base my-0.5 md:my-[3px] lg:my-1 mr-0.5 md:mr-1 lg:mr-1.5'>Onwards</p>
+                                             </div>
+                                             <p className='capitalize text-white font-medium text-[9px] md:text-sm lg:text-xl'>{item.location}</p>
+                                             <p className='capitalize text-[#D9D9D9] font-medium text-[7px] md:text-xs lg:text-base'>Project Area - {item.area}</p>
+                                         </div>
+                                     </motion.div>
+                                 </>
+                             )}
+                         </div>
+                     ))}
+                 </div>
+                 <div className='w-full lg:w-fit relative z-2 lg:translate-y-1/3 lg:-translate-x-1/4 flex items-center justify-center gap-3 md:gap-4 lg:gap-5'>
+                     <button
+                         className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]'
+                         onClick={() => handleScroll('left')}
+                         disabled={currentIndex === 0}
+                     >
+                         <ChevronLeft className='text-white size-2.5 md:size-3.5 lg:size-5' />
+                     </button>
+                     <button
+                         className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]'
+                         onClick={() => handleScroll('right')}
+                         disabled={currentIndex === totalItems - 1}
+                     >
+                         <ChevronRight className='text-white size-2.5 md:size-3.5 lg:size-5' />
+                     </button>
+                 </div>
+             </div>
         </div>
     )
 }
