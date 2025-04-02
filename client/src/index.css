@@ -155,10 +155,12 @@
   font-family: ImpactCustom;
   src: url(./assets/font/impact.ttf);
 }
+
 @font-face {
   font-family: Boska;
   src: url(./assets/font/Boska.otf);
 }
+
 @font-face {
   font-family: ClashDisplay;
   src: url(./assets/font/ClashDisplay.ttf);
@@ -226,7 +228,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 ;
+    @apply border-border outline-ring/50;
   }
 
   body {

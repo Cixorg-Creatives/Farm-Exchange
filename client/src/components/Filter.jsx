@@ -7,7 +7,7 @@ const Filter = ({ options, onSelect, selectedOption, isLoading = false }) => {
     return (
         <div className="relative w-full clashdisplay">
             <div
-                className={`w-full flex items-center justify-between bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight cursor-pointer h-10 md:h-12 lg:h-14 transition-opacity ${isLoading ? 'opacity-75' : ''}`}
+                className={`w-full flex items-center justify-between bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 rounded-md lg:rounded-lg leading-tight cursor-pointer h-10 md:h-12 lg:h-14 transition-opacity ${isLoading ? 'opacity-75' : ''}`}
                 onClick={() => !isLoading && setIsOpen(!isOpen)}
             >
                 <span className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
@@ -21,7 +21,7 @@ const Filter = ({ options, onSelect, selectedOption, isLoading = false }) => {
                 )}
             </div>
             {isOpen && !isLoading && (
-                <div className="absolute left-0 mt-2 w-full bg-[#C7D3A6] shadow-lg z-10 transition-all duration-200 ease-out">
+                <div className="absolute left-0 mt-2 w-full rounded-md lg:rounded-lg bg-[#C7D3A6] shadow-lg z-10 transition-all duration-200 ease-out">
                     {options.map((option) => (
                         <div
                             key={option.value}

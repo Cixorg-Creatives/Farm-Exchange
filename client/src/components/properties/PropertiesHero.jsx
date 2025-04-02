@@ -3,6 +3,8 @@ import { assets } from "@/assets/assets";
 import Filter from "../Filter";
 import Sort from "../Sort";
 import Button from "../Button";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search, X } from "lucide-react";
 
 const PropertiesHero = ({ onFilterChange, filters }) => {
   const cityFilter = [
@@ -33,8 +35,8 @@ const PropertiesHero = ({ onFilterChange, filters }) => {
     { value: "alpha_high-low", label: "Alphabetical (Z-A)" },
     { value: "latest", label: "Date Modified (Newest)" },
     { value: "earliest", label: "Date Modified (Oldest)" },
-    { value: "rec_low-high", label: "Recommendation (Low)" },
-    { value: "rec_high-low", label: "Recommendation (High)" },
+    // { value: "rec_low-high", label: "Recommendation (Low)" },
+    // { value: "rec_high-low", label: "Recommendation (High)" },
     { value: "area_low-high", label: "Area (Low)" },
     { value: "area_high-low", label: "Area (High)" },
     { value: "price_low-high", label: "Price (Low)" },
@@ -69,7 +71,33 @@ const PropertiesHero = ({ onFilterChange, filters }) => {
               className="w-full flex flex-col gap-4 md:gap-6 lg:gap-8"
             >
               <div className="grid grid-cols-[3fr_1fr] gap-3 md:gap-5 lg:gap-7">
-                <div className="grid-cols-3 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+                <div className="w-full col-span-4 bg-[#C7D3A6] px-2 md:px-4 lg:px-6 flex items-center justify-between rounded-md lg:rounded-lg">
+                  <div className="flex items-center gap-1 md:gap-2 lg:gap-3 w-full">
+                    <Search className="h-4 md:h-5 lg:h-6 w-auto text-black" />
+                    <input
+                      className="w-full capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg bg-transparent outline-none"
+                      placeholder="Search by name, location, or description"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </div>
+                  <AnimatePresence>
+                    {searchQuery && (
+                      <motion.button
+                        key="clear-button"
+                        onClick={() => setSearchQuery("")}
+                        className="p-2 text-black"
+                        initial={{ opacity: 0, rotate: -90 }}
+                        animate={{ opacity: 1, rotate: 0 }}
+                        exit={{ opacity: 0, rotate: 90 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <X className="h-4 md:h-5 lg:h-6 w-auto" />
+                      </motion.button>
+                    )}
+                  </AnimatePresence>
+                </div>
+                {/* <div className="grid-cols-3 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
                   <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
                     Name of Property
                   </label>
@@ -80,15 +108,7 @@ const PropertiesHero = ({ onFilterChange, filters }) => {
                     className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-[8px] md:text-xs lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14"
                     placeholder="Search by name, location, or description"
                   />
-                </div>
-                <div className="w-full h-full grid-cols-1 flex items-end justify-end">
-                  <Button
-                    type="button"
-                    title="Search"
-                    variant="secondary"
-                    className="!text-[#F6FCDF]"
-                  />
-                </div>
+                </div> */}
               </div>
               <div className="grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr_1fr] gap-3 md:gap-5 lg:gap-7">
                 <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
@@ -199,7 +219,7 @@ const PropertiesHero = ({ onFilterChange, filters }) => {
             </div>
             <div className="grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
               <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
-                Project Price
+                Sort By
               </label>
               <Sort
                 options={sortOptions}

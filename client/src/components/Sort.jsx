@@ -21,7 +21,7 @@ const Sort = ({ options, onSort, SortedOption = 'latest' }) => {
                 {isOpen ? <ChevronUp className="h-4 md:h-6 w-auto text-black" /> : <ChevronDown className="h-4 md:h-6 w-auto text-black" />}
             </div>
             {isOpen && (
-                <div className="absolute left-0 mt-2 w-full rounded-md bg-[#C7D3A6] shadow-lg z-10">
+                <div className="absolute left-0 mt-2 w-full rounded-md lg:rounded-lg bg-[#C7D3A6] shadow-lg z-10">
                     {options.map((option) => (
                         <div
                             key={option.value}
