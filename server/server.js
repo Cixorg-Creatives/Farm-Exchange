@@ -541,6 +541,8 @@ server.post("/create-blog", verifyJWT, (req, res) => {
         .replace(/\s+/g, "-")
         .trim() + nanoid();
 
+    console.log(id)
+
     if (id) {
       Blog.findOneAndUpdate(
         { blog_id },
