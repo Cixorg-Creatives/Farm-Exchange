@@ -3,6 +3,7 @@ import { filterPaginationData } from "@/common/filter-pagination-data";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PieChart from "./PieChart";
 
 const Stats = () => {
     const [properties, setProperties] = useState([]);
@@ -156,7 +157,9 @@ const Stats = () => {
                 <p>Loading...</p>
             ) : (
                 <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
-                    <div className="w-full col-span-1 h-full aspect-square lg:aspect-auto rounded-lg md:rounded-xl bg-[#c7d3a7] shadow-inner hover:shadow-lg hover:scale-102 shadow-[#F6FCDF] hover:shadow-gray-500 duration-300 ease-in-out"></div>
+                    <div className="w-full col-span-1 h-full aspect-square lg:aspect-auto rounded-lg md:rounded-xl bg-[#c7d3a7] shadow-inner hover:shadow-lg hover:scale-102 shadow-[#F6FCDF] hover:shadow-gray-500 duration-300 ease-in-out">
+                        <PieChart properties={properties.length} blogs={(blogs?.totalDocs || 0) + (drafts?.totalDocs || 0)} messages={contacts.length} requests={request.length} />
+                    </div>
                     <div className="w-full cols-span-1 grid grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
                         {data.map((item, index) => (
                             <Link to={item.link} key={index} className="w-full col-span-1 bg-[#c7d3a7] shadow-inner hover:shadow-lg hover:scale-102 shadow-[#F6FCDF] hover:shadow-gray-500 duration-300 ease-in-out h-auto aspect-square md:aspect-auto rounded-lg md:rounded-xl flex flex-col items-center justify-center text-lg font-bold p-2 md:p-8 lg:p-4">
