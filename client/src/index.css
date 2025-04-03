@@ -158,7 +158,7 @@
 
 @font-face {
   font-family: Boska;
-  src: url(./assets/font/Boska.otf);
+  src: url(./assets/font/Boska.ttf);
 }
 
 @font-face {
@@ -172,10 +172,14 @@
 
 .boska {
   font-family: Boska;
+  font-display: swap;
+  font-style: normal;
 }
 
 .clashdisplay {
   font-family: ClashDisplay;
+  font-display: swap;
+  font-style: normal;
 }
 
 .custom-text-stroke {
