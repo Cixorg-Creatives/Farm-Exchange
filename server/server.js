@@ -284,9 +284,9 @@ server.post("/change-password", verifyJWT, (req, res) => {
 });
 
 server.post("/latest-blogs", (req, res) => {
-  let { page } = req.body;
+  let {  } = req.body;
 
-  let maxLimit = 5;
+  // let maxLimit = 5;
 
   Blog.find({ draft: false })
     .populate(
@@ -295,8 +295,8 @@ server.post("/latest-blogs", (req, res) => {
     )
     .sort({ publishedAt: -1 })
     .select("blog_id title des banner activity tags publishedAt -_id")
-    .skip((page - 1) * maxLimit)
-    .limit(maxLimit)
+    // .skip((page - 1) * maxLimit)
+    // .limit(maxLimit)
     .then((blogs) => {
       return res.status(200).json({ blogs });
     })

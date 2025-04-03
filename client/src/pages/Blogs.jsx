@@ -10,10 +10,10 @@ const Blogs = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  const fetchLatestBlogs = ({ page = 1 }) => {
+  const fetchLatestBlogs = () => {
     setLoading(true);
     axios
-      .post(import.meta.env.VITE_SERVER_DOMAIN + '/latest-blogs', { page })
+      .post(import.meta.env.VITE_SERVER_DOMAIN + '/latest-blogs', { })
       .then(({ data }) => {
         setBlogs(data.blogs); // Directly setting blogs without filtering
       })
@@ -28,6 +28,8 @@ const Blogs = () => {
   useEffect(() => {
     fetchLatestBlogs({ page });
   }, [page]);
+
+  console.log(blogs)
 
   return (
     <div className='px-4 md:px-6 lg:px-24'>
