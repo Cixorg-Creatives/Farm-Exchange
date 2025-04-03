@@ -26,22 +26,32 @@ const Blog = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        console.log("useEffect triggered for blogId:", blogId);
         fetchBlog();
     }, [blogId]);
 
     const fetchBlog = () => {
-        setLoading(true);
-        axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/get-blog", { blog_id: blogId })
-            .then(({ data: { blog } }) => {
-                console.log("Fetched Blog Data:", blog); // Debugging log
-                setBlog(blog);
-                fetchSimilarBlogs(blog.tags[0]); // Fetch similar blogs based on the first tag
-                setLoading(false);
-            })
-            .catch(err => {
-                console.log("Failed");
-                setLoading(false);
-            });
+        const cachedBlog = sessionStorage.getItem(`blog_${blogId}`);
+
+        if (cachedBlog) {
+            setBlog(JSON.parse(cachedBlog));
+            setLoading(false);
+        } else {
+            console.log("fetchBlog called");
+            setLoading(true);
+            axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/get-blog", { blog_id: blogId })
+                .then(({ data: { blog } }) => {
+                    console.log("Fetched Blog Data:", blog);
+                    sessionStorage.setItem(`blog_${blogId}`, JSON.stringify(blog));
+                    setBlog(blog);
+                    fetchSimilarBlogs(blog.tags[0]);
+                    setLoading(false);
+                })
+                .catch(err => {
+                    console.log("Failed to fetch blog");
+                    setLoading(false);
+                });
+        }
     };
 
     const fetchSimilarBlogs = (tag) => {

@@ -27,7 +27,7 @@ const HomeJournal = () => {
       const fetchedData = await Promise.all(
         blogs.map(async (blog) => {
           const response = await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/get-blog`, {
-            blog_id: blog.blog_id,
+            blog_id: blog.blog_id, mode: 'edit'
           });
           return response.data.blog;
         })
