@@ -68,20 +68,6 @@ const Elite = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="my-6 md:my-10 xl:my-14">Loading elite properties...</div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="my-6 md:my-10 xl:my-14">
-        Error loading elite properties: {error}
-      </div>
-    );
-  }
-
   if (eliteProperties.length === 0) {
     return (
       <></>
