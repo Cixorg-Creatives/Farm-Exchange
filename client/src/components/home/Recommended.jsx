@@ -79,7 +79,7 @@ const Recommended = () => {
       <div className="flex items-end justify-between">
         <div className="flex flex-col items-start gap-2.5 md:gap-3.5 lg:gap-5">
           <div className="boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase">
-            Highly recommended <br className="lg:hidden" /> Properties
+            Highly recommended Properties
           </div>
           <div className="capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight lg:leading-[4.5rem]">
             Explore top farms and <br /> premium produce, handpicked <br /> for

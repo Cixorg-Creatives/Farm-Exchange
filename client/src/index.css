@@ -172,6 +172,7 @@
 
 .boska {
   font-family: Boska;
+  font-weight: 900 !important;
   font-display: swap;
   font-style: normal;
 }
