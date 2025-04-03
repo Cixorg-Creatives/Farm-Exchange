@@ -31,7 +31,7 @@ const Properties = () => {
 
   return (
     <div className="px-4 md:px-6 lg:px-24 relative">
-      <PropertiesHero filters={filters} onFilterChange={handleFilterChange} />
+      <PropertiesHero properties={properties} filters={filters} onFilterChange={handleFilterChange} />
       <PropertiesList properties={properties} loading={loading} />
     </div>
   );
