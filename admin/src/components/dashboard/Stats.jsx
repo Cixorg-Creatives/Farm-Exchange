@@ -16,6 +16,7 @@ const Stats = () => {
     const [blogs, setBlogs] = useState([]);
     const [drafts, setDrafts] = useState([]);
     const [flipped, setFlipped] = useState(Array(4).fill(false));
+    const [animatedValues, setAnimatedValues] = useState(Array(4).fill(true));
 
     const fetchProperties = async () => {
         try {
@@ -155,6 +156,7 @@ const Stats = () => {
 
     const toggleFlip = (index) => {
         setFlipped(prev => prev.map((f, i) => (i === index ? !f : f)));
+        setAnimatedValues(prev => prev.map((val, i) => (i === index ? false : false)));
     };
 
     return (
@@ -171,21 +173,29 @@ const Stats = () => {
                         {data.map((item, index) => (
                             <motion.div
                                 key={item.title}
-                                className="relative min-w-max col-span-1 h-auto aspect-square md:aspect-auto rounded-lg md:rounded-xl flex overflow-hidden perspective-1000"
+                                className="relative min-w-max col-span-1 h-auto aspect-square md:aspect-auto rounded-lg md:rounded-xl flex"
+                                style={{ perspective: "1000px" }} // Apply perspective to parent
                                 onClick={() => toggleFlip(index)}
                             >
                                 {/* Flipping Container */}
                                 <motion.div
                                     animate={{ rotateY: flipped[index] ? 180 : 0 }}
-                                    transition={{ duration: 1, ease: "easeOut" }}
-                                    className="w-full h-full relative preserve-3d bg-[#c7d3a7] shadow-inner shadow-[#F6FCDF]"
-                                    style={{ transformStyle: "preserve-3d" }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 300, // Higher stiffness for a snappier effect
+                                        damping: 15, // Lower damping for more bounce
+                                        mass: 2.5, // Adjust mass to control weight of the bounce
+                                    }}
+                                    className="w-full h-full relative bg-[#c7d3a7] shadow-inner shadow-[#F6FCDF] rounded-lg md:rounded-xl"
+                                    style={{ transformStyle: "preserve-3d" }} // Ensure 3D transformation
                                 >
                                     {/* Front Face */}
-                                    <div className="absolute w-full h-full flex flex-col items-center justify-center text-lg font-bold p-2 md:p-8 lg:p-4 backface-hidden">
+                                    <div className="absolute w-full h-full flex flex-col items-center justify-center text-lg font-bold p-2 md:p-8 lg:p-4"
+                                        style={{ backfaceVisibility: "hidden" }} // Hide backface properly
+                                    >
                                         <p className="text-[#31511E] font-semibold text-base md:text-xl lg:text-2xl">{item.title}</p>
                                         <p className="text-[#859F3E] font-semibold text-[2.5rem] md:text-6xl lg:text-[5rem] leading-tight">
-                                            <AnimatedNumber value={item.total} />
+                                            {animatedValues[index] ? <AnimatedNumber value={item.total} /> : item.total}
                                         </p>
                                         <div className="w-full flex items-center justify-between">
                                             <div className="flex flex-col items-center justify-center">
@@ -201,10 +211,10 @@ const Stats = () => {
 
                                     {/* Back Face */}
                                     <div
-                                        className="absolute w-full h-full flex items-center justify-center rounded-lg bg-[#c7d3a7] shadow-inner shadow-[#F6FCDF]"
-                                        style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}
+                                        className="absolute w-full h-full flex items-center justify-center rounded-lg md:rounded-xl bg-[#c7d3a7] shadow-inner shadow-[#F6FCDF]"
+                                        style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }} // Ensure backface is hidden
                                     >
-                                        <SmallPie />
+                                        <SmallPie label1={item.label1} label2={item.label2} published={item.published} draft={item.draft} />
                                     </div>
                                 </motion.div>
                             </motion.div>
