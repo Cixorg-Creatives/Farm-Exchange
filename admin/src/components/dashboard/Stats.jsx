@@ -4,6 +4,8 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PieChart from "./PieChart";
+import SmallPie from "./SmallPie";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Stats = () => {
     const [properties, setProperties] = useState([]);
@@ -13,6 +15,7 @@ const Stats = () => {
     const [request, setRequest] = useState([]);
     const [blogs, setBlogs] = useState([]);
     const [drafts, setDrafts] = useState([]);
+    const [flipped, setFlipped] = useState(Array(4).fill(false));
 
     const fetchProperties = async () => {
         try {
@@ -150,6 +153,10 @@ const Stats = () => {
         },
     ];
 
+    const toggleFlip = (index) => {
+        setFlipped(prev => prev.map((f, i) => (i === index ? !f : f)));
+    };
+
     return (
         <div>
             {error && <p className="text-red-500">{error}</p>}
@@ -157,32 +164,52 @@ const Stats = () => {
                 <p>Loading...</p>
             ) : (
                 <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
-                    <div className="w-full col-span-1 h-full aspect-square lg:aspect-auto rounded-lg md:rounded-xl bg-[#c7d3a7] shadow-inner hover:shadow-lg hover:scale-102 shadow-[#F6FCDF] hover:shadow-gray-500 duration-300 ease-in-out">
+                    <div className="w-full col-span-1 h-full aspect-square lg:aspect-auto rounded-lg md:rounded-xl bg-[#c7d3a7] shadow-inner  shadow-[#F6FCDF] ">
                         <PieChart properties={properties.length} blogs={(blogs?.totalDocs || 0) + (drafts?.totalDocs || 0)} messages={contacts.length} requests={request.length} />
                     </div>
                     <div className="w-full cols-span-1 grid grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
                         {data.map((item, index) => (
-                            <Link to={item.link} key={index} className="w-full col-span-1 bg-[#c7d3a7] shadow-inner hover:shadow-lg hover:scale-102 shadow-[#F6FCDF] hover:shadow-gray-500 duration-300 ease-in-out h-auto aspect-square md:aspect-auto rounded-lg md:rounded-xl flex flex-col items-center justify-center text-lg font-bold p-2 md:p-8 lg:p-4">
-                                <p className="text-[#31511E] font-semibold text-base md:text-xl lg:text-2xl">{item.title}</p>
-                                <p className="text-[#859F3E] font-semibold text-[2.5rem] md:text-6xl lg:text-[5rem] leading-tight">
-                                    <AnimatedNumber value={item.total} />
-                                </p>
-                                <div className="w-full flex items-center justify-between">
-                                    <div className="flex flex-col items-center justify-center">
-                                        <p className="font-bold text-base md:text-xl lg:text-3xl">
-                                            {item.published}
+                            <motion.div
+                                key={item.title}
+                                className="relative min-w-max col-span-1 h-auto aspect-square md:aspect-auto rounded-lg md:rounded-xl flex overflow-hidden perspective-1000"
+                                onClick={() => toggleFlip(index)}
+                            >
+                                {/* Flipping Container */}
+                                <motion.div
+                                    animate={{ rotateY: flipped[index] ? 180 : 0 }}
+                                    transition={{ duration: 1, ease: "easeOut" }}
+                                    className="w-full h-full relative preserve-3d bg-[#c7d3a7] shadow-inner shadow-[#F6FCDF]"
+                                    style={{ transformStyle: "preserve-3d" }}
+                                >
+                                    {/* Front Face */}
+                                    <div className="absolute w-full h-full flex flex-col items-center justify-center text-lg font-bold p-2 md:p-8 lg:p-4 backface-hidden">
+                                        <p className="text-[#31511E] font-semibold text-base md:text-xl lg:text-2xl">{item.title}</p>
+                                        <p className="text-[#859F3E] font-semibold text-[2.5rem] md:text-6xl lg:text-[5rem] leading-tight">
+                                            <AnimatedNumber value={item.total} />
                                         </p>
-                                        <p className="capitalize font-normal text-[9px] md:text-xs xl:text-sm">{item.label1}</p>
+                                        <div className="w-full flex items-center justify-between">
+                                            <div className="flex flex-col items-center justify-center">
+                                                <p className="font-bold text-base md:text-xl lg:text-3xl">{item.published}</p>
+                                                <p className="capitalize font-normal text-[9px] md:text-xs xl:text-sm">{item.label1}</p>
+                                            </div>
+                                            <div className="flex flex-col items-center justify-center">
+                                                <p className="font-bold text-base md:text-xl lg:text-3xl">{item.draft}</p>
+                                                <p className="capitalize font-normal text-[9px] md:text-xs xl:text-sm">{item.label2}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="flex flex-col items-center justify-center">
-                                        <p className="font-bold text-base md:text-xl lg:text-3xl">
-                                            {item.draft}
-                                        </p>
-                                        <p className="capitalize font-normal text-[9px] md:text-xs xl:text-sm">{item.label2}</p>
+
+                                    {/* Back Face */}
+                                    <div
+                                        className="absolute w-full h-full flex items-center justify-center rounded-lg bg-[#c7d3a7] shadow-inner shadow-[#F6FCDF]"
+                                        style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden" }}
+                                    >
+                                        <SmallPie />
                                     </div>
-                                </div>
-                            </Link>
+                                </motion.div>
+                            </motion.div>
                         ))}
+
                     </div>
                 </div>
             )}

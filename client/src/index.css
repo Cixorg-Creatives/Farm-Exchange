@@ -170,12 +170,11 @@
   font-family: ImpactCustom
 }
 
-.boska {
+/* .boska {
   font-family: Boska;
-  font-weight: 600 !important;
   font-display: swap;
   font-style: normal;
-}
+} */
 
 .clashdisplay {
   font-family: ClashDisplay;
