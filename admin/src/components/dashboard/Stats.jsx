@@ -165,11 +165,11 @@ const Stats = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
+                <div className="w-full h-full grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
                     <div className="w-full col-span-1 h-full aspect-square lg:aspect-auto rounded-lg md:rounded-xl bg-[#c7d3a7] shadow-inner  shadow-[#F6FCDF] ">
                         <PieChart properties={properties.length} blogs={(blogs?.totalDocs || 0) + (drafts?.totalDocs || 0)} messages={contacts.length} requests={request.length} />
                     </div>
-                    <div className="w-full cols-span-1 grid grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
+                    <div className="w-full h-full cols-span-1 grid grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
                         {data.map((item, index) => (
                             <motion.div
                                 key={item.title}

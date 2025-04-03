@@ -22,18 +22,34 @@ const SmallPie = ({ label1, label2, published, draft }) => {
     };
 
     const options = {
-        cutout: "80%", // Reduces thickness
+        cutout: "80%", // Adjusts doughnut thickness
+        responsive: true,
+        maintainAspectRatio: false, // Prevents distortion on small screens
         layout: {
             padding: {
-                top: 20, // Increases space between labels and chart
+                top: 10, // Adjust padding dynamically
             },
         },
-        radius: "70%"
+        radius: "70%",
+        plugins: {
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    font: {
+                        size: window.innerWidth < 768 ? 6 : window.innerWidth < 1024 ? 10 : 14, // Smaller font for small screens
+                    },
+                    boxWidth: window.innerWidth < 768 ? 4 : window.innerWidth < 1024 ? 8 : 12, // Reduce box size for small screens
+                    boxHeight: window.innerWidth < 768 ? 4 : window.innerWidth < 1024 ? 8 : 12, // Reduce box size for small screens
+                },
+            },
+        },
     };
 
     return (
-        <div className='p-1 md:p-2 lg:p-4'>
+        <div className='p-1 md:p-2 lg:p-4 w-full h-full relative'>
             <Doughnut data={chartData} options={options} />
+            <div className='inset-0 absolute w-full h-[90%] flex items-center justify-center text-[#859F3E] font-semibold text-[2.5rem] md:text-6xl lg:text-[5rem] leading-tight'>{published+draft}</div>
         </div>
     );
 };

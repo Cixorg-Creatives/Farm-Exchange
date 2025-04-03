@@ -28,7 +28,20 @@ const PieChart = ({ properties, blogs, messages, requests }) => {
                 top: 20, // Increases space between labels and chart
             },
         },
-        radius: "90%"
+        radius: "90%",
+        plugins: {
+            legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                    font: {
+                        size: window.innerWidth < 768 ? 10 : window.innerWidth < 1024 ? 14 : 18, // Smaller font for small screens
+                    },
+                    boxWidth: window.innerWidth < 768 ? 8 : window.innerWidth < 1024 ? 12 : 16, // Reduce box size for small screens
+                    boxHeight: window.innerWidth < 768 ? 8 : window.innerWidth < 1024 ? 12 : 16, // Reduce box size for small screens
+                },
+            },
+        },
     };
 
     return (
