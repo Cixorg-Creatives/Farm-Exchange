@@ -28,7 +28,6 @@ const Featured = () => {
                 setLoading(false);
             }
         };
-
         fetchFeaturedProperties();
     }, []);
 
@@ -62,6 +61,9 @@ const Featured = () => {
             transition: { duration: 0.8, ease: "easeInOut" }
         })
     };
+    console.log(featuredProperties)
+
+    if (featuredProperties.length === 0) return <></>
 
     return (
         <div className='mb-6 md:mb-10 xl:mb-14 w-full h-full grid grid-cols-[1fr_1fr]'>
@@ -93,7 +95,7 @@ const Featured = () => {
                     </div>
                 </div>
                 {
-                    loading || featuredProperties.length === 0 ? (
+                    loading ? (
                         <Skeleton />
                     ) : (
                         <AnimatePresence custom={direction} mode='wait'>
@@ -115,22 +117,24 @@ const Featured = () => {
                                     }}
                                 />
                                 <div className='absolute inset-0 h-full w-full bg-gradient-to-t from-[#00000080] via-[#FFFFFF00] to-[#00000080] flex flex-col justify-between p-1 md:p-2 lg:p-4'>
-                                    <div className='w-full text-start uppercase impact text-xl md:text-3xl lg:text-[4rem] font-normal featured-text-stroke'>
-                                        {featuredProperties[currentIndex]?.name}
-                                    </div>
+                                    <Link to={loading ? '' : `/properties/${featuredProperties[currentIndex]._id}`} className='h-full'>
+                                        <div className='w-full text-start uppercase impact text-xl md:text-3xl lg:text-[4rem] font-normal featured-text-stroke'>
+                                            {featuredProperties[currentIndex]?.name}
+                                        </div>
+                                    </Link>
                                     {featuredProperties.length > 1 && (
                                         <div className='flex gap-1 md:gap-2 lg:gap-4 w-full justify-end'>
                                             <button
                                                 onClick={handlePrev}
                                                 disabled={currentIndex === 0}
-                                                className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'
+                                                className='cursor-pointer size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'
                                             >
                                                 <ChevronLeft className='text-white size-2.5 md:size-3.5 lg:size-5' />
                                             </button>
                                             <button
                                                 onClick={handleNext}
                                                 disabled={currentIndex === featuredProperties.length - 1}
-                                                className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'
+                                                className='cursor-pointer size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#c7d3a7]'
                                             >
                                                 <ChevronRight className='text-white size-2.5 md:size-3.5 lg:size-5' />
                                             </button>

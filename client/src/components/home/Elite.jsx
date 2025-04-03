@@ -124,34 +124,61 @@ const Elite = () => {
         <div ref={scrollRef} className="lg:w-4/5 h-full overflow-x-auto flex items-center justify-start">
           {data.map((item, index) => (
             <div key={index} className="relative w-1/3 flex-shrink-0">
-              <img src={item.image} alt="" className="w-full h-full aspect-[2/3] object-cover" />
+              {
+                loading || error ? (
+                  <div className="w-full h-auto aspect-2/3 bg-[#c7d3a7] animate-pulse"></div>
+                ) : (
+                  <img src={item.image} alt="" className="w-full h-full aspect-[2/3] object-cover" />
+                )
+              }
             </div>
           ))}
         </div>
         <div className="absolute top-0 right-0 w-full lg:w-4/5 h-full flex items-start justify-between">
           <div className='w-1/3 aspect-2/3 bg-[#BFC9B9] border border-[#31511E] group hover:bg-[#5E722D66] flex items-start p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out'>
-            <AnimatePresence mode='wait'>
-              <motion.div key={currentIndex} initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} exit={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} transition={{ duration: 1, ease: "easeInOut" }} className='uppercase group-hover:text-white text-[#31511E] font-medium text-base md:text-xl lg:text-[2.5rem] leading-tight text-left hover:duration-400 hover:ease-in-out'>{data[currentIndex + 1].title}</motion.div>
-            </AnimatePresence>
+            {
+              loading || error ? (
+                <div className="w-full h-1/5 bg-[#c7d3a7] animate-pulse rounded-md lg:rounded-lg"></div>
+              ) : (
+                <AnimatePresence mode='wait'>
+                  <motion.div key={currentIndex} initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} exit={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} transition={{ duration: 1, ease: "easeInOut" }} className='uppercase group-hover:text-white text-[#31511E] font-medium text-base md:text-xl lg:text-[2.5rem] leading-tight text-left hover:duration-400 hover:ease-in-out'>{data[currentIndex + 1].title}</motion.div>
+                </AnimatePresence>
+              )
+            }
           </div>
-          <Link to={`/properties/${data[currentIndex + 1]._id}`} className='w-1/3 h-full bg-transparent'></Link>
+          <Link to={loading || error ? '' : `/properties/${data[currentIndex + 1]._id}`} className='w-1/3 h-full bg-transparent'></Link>
           <div className='w-1/3 aspect-2/3 bg-[#5E722D] border border-[#31511E] group hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out'>
-            <AnimatePresence mode='wait'>
-              <motion.div key={currentIndex} initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} exit={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} transition={{ duration: 1, ease: "easeInOut" }} className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
-                <div className='flex items-end'>
-                  <IndianRupee className='h-5 md:h-8 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
-                  <p className='text-white font-semibold text-sm md:text-xl lg:text-4xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex + 1].price}</p>
-                  <p className='text-white font-semibold text-xs md:text-lg lg:text-3xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex + 1].price_unit}</p>
-                  <p className='text-[#D9D9D9] font-normal text-[8px] md:text-xs lg:text-base my-0.5 md:my-[3px] lg:my-1 mr-0.5 md:mr-1 lg:mr-1.5'>Onwards</p>
+            {
+              loading || error ? (
+                <div className='animate-pulse w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
+                  <div className='flex items-end'>
+                    <div className='h-5 md:h-8 lg:h-11 w-5 md:w-8 lg:w-11 bg-[#c7d3a7] rounded' />
+                    <div className='h-5 md:h-8 lg:h-11 w-12 md:w-20 lg:w-28 bg-[#c7d3a7] rounded ml-1' />
+                    <div className='h-4 md:h-6 lg:h-8 w-8 md:w-12 lg:w-16 bg-[#c7d3a7] rounded ml-1' />
+                    <div className='h-3 md:h-5 lg:h-7 w-10 md:w-14 lg:w-20 bg-[#c7d3a7] rounded ml-1' />
+                  </div>
+                  <div className='h-4 md:h-6 lg:h-8 w-32 md:w-48 lg:w-64 bg-[#c7d3a7] rounded my-1' />
+                  <div className='h-3 md:h-5 lg:h-7 w-24 md:w-40 lg:w-56 bg-[#c7d3a7] rounded' />
                 </div>
-                <p className='capitalize text-white font-medium text-[9px] md:text-sm lg:text-xl'>{data[currentIndex + 1].location}</p>
-                <p className='capitalize text-[#D9D9D9] font-medium text-[7px] md:text-xs lg:text-base'>Project Area - {data[currentIndex + 1].area}</p>
-              </motion.div>
-            </AnimatePresence>
+              ) : (
+                <AnimatePresence mode='wait'>
+                  <motion.div key={currentIndex} initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }} exit={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }} transition={{ duration: 1, ease: "easeInOut" }} className='group-hover:hidden w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
+                    <div className='flex items-end'>
+                      <IndianRupee className='h-5 md:h-8 lg:h-11 w-auto text-white py-1 md:py-1.5 lg:py-2' />
+                      <p className='text-white font-semibold text-sm md:text-xl lg:text-4xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex + 1].price}</p>
+                      <p className='text-white font-semibold text-xs md:text-lg lg:text-3xl mr-0.5 md:mr-1 lg:mr-1.5'>{data[currentIndex + 1].price_unit}</p>
+                      <p className='text-[#D9D9D9] font-normal text-[8px] md:text-xs lg:text-base my-0.5 md:my-[3px] lg:my-1 mr-0.5 md:mr-1 lg:mr-1.5'>Onwards</p>
+                    </div>
+                    <p className='capitalize text-white font-medium text-[9px] md:text-sm lg:text-xl'>{data[currentIndex + 1].location}</p>
+                    <p className='capitalize text-[#D9D9D9] font-medium text-[7px] md:text-xs lg:text-base'>Project Area - {data[currentIndex + 1].area}</p>
+                  </motion.div>
+                </AnimatePresence>
+              )
+            }
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
