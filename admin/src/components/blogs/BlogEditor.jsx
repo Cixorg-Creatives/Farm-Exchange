@@ -92,7 +92,12 @@ const BlogEditor = () => {
                         return toast.error("Write something in your blog to publish it");
                     }
                     setTimeout(() => {
-                        navigate("/blogs");
+                        if(!blogId) {
+                            navigate(`/blogs/add-blog`);
+                        }
+                        else {
+                            navigate(`/blogs/edit-blog/${blogId}`);
+                        }
                     }, 500);
                 })
                 .catch((err) => {
@@ -127,7 +132,7 @@ const BlogEditor = () => {
                 axios
                     .post(
                         import.meta.env.VITE_SERVER_DOMAIN + "/create-blog",
-                        { ...blogObj, blog_id: blogId },
+                        { ...blogObj, id: blogId },
                         {
                             headers: {
                                 Authorization: `Bearer ${access_token}`,

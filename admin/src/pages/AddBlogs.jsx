@@ -21,8 +21,6 @@ const AddBlogs = () => {
 
   let { blogId } = useParams();
 
-  // console.log(blog_id)
-
   const [blog, setBlog] = useState(blogStructure)
 
   const [editorState, setEditorState] = useState("editor")

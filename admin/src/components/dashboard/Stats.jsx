@@ -1,5 +1,7 @@
+import { UserContext } from "@/App";
+import { filterPaginationData } from "@/common/filter-pagination-data";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Stats = () => {
@@ -8,6 +10,8 @@ const Stats = () => {
     const [error, setError] = useState(null);
     const [contacts, setContacts] = useState([]);
     const [request, setRequest] = useState([]);
+    const [blogs, setBlogs] = useState([]);
+    const [drafts, setDrafts] = useState([]);
 
     const fetchProperties = async () => {
         try {
@@ -17,6 +21,34 @@ const Stats = () => {
             setProperties(data.data || []);
         } catch (err) {
             setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+    console.log(blogs)
+
+    const { userAuth: { access_token } } = useContext(UserContext);
+
+    const getBlogs = async ({ draft, reset }) => {
+        setLoading(true);
+        try {
+            const { data } = await axios.post(
+                import.meta.env.VITE_SERVER_DOMAIN + "/user-written-blogs",
+                { draft },
+                { headers: { 'Authorization': `Bearer ${access_token}` } }
+            );
+
+            const formattedData = await filterPaginationData({
+                state: reset ? null : (draft ? drafts : blogs),
+                data: data.blogs,
+                user: access_token,
+                countRoute: "/user-written-blogs-count",
+                data_to_send: { draft }
+            });
+
+            draft ? setDrafts(formattedData) : setBlogs(formattedData);
+        } catch (err) {
+            console.error("Error fetching blogs:", err);
         } finally {
             setLoading(false);
         }
@@ -52,6 +84,9 @@ const Stats = () => {
     };
 
     useEffect(() => {
+        if (!access_token) return;
+        getBlogs({ draft: false, reset: true });
+        getBlogs({ draft: true, reset: true });
         fetchContacts();
         fetchRequest();
         fetchProperties();
@@ -76,10 +111,42 @@ const Stats = () => {
     };
 
     const data = [
-        { title: "Properties", label1: "Listed", label2: "Draft", total: properties.length, published: properties.filter(p => p.status === "published").length, draft: properties.filter(p => p.status === "draft").length, link:"/properties" },
-        { title: "Blogs", label1: "Published", label2: "Draft", total: 0, published: 0, draft: 0, link:"/blogs" },
-        { title: "Messages", label1: "Responded", label2: "Not Responded", total: contacts.length, published: 0, draft: 0, link:"/contact" },
-        { title: "Request", label1: "Responded", label2: "Not Responded", total: request.length, published: 0, draft: 0, link:"/post-property-request" },
+        {
+            title: "Properties",
+            label1: "Listed",
+            label2: "Draft",
+            total: properties.length,
+            published: properties.filter(p => p.status === "published").length,
+            draft: properties.filter(p => p.status === "draft").length,
+            link: "/properties"
+        },
+        {
+            title: "Blogs",
+            label1: "Published",
+            label2: "Draft",
+            total: blogs.totalDocs+drafts.totalDocs,
+            published: blogs.totalDocs,
+            draft: drafts.totalDocs,
+            link: "/blogs"
+        },
+        {
+            title: "Messages",
+            label1: "Responded",
+            label2: "Not Responded",
+            total: contacts.length,
+            published: 0,
+            draft: 0,
+            link: "/contact"
+        },
+        {
+            title: "Request",
+            label1: "Responded",
+            label2: "Not Responded",
+            total: request.length,
+            published: 0,
+            draft: 0,
+            link: "/post-property-request"
+        },
     ];
 
     return (

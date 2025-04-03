@@ -79,16 +79,11 @@ const List = () => {
                 {properties.length > 0 ? (
                     properties.map((property) => (
                         <div key={property._id} className='relative px-2 md:px-4 lg:px-8 py-2.5 md:py-5 lg:py-9 border border-[#D9E1C3] flex flex-col items-start gap-0.5 md:gap-[3px] lg:gap-1 cursor-pointer rounded-sm md:rounded-md lg:rounded-lg'>
-                            <div className='absolute right-2 md:right-3 lg:right-4 top-2 md:top-4 lg:top-4'>
-                                <Button
-                                    variant='destructive'
-                                    symbol='delete'
-                                    icon='show'
-                                    className='delete-button'
-                                    onClick={() => setDeleteConfirm(property)}
-                                />
+                            <div className='absolute right-2 md:right-3 lg:right-4 top-2 md:top-4 lg:top-4 flex items-center gap-2 md:gap-3 lg:gap-4'>
+                                <Button variant='primary' symbol='eye' icon='show' className='delete-button' />
+                                <Button variant='destructive' symbol='delete' icon='show' className='delete-button' onClick={() => setDeleteConfirm(item)} />
                             </div>
-                            <p className='uppercase text-[#859F3E] font-semibold text-[10px] md:text-xs lg:text-sm leading-tight'>
+                            <p className='uppercase text-[#859F3E] font-semibold text-[10px] md:text-xs lg:text-sm leading-tight mt-4 md:mt-6 lg:mt-8'>
                                 {new Date(property.publishedAt).toLocaleDateString()}
                             </p>
                             <p className='capitalize text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl leading-tight'>{property.full_name}</p>

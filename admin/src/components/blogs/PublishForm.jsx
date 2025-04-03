@@ -11,7 +11,7 @@ import Button from "../Button";
 const PublishForm = () => {
     const characterLimit = 200;
     const tagLimit = 10;
-    const { blog_id } = useParams();
+    const { blogId } = useParams();
     const { blog, blog: { banner, title, tags, des, content }, setEditorState, setBlog } = useContext(EditorContext);
     const { userAuth: { access_token } } = useContext(UserContext);
     const navigate = useNavigate();
@@ -45,12 +45,12 @@ const PublishForm = () => {
         const blogObj = { title, banner, des, content, tags, draft: false };
 
         try {
-            await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/create-blog`, { ...blogObj, id: blog_id }, {
+            await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/create-blog`, { ...blogObj, id: blogId }, {
                 headers: { 'Authorization': `Bearer ${access_token}` }
             });
             toast.dismiss(loadingToast);
             toast.success("Published 👍");
-            setTimeout(() => navigate("/dashboard/blogs"), 500);
+            setTimeout(() => navigate("/blogs"), 500);
         } catch ({ response }) {
             toast.dismiss(loadingToast);
             toast.error(response?.data?.error || "Something went wrong");
@@ -79,6 +79,9 @@ const PublishForm = () => {
                         <p className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">Short description about your blog</p>
                         <textarea maxLength={characterLimit} value={des} className="w-full h-24 md:h-28 lg:h-32 bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight rounded-md lg:rounded-lg" onChange={(e) => handleChange(e, "des")} />
                         <p className="uppercase text-[#859F3E] font-semibold text-[8px] md:text-[10px] lg:text-xs">{characterLimit - des.length} characters left</p>
+
+                        <p className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">Blog Author</p>
+                        <input type="text" placeholder="Blog Author" value={title} className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg" />
 
                         <p className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">Topics - (Helps in searching and ranking)</p>
                         <div className="flex flex-col gap-2 rounded-lg">

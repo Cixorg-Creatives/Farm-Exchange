@@ -956,18 +956,18 @@ server.post("/all-notifications-count", verifyJWT, (req, res) => {
 server.post("/user-written-blogs", verifyJWT, (req, res) => {
   let user_id = req.user;
 
-  let { page, draft, query, deletedDocCount } = req.body;
+  let { draft, query, deletedDocCount } = req.body;
 
-  let maxLimit = 5;
-  let skipDocs = (page - 1) * maxLimit;
+  // let maxLimit = 5;
+  // let skipDocs = (page - 1) * maxLimit;
 
   if (deletedDocCount) {
     skipDocs -= deletedDocCount;
   }
 
   Blog.find({ author: user_id, draft, title: new RegExp(query, "i") })
-    .skip(skipDocs)
-    .limit(maxLimit)
+  //   .skip(skipDocs)
+  //   .limit(maxLimit)
     .sort({ publishedAt: -1 })
     .select(" title banner publishedAt blog_id activity des draft -_id ")
     .then((blogs) => {

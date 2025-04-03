@@ -131,11 +131,16 @@
 }
 
 .boska {
-  font-family: 'Boska';
+  font-family: Boska;
+  font-weight: 500 !important;
+  font-display: swap;
+  font-style: normal;
 }
 
 .clashdisplay {
-  font-family: 'ClashDisplay';
+  font-family: ClashDisplay;
+  font-display: swap;
+  font-style: normal;
 }
 
 .custom-text-stroke {
@@ -187,6 +192,11 @@ h3 {
 .ce-toolbar__content {
   max-width: 95%;
 }
+
+a.active{
+  @apply bg-[#D9E1C3] duration-500 ease-in-out
+}
+
 .cdx-marker {
   @apply !bg-purple-200
 }

@@ -99,7 +99,7 @@ const AddProperties = () => {
     },
     status: "draft"
   });
-  
+
   const [loading, setLoading] = useState(!!propertyId);
   const textareaRefs = useRef([]);
 
@@ -122,7 +122,7 @@ const AddProperties = () => {
           throw new Error('Failed to fetch property');
         }
         const data = await response.json();
-        
+
         setFormData({
           name: data.data.name || "",
           availabilityStatus: data.data.availabilityStatus || "",
@@ -149,8 +149,8 @@ const AddProperties = () => {
           propertyDescription: data.data.propertyDescription || "",
           projectDescription: data.data.projectDescription || "",
           projectAbout: data.data.projectAbout || "",
-          amenities: data.data.amenities?.length > 0 
-            ? data.data.amenities 
+          amenities: data.data.amenities?.length > 0
+            ? data.data.amenities
             : [{ image: null, name: "" }],
           location: {
             locality: data.data.location?.locality || "",
@@ -161,7 +161,7 @@ const AddProperties = () => {
           },
           status: data.data.status || "draft"
         });
-        
+
       } catch (error) {
         console.error('Error fetching property:', error);
         toast.error('Failed to load property data');
@@ -308,28 +308,28 @@ const AddProperties = () => {
       category: "",
       banner: null,
       gallery: [],
-      price: { 
-        value: "", 
-        unit: "lakh" 
+      price: {
+        value: "",
+        unit: "lakh"
       },
-      pricePerArea: { 
-        value: "", 
-        unit: "lakh" 
+      pricePerArea: {
+        value: "",
+        unit: "lakh"
       },
-      plotArea: { 
-        value: "", 
-        unit: "ft" 
+      plotArea: {
+        value: "",
+        unit: "ft"
       },
-      totalProjectArea: { 
-        value: "", 
-        unit: "ft" 
+      totalProjectArea: {
+        value: "",
+        unit: "ft"
       },
       propertyDescription: "",
       projectDescription: "",
       projectAbout: "",
-      amenities: [{ 
-        image: null, 
-        name: "" 
+      amenities: [{
+        image: null,
+        name: ""
       }],
       location: {
         locality: "",
@@ -340,7 +340,7 @@ const AddProperties = () => {
       },
       status: "draft"
     });
-    
+
     if (textareaRefs.current) {
       textareaRefs.current.forEach(textarea => {
         if (textarea) {
@@ -352,7 +352,7 @@ const AddProperties = () => {
 
   const handleSubmit = async (e, status) => {
     e.preventDefault();
-    
+
     try {
       const submissionData = {
         ...formData,
@@ -384,10 +384,10 @@ const AddProperties = () => {
       };
 
       const result = propertySchema.safeParse(submissionData);
-      
+
       if (!result.success) {
         clearErrors();
-        
+
         const formattedErrors = {};
         result.error.errors.forEach(err => {
           const path = err.path;
@@ -400,14 +400,14 @@ const AddProperties = () => {
             formattedErrors[path[0]] = err.message;
           }
         });
-        
+
         setError(formattedErrors);
         toast.error("Please fix the form errors");
         return;
       }
 
       const method = propertyId ? 'PUT' : 'POST';
-      const url = propertyId 
+      const url = propertyId
         ? `http://localhost:3000/edit-properties/${propertyId}`
         : 'http://localhost:3000/properties';
 
@@ -420,7 +420,7 @@ const AddProperties = () => {
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.message || 'Failed to submit property');
       }
@@ -765,9 +765,9 @@ const AddProperties = () => {
                 </div>
               ))}
             </div>
-            <Button 
-              title="Add Amenity" 
-              variant="secondary" 
+            <Button
+              title="Add Amenity"
+              variant="secondary"
               onClick={handleAddAmenity}
               type="button"
             />
@@ -836,25 +836,62 @@ const AddProperties = () => {
             {errors.location?.pinCode && <p className="text-red-500 text-xs">{errors.location.pinCode}</p>}
           </div>
 
-          <div className="col-span-4 w-full flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+          <div className="col-span-3 row-span-3 w-full h-full flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
             <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
               Location (Map)
             </label>
-            <div className="w-full h-64 bg-gray-200 rounded-md flex items-center justify-center">
+            <div className="w-full h-full bg-gray-200 flex items-center justify-center rounded-md md:rounded-lg">
               <p>Map integration would go here</p>
             </div>
           </div>
 
+          <div className="col-span-1 row-span-2 w-full h-full flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+              Developer Brand Logo
+            </label>
+            <div className="relative hover:opacity-80 rounded-md md:rounded-lg">
+              <label
+                htmlFor="uploadBanner"
+                className="cursor-pointer flex justify-center items-center"
+              >
+                <img
+                  src={formData.upload || assets.upload}
+                  className="w-full h-auto object-cover rounded-md md:rounded-lg aspect-3/2"
+                  alt="Property Banner"
+                />
+              </label>
+              <input
+                id="uploadBanner"
+                type="file"
+                accept=".png, .jpg, .jpeg"
+                className="hidden"
+              />
+            </div>
+          </div>
+
+          <div className="col-span-1 w-full flex flex-col items-start gap-1 md:gap-2 lg:gap-3">
+            <label className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">
+              Developer Name
+            </label>
+            <input
+              type="text"
+              name="pinCode"
+              className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg outline-none"
+              placeholder="Pin Code"
+            />
+            {errors.location?.pinCode && <p className="text-red-500 text-xs">{errors.location.pinCode}</p>}
+          </div>
+
           <div className="col-span-4 flex w-full items-center justify-end gap-2 md:gap-4 lg:gap-6">
-            <Button 
-              title="Save to Draft" 
-              variant="destructive" 
+            <Button
+              title="Save to Draft"
+              variant="destructive"
               onClick={(e) => handleSubmit(e, 'draft')}
               type="button"
             />
-            <Button 
-              title="Add to Properties" 
-              variant="secondary" 
+            <Button
+              title="Add to Properties"
+              variant="secondary"
               onClick={(e) => handleSubmit(e, 'published')}
               type="button"
             />

@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check, Edit2, Plus, Trash2, X, Loader2 } from 'lucide-react';
+import { ArrowUpRight, Check, Edit2, Plus, Trash2, X, Loader2, Eye, EyeOff } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -21,6 +21,8 @@ const Button = ({ title, icon, variant = 'default', className = '', symbol, link
         close: <X className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
         check: <Check className={`group-active:rotate-45 ${symbolClass} ${icon === 'show' ? '' : 'hidden'}`} />,
         loader: <Loader2 className={`${symbolClass} animate-spin`} />,
+        eye: <Eye className={`${symbolClass} `} />,
+        eye_closed: <EyeOff className={`${symbolClass} `} />,
     };
 
     const buttonClasses = `capitalize cursor-pointer clashdisplay group flex items-center justify-center gap-0.5 md:gap-1 lg:gap-1.5 text-white font-normal text-base md:text-lg lg:text-2xl py-1 md:py-2 lg:py-3 px-2 md:px-4 lg:px-6 rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out ${variants[variant] || variants.default} ${className}`;

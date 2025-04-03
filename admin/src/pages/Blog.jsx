@@ -7,7 +7,7 @@ import BlogPreview from "@/components/blogs/BlogPreview";
 import BlogSettings from "@/components/blogs/BlogSettings";
 import BlogContent from "@/components/blogs/BlogContent";
 
-export const BlogContext = createContext({});
+export const BlogContext = createContext({ });
 
 const blogStructure = {
     title: "",

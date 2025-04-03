@@ -15,7 +15,6 @@ const SearchBar = ({ setQuery, setFilter }) => {
     { value: "draft", label: "Draft" },
   ];
 
-  // Debounce effect for search query
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       setQuery(searchQuery);
