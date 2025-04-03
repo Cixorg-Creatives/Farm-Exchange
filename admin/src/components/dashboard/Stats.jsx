@@ -124,9 +124,9 @@ const Stats = () => {
             title: "Blogs",
             label1: "Published",
             label2: "Draft",
-            total: blogs.totalDocs+drafts.totalDocs,
-            published: blogs.totalDocs,
-            draft: drafts.totalDocs,
+            total: (blogs?.totalDocs || 0) + (drafts?.totalDocs || 0),
+            published: (blogs?.totalDocs || 0),
+            draft: (drafts?.totalDocs || 0),
             link: "/blogs"
         },
         {
