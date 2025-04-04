@@ -84,10 +84,10 @@ const Blog = () => {
                 </div>
             ) : (
                 <BlogContext.Provider value={{ blog, setBlog }}>
-                    <div className="px-4 md:px-6 lg:px-24 journal_bg blog">
+                    <div className="px-4 md:px-6 lg:px-24 journal_bg">
                         <BlogHero blog={blog} />
                         {/* Blog Content */}
-                        <div className="py-6 md:py-10 xl:py-14">
+                        <div className="py-6 md:py-10 xl:py-14 blog">
                             {blog.content.length > 0 ? (
                                 blog.content.map((section, i) => (
                                     <div key={i} className="space-y-4 md:space-y-6 lg:space-y-8">
@@ -103,12 +103,12 @@ const Blog = () => {
                         
                         {/* Similar Blogs Section */}
                         {similarBlogs && similarBlogs.length > 0 && (
-                            <div className="mt-10">
-                                <h2 className="text-[#31511E] font-bold text-xl md:text-2xl lg:text-3xl mb-4 md:mb-6 lg:mb-8">
-                                    Similar Articles
-                                </h2>
+                            // <div className="mt-10">
+                            //     <h2 className="text-[#31511E] font-bold text-xl md:text-2xl lg:text-3xl mb-4 md:mb-6 lg:mb-8">
+                            //         Similar Articles
+                            //     </h2>
                                 <Suggestions suggested={similarBlogs} />
-                            </div>
+                            // {/* </div> */}
                         )}
                     </div>
                 </BlogContext.Provider>

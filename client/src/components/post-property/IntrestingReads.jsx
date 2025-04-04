@@ -56,7 +56,7 @@ const IntrestingReads = () => {
             <Link to={`/journal/blog/${item.blog_id}`} key={index} className='grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-4 cursor-pointer'>
               <img src={item.banner} alt="" className='w-full h-auto aspect-4/3 object-cover border-1 md:border-2 border-[#ADBF7E] rounded-sm md:rounded-md lg:rounded-lg' />
               <p className='uppercase text-[#859F3E] font-semibold text-[8px] md:text-[10px] lg:text-xs'>{getFullDay(item.publishedAt)}</p>
-              <p className='capitalize text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl'>{item.title}</p>
+              <p className='capitalize text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl line-clamp-1'>{item.title}</p>
             </Link>
           ))
         }
