@@ -161,9 +161,8 @@ const Stats = () => {
 
     return (
         <div>
-            {error && <p className="text-red-500">{error}</p>}
-            {loading ? (
-                <p>Loading...</p>
+            {loading || error ? (
+                <Skeleton />
             ) : (
                 <div className="w-full h-full grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
                     <div className="w-full col-span-1 h-full aspect-square lg:aspect-auto rounded-lg md:rounded-xl bg-[#c7d3a7] shadow-inner  shadow-[#F6FCDF] ">
@@ -228,3 +227,20 @@ const Stats = () => {
 };
 
 export default Stats;
+
+
+const Skeleton = () => {
+    return (
+        <div className="w-full md:h-96 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
+            {/* Pie Chart Skeleton */}
+            <div className="w-full col-span-1 h-full aspect-square lg:aspect-auto rounded-lg md:rounded-xl bg-[#c7d3a7] animate-pulse shadow-inner shadow-[#F6FCDF]" />
+
+            {/* Cards Skeleton */}
+            <div className="w-full h-full grid grid-cols-[1fr_1fr] gap-2 md:gap-3 lg:gap-4">
+                {[...Array(4)].map((_, index) => (
+                    <div key={index} className="relative min-w-max col-span-1 h-auto aspect-square md:aspect-auto rounded-lg md:rounded-xl flex bg-[#c7d3a7] animate-pulse shadow-inner shadow-[#F6FCDF]" />
+                ))}
+            </div>
+        </div>
+    );
+};
