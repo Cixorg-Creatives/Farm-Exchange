@@ -61,7 +61,7 @@ const Grid = () => {
 
           springX.set(x);
           springY.set(y);
-          scale.set(1.1);
+          scale.set(1.05);
         };
 
         return (
@@ -73,7 +73,7 @@ const Grid = () => {
             onMouseLeave={() => {
               springX.set(0);
               springY.set(0);
-              scale.set(1.03);
+              scale.set(1.1);
             }}
           >
             <motion.img

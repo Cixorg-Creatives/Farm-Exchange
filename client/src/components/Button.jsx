@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Button = ({ title, icon, variant = 'default', className = '', symbol, link, onClick, type, loading }) => {
     const variants = {
-        default: '',
-        primary: 'bg-[#859F3E]',
-        secondary: 'bg-[#31511E]',
-        ternary: 'bg-[#073D2C]',
-        destructive: 'bg-red-700',
+        default: 'hover:underline',
+        primary: 'bg-[#859F3E] hover:bg-[#31511E]',  
+        secondary: 'bg-[#31511E] hover:bg-[#859F3E]', 
+        ternary: 'bg-[#073D2C] hover:bg-[#c7d3a7] hover:text-black', 
+        destructive: 'bg-red-700 hover:bg-red-400',
+        outline: 'border border-[#31511E] hover:border-[#859F3E]',
     };
 
     const symbolClass = 'w-4 md:w-5 lg:w-6 h-auto duration-300 ease-in';
