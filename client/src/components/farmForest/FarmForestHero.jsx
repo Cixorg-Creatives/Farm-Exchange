@@ -112,27 +112,26 @@ const FarmForestHero = () => {
             </div>
             <div className='pt-12 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6'>
                 <div className='col-span-1 row-span-1 h-auto'>
-                    <img 
-                        src={property.banner} 
-                        alt={property.name} 
+                    <img
+                        src={property.banner}
+                        alt={property.name}
                         className='w-full h-[400px] object-cover rounded-md'
                     />
                 </div>
-                <div className='h-full flex flex-col items-start gap-6 md:gap-18 lg:gap-14'>
+                <div className='h-full flex flex-col items-start justify-between'>
                     <div className='grid grid-cols-[1fr_1fr] gap-3 md:gap-5 h-2/3'>
                         {property.gallery.slice(0, 2).map((image, index) => (
-                            <img 
-                                key={index} 
-                                src={image} 
-                                alt={`Gallery ${index + 1}`} 
-                                className='col-span-1 w-full h-[250px] object-cover rounded-md'
+                            <img
+                                key={index}
+                                src={image}
+                                alt={`Gallery ${index + 1}`}
+                                className='col-span-1 w-full h-auto aspect-5/4 object-cover rounded-md'
                             />
                         ))}
                     </div>
-                    <div className='flex items-center justify-start gap-3 md:gap-6'>
-                        <Button title='Schedule Visit' variant='primary' icon='show' symbol='visit' />
-                        <Link to={'/contact'}><button className='size-10 md:size-14 flex items-center justify-center bg-[#D9E1C3] cursor-pointer hover:bg-[#D9E1C3] rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out'><MessageSquareText className='size-5 md:size-7 text-[#31511E] ' /></button></Link>
-                        <button className='size-10 md:size-14 flex items-center justify-center bg-[#D9E1C3] cursor-pointer hover:bg-[#D9E1C3] rounded-sm md:rounded-md lg:rounded-lg active:scale-75 duration-300 ease-in-out'><Heart className='size-5 md:size-7 text-[#31511E] ' /></button>
+                    <div className='flex items-center justify-start gap-3 md:gap-6 mt-4 md:mt-6 lg:mt-0 mb-2 md:mb-3 lg::mb-4'>
+                        <img src={assets.post_3} alt="" className='w-1/6 h-auto aspect-square rounded-full object-cover' />
+                        <p className='capitalise text-[#31511E] font-semibold text-2xl md:text-3xl lg:text-4xl'> Developer Name</p>
                     </div>
                 </div>
             </div>
