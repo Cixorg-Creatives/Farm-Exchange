@@ -75,7 +75,7 @@ const Recommended = () => {
   }
 
   return (
-    <div className="my-6 md:my-10 xl:my-14 flex flex-col gap-3 md:gap-6 lg:gap-12">
+    <div className="mt-6 md:mt-10 xl:mt-14 flex flex-col gap-3 md:gap-6 lg:gap-12">
       <div className="flex items-end justify-between">
         <div className="flex flex-col items-start gap-2.5 md:gap-3.5 lg:gap-5">
           <div className="boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase">

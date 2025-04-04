@@ -46,7 +46,7 @@ const HomeJournal = () => {
 
   return (
     <div className='py-6 md:py-10 xl:py-14'>
-      <div className="w-full flex flex-row items-end justify-between py-4 md:py-11">
+      <div className="w-full flex flex-row items-end justify-between">
         <div className="flex flex-col items-start justify-between h-full text-center md:text-left">
           <p className="uppercase text-[#859F3E] font-semibold text-xs md:text-xl lg:text-[2.5rem] leading-tight">
             The Farm
@@ -62,8 +62,8 @@ const HomeJournal = () => {
         </div>
       </div>
 
-      <div className='grid grid-cols-[1fr_1fr] gap-4 md:gap-10 lg:gap-20 py-3 md:py-16'>
-        <div className='col-span-1 h-full flex flex-col items-start justify-between py-4 md:py-8 lg:py-12'>
+      <div className='grid grid-cols-[1fr_1fr] gap-4 md:gap-10 lg:gap-20 my-4 md:my-8 lg:my-12'>
+        <div className='col-span-1 h-full flex flex-col items-start justify-between'>
           <div className='flex flex-col gap-3 md:gap-5'>
             <p className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>Trending Videos</p>
             <p className='capitalize text-[#31511E] font-semibold text-xs md:text-xl lg:text-[2.5rem] leading-tight'>Wooden valley By <br /> rugvedha developers</p>
@@ -82,8 +82,8 @@ const HomeJournal = () => {
         </div>
       </div>
 
-      <div className='grid grid-cols-[1fr_1fr] [&>*:nth-child(1)]:order-2 gap-4 md:gap-10 lg:gap-20 py-3 md:py-16'>
-        <div className='col-span-1 h-full flex flex-col items-start justify-between py-4 md:py-8 lg:py-12'>
+      <div className='grid grid-cols-[1fr_1fr] [&>*:nth-child(1)]:order-2 gap-4 md:gap-10 lg:gap-20 mt-4 md:mt-8 lg:mt-12'>
+        <div className='col-span-1 h-full flex flex-col items-start justify-between'>
           <div className='flex flex-col gap-3 md:gap-5'>
             <p className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>Knowledge hub</p>
             <p className='capitalize text-[#31511E] font-semibold text-xs md:text-xl lg:text-[2.5rem] leading-tight'>Your Go-To Resource for <br /> Farming & Farmland <br /> Insights</p>
