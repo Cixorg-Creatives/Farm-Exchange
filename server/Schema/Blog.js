@@ -33,6 +33,10 @@ const blogSchema = mongoose.Schema({
         required: true,
         ref: 'users'
     },
+    author_name: {
+        type: String,
+        required: true
+    },
     activity: {
         total_likes: {
             type: Number,

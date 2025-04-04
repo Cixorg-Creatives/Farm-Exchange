@@ -30,8 +30,6 @@ const PropertiesHero = ({ onFilterChange, filters }) => {
     fetchCities()
   }, [])
 
-  console.log(cities)
-
   const cityFilter = [
     { value: "all", label: "All" },
     ...cities.sort((a, b) => a.localeCompare(b)).map(city => ({

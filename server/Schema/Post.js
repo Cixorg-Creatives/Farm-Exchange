@@ -19,6 +19,10 @@ const postSchema = mongoose.Schema(
         enum: ["Developer", "Owner"],
         required: true
     },
+    seen: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: {

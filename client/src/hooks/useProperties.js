@@ -35,6 +35,7 @@ const useProperties = (filters) => {
     
     return () => fetchProperties.cancel();
   }, [filters, fetchProperties]);
+  console.log('Properties:', properties);
 
   return { properties, loading, error };
 };

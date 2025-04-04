@@ -97,12 +97,10 @@ server.post("/signup", (req, res) => {
     return res.status(403).json({ error: "Email is invalid" });
   }
   if (!passwordRegex.test(password)) {
-    return res
-      .status(403)
-      .json({
-        error:
-          "Password should be 6 to 20 characters long with a numeric, 1 lowercase, 1 uppercase letters",
-      });
+    return res.status(403).json({
+      error:
+        "Password should be 6 to 20 characters long with a numeric, 1 lowercase, 1 uppercase letters",
+    });
   }
 
   bcrypt.hash(password, 10, async (err, hashed_password) => {
@@ -175,12 +173,10 @@ server.post("/google-auth", async (req, res) => {
 
       if (user) {
         if (!user.google_auth) {
-          return res
-            .status(403)
-            .json({
-              error:
-                "This email was signed up without google. Please log in with password to access the account.",
-            });
+          return res.status(403).json({
+            error:
+              "This email was signed up without google. Please log in with password to access the account.",
+          });
         }
       } else {
         let username = await generateUsername(email);
@@ -203,12 +199,10 @@ server.post("/google-auth", async (req, res) => {
       return res.status(200).json(formatDataToSend(user));
     })
     .catch((err) => {
-      return res
-        .status(500)
-        .json({
-          error:
-            "Failed to authenticate you with google. Try with some other google account ",
-        });
+      return res.status(500).json({
+        error:
+          "Failed to authenticate you with google. Try with some other google account ",
+      });
     });
 });
 
@@ -219,23 +213,19 @@ server.post("/change-password", verifyJWT, (req, res) => {
     !passwordRegex.test(currentPassword) ||
     !passwordRegex.test(newPassword)
   ) {
-    return res
-      .status(403)
-      .json({
-        error:
-          "Password should be 6 to 20 characters long with a numeric, 1 lowercase, 1 uppercase letters",
-      });
+    return res.status(403).json({
+      error:
+        "Password should be 6 to 20 characters long with a numeric, 1 lowercase, 1 uppercase letters",
+    });
   }
 
   User.findOne({ _id: req.user })
     .then((user) => {
       if (user.google_auth) {
-        return res
-          .status(403)
-          .json({
-            error:
-              "You can't change account's password because you logged in through google",
-          });
+        return res.status(403).json({
+          error:
+            "You can't change account's password because you logged in through google",
+        });
       }
 
       bcrypt.compare(
@@ -243,12 +233,10 @@ server.post("/change-password", verifyJWT, (req, res) => {
         user.personal_info.password,
         (err, result) => {
           if (err) {
-            return res
-              .status(500)
-              .json({
-                error:
-                  "Some error occured while changing the password, please try again later",
-              });
+            return res.status(500).json({
+              error:
+                "Some error occured while changing the password, please try again later",
+            });
           }
 
           if (!result) {
@@ -266,12 +254,10 @@ server.post("/change-password", verifyJWT, (req, res) => {
                 return res.status(200).json({ status: "password changed" });
               })
               .catch((err) => {
-                return res
-                  .status(500)
-                  .json({
-                    error:
-                      "Some error occured while saving new password, please try again later",
-                  });
+                return res.status(500).json({
+                  error:
+                    "Some error occured while saving new password, please try again later",
+                });
               });
           });
         }
@@ -284,9 +270,9 @@ server.post("/change-password", verifyJWT, (req, res) => {
 });
 
 server.post("/latest-blogs", (req, res) => {
-  let { page } = req.body;
+  let { } = req.body;
 
-  let maxLimit = 6;
+  // let maxLimit = 6;
 
   Blog.find({ draft: false })
     .populate(
@@ -295,8 +281,8 @@ server.post("/latest-blogs", (req, res) => {
     )
     .sort({ publishedAt: -1 })
     .select("blog_id title des banner activity tags publishedAt -_id")
-    .skip((page - 1) * maxLimit)
-    .limit(maxLimit)
+    // .skip((page - 1) * maxLimit)
+    // .limit(maxLimit)
     .then((blogs) => {
       return res.status(200).json({ blogs });
     })
@@ -457,20 +443,16 @@ server.post("/update-profile", verifyJWT, (req, res) => {
           !hostname.includes(`${socialLinksArr[i]}.com`) &&
           socialLinksArr[i] != "website"
         ) {
-          return res
-            .status(403)
-            .json({
-              error: `${socialLinksArr[i]} link is invaild. You must enter a full link`,
-            });
+          return res.status(403).json({
+            error: `${socialLinksArr[i]} link is invaild. You must enter a full link`,
+          });
         }
       }
     }
   } catch (err) {
-    return res
-      .status(500)
-      .json({
-        error: "You must provide full social links with http(s) included",
-      });
+    return res.status(500).json({
+      error: "You must provide full social links with http(s) included",
+    });
   }
 
   let updateObj = {
@@ -499,7 +481,8 @@ server.post("/create-blog", verifyJWT, (req, res) => {
   let isAdmin = req.admin;
 
   if (isAdmin) {
-    let { title, des, banner, tags, content, draft, id } = req.body;
+    let { title, des, banner, tags, content, draft, id, author_name } =
+      req.body;
 
     if (!title.length) {
       return res.status(403).json({ error: "You must provide a title" });
@@ -507,11 +490,9 @@ server.post("/create-blog", verifyJWT, (req, res) => {
 
     if (!draft) {
       if (!des.length || des.length > 200) {
-        return res
-          .status(403)
-          .json({
-            error: "You must provide blog description under 200 characters",
-          });
+        return res.status(403).json({
+          error: "You must provide blog description under 200 characters",
+        });
       }
       if (!banner.length) {
         return res
@@ -524,11 +505,9 @@ server.post("/create-blog", verifyJWT, (req, res) => {
           .json({ error: "There must be some blog content to publish it" });
       }
       if (!tags.length || tags.length > 10) {
-        return res
-          .status(403)
-          .json({
-            error: "Provide tags in order to publish the blog, Maximum 10",
-          });
+        return res.status(403).json({
+          error: "Provide tags in order to publish the blog, Maximum 10",
+        });
       }
     }
 
@@ -541,12 +520,20 @@ server.post("/create-blog", verifyJWT, (req, res) => {
         .replace(/\s+/g, "-")
         .trim() + nanoid();
 
-    console.log(id)
+    console.log(id);
 
     if (id) {
       Blog.findOneAndUpdate(
         { blog_id },
-        { title, des, banner, content, tags, draft: draft ? draft : false }
+        {
+          title,
+          des,
+          banner,
+          content,
+          tags,
+          draft: draft ? draft : false,
+          author_name,
+        }
       )
         .then(() => {
           return res.status(200).json({ id: blog_id });
@@ -562,6 +549,7 @@ server.post("/create-blog", verifyJWT, (req, res) => {
         content,
         tags,
         author: authorId,
+        author_name,
         blog_id,
         draft: Boolean(draft),
       });
@@ -599,9 +587,9 @@ server.post("/create-blog", verifyJWT, (req, res) => {
 });
 
 server.post("/get-blog", (req, res) => {
-  let { blog_id, draft, mode } = req.body;
+  let { blog_id, draft, mode, increment_reads } = req.body;
 
-  let incrementVal = mode != "edit" ? 1 : 0;
+  let incrementVal = (mode != "edit" && increment_reads !== false) ? 1 : 0;
 
   Blog.findOneAndUpdate(
     { blog_id },
@@ -611,26 +599,31 @@ server.post("/get-blog", (req, res) => {
       "author",
       "personal_info.fullname personal_info.username personal_info.profile_img"
     )
-    .select("title des content banner activity publishedAt blog_id tags")
+    .select(
+      "title des content banner activity publishedAt blog_id tags author_name updatedAt"
+    )
     .then((blog) => {
-      User.findOneAndUpdate(
-        { "personal_info.username": blog.author.personal_info.username },
-        {
-          $inc: { "account_info.total_reads": incrementVal },
-        }
-      ).catch((err) => {
-        return res.status(500).json({ error: err.message });
-      });
+      if (incrementVal > 0) {
+        User.findOneAndUpdate(
+          { "personal_info.username": blog.author.personal_info.username },
+          {
+            $inc: { "account_info.total_reads": incrementVal },
+          }
+        ).catch((err) => {
+          console.error("Error updating user read count:", err);
+        });
+      }
 
       if (blog.draft && !draft) {
         return res
-          .status(500)
-          .json({ error: "you can not access draft blogs" });
+          .status(403)
+          .json({ error: "You cannot access draft blogs" });
       }
 
       return res.status(200).json({ blog });
     })
     .catch((err) => {
+      console.error("Error fetching blog:", err);
       return res.status(500).json({ error: err.message });
     });
 });
@@ -966,8 +959,8 @@ server.post("/user-written-blogs", verifyJWT, (req, res) => {
   }
 
   Blog.find({ author: user_id, draft, title: new RegExp(query, "i") })
-  //   .skip(skipDocs)
-  //   .limit(maxLimit)
+    //   .skip(skipDocs)
+    //   .limit(maxLimit)
     .sort({ publishedAt: -1 })
     .select(" title banner publishedAt blog_id activity des draft -_id ")
     .then((blogs) => {
@@ -1057,97 +1050,144 @@ server.post("/contact-us", async (req, res) => {
 });
 
 server.get("/get-contact", async (req, res) => {
-    try {
-        const contacts = await Contact.find();
-        res.status(200).json(contacts);
-    } catch (error) {
-        console.error("Error fetching contacts:", error);
-        res.status(500).json({ error: "Internal server error" });
+  try {
+    const contacts = await Contact.find().sort({ publishedAt: -1 });
+    res.status(200).json(contacts);
+  } catch (error) {
+    console.error("Error fetching contacts:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+server.patch("/update-contact/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { seen } = req.body;
+
+    const updatedContact = await Contact.findByIdAndUpdate(
+      id,
+      { seen },
+      { new: true }
+    );
+
+    if (!updatedContact) {
+      return res.status(404).json({ error: "Contact not found" });
     }
+
+    res.status(200).json(updatedContact);
+  } catch (error) {
+    console.error("Error updating contact:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 server.delete("/delete-contact/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-        const result = await Contact.findByIdAndDelete(id);
-        
-        if (!result) {
-            return res.status(404).json({ message: "Contact not found" });
-        }
+  try {
+    const { id } = req.params;
+    const result = await Contact.findByIdAndDelete(id);
 
-        res.status(200).json({ message: "Contact deleted successfully" });
-    } catch (error) {
-        console.error("Error deleting contact:", error);
-        res.status(500).json({ message: "Internal Server Error" });
+    if (!result) {
+      return res.status(404).json({ message: "Contact not found" });
     }
-});
 
+    res.status(200).json({ message: "Contact deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting contact:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 
 server.post("/post-property", async (req, res) => {
-    try {
-        const { full_name, email, phone, interested_in } = req.body;
+  try {
+    const { full_name, email, phone, interested_in } = req.body;
 
-        if (!full_name || !email || !phone || !interested_in) {
-            return res.status(400).json({ message: "All fields are required" });
-        }
-
-        const newPost = new Post({
-            full_name,
-            email,
-            phone,
-            interested_in
-        });
-
-        await newPost.save();
-
-        res.status(200).json({ message: "Post added successfully", post: newPost });
-    } catch (error) {
-        console.error("Error adding post:", error);
-        res.status(500).json({ message: "Internal server error" });
+    if (!full_name || !email || !phone || !interested_in) {
+      return res.status(400).json({ message: "All fields are required" });
     }
+
+    const newPost = new Post({
+      full_name,
+      email,
+      phone,
+      interested_in,
+    });
+
+    await newPost.save();
+
+    res.status(200).json({ message: "Post added successfully", post: newPost });
+  } catch (error) {
+    console.error("Error adding post:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 });
 
-server.get("/get-post-property", async (req, res) => { 
-    try {
-        const posts = await Post.find();
+server.patch("/update-post-status/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { seen } = req.body;
 
-        res.status(200).json({ success: true, posts });
-    } catch (error) {
-        console.error("Error fetching posts:", error);
-        res.status(500).json({ success: false, message: "Internal server error" });
+    const updatedPost = await Post.findByIdAndUpdate(
+      id,
+      { seen },
+      { new: true }
+    );
+
+    if (!updatedPost) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Post not found" });
     }
+
+    res.status(200).json({ success: true, post: updatedPost });
+  } catch (error) {
+    console.error("Error updating post status:", error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
 });
 
-server.post("/delete-post-property", async (req, res) => { 
-    try {
-        const { id } = req.body;
-
-        if (!id) {
-            return res.status(400).json({ success: false, message: "Post ID is required" });
-        }
-
-        const deletedPost = await Post.findByIdAndDelete(id);
-
-        if (!deletedPost) {
-            return res.status(404).json({ success: false, message: "Post not found" });
-        }
-
-        res.status(200).json({ success: true, message: "Post deleted successfully" });
-    } catch (error) {
-        console.error("Error deleting post:", error);
-        res.status(500).json({ success: false, message: "Internal server error" });
-    }
+server.get("/get-post-property", async (req, res) => {
+  try {
+    const posts = await Post.find().sort({ publishedAt: -1 });
+    res.status(200).json({ success: true, posts });
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
 });
 
-server.post('/properties', 
+server.post("/delete-post-property", async (req, res) => {
+  try {
+    const { id } = req.body;
+
+    if (!id) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Post ID is required" });
+    }
+
+    const deletedPost = await Post.findByIdAndDelete(id);
+
+    if (!deletedPost) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Post not found" });
+    }
+
+    res
+      .status(200)
+      .json({ success: true, message: "Post deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting post:", error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+server.post(
+  "/properties",
   [
-    body('name').notEmpty().withMessage('Property name is required'),
-    body('availabilityStatus').isIn(['available', 'not-available']).withMessage('Invalid availability status'),
-    body('type').isIn(['farmland', 'farmhouse', 'agricultureland', 'coffee']).withMessage('Invalid property type'),
-    body('category').isIn(['elite', 'featured', 'recommended']).withMessage('Invalid category'),
-    body('banner').notEmpty().withMessage('Banner image is required'),
-    body('price.value').isNumeric().withMessage('Price must be a number'),
-    body('price.unit').isIn(['lakh', 'crore']).withMessage('Invalid price unit'),
+    body("name").notEmpty().withMessage("Property name is required"),
+    body("banner").notEmpty().withMessage("Banner image is required"),
+    body("status").isIn(["draft", "published"]).withMessage("Invalid status"),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -1172,8 +1212,42 @@ server.post('/properties',
         projectAbout,
         amenities,
         location,
-        status = 'draft'
+        developer,
+        status = "draft",
       } = req.body;
+
+      if (status === "published") {
+        const publishedErrors = [];
+        if (!availabilityStatus)
+          publishedErrors.push({
+            msg: "Availability status is required",
+            param: "availabilityStatus",
+          });
+        if (!type)
+          publishedErrors.push({
+            msg: "Property type is required",
+            param: "type",
+          });
+        if (!category)
+          publishedErrors.push({
+            msg: "Category is required",
+            param: "category",
+          });
+        if (!developer?.name)
+          publishedErrors.push({
+            msg: "Developer name is required",
+            param: "developer.name",
+          });
+        if (!developer?.logo)
+          publishedErrors.push({
+            msg: "Developer logo is required",
+            param: "developer.logo",
+          });
+
+        if (publishedErrors.length > 0) {
+          return res.status(400).json({ errors: publishedErrors });
+        }
+      }
 
       const newProperty = new Property({
         name,
@@ -1191,120 +1265,150 @@ server.post('/properties',
         projectAbout,
         amenities: amenities || [],
         location,
-        status
+        developer,
+        status,
       });
 
       const savedProperty = await newProperty.save();
 
       res.status(200).json({
         success: true,
-        message: 'Property created successfully',
-        property: savedProperty
+        message: "Property created successfully",
+        property: savedProperty,
       });
     } catch (error) {
-      console.error('Error creating property:', error);
+      console.error("Error creating property:", error);
       res.status(500).json({
         success: false,
-        message: 'Error creating property',
-        error: error.message
+        message: "Error creating property",
+        error: error.message,
       });
     }
   }
 );
 
-
-server.get('/list-properties', async (req, res) => {
+server.get("/list-properties", async (req, res) => {
   try {
     const { status, search } = req.query;
-    
+
     const query = {};
-    if (status && status !== 'all') query.status = status;
-    
+    if (status && status !== "all") query.status = status;
+
     if (search) {
       query.$or = [
-        { name: { $regex: search, $options: 'i' } },
-        { 'location.city': { $regex: search, $options: 'i' } },
-        { 'location.state': { $regex: search, $options: 'i' } },
-        { 'location.locality': { $regex: search, $options: 'i' } },
-        { type: { $regex: search, $options: 'i' } }
+        { name: { $regex: search, $options: "i" } },
+        { "location.city": { $regex: search, $options: "i" } },
+        { "location.state": { $regex: search, $options: "i" } },
+        { "location.locality": { $regex: search, $options: "i" } },
+        { type: { $regex: search, $options: "i" } },
       ];
     }
-    
-    const properties = await Property.find(query)
-    .sort({ createdAt: -1 });
-    
+
+    const properties = await Property.find(query).sort({ createdAt: -1 });
+
     res.status(200).json({
       success: true,
       count: properties.length,
-      data: properties
+      data: properties,
     });
   } catch (error) {
-    console.error('Error fetching properties:', error);
+    console.error("Error fetching properties:", error);
     res.status(500).json({
       success: false,
-      message: 'Error fetching properties',
-      error: error.message
+      message: "Error fetching properties",
+      error: error.message,
     });
   }
 });
 
-server.get('/list', async (req, res) => {
+server.get("/list", async (req, res) => {
   try {
     const { city, type, category, sort, search } = req.query;
-    
-    const filter = { status: 'published' };
-    
-    if (city && city !== 'all') {
-      filter['location.city'] = { 
-        $regex: city.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 
-        $options: 'i' 
+
+    const filter = { status: "published" };
+
+    if (city && city !== "all") {
+      filter["location.city"] = {
+        $regex: city.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"),
+        $options: "i",
       };
     }
-    
-    if (type && type !== 'all') filter.type = type;
-    
-    if (category && category !== 'all') {
+
+    if (type && type !== "all") filter.type = type;
+
+    if (category && category !== "all") {
       let categoryValue;
-      switch(category) {
-        case 'elite': categoryValue = 'elite'; break;
-        case 'featured': categoryValue = 'featured'; break;
-        case 'highrec': categoryValue = 'recommended'; break;
-        default: categoryValue = category;
+      switch (category) {
+        case "elite":
+          categoryValue = "elite";
+          break;
+        case "featured":
+          categoryValue = "featured";
+          break;
+        case "highrec":
+          categoryValue = "recommended";
+          break;
+        default:
+          categoryValue = category;
       }
       filter.category = categoryValue;
     }
-    
+
     if (search) {
-      const searchRegex = new RegExp(search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
+      const searchRegex = new RegExp(
+        search.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&"),
+        "i"
+      );
       filter.$or = [
         { name: searchRegex },
-        { 'location.locality': searchRegex },
-        { 'location.city': searchRegex },
-        { 'location.state': searchRegex },
+        { "location.locality": searchRegex },
+        { "location.city": searchRegex },
+        { "location.state": searchRegex },
         { propertyDescription: searchRegex },
-        { projectDescription: searchRegex }
+        { projectDescription: searchRegex },
       ];
     }
-    
+
     let sortOption = {};
     if (sort) {
       switch (sort) {
-        case 'alpha_low-high': sortOption.name = 1; break;
-        case 'alpha_high-low': sortOption.name = -1; break;
-        case 'latest': sortOption.createdAt = -1; break;
-        case 'earliest': sortOption.createdAt = 1; break;
-        case 'rec_low-high': sortOption.category = 1; break;
-        case 'rec_high-low': sortOption.category = -1; break;
-        case 'area_low-high': sortOption['plotArea.value'] = 1; break;
-        case 'area_high-low': sortOption['plotArea.value'] = -1; break;
-        case 'price_low-high': sortOption['price.value'] = 1; break;
-        case 'price_high-low': sortOption['price.value'] = -1; break;
-        default: sortOption.createdAt = -1;
+        case "alpha_low-high":
+          sortOption.name = 1;
+          break;
+        case "alpha_high-low":
+          sortOption.name = -1;
+          break;
+        case "latest":
+          sortOption.createdAt = -1;
+          break;
+        case "earliest":
+          sortOption.createdAt = 1;
+          break;
+        case "rec_low-high":
+          sortOption.category = 1;
+          break;
+        case "rec_high-low":
+          sortOption.category = -1;
+          break;
+        case "area_low-high":
+          sortOption["plotArea.value"] = 1;
+          break;
+        case "area_high-low":
+          sortOption["plotArea.value"] = -1;
+          break;
+        case "price_low-high":
+          sortOption["price.value"] = 1;
+          break;
+        case "price_high-low":
+          sortOption["price.value"] = -1;
+          break;
+        default:
+          sortOption.createdAt = -1;
       }
     } else {
       sortOption.createdAt = -1;
     }
-    
+
     const properties = await Property.find(filter).sort(sortOption);
     res.json(properties);
   } catch (error) {
@@ -1312,106 +1416,157 @@ server.get('/list', async (req, res) => {
   }
 });
 
-server.get('/get-properties/:id', async (req, res) => {
+server.get("/get-properties/:id", async (req, res) => {
   try {
-    const property = await Property.findById(req.params.id);
-    
-    if (!property) {
-      return res.status(404).json({
-        success: false,
-        message: 'Property not found'
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      data: property
-    });
-  } catch (error) {
-    console.error('Error fetching property:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Error fetching property',
-      error: error.message
-    });
-  }
-});
-
-server.get('/edit-properties/:id', async (req, res) => {
-  try {
-    const property = await Property.findById(req.params.id);
-    
-    if (!property) {
-      return res.status(404).json({
-        success: false,
-        message: 'Property not found'
-      });
-    }
-
-    res.status(200).json({
-      success: true,
-      data: property
-    });
-  } catch (error) {
-    console.error('Error fetching property:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Error fetching property',
-      error: error.message
-    });
-  }
-});
-
-server.put('/edit-properties/:id', async (req, res) => {
-  try {
-    const property = await Property.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
+    const property = await Property.findById(req.params.id).select(
+      "name banner gallery type price pricePerArea plotArea totalProjectArea propertyDescription projectDescription location availabilityStatus developer amenities"
     );
-    
+
     if (!property) {
       return res.status(404).json({
         success: false,
-        message: 'Property not found'
+        message: "Property not found",
       });
     }
 
     res.status(200).json({
       success: true,
-      data: property
+      data: property,
     });
   } catch (error) {
-    console.error('Error updating property:', error);
+    console.error("Error fetching property:", error);
     res.status(500).json({
       success: false,
-      message: 'Error updating property',
-      error: error.message
+      message: "Error fetching property",
+      error: error.message,
     });
   }
 });
 
-server.delete('/delete-properties/:id', async (req, res) => {
+server.get("/edit-properties/:id", async (req, res) => {
+  try {
+    const property = await Property.findById(req.params.id);
+
+    if (!property) {
+      return res.status(404).json({
+        success: false,
+        message: "Property not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: property,
+    });
+  } catch (error) {
+    console.error("Error fetching property:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error fetching property",
+      error: error.message,
+    });
+  }
+});
+
+server.put(
+  "/edit-properties/:id",
+  [
+    body("name").notEmpty().withMessage("Property name is required"),
+    body("banner").notEmpty().withMessage("Banner image is required"),
+    body("status").isIn(["draft", "published"]).withMessage("Invalid status"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      if (req.body.status === "published") {
+        const publishedErrors = [];
+        if (!req.body.availabilityStatus)
+          publishedErrors.push({
+            msg: "Availability status is required",
+            param: "availabilityStatus",
+          });
+        if (!req.body.type)
+          publishedErrors.push({
+            msg: "Property type is required",
+            param: "type",
+          });
+        if (!req.body.category)
+          publishedErrors.push({
+            msg: "Category is required",
+            param: "category",
+          });
+        if (!req.body.developer?.name)
+          publishedErrors.push({
+            msg: "Developer name is required",
+            param: "developer.name",
+          });
+        if (!req.body.developer?.logo)
+          publishedErrors.push({
+            msg: "Developer logo is required",
+            param: "developer.logo",
+          });
+
+        if (publishedErrors.length > 0) {
+          return res.status(400).json({ errors: publishedErrors });
+        }
+      }
+
+      const property = await Property.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+
+      if (!property) {
+        return res.status(404).json({
+          success: false,
+          message: "Property not found",
+        });
+      }
+
+      res.status(200).json({
+        success: true,
+        data: property,
+      });
+    } catch (error) {
+      console.error("Error updating property:", error);
+      res.status(500).json({
+        success: false,
+        message: "Error updating property",
+        error: error.message,
+      });
+    }
+  }
+);
+
+server.delete("/delete-properties/:id", async (req, res) => {
   try {
     const property = await Property.findByIdAndDelete(req.params.id);
-    
+
     if (!property) {
       return res.status(404).json({
         success: false,
-        message: 'Property not found'
+        message: "Property not found",
       });
     }
 
     res.status(200).json({
       success: true,
-      message: 'Property deleted successfully'
+      message: "Property deleted successfully",
     });
   } catch (error) {
-    console.error('Error deleting property:', error);
+    console.error("Error deleting property:", error);
     res.status(500).json({
       success: false,
-      message: 'Error deleting property',
-      error: error.message
+      message: "Error deleting property",
+      error: error.message,
     });
   }
 });
@@ -1422,14 +1577,14 @@ server.delete('/delete-properties/:id', async (req, res) => {
 
 //     // 1. Build the query
 //     const query = { status: 'published' };
-    
+
 //     if (search) {
 //       query.$or = [
 //         { name: { $regex: search, $options: 'i' } },
 //         { 'location.city': { $regex: search, $options: 'i' } }
 //       ];
 //     }
-    
+
 //     if (type && type !== 'all') query.type = type;
 //     if (category && category !== 'all') query.category = category;
 //     if (city && city !== 'all') query['location.city'] = city;
@@ -1441,7 +1596,7 @@ server.delete('/delete-properties/:id', async (req, res) => {
 //       price_asc: { 'price.value': 1 },
 //       price_desc: { 'price.value': -1 }
 //     };
-    
+
 //     // 3. Execute query
 //     const properties = await Property.find(query)
 //       .sort(sortOptions[sort] || sortOptions.newest)

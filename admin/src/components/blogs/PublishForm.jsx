@@ -12,13 +12,17 @@ const PublishForm = () => {
     const characterLimit = 200;
     const tagLimit = 10;
     const { blogId } = useParams();
-    const { blog, blog: { banner, title, tags, des, content }, setEditorState, setBlog } = useContext(EditorContext);
+    const { blog, blog: { banner, title, tags, des, content, author_name }, setEditorState, setBlog } = useContext(EditorContext);
     const { userAuth: { access_token } } = useContext(UserContext);
     const navigate = useNavigate();
 
     const handleCloseEvent = () => setEditorState("editor");
 
     const handleChange = (e, key) => setBlog({ ...blog, [key]: e.target.value });
+
+    const handleAuthorChange = (e) => {
+        setBlog({ ...blog, author_name: e.target.value });
+    };
 
     const handleKeyDone = (e) => {
         if (e.key === "Enter" || e.key === ",") {
@@ -42,7 +46,7 @@ const PublishForm = () => {
 
         const loadingToast = toast.loading("Publishing...");
         e.target.classList.add("disable");
-        const blogObj = { title, banner, des, content, tags, draft: false };
+        const blogObj = { title, banner, des, content, tags, draft: false, author_name };
 
         try {
             await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/create-blog`, { ...blogObj, id: blogId }, {
@@ -81,7 +85,7 @@ const PublishForm = () => {
                         <p className="uppercase text-[#859F3E] font-semibold text-[8px] md:text-[10px] lg:text-xs">{characterLimit - des.length} characters left</p>
 
                         <p className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">Blog Author</p>
-                        <input type="text" placeholder="Blog Author" value={title} className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg" />
+                        <input type="text" placeholder="Blog Author" value={author_name || ''} onChange={handleAuthorChange} className="w-full bg-[#C7D3A6] capitalize text-[#1B2D11] font-normal text-xs md:text-sm lg:text-base p-2 md:p-3 lg:p-4 leading-tight h-10 md:h-12 lg:h-14 rounded-md lg:rounded-lg" />
 
                         <p className="text-black capitalize font-normal text-xs md:text-base lg:text-xl">Topics - (Helps in searching and ranking)</p>
                         <div className="flex flex-col gap-2 rounded-lg">

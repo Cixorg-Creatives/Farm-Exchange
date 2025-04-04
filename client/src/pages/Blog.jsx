@@ -9,11 +9,12 @@ import Suggestions from "@/components/blog/Suggestions";
 
 export const BlogContext = createContext({});
 
-export const blogStructure = {
+const blogStructure = {
     title: "",
     des: "",
     content: [],
     author: { personal_info: {} },
+    author_name: "",
     banner: "",
     publishedAt: "",
     tags: []
@@ -34,7 +35,11 @@ const Blog = () => {
         const cachedBlog = sessionStorage.getItem(`blog_${blogId}`);
 
         if (cachedBlog) {
-            setBlog(JSON.parse(cachedBlog));
+            const parsedBlog = JSON.parse(cachedBlog);
+            setBlog(parsedBlog);
+            if (parsedBlog.tags && parsedBlog.tags.length > 0) {
+                fetchSimilarBlogs(parsedBlog.tags[0]);
+            }
             setLoading(false);
         } else {
             console.log("fetchBlog called");
@@ -44,7 +49,9 @@ const Blog = () => {
                     console.log("Fetched Blog Data:", blog);
                     sessionStorage.setItem(`blog_${blogId}`, JSON.stringify(blog));
                     setBlog(blog);
-                    fetchSimilarBlogs(blog.tags[0]);
+                    if (blog.tags && blog.tags.length > 0) {
+                        fetchSimilarBlogs(blog.tags[0]);
+                    }
                     setLoading(false);
                 })
                 .catch(err => {
@@ -55,11 +62,18 @@ const Blog = () => {
     };
 
     const fetchSimilarBlogs = (tag) => {
-        axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/search-blogs", { tag, limit: 6, eliminate_blog: blogId })
-            .then(({ data }) => {
-                setSimilarBlogs(data.blogs);
-            })
-            .catch(err => console.error(err));
+        axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/search-blogs", { 
+            tag, 
+            limit: 6, 
+            eliminate_blog: blogId 
+        })
+        .then(({ data }) => {
+            setSimilarBlogs(data.blogs || []);
+        })
+        .catch(err => {
+            console.error(err);
+            setSimilarBlogs([]);
+        });
     };
 
     return (
@@ -86,7 +100,16 @@ const Blog = () => {
                                 <p className="text-gray-500">No content available</p>
                             )}
                         </div>
-                        {/* <Suggestions suggested={similarBlogs}/> */}
+                        
+                        {/* Similar Blogs Section */}
+                        {similarBlogs && similarBlogs.length > 0 && (
+                            <div className="mt-10">
+                                <h2 className="text-[#31511E] font-bold text-xl md:text-2xl lg:text-3xl mb-4 md:mb-6 lg:mb-8">
+                                    Similar Articles
+                                </h2>
+                                <Suggestions suggested={similarBlogs} />
+                            </div>
+                        )}
                     </div>
                 </BlogContext.Provider>
             )}
