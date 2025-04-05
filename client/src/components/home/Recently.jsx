@@ -136,7 +136,7 @@ const Recently = () => {
                         }
                     </div>
                 </div>
-                <div className='w-full lg:w-fit relative z-2 lg:translate-y-1/3 lg:-translate-x-1/4 flex items-center justify-center gap-3 md:gap-4 lg:gap-5'>
+                <div className='w-full lg:w-fit relative z-2 lg:translate-y-1/3 lg:-translate-x-1/2 flex items-center justify-center gap-3 md:gap-4 lg:gap-5'>
                     <button
                         className='cursor-pointer size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]'
                         onClick={() => handleScroll('left')}
