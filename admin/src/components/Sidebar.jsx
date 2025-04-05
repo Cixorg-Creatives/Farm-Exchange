@@ -47,7 +47,7 @@ const Sidebar = () => {
                             className='flex items-center gap-3 border border-[#c7d3a7] border-r-0 px-3 py-2 rounded-lg text-gray-800'
                         >
                             {item.component}
-                            <p className='boska text-base font-semibold hidden md:block'>{item.title}</p>
+                            <p className='boska text-base font-semibold hidden lg:block'>{item.title}</p>
                         </NavLink>
                     ))}
                 </div>

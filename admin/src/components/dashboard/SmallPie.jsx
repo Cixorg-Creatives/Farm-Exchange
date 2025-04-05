@@ -22,7 +22,7 @@ const SmallPie = ({ label1, label2, published, draft }) => {
     };
 
     const options = {
-        cutout: "80%", // Adjusts doughnut thickness
+        cutout: "60%", // Adjusts doughnut thickness
         responsive: true,
         maintainAspectRatio: false, // Prevents distortion on small screens
         layout: {
@@ -47,9 +47,8 @@ const SmallPie = ({ label1, label2, published, draft }) => {
     };
 
     return (
-        <div className='p-1 md:p-2 lg:p-4 w-full h-full relative'>
+        <div className='p-1 md:p-2 lg:p-4 w-full h-full'>
             <Doughnut data={chartData} options={options} />
-            <div className='inset-0 absolute w-full h-[90%] flex items-center justify-center text-[#859F3E] font-semibold text-[2.5rem] md:text-6xl lg:text-[5rem] leading-tight'>{published+draft}</div>
         </div>
     );
 };

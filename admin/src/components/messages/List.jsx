@@ -82,9 +82,7 @@ const List = () => {
         {contacts.map((item) => (
           <div
             key={item._id}
-            className={`relative px-2 md:px-4 lg:px-8 py-2.5 md:py-5 lg:py-9 border border-[#D9E1C3] flex flex-col items-start gap-0.5 md:gap-[3px] lg:gap-1 cursor-pointer rounded-sm md:rounded-md lg:rounded-lg ${
-              item.seen ? "opacity-60" : ""
-            }`}
+            className={`relative px-2 md:px-4 lg:px-8 py-2.5 md:py-5 lg:py-9 border border-[#D9E1C3] flex flex-col items-start gap-0.5 md:gap-[3px] lg:gap-1 cursor-pointer rounded-sm md:rounded-md lg:rounded-lg`}
             onClick={(e) => {
               if (!e.target.closest(".delete-button")) {
                 handleItemClick(item);
@@ -110,21 +108,23 @@ const List = () => {
                 onClick={() => setDeleteConfirm(item)}
               />
             </div>
-            <p className="uppercase text-[#859F3E] font-semibold text-[10px] md:text-xs lg:text-sm leading-tight mt-4 md:mt-6 lg:mt-8">
-              {new Date(item.publishedAt).toLocaleDateString()}
-            </p>
-            <p className="capitalize text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl leading-tight">
-              {item.full_name}
-            </p>
-            <p className="text-[#31511E] font-medium text-xs md:text-sm lg:text-base">
-              {item.email}
-            </p>
-            <p className="capitalize text-[#31511E] font-medium text-xs md:text-sm lg:text-base leading-tight">
-              {item.phone}
-            </p>
-            <p className="capitalize text-[#758A68] font-normal text-xs md:text-sm lg:text-base leading-tight">
-              {item.message.slice(0, 30) + "..."}
-            </p>
+            <div className={item.seen ? "opacity-60" : ""}>
+              <p className="uppercase text-[#859F3E] font-semibold text-[10px] md:text-xs lg:text-sm leading-tight mt-4 md:mt-6 lg:mt-8">
+                {new Date(item.publishedAt).toLocaleDateString()}
+              </p>
+              <p className="capitalize text-[#31511E] font-medium text-sm md:text-lg lg:text-2xl leading-tight">
+                {item.full_name}
+              </p>
+              <p className="text-[#31511E] font-medium text-xs md:text-sm lg:text-base">
+                {item.email}
+              </p>
+              <p className="capitalize text-[#31511E] font-medium text-xs md:text-sm lg:text-base leading-tight">
+                {item.phone}
+              </p>
+              <p className="capitalize text-[#758A68] font-normal text-xs md:text-sm lg:text-base leading-tight">
+                {item.message.slice(0, 30) + "..."}
+              </p>
+            </div>
           </div>
         ))}
       </div>
