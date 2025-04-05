@@ -74,7 +74,7 @@ const Difference = () => {
 
   return (
     <div className='py-6 md:py-10 xl:py-14'>
-      <h1 className='uppercase text-[#859F3E] font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center'>
+      <h1 className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>
         How are we different from others
       </h1>
       <div className='w-full pt-6 md:pt-10 xl:pt-14 flex flex-col gap-4 md:gap-8 lg:gap-12'>
