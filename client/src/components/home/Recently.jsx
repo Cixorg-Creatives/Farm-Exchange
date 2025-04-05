@@ -94,7 +94,7 @@ const Recently = () => {
                     ))}
                 </div>
                 <div className='absolute inset-0 lg:w-4/5 flex items-start justify-between'>
-                    <div className='w-1/3 aspect-2/3 bg-[#BFC9B9] border border-[#31511E] group hover:bg-[#5E722D66] flex items-start p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out'>
+                    <div className='cursor-pointer w-1/3 aspect-2/3 bg-[#BFC9B9] border border-[#31511E] group hover:bg-[#5E722D66] flex items-start p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out'>
                         {
                             loading || error ? (
                                 <div className="w-full h-1/5 bg-[#c7d3a7] animate-pulse rounded-md lg:rounded-lg"></div>
@@ -106,7 +106,7 @@ const Recently = () => {
                         }
                     </div>
                     <Link to={loading || error ? '' : `/properties/${data[currentIndex + 1]._id}`} className='w-1/3 h-full bg-transparent'></Link>
-                    <div className='w-1/3 aspect-2/3 bg-[#5E722D] border border-[#31511E] group hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out'>
+                    <div className='cursor-pointer w-1/3 aspect-2/3 bg-[#5E722D] border border-[#31511E] group hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out'>
                         {
                             loading || error ? (
                                 <div className='animate-pulse w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>

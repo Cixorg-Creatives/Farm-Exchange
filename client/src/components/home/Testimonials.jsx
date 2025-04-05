@@ -54,14 +54,14 @@ const Testimonials = () => {
         </AnimatePresence>
         <div className='w-full lg:w-fit flex items-center justify-center gap-3 md:gap-4 lg:gap-5'>
           <button
-            className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]'
+            className='cursor-pointer size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]'
             onClick={() => handleScroll('left')}
             disabled={currentIndex === 0}
           >
             <ChevronLeft className='text-white size-2.5 md:size-3.5 lg:size-5' />
           </button>
           <button
-            className='size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]'
+            className='cursor-pointer size-6 md:size-8 lg:size-12 flex items-center justify-center bg-[#859F3E] rounded-full hover:bg-[#5e722d] active:scale-50 ease-in duration-300 disabled:bg-[#D9E2C3]'
             onClick={() => handleScroll('right')}
             disabled={currentIndex === totalItems - 1}
           >

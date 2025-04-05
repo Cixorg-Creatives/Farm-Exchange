@@ -7,41 +7,27 @@ import axios from 'axios';
 
 const HomeJournal = () => {
   const [trendingBlogs, setTrendingBlogs] = useState([]);
-  const [fetchedBlogs, setFetchedBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchTrendingBlogs = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_DOMAIN}/trending-blogs`);
-      const blogs = data.blogs.slice(0, 3);
-      setTrendingBlogs(blogs);
-      fetchBlogsDetails(blogs);
+      const { data } = await axios.post(import.meta.env.VITE_SERVER_DOMAIN + '/latest-blogs', {})
+      const topBlogs = data.blogs
+        .sort((a, b) => b.activity.total_reads - a.activity.total_reads)
+        .slice(0, 3);
+      setTrendingBlogs(topBlogs);
     } catch (err) {
       console.error("Error fetching trending blogs:", err);
-    }
-  };
-
-  const fetchBlogsDetails = async (blogs) => {
-    try {
-      const fetchedData = await Promise.all(
-        blogs.map(async (blog) => {
-          const response = await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/get-blog`, {
-            blog_id: blog.blog_id, mode: 'edit'
-          });
-          return response.data.blog;
-        })
-      );
-      setFetchedBlogs(fetchedData);
-    } catch (err) {
-      console.error("Failed to fetch blog details:", err);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchTrendingBlogs();
+    if (trendingBlogs.length === 0) {
+      fetchTrendingBlogs();
+    }
   }, []);
 
   return (
@@ -95,7 +81,7 @@ const HomeJournal = () => {
         </div>
         <div className='col-span-1 bg-[#859F3E1A] py-3.5 md:py-7 lg:py-14 px-1.5 md:px-3 lg:px-6'>
           <div className='grid grid-rows-[1fr_1fr_1fr] gap-3 md:gap-7 lg:gap-11'>
-            {fetchedBlogs.length > 0 ? fetchedBlogs.map((item, index) => (
+            {trendingBlogs.length > 0 ? trendingBlogs.map((item, index) => (
               <div key={index} className='bg-[#F1F8DB] p-2 md:p-4 w-full flex items-center justify-between'>
                 <img src={item.banner} alt='' className='size-16 lg:size-42 aspect-square' />
                 <div className='flex flex-col h-full items-start justify-between py-1 md:py-2 lg:py-4 w-1/2 md:w-3/5'>

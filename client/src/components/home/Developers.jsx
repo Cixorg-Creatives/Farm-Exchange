@@ -56,7 +56,7 @@ const Developers = () => {
         >
           {extended_data.map((item, index) => (
             <div key={index} className="min-w-1/4 h-fit px-1 md:px-2 lg:px-3">
-              <div className='flex items-center justify-evenly bg-[#BFC9B9]/50 backdrop-blur-sm shadow-[inset_0px_0px_10px_-1px] shadow-[#758A68] rounded-md md:rounded-lg lg:rounded-xl gap-1 md:gap-2 lg:gap-3 p-1 md:p-2 lg:p-3'>
+              <div className='cursor-pointer flex items-center justify-evenly bg-[#BFC9B9]/50 backdrop-blur-sm shadow-[inset_0px_0px_10px_-1px] shadow-[#758A68] rounded-md md:rounded-lg lg:rounded-xl gap-1 md:gap-2 lg:gap-3 p-1 md:p-2 lg:p-3'>
                 <img src={item.logo} alt={item.name} className="w-1/4 h-auto aspect-square object-cover rounded-md md:rounded-lg lg:rounded-xl" />
                 <div className="w-fit text-[8px] md:text-base lg:text-3xl font-medium text-left text-[#31511E] leading-tight">{item.name}</div>
               </div>
