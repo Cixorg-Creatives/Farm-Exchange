@@ -14,7 +14,7 @@ const Banner = () => {
             <p className='uppercase text-[#D9E2C3] text-center font-semibold text-sm md:text-2xl lg:text-4xl leading-snug'>Post Your Property today and connect <br /> with interested buyers!</p>
           </div>
           <div>
-            <Link to={'/post-property'}><Button title='Post Property' variant='primary' icon='show'/></Link>
+            <Link to={'/post-property'}><Button title='Post Property' variant='primary' icon='show' /></Link>
           </div>
         </div>
       </div>
