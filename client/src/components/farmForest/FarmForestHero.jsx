@@ -1,5 +1,5 @@
 import { assets } from "@/assets/assets";
-import { Heart, IndianRupee, MessageSquareText } from "lucide-react";
+import { Heart, IndianRupee, Loader2, MessageSquareText } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Button from "../button";
 import { Link, useParams } from "react-router-dom";
@@ -33,15 +33,15 @@ const FarmForestHero = () => {
   }, [propertiesId]);
 
   if (loading) {
-    return <div className="text-center py-8">Loading property details...</div>;
+    return <div className="fixed top-0 left-0 z-50 bg-[#F6FCDF] h-screen w-full flex items-center justify-center" ><Loader2 className="animate-spin size-10" /></div>
   }
 
   if (error) {
-    return <div className="text-center py-8 text-red-500">Error: {error}</div>;
+    return <div className="fixed top-0 left-0 z-50 bg-[#F6FCDF] h-screen w-full flex items-center justify-center" ><Loader2 className="animate-spin size-10" /></div>
   }
 
   if (!property) {
-    return <div className="text-center py-8">Property not found</div>;
+    return <div className="fixed top-0 left-0 z-50 bg-[#F6FCDF] h-screen w-full flex items-center justify-center" ><Loader2 className="animate-spin size-10" /></div>
   }
 
   return (
@@ -138,15 +138,12 @@ const FarmForestHero = () => {
               />
             ))}
           </div>
-          <div className="flex items-center justify-start gap-3 md:gap-6 mt-4 md:mt-6 lg:mt-0 mb-2 md:mb-3 lg::mb-4">
-            <img
-              src={property.developer?.logo || assets.avatar}
-              alt="Developer Logo"
-              className="w-1/6 h-auto aspect-square rounded-full object-cover"
-            />
-            <p className="capitalize text-[#31511E] font-semibold text-2xl md:text-3xl lg:text-4xl">
-              {property.developer?.name || "Developer Name"}
-            </p>
+          <div className="w-full flex items-end justify-around mt-6 lg:mt-0">
+            <div className='w-1/2 cursor-pointer flex items-center justify-evenly bg-[#BFC9B9]/50 backdrop-blur-sm shadow-[inset_0px_0px_10px_-1px] shadow-[#758A68] rounded-md md:rounded-lg lg:rounded-xl gap-1 md:gap-2 lg:gap-3 p-1 md:p-2 lg:p-3'>
+              <img src={property?.developer.logo} alt={property?.developer.name} className="w-1/4 h-auto aspect-square object-cover rounded-md md:rounded-lg lg:rounded-xl" />
+              <div className="w-fit text-[8px] md:text-base lg:text-3xl font-medium text-left text-[#31511E] leading-tight">{property?.developer.name}</div>
+            </div>
+            <Button title="Contact Us" icon="show" variant="primary" />
           </div>
         </div>
       </div>

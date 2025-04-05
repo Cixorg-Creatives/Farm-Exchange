@@ -117,9 +117,9 @@ const Location = () => {
           <h2 className="text-[#31511E] capitalize font-medium text-2xl md:text-4xl lg:text-5xl leading-tight text-left">
             Discover Properties with <br /> the Best Value
           </h2>
-          <p className="text-[#31511E] capitalize font-normal text-xs md:text-base lg:text-xl leading-relaxed text-left">
+          {/* <p className="text-[#31511E] capitalize font-normal text-xs md:text-base lg:text-xl leading-relaxed text-left">
             {property?.propertyDescription || "No description available"}
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
