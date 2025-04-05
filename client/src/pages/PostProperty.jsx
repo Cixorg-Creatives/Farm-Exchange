@@ -12,12 +12,12 @@ const PostProperty = () => {
     return (
         <div className='px-4 md:px-6 lg:px-24'>
             <PostHero />
-            <Call />
             <Steps />
+            <Call />
             <RecentlyOnboarded />
-            <Testimonials />
-            <Difference />
-            <Faq />
+            {/* <Testimonials /> */}
+            {/* <Difference /> */}
+            {/* <Faq /> */}
             <IntrestingReads />
         </div>
     )

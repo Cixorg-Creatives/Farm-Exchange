@@ -7,41 +7,27 @@ import { Link } from 'react-router-dom'
 const IntrestingReads = () => {
 
   const [trendingBlogs, setTrendingBlogs] = useState([]);
-  const [fetchedBlogs, setFetchedBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchTrendingBlogs = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_SERVER_DOMAIN}/trending-blogs`);
-      const blogs = data.blogs.slice(0, 3);
-      setTrendingBlogs(blogs);
-      fetchBlogsDetails(blogs);
+      const { data } = await axios.post(import.meta.env.VITE_SERVER_DOMAIN + '/latest-blogs', {})
+      const topBlogs = data.blogs
+        .sort((a, b) => b.activity.total_reads - a.activity.total_reads)
+        .slice(0, 3);
+      setTrendingBlogs(topBlogs);
     } catch (err) {
       console.error("Error fetching trending blogs:", err);
-    }
-  };
-
-  const fetchBlogsDetails = async (blogs) => {
-    try {
-      const fetchedData = await Promise.all(
-        blogs.map(async (blog) => {
-          const response = await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/get-blog`, {
-            blog_id: blog.blog_id, mode: 'edit'
-          });
-          return response.data.blog;
-        })
-      );
-      setFetchedBlogs(fetchedData);
-    } catch (err) {
-      console.error("Failed to fetch blog details:", err);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchTrendingBlogs();
+    if (trendingBlogs.length === 0) {
+      fetchTrendingBlogs();
+    }
   }, []);
 
   return (
@@ -52,7 +38,7 @@ const IntrestingReads = () => {
       <div className='grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-x-3 md:gap-x-6 lg:gap-x-12 gap-y-6 md:gap-y-10 lg:gap-y-16'>
         {loading
           ? [...Array(window.innerWidth < 768 ? 2 : 3)].map((_, index) => <Skeleton key={index} />)
-          : fetchedBlogs.slice(0, window.innerWidth < 768 ? 2 : 3).map((item, index) => (
+          : trendingBlogs.slice(0, window.innerWidth < 768 ? 2 : 3).map((item, index) => (
             <Link to={`/journal/blog/${item.blog_id}`} key={index} className='grid-cols-1 flex flex-col items-start gap-1 md:gap-2 lg:gap-4 cursor-pointer'>
               <img src={item.banner} alt="" className='w-full h-auto aspect-4/3 object-cover border-1 md:border-2 border-[#ADBF7E] rounded-sm md:rounded-md lg:rounded-lg' />
               <p className='uppercase text-[#859F3E] font-semibold text-[8px] md:text-[10px] lg:text-xs'>{getFullDay(item.publishedAt)}</p>

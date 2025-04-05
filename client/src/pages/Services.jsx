@@ -7,6 +7,7 @@ import Grid from '@/components/home/Grid'
 import Recommended from '@/components/services/Recommended'
 import ServiceHero from '@/components/services/ServiceHero'
 import React from 'react'
+import Banner from '@/components/services/Banner'
 
 const Services = () => {
   return (
@@ -15,7 +16,8 @@ const Services = () => {
         {/* <ServiceHero /> */}
         <Grid />
         <Build />
-      </div>
+      </div>      
+      <Banner />
       <div className='relative'>
         <div className='px-4 md:px-6 lg:px-24 relative'>
           <Featured />
@@ -34,7 +36,7 @@ const Services = () => {
       </div>
       <div className='px-4 md:px-6 lg:px-24'>
         <Call />
-        <Difference />
+        {/* <Difference /> */}
       </div>
     </div>
   )

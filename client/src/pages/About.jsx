@@ -3,6 +3,8 @@ import Weekend from '@/components/about/Weekend';
 import ProjectHighlight from '@/components/about/ProjectHighlight';
 import Hero from '@/components/about/Hero';
 import Vision from '@/components/about/Vision';
+import Benefits from '@/components/about/Benefits';
+import Difference from '@/components/about/Difference';
 
 const About = () => {
   return (
@@ -10,7 +12,9 @@ const About = () => {
       <Hero />
       <Weekend />
       <ProjectHighlight />
-      <Vision />
+      <Vision />      
+      <Difference />
+      <Benefits />
     </div>
   );
 };
