@@ -63,8 +63,6 @@ const Featured = () => {
     };
     console.log(featuredProperties)
 
-    if (featuredProperties.length === 0) return <></>
-
     return (
         <div className='mb-6 md:mb-10 xl:mb-14 w-full h-full grid grid-cols-[1fr_1fr]'>
             <div className='h-full flex flex-col justify-between'>
@@ -95,7 +93,7 @@ const Featured = () => {
                     </div>
                 </div>
                 {
-                    loading ? (
+                    loading || featuredProperties.length === 0 ? (
                         <Skeleton />
                     ) : (
                         <AnimatePresence custom={direction} mode='wait'>
@@ -117,7 +115,7 @@ const Featured = () => {
                                     }}
                                 />
                                 <div className='absolute inset-0 h-full w-full bg-gradient-to-t from-[#00000080] via-[#FFFFFF00] to-[#00000080] flex flex-col justify-between p-1 md:p-2 lg:p-4'>
-                                    <Link to={loading ? '' : `/properties/${featuredProperties[currentIndex]._id}`} className='h-full'>
+                                    <Link to={loading || featuredProperties.length === 0 ? '' : `/properties/${featuredProperties[currentIndex]._id}`} className='h-full'>
                                         <div className='w-full text-start uppercase impact text-xl md:text-3xl lg:text-[4rem] font-normal featured-text-stroke'>
                                             {featuredProperties[currentIndex]?.name}
                                         </div>

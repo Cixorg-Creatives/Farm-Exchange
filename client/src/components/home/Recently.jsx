@@ -62,12 +62,6 @@ const Recently = () => {
         }
     };
 
-    if (recentProperties.length === 0) {
-        return (
-            <></>
-        )
-    }
-
     return (
         <div className='my-6 md:my-10 xl:my-14 flex flex-col gap-6 md:gap-12 lg:gap-24'>
             <div className='flex items-end justify-between'>
@@ -84,7 +78,7 @@ const Recently = () => {
                     {data.map((item, index) => (
                         <div key={index} className='w-1/3 aspect-[2/3] flex-shrink-0'>
                             {
-                                loading || error ? (
+                                loading || error || recentProperties.length === 0 ? (
                                     <div className="w-full h-auto aspect-2/3 bg-[#c7d3a7] animate-pulse"></div>
                                 ) : (
                                     <img src={item.image} alt="" className="w-full h-full aspect-[2/3] object-cover" />
@@ -96,7 +90,7 @@ const Recently = () => {
                 <div className='absolute inset-0 lg:w-4/5 flex items-start justify-between'>
                     <div className='cursor-pointer w-1/3 aspect-2/3 bg-[#BFC9B9] border border-[#31511E] group hover:bg-[#5E722D66] flex items-start p-3 md:p-6 lg:p-9 hover:duration-400 hover:ease-in-out'>
                         {
-                            loading || error ? (
+                            loading || error || recentProperties.length === 0 ? (
                                 <div className="w-full h-1/5 bg-[#c7d3a7] animate-pulse rounded-md lg:rounded-lg"></div>
                             ) : (
                                 <AnimatePresence mode='wait'>
@@ -105,10 +99,10 @@ const Recently = () => {
                             )
                         }
                     </div>
-                    <Link to={loading || error ? '' : `/properties/${data[currentIndex + 1]._id}`} className='w-1/3 h-full bg-transparent'></Link>
+                    <Link to={loading || error || recentProperties.length === 0 ? '' : `/properties/${data[currentIndex + 1]._id}`} className='w-1/3 h-full bg-transparent'></Link>
                     <div className='cursor-pointer w-1/3 aspect-2/3 bg-[#5E722D] border border-[#31511E] group hover:bg-[#859F3E33] flex items-end justify-center p-1.5 md:p-3 lg:p-6 hover:duration-400 hover:ease-in-out'>
                         {
-                            loading || error ? (
+                            loading || error || recentProperties.length === 0 ? (
                                 <div className='animate-pulse w-full flex-col item-start gap-0.5 md:gap-1 lg:gap-2'>
                                     <div className='flex items-end'>
                                         <div className='h-5 md:h-8 lg:h-11 w-5 md:w-8 lg:w-11 bg-[#c7d3a7] rounded' />

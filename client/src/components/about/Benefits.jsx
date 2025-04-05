@@ -4,13 +4,22 @@ import { assets } from '@/assets/assets'
 const Benefits = () => {
     return (
         <div className='py-6 md:py-10 xl:py-14 flex flex-col gap-4 md:gap-6 lg:gap-8'>
-            <div className='flex flex-col gap-2.5 md:gap-4 lg:gap-5'>
-                <h1 className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>
-                    Benefits of joining us
-                </h1>
-                <p className='capitalize font-medium text-[#31511E] text-xl md:text-3xl lg:text-6xl leading-tight'>
-                    Experience growth, support, and <br className='hidden lg:block'/> success with our community.
-                </p>
+            <h1 className='uppercase text-[#073D2C]/50 font-semibold text-5xl md:text-6xl lg:text-7xl xl:text-[6.25rem] leading-tight text-left'>
+                Our Benefits
+            </h1>
+            <div className='flex flex-col items-end'>
+                <div className='border-t-2 border-dashed border-[#859F3E] w-4/5'></div>
+                <div className='flex'>
+                    <div className='flex flex-col gap-2.5 md:gap-4 lg:gap-5 mt-3 md:mt-5 lg:mt-7 mr-4 md:mr-6 lg:mr-8'>
+                        <h1 className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase text-right'>
+                            WHY PARTNER WITH US?
+                        </h1>
+                        <p className='capitalize font-medium text-[#31511E] text-xl md:text-3xl lg:text-6xl leading-tight text-right'>
+                            Experience growth, support, and <br className='hidden lg:block' /> success with our community.
+                        </p>
+                    </div>
+                    <div className='border-r-2 border-dashed border-[#859F3E] h-20 md:h-48'></div>
+                </div>
             </div>
             <div className='mb-0 lg:mb-52 flex flex-col xl:flex-row justify-between items-center lg:items-start gap-10'>
                 <div className='relative w-full lg:w-auto'>

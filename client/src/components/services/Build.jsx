@@ -12,7 +12,7 @@ const Build = () => {
           <img src={assets.services_2} alt="" className='w-full h-full object-cover' />
           <div className='absolute bg-[#00000033] inset-0'></div>
         </div>
-        <div className='col-span-1 h-full flex flex-col items-center justify-between gap-2 md:gap-3 lg:gap-0'>
+        <div className='col-span-1 h-full flex flex-col items-center justify-between'>
           <div className='grid grid-cols-[1fr_1fr] gap-2 md:gap-4 lg:gap-6'>
             <div className='bg-[#D9E1C3] col-span-1 h-full w-full flex flex-col items-start justify-between gap-3 md:gap-0 px-2.5 md:px-5 lg:px-10 py-6 md:py-12 lg:py-16'>
               <p className='capitalize text-[#02542D] font-medium text-base md:text-lg lg:text-4xl leading-tight'>Big things can <br /> happen in small <br />spaces</p>
@@ -26,7 +26,7 @@ const Build = () => {
               </div>
             </div>
           </div>
-          <div className='boska uppercase text-[#859F3E] font-bold text-xs md:text-xl lg:text-[2rem] w-full'>Big things can happen in small Big things can <br /> happen in small Big things Big things can <br /> happen in small Big things </div>
+          <div className='boska uppercase text-[#859F3E] font-normal text-xs md:text-xl lg:text-[2rem] w-full'>Big things can happen in small Big things can <br /> happen in small Big things Big things can <br /> happen in small Big things </div>
         </div>
       </div>
     </div>

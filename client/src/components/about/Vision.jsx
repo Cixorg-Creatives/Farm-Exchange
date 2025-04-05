@@ -12,7 +12,7 @@ const Vision = () => {
                     <div className='w-2/3 border-t-[2px] border-dashed border-[#859F3E]'></div>
                     <div className='flex'>
                         <div className='lg:h-full border-r-[2px] border-dashed border-[#859F3E]'></div>
-                        <div className='flex flex-col items-start justify-start gap-4 sm:gap-6 md:gap-7 mt-3 sm:mt-5 lg:mt-7 ml-4 sm:ml-6 lg:ml-8'>
+                        <div className='flex flex-col items-start justify-start gap-4 sm:gap-6 md:gap-7 mt-3 md:mt-5 lg:mt-7 ml-4 md:ml-6 lg:ml-8'>
                             <p className='w-full capitalize text-[#31511E] font-semibold text-xl md:text-3xl lg:text-6xl leading-tight'>farm exchange Pioneering Sustainable Agro-Realty</p>
                             <p className='w-full capitalize text-black font-normal text-[1rem] sm:text-[1.25rem] lg:text-[1.5rem] leading-[1.5rem] sm:leading-[1.75rem] md:leading-[2rem] pr-0 sm:pr-6 md:pr-12 text-left'>We strive to be the most trusted agro-realty company, creating profitable and ethical farming businesses. Committed to organic farming, we prioritize soil  health, sustainability, and eco-friendly practices. By avoiding chemicals and embracing innovative  technologies, we ensure long-term fertility, environmental protection, and prosperity for our customers, employees, and vendors.</p>
                         </div>

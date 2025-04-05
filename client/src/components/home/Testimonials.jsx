@@ -32,7 +32,7 @@ const Testimonials = () => {
 
   return (
     <div className='py-6 md:py-10 xl:py-14'>
-      <h1 className='uppercase text-[#859F3E] font-bold text-lg md:text-2xl lg:text-4xl mb-4 md:mb-8 lg:mb-12 text-center'>What the farmland developers are saying for us</h1>
+      <h1 className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase mb-4 md:mb-8 lg:mb-12'>What the farmland developers are saying for us</h1>
       <div className='flex flex-col items-center gap-4 md:gap-8 lg:gap-12'>
         <AnimatePresence mode='wait'>
           <motion.div key={currentIndex} initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} transition={{ duration: 0.5 }} className='flex flex-col items-center gap-6 md:gap-12'>
