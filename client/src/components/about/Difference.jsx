@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
 const data = [
-  { index: '01', title: 'Targeted Lead generation' },
-  { index: '02', title: 'Easy property browsing' },
-  { index: '03', title: 'Direct Deal with buyers' },
-  { index: '04', title: 'Verified Listings' },
+  { index: '01', title: 'Targeted Lead generation', image:assets.services_1, },
+  { index: '02', title: 'Easy property browsing', image:assets.services_2, },
+  { index: '03', title: 'Direct Deal with buyers', image:assets.services_3, },
+  { index: '04', title: 'Verified Listings', image:assets.services_4, },
 ];
 
 const floatAnimation = {
@@ -100,7 +100,7 @@ const Difference = () => {
             </motion.div>
             <motion.div className='flex absolute inset-0 w-full justify-end items-center'>
               <motion.img
-                src={assets.services_4}
+                src={item.image}
                 alt='Floating Icon'
                 className='w-1/6 h-auto aspect-3/4 object-cover rounded-md lg:rounded-lg -translate-x-4/5'
                 variants={floatAnimation}

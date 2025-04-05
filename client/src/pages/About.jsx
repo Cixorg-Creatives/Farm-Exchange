@@ -5,14 +5,16 @@ import Hero from '@/components/about/Hero';
 import Vision from '@/components/about/Vision';
 import Benefits from '@/components/about/Benefits';
 import Difference from '@/components/about/Difference';
+import Story from '@/components/about/Story';
 
 const About = () => {
   return (
     <div className='px-4 md:px-6 lg:px-24 overflow-x-hidden'>
       <Hero />
+      <Story />
       {/* <Weekend /> */}
       {/* <ProjectHighlight /> */}
-      <Vision />      
+      <Vision />
       <Difference />
       <Benefits />
     </div>

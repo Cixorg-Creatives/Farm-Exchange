@@ -29,14 +29,10 @@ const faqs = [
     faq: "How does managed farmland investment work?",
     answer: "Managed farmland investment allows you to own agricultural land while professionals manage it for you, ensuring hassle-free income generation.",
   },
-  {
-    faq: "Does Farm Exchange assist with legal documentation and due diligence?",
-    answer: "Yes, we provide legal assistance to ensure smooth transactions. Our team helps with title verification, due diligence, and other legal formalities required for farmland purchases."
-  }
 ];
 
 const Faq = () => {
-  const [show, setShow] = useState(Array(7).fill(false));
+  const [show, setShow] = useState(Array(6).fill(false));
 
   const toggleFaq = (index) => {
     setShow((prev) => prev.map((item, i) => (i === index ? !item : item)));
@@ -81,7 +77,7 @@ const Faq = () => {
           ))}
         </div>
         <div className='w-1/3 flex-shrink-0 hidden lg:block'>
-          <img src={assets.faq_1} alt="FAQ Illustration" className='w-full h-auto aspect-1/2 object-cover rounded-md md:rounded-lg lg:rounded-xl' />
+          <img src={assets.faq_1} alt="FAQ Illustration" className='w-full h-full object-cover rounded-md md:rounded-lg lg:rounded-xl' />
         </div>
       </div>
     </div>
