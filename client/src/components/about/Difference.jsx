@@ -41,8 +41,12 @@ const arrowAnimation = {
 
 const textAnimation = {
   hover: {
-    x: [20, -5, 5, 0],
-    transition: { duration: 1, ease: "easeInOut" },
+    x: [0, 20, -5, 5, 0],
+    transition: { duration: 1.2, ease: "easeInOut" },
+  },
+  exit: {
+    x: [0, 5, -5, 0],
+    transition: { duration: 0.8, ease: "easeInOut" },
   }
 }
 
@@ -90,8 +94,8 @@ const Difference = () => {
                 className='relative group hover:bg-[#D9E1C3] duration-150 ease-in px-1 md:px-3 lg:px-5 py-2 md:py-4 lg:py-6 flex justify-between shadow-inner shadow-black/25 rounded-sm md:rounded-lg lg:rounded-2xl'
               >
                 <div className='flex items-center gap-5 md:gap-7 lg:gap-10'>
-                  <motion.p variants={textAnimation} animate={hovered === index ? "hover" : ""} className='boska text-[#B3B3B3] font-bold text-sm md:text-lg lg:text-2xl'>{item.index}</motion.p>
-                  <motion.p variants={textAnimation} animate={hovered === index ? "hover" : ""} className='capitalize text-[#02542D] font-normal text-base md:text-2xl lg:text-[2.5rem]'>
+                  <motion.p variants={textAnimation} animate={hovered === index ? "hover" : "exit"} className='boska text-[#B3B3B3] font-bold text-sm md:text-lg lg:text-2xl'>{item.index}</motion.p>
+                  <motion.p variants={textAnimation} animate={hovered === index ? "hover" : "exit"} className='capitalize text-[#02542D] font-normal text-base md:text-2xl lg:text-[2.5rem]'>
                     {item.title}
                   </motion.p>
                 </div>
