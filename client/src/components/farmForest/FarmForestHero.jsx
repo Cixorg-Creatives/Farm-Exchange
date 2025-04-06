@@ -32,6 +32,16 @@ const FarmForestHero = () => {
     fetchProperty();
   }, [propertiesId]);
 
+  const price = (value) => {
+    if (value >= 10000000) {
+      return { value: (value / 10000000).toFixed(2), unit: "cr" };
+    } else if (value >= 100000) {
+      return { value: (value / 100000).toFixed(2), unit: "lakh" };
+    } else {
+      return { value, unit: "" };
+    }
+  }
+
   if (loading) {
     return <div className="fixed top-0 left-0 z-50 bg-[#F6FCDF] h-screen w-full flex items-center justify-center" ><Loader2 className="animate-spin size-10" /></div>
   }
@@ -64,9 +74,9 @@ const FarmForestHero = () => {
             <div className="flex gap-2 md:gap-4 h-full items-end">
               <p className="flex items-center text-[#1E1E1E] font-bold text-4xl md:text-5xl">
                 <IndianRupee className="text-[#1E1E1E] w-7 md:w-9 lg:w-11 h-auto " />
-                {property.price.value}
+                {price(property.price.value).value}
                 <span className="text-2xl md:text-4xl pl-1 md:pl-2">
-                  {property.price.unit === "lakh" ? "lakh" : "cr"}
+                  {price(property.price.value).unit}
                 </span>
               </p>
               <p className="text-[#757575] font-normal text-base md:text-xl -translate-y-1">

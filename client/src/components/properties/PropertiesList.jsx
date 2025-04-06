@@ -33,16 +33,26 @@ const PropertiesList = ({ properties = [], loading }) => {
         );
     }
 
+    const price = (value) => {
+        if (value >= 10000000) {
+            return { value: (value / 10000000).toFixed(2), unit: "cr" };
+        } else if (value >= 100000) {
+            return { value: (value / 100000).toFixed(2), unit: "lakh" };
+        } else {
+            return { value, unit: "" };
+        }
+    }
+
     return (
         <div className='py-6 md:py-10 xl:py-14 relative'>
             <div className='grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_1fr_1fr] gap-x-2 md:gap-x-3 lg:gap-x-5 gap-y-6 md:gap-y-10 lg:gap-y-16'>
                 {safeProperties.map((property) => (
                     <Link to={`/properties/${property._id}`} key={property._id} className='flex flex-col items-start justify-between gap-2 md:gap-4 lg:gap-6 text-[#31511E]'>
                         <div className='relative'>
-                            <img 
-                                src={property.banner || assets.properties_1} 
-                                alt={property.name} 
-                                className='w-full h-auto aspect-[3/2] object-cover' 
+                            <img
+                                src={property.banner || assets.properties_1}
+                                alt={property.name}
+                                className='w-full h-auto aspect-[3/2] object-cover'
                                 onError={(e) => {
                                     e.target.onerror = null;
                                     e.target.src = assets.properties_1;
@@ -60,8 +70,8 @@ const PropertiesList = ({ properties = [], loading }) => {
                             <div className="flex gap-2 md:gap-4 h-full items-end">
                                 <p className="flex items-end font-bold text-xl md:text-2xl lg:text-4xl">
                                     <IndianRupee className="size-4 md:size-6 lg:size-8 -translate-y-2" />
-                                    {property.price?.value?.toLocaleString()}
-                                    <span className="text-base md:text-xl lg:text-3xl pl-1 md:pl-2">{property.price?.unit}</span>
+                                    {price(property.price?.value).value}
+                                    <span className="text-base md:text-xl lg:text-3xl pl-1 md:pl-2">{price(property.price?.value).unit}</span>
                                 </p>
                                 <p className="text-[#A0AF98] font-normal text-xs md:text-sm lg:text-base -translate-y-0.5">Onwards</p>
                             </div>

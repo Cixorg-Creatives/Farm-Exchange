@@ -31,6 +31,16 @@ const Recommended = () => {
     fetchFeaturedProperties();
   }, []);
 
+  const price = (value) => {
+    if (value >= 10000000) {
+      return { value: (value / 10000000).toFixed(2), unit: "cr" };
+    } else if (value >= 100000) {
+      return { value: (value / 100000).toFixed(2), unit: "lakh" };
+    } else {
+      return { value, unit: "" };
+    }
+  }
+
   if (loading) {
     return (
       <div className="py-6 md:py-10 xl:py-14 relative old-standard-tt">
@@ -130,9 +140,9 @@ const Recommended = () => {
               <div className="flex gap-2 md:gap-4 h-full items-end">
                 <p className="flex items-end font-bold text-xl md:text-2xl lg:text-4xl">
                   <IndianRupee className="size-4 md:size-6 lg:size-8 -translate-y-2" />
-                  {property.price.value}
+                  {price(property.price.value).value}
                   <span className="text-base md:text-xl lg:text-3xl pl-1 md:pl-2">
-                    {property.price.unit === "lakh" ? "lakh" : "cr"}
+                    {price(property.price.value).unit}
                   </span>
                 </p>
                 <p className="text-[#A0AF98] font-normal text-xs md:text-sm lg:text-base -translate-y-0.5">

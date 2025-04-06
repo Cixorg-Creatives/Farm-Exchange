@@ -675,7 +675,7 @@ const AddProperties = () => {
               Property Price
             </label>
             <div className="flex items-center justify-between bg-[#C7D3A6] rounded-md lg:rounded-lg">
-              <div className="flex items-center gap-1 md:gap-2 lg:gap-3 w-full ml-1 md:ml-2 lg:ml-4">
+              <div className="flex items-center gap-1 md:gap-2 lg:gap-3 w-full mx-1 md:mx-2 lg:mx-4">
                 <IndianRupee className="h-4 md:h-5 lg:h-6 w-auto text-black" />
                 <input
                   type="number"
@@ -687,13 +687,13 @@ const AddProperties = () => {
                   placeholder="0.00"
                 />
               </div>
-              <Select
+              {/* <Select
                 options={priceUnitSelect}
                 onSelect={(value) =>
                   handleNestedInputChange("price", "unit", value)
                 }
                 selectedOption={formData.price.unit}
-              />
+              /> */}
             </div>
             {errors.price?.value && (
               <p className="text-red-500 text-xs">{errors.price.value}</p>

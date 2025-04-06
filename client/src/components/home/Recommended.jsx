@@ -34,16 +34,26 @@ const Recommended = () => {
     fetchEliteProperties();
   }, []);
 
+  const price = (value) => {
+    if (value >= 10000000) {
+      return { value: (value / 10000000).toFixed(2), unit: "cr" };
+    } else if (value >= 100000) {
+      return { value: (value / 100000).toFixed(2), unit: "lakh" };
+    } else {
+      return { value, unit: "" };
+    }
+  }
+
   const data = [
     { image: assets.home_24 },
-    ...eliteProperties.map((property) => ({
+    ...eliteProperties.slice(0, 4).map((property) => ({
       _id: property._id,
       image: property.banner,
       title: property.name,
-      area: `${property.totalProjectArea.value} ${property.totalProjectArea.unit==="ft"? "sqft" : "acres"}`,
+      area: `${property.totalProjectArea.value} ${property.totalProjectArea.unit === "ft" ? "sqft" : "acres"}`,
       location: `${property.location.locality}, ${property.location.city}, ${property.location.state}`,
-      price: property.price.value.toString(),
-      price_unit: property.price.unit,
+      price: price(property.price.value).value,
+      price_unit: price(property.price.value).unit,
     })),
     { image: assets.home_25 },
   ];

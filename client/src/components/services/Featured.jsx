@@ -31,12 +31,22 @@ const Featured = () => {
     fetchFeaturedProperties()
   }, [])
 
+  const price = (value) => {
+    if (value >= 10000000) {
+      return { value: (value / 10000000).toFixed(2), unit: "cr" };
+    } else if (value >= 100000) {
+      return { value: (value / 100000).toFixed(2), unit: "lakh" };
+    } else {
+      return { value, unit: "" };
+    }
+  }
+
   if (loading) {
     return (
       <div className="py-6 md:py-10 xl:py-14 relative old-standard-tt">
         <div className="flex flex-col items-start gap-2 md:gap-3 lg:gap-5 pb-4 md:pb-6 lg:pb-8">
           <p className="boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase">
-          featured properties
+            featured properties
           </p>
           <p className="capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight">
             The Most Renowned and <br /> Influential Developers in the <br />
@@ -64,7 +74,7 @@ const Featured = () => {
       <div className="py-6 md:py-10 xl:py-14 relative old-standard-tt">
         <div className="flex flex-col items-start gap-2 md:gap-3 lg:gap-5 pb-4 md:pb-6 lg:pb-8">
           <p className="boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase">
-          featured properties
+            featured properties
           </p>
           <p className="capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight">
             The Most Renowned and <br /> Influential Developers in the <br />
@@ -118,9 +128,9 @@ const Featured = () => {
               <div className="flex gap-2 md:gap-4 h-full items-end">
                 <p className="flex items-end font-bold text-xl md:text-2xl lg:text-4xl">
                   <IndianRupee className="size-4 md:size-6 lg:size-8 -translate-y-2" />
-                  {property.price.value}
+                  {price(property.price.value).value}
                   <span className="text-base md:text-xl lg:text-3xl pl-1 md:pl-2">
-                    {property.price.unit === 'lakh' ? 'lakh' : 'cr'}
+                    {price(property.price.value).unit}
                   </span>
                 </p>
                 <p className="text-[#A0AF98] font-normal text-xs md:text-sm lg:text-base -translate-y-0.5">Onwards</p>

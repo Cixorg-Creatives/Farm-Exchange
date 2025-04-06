@@ -20,7 +20,7 @@ const Featured = () => {
             try {
                 const response = await fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/list?category=featured&status=published&limit=${MAX_FEATURED_PROPERTIES}&sort=latest`);
                 const data = await response.json();
-                setFeaturedProperties(data.slice(0, MAX_FEATURED_PROPERTIES));
+                setFeaturedProperties(data.slice(0, 4));
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching featured properties:', error);
@@ -61,7 +61,6 @@ const Featured = () => {
             transition: { duration: 0.8, ease: "easeInOut" }
         })
     };
-    console.log(featuredProperties)
 
     return (
         <div className='mb-6 md:mb-10 xl:mb-14 w-full h-full grid grid-cols-[1fr_1fr]'>
