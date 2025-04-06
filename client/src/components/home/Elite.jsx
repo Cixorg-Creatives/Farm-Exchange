@@ -30,6 +30,7 @@ const Elite = () => {
         console.error("Error fetching elite properties:", err);
       }
     };
+    console.log(eliteProperties)
 
     fetchEliteProperties();
   }, []);
@@ -40,7 +41,7 @@ const Elite = () => {
       _id: property._id,
       image: property.banner,
       title: property.name,
-      area: `${property.plotArea.value} ${property.plotArea.unit}`,
+      area: `${property.totalProjectArea.value} ${property.totalProjectArea.unit==="ft"? "sqft" : "acres"}`,
       location: `${property.location.locality}, ${property.location.city}, ${property.location.state}`,
       price: property.price.value.toString(),
       price_unit: property.price.unit,
@@ -101,7 +102,7 @@ const Elite = () => {
             <ChevronRight className="text-white size-2.5 md:size-3.5 lg:size-5" />
           </button>
         </div>
-        <div ref={scrollRef} className="lg:w-4/5 h-full overflow-x-auto flex items-center justify-start">
+        <div ref={scrollRef} className="w-full lg:w-4/5 h-full overflow-x-auto flex items-center justify-start">
           {data.map((item, index) => (
             <div key={index} className="relative w-1/3 flex-shrink-0">
               {
@@ -137,8 +138,8 @@ const Elite = () => {
                     <div className='h-4 md:h-6 lg:h-8 w-8 md:w-12 lg:w-16 bg-[#c7d3a7] rounded ml-1' />
                     <div className='h-3 md:h-5 lg:h-7 w-10 md:w-14 lg:w-20 bg-[#c7d3a7] rounded ml-1' />
                   </div>
-                  <div className='h-4 md:h-6 lg:h-8 w-32 md:w-48 lg:w-64 bg-[#c7d3a7] rounded my-1' />
-                  <div className='h-3 md:h-5 lg:h-7 w-24 md:w-40 lg:w-56 bg-[#c7d3a7] rounded' />
+                  <div className='h-4 md:h-6 lg:h-8 w-24 md:w-48 lg:w-64 bg-[#c7d3a7] rounded my-1' />
+                  <div className='h-3 md:h-5 lg:h-7 w-16 md:w-40 lg:w-56 bg-[#c7d3a7] rounded' />
                 </div>
               ) : (
                 <AnimatePresence mode='wait'>
