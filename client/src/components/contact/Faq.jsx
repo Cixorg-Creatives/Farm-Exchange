@@ -42,9 +42,9 @@ const Faq = () => {
     <div className='py-6 md:py-10 xl:py-14'>
       <div className='flex items-start justify-between flex-row-reverse'>
         <div className='w-full lg:w-3/5 flex flex-col items-center gap-2 md:gap-3 lg:gap-4'>
-          <Heading className='w-full mt-0 lg:mt-8 mb-2 md:mb-3 lg:mb-4'>
+          <h1 className='w-full font-medium text-[#31511E] text-xl md:text-3xl lg:text-6xl leading-tight mb-2 md:mb-3 lg:mb-4'>
             Frequently Asked Questions
-          </Heading>
+          </h1>
           {faqs.map((item, index) => (
             <div key={index} className='flex flex-col gap-2 md:gap-3 lg:gap-4 w-full h-auto'>
               <div
