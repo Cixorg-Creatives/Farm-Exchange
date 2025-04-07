@@ -79,7 +79,7 @@ const Difference = () => {
   return (
     <div className='py-6 md:py-10 xl:py-14'>
       <h1 className='uppercase text-[#073D2C]/50 font-semibold text-5xl md:text-6xl lg:text-7xl xl:text-[6.25rem] leading-tight text-right'>
-        Our Distinctives
+        Our Various
       </h1>
       <div className='w-full flex flex-col items-end '>
         <div className='border-t-2 border-dashed border-[#859F3E] w-1/2 md:w-2/5'></div>

@@ -4,11 +4,11 @@ import React from 'react'
 const data = [
   {
     image: assets.post_2,
-    step: "Sign Up Now and Unlock Exclusive Access to Our Website!",
+    step: "Connect with us now to make a request!",
   },
   {
     image: assets.post_3,
-    step: "Add Your Details Now to Get Started!",
+    step: "Share Your Details Now to Get Listed!",
   },
   {
     image: assets.post_4,
