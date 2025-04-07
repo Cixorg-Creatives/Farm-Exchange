@@ -6,33 +6,35 @@ import Heading from '../Heading';
 
 const faqs = [
   {
-    faq: "What types of properties are available on Farm Exchange?",
-    answer: "Farm Exchange provides an extensive selection of properties, including farmlands, farmhouses, coffee estates, and agricultural land, along with managed farmlands. As the largest online platform for farmland listings, it offers the widest range of options to suit various needs.",
+    faq: "How can FarmExchange facilitate the sale of my property?",
+    answer:
+      "FarmExchange uses targeted marketing to demonstrate your property to the most appropriate viewers. In addition, we offer highly detailed listings, descriptions, and personal direct contact with potential customers to secure you a hassle-free and successful sale.",
   },
   {
-    faq: "How can I buy or sell farmland on your platform?",
-    answer: "To buy or sell farmland, you need to register on our platform, list your property with details and images, and connect with potential buyers or sellers.",
+    faq: "How much would it cost to list my property?",
+    answer:
+      "The commission is only charged after a purchase is successfully sold on FarmExchange. We have no upfront listing fees, but we strive to act as value by providing intelligent marketing, strategic reach, and customary time with the end objective to set you up with the best deal.",
   },
   {
-    faq: "Are there financing options available for purchasing farmland?",
-    answer: "Yes, we provide financing options through our banking partners. You can apply for loans directly through our platform.",
+    faq: "How long before my property sells?",
+    answer:
+      "The time for selling is dependent on several factors, among which include property type, location, and the market demand. The platform that we work on is designed to generate targeted leads faster. Usually, our tailored marketing strategies result in faster property sales.",
   },
   {
-    faq: "What are the legal requirements for buying agricultural land?",
-    answer: "Legal requirements vary by location, but typically include land titles, agricultural permits, and government approvals. Our platform provides legal assistance.",
+    faq: "Is it possible to change my listing once it has been posted?",
+    answer:
+      "Yes! It’s got the flexibility that you can any time update your listing. We wish to simplify your next task — adjusting the price, adding new photos to, or rewording your description.",
   },
   {
-    faq: "Can I visit the farmland before making a purchase?",
-    answer: "Yes, you can schedule a visit to the farmland with the seller’s consent. We facilitate site visits for interested buyers.",
-  },
-  {
-    faq: "How does managed farmland investment work?",
-    answer: "Managed farmland investment allows you to own agricultural land while professionals manage it for you, ensuring hassle-free income generation.",
+    faq: "Are buyers able to see my property listing through FarmExchange's national system?",
+    answer:
+      "Yes! FarmExchange is a property marketing platform that reaches out to buyers across India. Regardless of the location, our platform has the ability to target marketing strategies to get serious buyers to see your land, attracting them to your property.",
   },
 ];
 
+
 const Faq = () => {
-  const [show, setShow] = useState(Array(6).fill(false));
+  const [show, setShow] = useState(Array(5).fill(false));
 
   const toggleFaq = (index) => {
     setShow((prev) => prev.map((item, i) => (i === index ? !item : item)));
