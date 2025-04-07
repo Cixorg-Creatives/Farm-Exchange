@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
 const data = [
-  { index: '01', title: 'Targeted Lead generation', image: assets.services_1, },
-  { index: '02', title: 'Easy property browsing', image: assets.services_2, },
-  { index: '03', title: 'Direct Deal with buyers', image: assets.services_3, },
-  { index: '04', title: 'Verified Listings', image: assets.services_4, },
+  { index: '01', title: 'Precision-Driven Lead Generation', image: assets.services_1, },
+  { index: '02', title: 'Seamless Property Navigation', image: assets.services_2, },
+  { index: '03', title: 'Direct Communication with Buyers', image: assets.services_3, },
+  { index: '04', title: 'Customized Marketing Solutions', image: assets.services_4, },
 ];
 
 const floatAnimation = {

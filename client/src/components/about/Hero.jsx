@@ -24,7 +24,7 @@ const Hero = () => {
                         <div className="relative ml-4 sm:ml-6 lg:ml-9 mb-4 sm:mb-5 lg:mb-8">
                             <img src={assets.about_3} alt="" className='w-full md:w-[20rem] xl:w-[30rem] h-auto object-cover' />
                             <div className='absolute inset-0 h-full w-full flex flex-col items-end justify-end bg-gradient-to-b from-[#00000000] to-[#000000]'>
-                                <p className='capitalize text-[#F6FCDF] font-normal text-xs md:text-base lg:text-xl text-right mx-2 md:mx-3 lg:mx-4 my-2 md:my-4 lg:my-6'>Connecting farmers and buyers through a seamless marketplace, fostering fair trade, sustainability, and agricultural growth.</p>
+                                <p className='capitalize text-[#F6FCDF] font-normal text-xs md:text-base lg:text-xl text-right mx-2 md:mx-3 lg:mx-4 my-2 md:my-4 lg:my-6'>As the Farm Exchange, we make the farmers and the buyers meet where it all started in its most efficient way. Fostering fair trade, sustainability, and growth are things that we are committed to, and unlock the true potential of every piece of land. </p>
                             </div>
                         </div>
                         <div className='w-1/2 border-t-[2px] border-dashed border-[#859F3E]'></div>

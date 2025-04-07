@@ -15,7 +15,7 @@ const Benefits = () => {
                             WHY PARTNER WITH US?
                         </h1>
                         <p className='capitalize font-medium text-[#31511E] text-xl md:text-3xl lg:text-6xl leading-tight text-right'>
-                            Experience growth, support, and <br className='hidden lg:block' /> success with our community.
+                        Deliver Unlock Opportunities, Maximize Returns, and Simplify Land Transactions.
                         </p>
                     </div>
                     <div className='border-r-2 border-dashed border-[#859F3E] h-20 md:h-48'></div>
@@ -38,24 +38,24 @@ const Benefits = () => {
                 </div>
                 <div className='border-[1px] border-[#859F3E] w-full xl:w-[25rem] lg:h-[30.688rem] p-6 sm:py-10 sm:px-4'>
                     <h1 className='text-[#31511E] uppercase font-semibold text-2xl md:text-3xl lg:text-4xl leading-tight text-start'>
-                        Benefits
+                    OUR ADVANTAGES 
                     </h1>
                     <div className='flex flex-col items-start gap-5 md:gap-7 lg:gap-9 mt-5 sm:mt-7'>
                         {[
-                            'Profitable Farmland Investment',
-                            'Sustainable & Organic Farming',
-                            'Expert Support & Guidance',
-                            'Guaranteed Returns & Growth',
-                            'Hassle-Free Land Management',
-                            'Thriving Farming Community',
-                        ].map((benefit, index) => (
-                            <div key={index} className='flex items-center gap-1 md:gap-2 lg::gap-3 group'>
-                                <img src={assets.contact_leaf} alt='' className='w-4 md:w-5 lg:w-6 h-auto' />
-                                <p className='font-normal text-base md:text-lg lg:text-xl leading-tight hover:text-[#31511E] text-black'>
-                                    {benefit}
-                                </p>
-                            </div>
-                        ))}
+                            'High-Value Land Investments',
+                            'Eco-Friendly & Sustainable Farming Solutions',
+                            'Expert Guidance Every Step of the Way',
+                            'Assured Profitability & Growth',
+                            'Seamless Land Sales & Management',
+                        ]
+                            .map((benefit, index) => (
+                                <div key={index} className='flex items-center gap-1 md:gap-2 lg::gap-3 group'>
+                                    <img src={assets.contact_leaf} alt='' className='w-4 md:w-5 lg:w-6 h-auto' />
+                                    <p className='font-normal text-base md:text-lg lg:text-xl leading-tight hover:text-[#31511E] text-black'>
+                                        {benefit}
+                                    </p>
+                                </div>
+                            ))}
                     </div>
                 </div>
             </div>
