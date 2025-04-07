@@ -71,11 +71,11 @@ const HomeJournal = () => {
       <div className='grid grid-cols-[1fr_1fr] [&>*:nth-child(1)]:order-2 gap-4 md:gap-10 lg:gap-20 mt-4 md:mt-8 lg:mt-12'>
         <div className='col-span-1 h-full flex flex-col items-start justify-between'>
           <div className='flex flex-col gap-3 md:gap-5'>
-            <p className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>Knowledge hub</p>
-            <p className='capitalize text-[#31511E] font-semibold text-xs md:text-xl lg:text-[2.5rem] leading-tight'>Your Go-To Resource for <br /> Farming & Farmland <br /> Insights</p>
+            <p className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>Farmland Knowledge Center</p>
+            <p className='capitalize text-[#31511E] font-semibold text-xs md:text-xl lg:text-[2.5rem] leading-tight'>Your Ultimate Guide <br /> to Farming and <br /> Investment Strategies. </p>
           </div>
           <div className='flex flex-col gap-0.5 md:gap-1 lg:gap-3'>
-            <p className='capitalize text-[#31511E] font-semibold text-[8px] md:text-sm lg:text-2xl leading-tight'>Explore farming insights, market trends, and investment strategies. Gain expert knowledge to make informed decisions.</p>
+            <p className='capitalize text-[#31511E] font-semibold text-[8px] md:text-sm lg:text-2xl leading-tight'>Discover gold nuggets of what farming, land investments, and market shifts are like. Our hub is a source of knowledge that you have to make sound, strategic decisions in the agricultural space. </p>
             <Link to={'/journal/blog'}><Button title={'View All'} icon={'show'} className='!text-[#859F3E] !p-0' /></Link>
           </div>
         </div>

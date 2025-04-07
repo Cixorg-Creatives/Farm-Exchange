@@ -21,7 +21,7 @@ const HomeHero = () => {
         <div className='h-52 absolute bottom-0 right-0  w-[46%]'>
           <div className='h-full flex items-center justify-between pl-5'>
             <div className='h-full flex flex-col justify-between'>
-              <div className='uppercase boska text-[#859F3E] font-normal text-2xl leading-tight w-80'>Seamlessly connect <br /> growers and buyers <br /> for a fair <br /> marketplace.</div>
+              <div className='uppercase boska text-[#859F3E] font-normal text-2xl leading-tight w-80'>Effortlessly Link Growers & Buyers for Smarter, Fairer Deals.</div>
               <Link to={'/services'}><Button title='Explore Services' variant='primary' icon='show' /></Link>
             </div>
             <div className='relative'>
@@ -47,7 +47,7 @@ const HomeHero = () => {
         </div>
         <div className='h-32 md:h-44 flex items-center justify-between pl-4'>
           <div className='h-full flex flex-col justify-between w-1/2'>
-            <div className='uppercase boska text-[#859F3E] font-normal text-sm md:text-base leading-tight'>Seamlessly connect <br /> growers and buyers <br /> for a fair <br />marketplace.</div>
+            <div className='uppercase boska text-[#859F3E] font-normal text-sm md:text-base leading-tight'>Effortlessly Link Growers & Buyers for Smarter, Fairer Deals.</div>
             <Link to={'/services'}><Button title='Explore Services' variant='primary' icon='show' /></Link>
           </div>
           <div className='relative w-1/3'>

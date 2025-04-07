@@ -90,7 +90,7 @@ const Recommended = () => {
             quality.
           </div>
         </div>
-        <Link to="/properties?category=highrec">
+        <Link to="/properties?category=highrec" className="w-2/5 lg:w-fit">
           <Button title="View More" variant="primary" icon="show" />
         </Link>
       </div>

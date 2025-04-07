@@ -6,7 +6,7 @@ import Button from '../button'
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion'
 
-const features = ["Fertile Lands", "High Yield", "Sustainable Growth"]
+const features = ["High-Potential Land", " Profitable Investments", "Sustainable & Future-Ready"]
 const MAX_FEATURED_PROPERTIES = 5;
 
 const Featured = () => {
@@ -70,10 +70,7 @@ const Featured = () => {
                         Featured Properties
                     </h1>
                     <div className='capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight lg:leading-[4.5rem]'>
-                        Explore top farms <br />
-                        and premium <br />
-                        produce, handpicked <br />
-                        for quality.
+                        Immediate access to Discover Prime Farmland & Exclusive Properties curated for Maximum Value.
                     </div>
                     <div className='capitalize text-[#31511E] font-normal text-[8px] md:text-base lg:text-xl flex flex-col gap-0.5 md:gap-1 lg:gap-1.5'>
                         {features.map((item, index) => (

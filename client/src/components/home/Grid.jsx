@@ -8,7 +8,7 @@ const Grid = () => {
     {
       type: 'farmland',
       title: 'Farm Land',
-      description: 'Buy, Sell & Invest in Farm Lands with Ease',
+      description: 'Effortless Buying, Selling & Investing in Agricultural Land',
       image: assets.home_3,
       colSpan: 'col-span-1 md:row-span-3',
       height: 'h-[15rem] sm:h-[18rem] md:h-[36rem]',
@@ -26,7 +26,7 @@ const Grid = () => {
     {
       type: 'agricultureland',
       title: 'Agriculture Land',
-      description: 'Buy, Sell & Invest in Agriculture Land with Ease',
+      description: 'Smart Deals for Agricultural Landowners & Investors ',
       image: assets.home_5,
       colSpan: 'col-span-1 md:col-span-2',
       height: 'h-[15rem] sm:h-[18rem] md:h-[24rem]',
@@ -35,7 +35,7 @@ const Grid = () => {
     {
       type: 'farmhouse',
       title: 'Farm House',
-      description: 'Buy, Sell & Invest in Farm House with Ease',
+      description: 'Sell and Find Idyllic French Farmhouses ',
       image: assets.home_6,
       colSpan: 'col-span-1',
       height: 'h-[15rem] sm:h-[18rem] md:h-[24rem]',

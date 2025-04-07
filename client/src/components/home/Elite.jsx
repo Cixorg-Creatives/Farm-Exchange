@@ -47,7 +47,7 @@ const Elite = () => {
 
   const data = [
     { image: assets.home_24 },
-    ...eliteProperties.slice(0,4).map((property) => ({
+    ...eliteProperties.slice(0, 4).map((property) => ({
       _id: property._id,
       image: property.banner,
       title: property.name,
@@ -87,8 +87,7 @@ const Elite = () => {
             Elite Properties
           </div>
           <div className="capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight lg:leading-[4.5rem]">
-            Explore top farms and <br /> premium produce, handpicked <br /> for
-            quality.
+            Browse Premium Farms & <br /> Exclusive Properties. Only  <br /> the Best Of Collection
           </div>
         </div>
         <Link to="/properties?category=elite">

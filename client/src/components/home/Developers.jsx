@@ -45,7 +45,7 @@ const Developers = () => {
           Featured Developer
         </h1>
         <p className='capitalize text-[#31511E] font-semibold text-xl md:text-3xl lg:text-6xl leading-tight'>
-          The Most Renowned and <br /> Influential Developers in <br /> the Industry
+        Connecting You with <br /> Industry-Leading Developers. 
         </p>
       </div>
       <div className='w-full overflow-hidden'>
