@@ -6,7 +6,7 @@ const Vision = () => {
         <div className='py-6 md:py-10 xl:py-0 xl:pt-14 flex flex-col lg:flex-row items-center justify-between'>
             <div className='w-full lg:w-3/5 flex flex-col xl:flex-row justify-between lg:relative'>
                 <div className='xl:w-2/5'>
-                    <div className='xl:absolute xl:inset-0 xl:-translate-x-1/4 z-10 xl:w-[85vh] uppercase text-[#073D2C]/50 font-semibold text-5xl md:text-7xl lg:text-[6.25rem] leading-tight xl:-rotate-90 text-left'>our Vision</div>
+                    <div className='xl:absolute xl:inset-0 xl:-translate-x-1/6 z-10 xl:w-[85vh] uppercase text-[#073D2C]/50 font-semibold text-5xl md:text-7xl lg:text-[6.25rem] leading-tight xl:-rotate-90 text-left'>our Vision</div>
                 </div>
                 <div className='lg:w-[3/5] flex flex-col items-start'>
                     <div className='w-2/3 border-t-[2px] border-dashed border-[#859F3E]'></div>
