@@ -3,11 +3,11 @@ import Build from '@/components/services/Build'
 import Call from '@/components/services/Call'
 import Difference from '@/components/services/Difference'
 import Featured from '@/components/services/Featured'
-import Grid from '@/components/home/Grid'
 import Recommended from '@/components/services/Recommended'
 import ServiceHero from '@/components/services/ServiceHero'
 import React from 'react'
 import Banner from '@/components/services/Banner'
+import Grid from '@/components/services/Grid'
 
 const Services = () => {
   return (
