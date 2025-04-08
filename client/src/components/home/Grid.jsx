@@ -16,8 +16,8 @@ const Grid = () => {
     },
     {
       type: 'coffee',
-      title: 'Coffee Estate',
-      description: 'Buy, Sell & Invest in Coffee Estate with Ease',
+      title: 'Organic Farm',
+      description: 'Market-Ready Land for Organic Farming & Agri Ventures',
       image: assets.home_4,
       colSpan: 'col-span-1 md:col-span-2 md:row-span-3',
       height: 'h-[15rem] sm:h-[18rem] md:h-[36rem]',

@@ -86,8 +86,7 @@ const Recommended = () => {
             Highly recommended Properties
           </div>
           <div className="capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight lg:leading-[4.5rem]">
-            Explore top farms and <br /> premium produce, handpicked <br /> for
-            quality.
+            Top-Rated Farm Estates <br /> Curated for High <br /> Return Investors
           </div>
         </div>
         <Link to="/properties?category=highrec" className="w-2/5 lg:w-fit">

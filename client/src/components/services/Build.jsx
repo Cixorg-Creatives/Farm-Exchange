@@ -15,18 +15,18 @@ const Build = () => {
         <div className='col-span-1 h-full flex flex-col items-center justify-between'>
           <div className='grid grid-cols-[1fr_1fr] gap-2 md:gap-4 lg:gap-6'>
             <div className='bg-[#D9E1C3] col-span-1 h-full w-full flex flex-col items-start justify-between gap-3 md:gap-0 px-2.5 md:px-5 lg:px-10 py-6 md:py-12 lg:py-16'>
-              <p className='capitalize text-[#02542D] font-medium text-base md:text-lg lg:text-4xl leading-tight'>Big things can <br /> happen in small <br />spaces</p>
-              <p className='capitalize text-[#757575] font-normal text-xs md:text-base lg:text-xl leading-tight'>Big things can happen in <br /> small Big things can happen <br /> in small Big things can <br /> happen in small Big things <br /> can happen in small Big <br /> things can happen in small</p>
+              <p className='capitalize text-[#02542D] font-medium text-base md:text-lg lg:text-4xl leading-tight'>transforming land into legacy </p>
+              <p className='capitalize text-[#757575] font-normal text-xs md:text-base lg:text-xl leading-tight'>Every piece of land at FarmExchange has the potential to create a lasting impact. Our services are for a small plot or a big acreage, and they’ll help you to reveal the true value of your property. </p>
             </div>
             <div className='bg-[#D9E1C3] col-span-1 h-full w-full flex flex-col items-center gap-2 md:gap-4 lg:gap-6'>
               <img src={assets.services_3} alt="" className='w-full h-auto aspect-3/2 object-cover' />
               <div className='flex flex-col items-center justify-center gap-2 md:gap-3.5 lg:gap-5 py-2 md:py-4 lg:py-6'>
-                <p className='capitalize text-[#02542D] font-medium text-base md:text-xl lg:text-[2rem] leading-tight text-center '>Big things can <br /> happen in small </p>
+                <p className='capitalize text-[#02542D] font-medium text-base md:text-xl lg:text-[2rem] leading-tight text-center '>Big Potential In Every Parcel </p>
                 <Link to={'/properties'}><Button title='Explore Properties' variant='primary' icon='show' className='text-xs' /></Link>
               </div>
             </div>
           </div>
-          <div className='boska uppercase text-[#859F3E] font-normal text-xs md:text-xl lg:text-[2rem] w-full'>Big things can happen in small Big things can <br /> happen in small Big things Big things can <br /> happen in small Big things </div>
+          <div className='boska uppercase text-[#859F3E] font-normal text-xs md:text-xl lg:text-[2rem] w-full'>The Power of Every Property <br /> Small Spaces, Big Possibilities <br /> One Field at a Time, Transform Your Future  </div>
         </div>
       </div>
     </div>

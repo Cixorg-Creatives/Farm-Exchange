@@ -43,7 +43,7 @@ const Video = () => {
     <div className='py-6 md:py-10 xl:py-14'>
       <div className='px-4 md:px-6 lg:px-24 flex flex-col lg:flex-row lg:items-center justify-between gap-2 md:gap-4 lg:gap-0'>
         <p className='uppercase text-[#073D2C]/50 font-semibold text-5xl md:text-7xl lg:text-[6.25rem] leading-tight text-left'>Videos</p>
-        <p className='capitalize old-standard-tt text-[#747474] font-normal text-[10px] md:text-base lg:text-xl lg:text-right'>Experience the beauty of nature through our <br /> farmland gallery. From lush green fields to <br /> golden harvests, every frame tells a story of hard <br /> work and dedication. Witness the harmony <br /> between </p>
+        <p className='capitalize old-standard-tt text-[#747474] font-normal text-[10px] md:text-base lg:text-xl lg:text-right'>See inside the life of farming with a collection of videos. <br className='hidden lg:block' /> Vibrant green fields, a golden glow from harvests, and <br className='hidden lg:block' />  every video shows dedication, hard work,  and the <br className='hidden lg:block' /> beauty of agricultural life. Through every frame, <br className='hidden lg:block' />  see nature and farmers work in harmony.  </p>
       </div>
       <div className='pl-4 md:pl-6 lg:pl-24 pt-6 md:pt-12 lg:pt-16 flex items-center gap-2 md:gap-4 lg:gap-6'>
         <div className='flex flex-col items-center justify-center gap-3 md:gap-4 lg:gap-5'>

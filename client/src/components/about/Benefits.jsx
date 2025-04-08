@@ -15,7 +15,7 @@ const Benefits = () => {
                             WHY PARTNER WITH US?
                         </h1>
                         <p className='capitalize font-medium text-[#31511E] text-xl md:text-3xl lg:text-6xl leading-tight text-right'>
-                        Deliver Unlock Opportunities, Maximize Returns, and Simplify Land Transactions.
+                            Deliver Unlock Opportunities, Maximize Returns, and Simplify Land Transactions.
                         </p>
                     </div>
                     <div className='border-r-2 border-dashed border-[#859F3E] h-20 md:h-48'></div>
@@ -27,7 +27,7 @@ const Benefits = () => {
                     <div className='hidden xl:flex lg:absolute lg:top-84 lg:right-4 bg-[#31511E] bg-opacity-50 lg:bg-opacity-100 sm:w-full lg:w-[40.563rem] sm:h-full lg:h-[22.813rem]'></div>
                     <div className='cursor-pointer absolute inset-0 xl:inset-auto hover:xl:top-84 hover:xl:right-4 xl:top-80 xl:right-8 duration-200 ease-in-out bg-[#859F3E]/80 xl:bg-[#859F3E] sm:w-full xl:w-[40.563rem] sm:h-full xl:h-[22.813rem] flex flex-col justify-between p-6 sm:p-10'>
                         <h1 className='uppercase boska text-[#F6FCDF] font-normal text-2xl md:text-3xl lg:text-5xl leading-tight '>
-                            Join Us to Grow, <br /> Succeed, and Thrive <br /> Together!
+                            Join Farm Exchange To Grow, <br /> Succeed, And Thrive <br /> Together
                         </h1>
                         <div className='w-full flex justify-end'>
                             <h2 className='text-[#F6FCDF] font-semibold text-base md:text-xl lg:text-[1.75rem] leading-tight'>
@@ -38,7 +38,7 @@ const Benefits = () => {
                 </div>
                 <div className='border-[1px] border-[#859F3E] w-full xl:w-[25rem] lg:h-[30.688rem] p-6 sm:py-10 sm:px-4'>
                     <h1 className='text-[#31511E] uppercase font-semibold text-2xl md:text-3xl lg:text-4xl leading-tight text-start'>
-                    OUR ADVANTAGES 
+                        OUR ADVANTAGES
                     </h1>
                     <div className='flex flex-col items-start gap-5 md:gap-7 lg:gap-9 mt-5 sm:mt-7'>
                         {[

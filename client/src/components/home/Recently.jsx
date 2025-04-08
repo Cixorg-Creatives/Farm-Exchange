@@ -80,7 +80,7 @@ const Recently = () => {
                 </Link>
                 <div className='flex flex-col items-end gap-2.5 md:gap-3.5 lg:gap-5'>
                     <div className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase text-right'>Recently added Properties</div>
-                    <div className='capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight lg:leading-[4.5rem] text-right'>Explore top farms and <br /> premium produce, handpicked <br /> for quality.</div>
+                    <div className='capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight lg:leading-[4.5rem] text-right'>Explore Newly Listed <br /> Premium Farm Properties <br /> Across Prime Locations</div>
                 </div>
             </div>
             <div className="relative w-full flex flex-col lg:flex-row items-end justify-start gap-2 md:gap-3 lg:gap-0">

@@ -65,10 +65,10 @@ const Blog = () => {
         <div className='col-span-1 h-full flex flex-col items-start justify-between py-4 md:py-8 lg:py-12'>
           <div className='flex flex-col gap-3 md:gap-5'>
             <p className='boska font-normal text-[#859F3E] text-base md:text-xl lg:text-[1.75rem] leading-tight uppercase'>Our blogs</p>
-            <p className='capitalize text-[#31511E] font-semibold text-xl md:text-3xl lg:text-6xl leading-tight'>Explore Insights and Stories, <br />Rooted in the World of Farming.</p>
+            <p className='capitalize text-[#31511E] font-semibold text-xl md:text-3xl lg:text-6xl leading-tight'>Discover The Heart Of Farming Through Stories And Insights.</p>
           </div>
           <div className='flex flex-col gap-0.5 md:gap-1 lg:gap-3'>
-            <p className='capitalize text-[#31511E] font-semibold text-[8px] md:text-sm lg:text-xl leading-tight'>Dive into the world of farming with our curated blogs. From sustainable practices and crop management tips to inspiring farmer stories and the latest agricultural trends, we&pos;ve got it all covered. </p>
+            <p className='capitalize text-[#31511E] font-semibold text-[8px] md:text-sm lg:text-xl leading-tight'>Delve into our blog collection, where we share the essence of farming. Explore sustainable practices, learn effective crop management techniques, and get inspired by real-life stories from farmers. Stay updated with the latest trends in agriculture to help you thrive. </p>
             <Link to={'/journal/blog'}><Button title={'View All'} icon={'show'} className='!text-[#859F3E] !p-0' /></Link>
           </div>
         </div>

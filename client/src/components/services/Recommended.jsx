@@ -49,8 +49,7 @@ const Recommended = () => {
             highly recommended properties
           </p>
           <p className="capitalize text-[#31511E] font-medium text-sm md:text-3xl lg:text-6xl leading-tight">
-            The Most Renowned and <br /> Influential Developers in the <br />
-            Industry
+          Top-Rated Farm Estates <br /> Curated for High <br /> Return Investors
           </p>
         </div>
         <div className='py-6 md:py-10 xl:py-14 relative'>

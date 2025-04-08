@@ -43,7 +43,7 @@ const HomeJournal = () => {
         </div>
         <div className="w-fit flex flex-col items-start lg:items-end justify-start h-full text-start lg:text-right">
           <p className="capitalize text-[#859F3E] font-bold text-xs md:text-2xl lg:text-4xl leading-tight text-right">
-            Discover Stories, tips, and trends <br /> from the land
+          Your one-stop knowledge center for <br /> smarter farm decisions and strategies.
           </p>
         </div>
       </div>
@@ -55,7 +55,7 @@ const HomeJournal = () => {
             <p className='capitalize text-[#31511E] font-semibold text-xs md:text-xl lg:text-[2.5rem] leading-tight'>Wooden valley By <br /> rugvedha developers</p>
           </div>
           <div className='flex flex-col gap-0.5 md:gap-1 lg:gap-3'>
-            <p className='capitalize text-[#31511E] font-semibold text-[8px] md:text-sm lg:text-2xl leading-tight'>Discover top farms and premium produce, carefully selected for quality.</p>
+            <p className='capitalize text-[#31511E] font-semibold text-[8px] md:text-sm lg:text-2xl leading-tight'>Unlock Farming Insights, Market Trends, and Investment OpportunitiesUnlock Farming Insights, Market Trends, and Investment Opportunities</p>
             <Link to={'/journal/video'}><Button title={'View All'} icon={'show'} className='!text-[#859F3E] !p-0' /></Link>
           </div>
         </div>
