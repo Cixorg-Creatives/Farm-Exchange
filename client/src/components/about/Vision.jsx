@@ -20,7 +20,7 @@ const Vision = () => {
                 </div>
             </div>
             <div className='hidden lg:flex w-full lg:w-2/5 flex-col items-end'>
-                <div className='h-full w-full flex flex-col items-end'>
+                <div className='h-screen w-full flex flex-col items-end'>
                     <div className='flex w-full justify-end'>
                         <div className='h-50 lg:h-[70%] border-r-[0.5px] md:border-r-1 lg:border-r-2 border-dashed border-[#859F3E]'></div>
                         <img src={assets.about_6} alt="" className='w-3/5 h-auto ml-3 md:ml-4 lg:ml-5 mb-3 md:mb-4 lg:mb-5' />
