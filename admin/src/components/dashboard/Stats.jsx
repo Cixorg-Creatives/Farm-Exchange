@@ -114,7 +114,7 @@ const Stats = () => {
         }, [value]);
         return <span>{displayValue}</span>;
     };
-
+    console.log(contacts)
     const data = [
         {
             title: "Properties",
@@ -139,8 +139,8 @@ const Stats = () => {
             label1: "Responded",
             label2: "Not Responded",
             total: contacts.length,
-            published: 0,
-            draft: 0,
+            published: contacts.filter(c => c.seen === true).length,
+            draft: contacts.filter(c => c.seen === false).length,
             link: "/contact"
         },
         {
@@ -148,8 +148,8 @@ const Stats = () => {
             label1: "Responded",
             label2: "Not Responded",
             total: request.length,
-            published: 0,
-            draft: 0,
+            published: request.filter(r => r.seen === true).length,
+            draft: request.filter(r => r.seen === false).length,
             link: "/post-property-request"
         },
     ];
