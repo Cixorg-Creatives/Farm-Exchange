@@ -24,7 +24,7 @@ const propertySchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["", "farmland", "farmhouse", "agricultureland", "coffee"],
+    enum: ["", "farmland", "farmhouse", "agricultureland", "organic"],
     // required: true,
   },
   category: {

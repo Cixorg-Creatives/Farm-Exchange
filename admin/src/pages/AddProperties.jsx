@@ -23,7 +23,7 @@ const propertySchema = z
           required_error: "Availability status is required",
           invalid_type_error: "Please select availability status",
         }),
-        type: z.enum(["farmland", "farmhouse", "agricultureland", "coffee"], {
+        type: z.enum(["farmland", "farmhouse", "agricultureland", "organic"], {
           required_error: "Property type is required",
           invalid_type_error: "Please select property type",
         }),
@@ -225,7 +225,7 @@ const AddProperties = () => {
     { value: "farmland", label: "Farm Land" },
     { value: "farmhouse", label: "Farm House" },
     { value: "agricultureland", label: "Agriculture Land" },
-    { value: "coffee", label: "Coffee Estate" },
+    { value: "organic", label: "Organic Farms" },
   ];
 
   const categorySelect = [

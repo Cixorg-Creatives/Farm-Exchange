@@ -44,7 +44,7 @@ const PropertiesHero = ({ onFilterChange, filters }) => {
     { value: "farmland", label: "Farm Land" },
     { value: "farmhouse", label: "Farm House" },
     { value: "agricultureland", label: "Agriculture Land" },
-    { value: "coffee", label: "Coffee Estate" },
+    { value: "organic", label: "Organic Farms" },
   ];
 
   const categoryFilter = [

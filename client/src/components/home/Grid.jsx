@@ -15,7 +15,7 @@ const Grid = () => {
       textAlign: 'text-right md:text-start'
     },
     {
-      type: 'coffee',
+      type: 'organic',
       title: 'Organic Farm',
       description: 'Market-Ready Land for Organic Farming & Agri Ventures',
       image: assets.home_4,

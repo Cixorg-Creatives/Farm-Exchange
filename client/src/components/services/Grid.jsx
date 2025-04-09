@@ -8,16 +8,16 @@ const Grid = () => {
     {
       type: 'farmland',
       title: 'Farm Land',
-      description: 'Buy, Sell & Invest in Farm Lands with Ease',
+      description: 'Effortless Buying, Selling & Investing in Agricultural Land',
       image: assets.home_3,
       colSpan: 'col-span-1 md:row-span-3',
       height: 'h-[15rem] sm:h-[18rem] md:h-[36rem]',
       textAlign: 'text-right md:text-start'
     },
     {
-      type: 'coffee',
-      title: 'Coffee Estate',
-      description: 'Buy, Sell & Invest in Coffee Estate with Ease',
+      type: 'organic',
+      title: 'Organic Farm',
+      description: 'Market-Ready Land for Organic Farming & Agri Ventures',
       image: assets.home_4,
       colSpan: 'col-span-1 md:col-span-2 md:row-span-3',
       height: 'h-[15rem] sm:h-[18rem] md:h-[36rem]',
@@ -26,7 +26,7 @@ const Grid = () => {
     {
       type: 'agricultureland',
       title: 'Agriculture Land',
-      description: 'Buy, Sell & Invest in Agriculture Land with Ease',
+      description: 'Smart Deals for Agricultural Landowners & Investors ',
       image: assets.home_5,
       colSpan: 'col-span-1 md:col-span-2',
       height: 'h-[15rem] sm:h-[18rem] md:h-[24rem]',
@@ -35,7 +35,7 @@ const Grid = () => {
     {
       type: 'farmhouse',
       title: 'Farm House',
-      description: 'Buy, Sell & Invest in Farm House with Ease',
+      description: 'Sell and Find Idyllic French Farmhouses ',
       image: assets.home_6,
       colSpan: 'col-span-1',
       height: 'h-[15rem] sm:h-[18rem] md:h-[24rem]',
@@ -61,7 +61,7 @@ const Grid = () => {
 
           springX.set(x);
           springY.set(y);
-          scale.set(1.1);
+          scale.set(1.05);
         };
 
         return (
@@ -73,7 +73,7 @@ const Grid = () => {
             onMouseLeave={() => {
               springX.set(0);
               springY.set(0);
-              scale.set(1.03);
+              scale.set(1.1);
             }}
           >
             <motion.img
