@@ -61,25 +61,25 @@ const Grid = () => {
 
           springX.set(x);
           springY.set(y);
-          scale.set(1.05);
+          scale.set(0.95);
         };
 
         return (
           <Link
             to={`/properties?type=${property.type}`}
             key={property.type}
-            className={`relative group overflow-hidden ${property.colSpan} rounded-2xl ${property.height}`}
+            className={`relative group overflow-hidden ${property.colSpan} rounded-2xl ${property.height} cursor-pointer`}
             onMouseMove={handleMouseMove}
             onMouseLeave={() => {
               springX.set(0);
               springY.set(0);
-              scale.set(1.1);
+              scale.set(1);
             }}
           >
             <motion.img
               src={property.image}
               alt={property.title}
-              className='w-full h-full object-cover rounded-2xl'
+              className='w-full h-full object-cover rounded-2xl scale-120'
               style={{ x: transformX, y: transformY, scale }}
               transition={{ type: 'spring', stiffness: 80, damping: 15 }}
             />
