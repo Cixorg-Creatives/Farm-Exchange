@@ -1,7 +1,7 @@
 import { assets } from "@/assets/assets";
 import { Heart, IndianRupee, MessageSquareText } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import Button from "../button";
+import Button from "../Button";
 import { Link, useParams } from "react-router-dom";
 
 const PropertyHero = () => {

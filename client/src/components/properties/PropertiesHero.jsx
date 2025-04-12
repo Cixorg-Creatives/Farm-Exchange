@@ -8,8 +8,8 @@ import { Search, X } from "lucide-react";
 import axios from "axios";
 
 const PropertiesHero = ({ onFilterChange, filters }) => {
-
-  const [cities, setCities] = useState([])
+  const [cities, setCities] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   const fetchCities = async () => {
     try {
@@ -18,7 +18,7 @@ const PropertiesHero = ({ onFilterChange, filters }) => {
           status: "published",
         },
       });
-      const cities = response.data.map(item => item.location.city.trim());
+      const cities = response.data.map((item) => item.location.city.trim());
       const uniqueCities = [...new Set(cities)];
       setCities(uniqueCities);
     } catch (err) {
@@ -27,17 +27,18 @@ const PropertiesHero = ({ onFilterChange, filters }) => {
   };
 
   useEffect(() => {
-    fetchCities()
-  }, [])
+    fetchCities();
+  }, []);
 
   const cityFilter = [
     { value: "all", label: "All" },
-    ...cities.sort((a, b) => a.localeCompare(b)).map(city => ({
-      value: city.toLowerCase(),
-      label: city,
-    })),
+    ...cities
+      .sort((a, b) => a.localeCompare(b))
+      .map((city) => ({
+        value: city.toLowerCase(),
+        label: city,
+      })),
   ];
-
 
   const typeFilter = [
     { value: "all", label: "All" },
@@ -80,7 +81,15 @@ const PropertiesHero = ({ onFilterChange, filters }) => {
   return (
     <div className="pb-6 md:pb-10 xl:pb-14">
       <div className="relative hidden lg:block">
-        <img src={assets.properties_hero_1} alt="" className="w-full h-auto" />
+        <img
+          src={assets.properties_hero_1}
+          alt=""
+          className={`w-full h-auto transition-all duration-700 ease-in-out ${
+            loaded ? "blur-0" : "blur-md"
+          }`}
+          loading="lazy"
+          onLoad={() => setLoaded(true)}
+        />
         <div className="absolute inset-0 bg-[#00000080] px-3 md:px-6 lg:px-9 py-6 md:py-12 lg:py-24 flex flex-col items-center justify-end gap-4 md:gap-6 lg:gap-8">
           <h1 className="w-full text-start align-middle capitalize text-white font-semibold text-2xl lg:text-[4rem]">
             Build Your Future, <br />

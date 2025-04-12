@@ -1,8 +1,8 @@
-import { assets } from '@/assets/assets';
-import { Minus, Plus } from 'lucide-react';
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Heading from '../Heading';
+import { assets } from "@/assets/assets";
+import { Minus, Plus } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Heading from "../Heading";
 
 const faqs = [
   {
@@ -32,32 +32,39 @@ const faqs = [
   },
 ];
 
-
 const Faq = () => {
   const [show, setShow] = useState(Array(5).fill(false));
+  const [loaded, setLoaded] = useState(false);
 
   const toggleFaq = (index) => {
     setShow((prev) => prev.map((item, i) => (i === index ? !item : item)));
   };
 
   return (
-    <div className='py-6 md:py-10 xl:py-14'>
-      <div className='flex items-start justify-between flex-row-reverse'>
-        <div className='w-full lg:w-3/5 flex flex-col items-center gap-2 md:gap-3 lg:gap-4'>
-          <h1 className='w-full font-medium text-[#31511E] text-xl md:text-3xl lg:text-6xl leading-tight mb-2 md:mb-3 lg:mb-4'>
+    <div className="py-6 md:py-10 xl:py-14">
+      <div className="flex items-start justify-between flex-row-reverse">
+        <div className="w-full lg:w-3/5 flex flex-col items-center gap-2 md:gap-3 lg:gap-4">
+          <h1 className="w-full font-medium text-[#31511E] text-xl md:text-3xl lg:text-6xl leading-tight mb-2 md:mb-3 lg:mb-4">
             Frequently Asked Questions
           </h1>
           {faqs.map((item, index) => (
-            <div key={index} className='flex flex-col gap-2 md:gap-3 lg:gap-4 w-full h-auto'>
+            <div
+              key={index}
+              className="flex flex-col gap-2 md:gap-3 lg:gap-4 w-full h-auto"
+            >
               <div
                 onClick={() => toggleFaq(index)}
-                className='cursor-pointer flex items-center justify-between border border-[#D9D9D9] py-3 md:py-4 lg:py-5 px-3 md:px-5 lg:px-7 rounded-lg'
+                className="cursor-pointer flex items-center justify-between border border-[#D9D9D9] py-3 md:py-4 lg:py-5 px-3 md:px-5 lg:px-7 rounded-lg"
               >
-                <div className='capitalize text-[#31511E] font-medium text-[10px] md:text-lg lg:text-2xl'>
+                <div className="capitalize text-[#31511E] font-medium text-[10px] md:text-lg lg:text-2xl">
                   {item.faq}
                 </div>
-                <div className='text-[#31511E]'>
-                  {show[index] ? <Minus className='h-4 md:h-5 lg:h-6 w-auto' /> : <Plus className='h-4 md:h-5 lg:h-6 w-auto' />}
+                <div className="text-[#31511E]">
+                  {show[index] ? (
+                    <Minus className="h-4 md:h-5 lg:h-6 w-auto" />
+                  ) : (
+                    <Plus className="h-4 md:h-5 lg:h-6 w-auto" />
+                  )}
                 </div>
               </div>
               <AnimatePresence>
@@ -67,9 +74,9 @@ const Faq = () => {
                     animate={{ maxHeight: 500, opacity: 1 }}
                     exit={{ maxHeight: 0, opacity: 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className='overflow-hidden'
+                    className="overflow-hidden"
                   >
-                    <p className='w-[90%] capitalize text-[#758A68] font-normal text-[10px] md:text-sm lg:text-xl py-1 md:py-2 lg:py-3 px-3 md:px-5 lg:px-7'>
+                    <p className="w-[90%] capitalize text-[#758A68] font-normal text-[10px] md:text-sm lg:text-xl py-1 md:py-2 lg:py-3 px-3 md:px-5 lg:px-7">
                       {item.answer}
                     </p>
                   </motion.div>
@@ -78,8 +85,16 @@ const Faq = () => {
             </div>
           ))}
         </div>
-        <div className='w-1/3 flex-shrink-0 hidden lg:block'>
-          <img src={assets.faq_1} alt="FAQ Illustration" className='w-full h-full object-cover rounded-md md:rounded-lg lg:rounded-xl' />
+        <div className="w-1/3 flex-shrink-0 hidden lg:block">
+          <img
+            src={assets.faq_1}
+            alt="FAQ Illustration"
+            className={`w-full h-full object-cover rounded-md md:rounded-lg lg:rounded-xl transition-all duration-700 ease-in-out ${
+              loaded ? "blur-0" : "blur-md"
+            }`}
+            loading="lazy"
+            onLoad={() => setLoaded(true)}
+          />
         </div>
       </div>
     </div>

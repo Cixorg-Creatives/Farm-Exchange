@@ -50,6 +50,7 @@ const formData = [
 const PostHero = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -72,11 +73,11 @@ const PostHero = () => {
         phone: values.phone,
         interested_in: values.interested,
       });
-      toast.success("Post request added successfully!")
+      toast.success("Post request added successfully!");
       form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error(error.response?.data?.message || "Something went wrong!")
+      toast.error(error.response?.data?.message || "Something went wrong!");
     } finally {
       setLoading(false);
     }
@@ -86,7 +87,15 @@ const PostHero = () => {
     <div className="py-6 md:py-10 xl:py-14">
       <div className="grid lg:grid-cols-[9fr_17fr] gap-2 md:gap-3 lg:gap-4">
         <div className="hidden lg:block col-span-1 w-full h-auto">
-          <img src={assets.post_1} alt="" className="w-full h-auto" />
+          <img
+            src={assets.post_1}
+            alt=""
+            className={`w-full h-auto transition-all duration-700 ease-in-out ${
+              loaded ? "blur-0" : "blur-md"
+            }`}
+            loading="lazy"
+            onLoad={() => setLoaded(true)}
+          />
         </div>
         <div className="col-span-1 w-full h-full bg-[#9DB265]">
           <p className="capitalize text-center text-[#31511E] font-bold text-base md:text-xl lg:text-[2rem] px-4 md:px-8 lg:px-16 py-3.5 md:py-7 lg:py-14">
@@ -151,17 +160,24 @@ const PostHero = () => {
 
                 {message && (
                   <p
-                    className={`text-center mt-2 text-sm font-medium ${message.type === "success"
-                      ? "text-green-600"
-                      : "text-red-600"
-                      }`}
+                    className={`text-center mt-2 text-sm font-medium ${
+                      message.type === "success"
+                        ? "text-green-600"
+                        : "text-red-600"
+                    }`}
                   >
                     {message.text}
                   </p>
                 )}
 
                 <div className="flex justify-center py-4 md:py-8 lg:py-0">
-                  <Button type='submit' title={"Post Property"} icon={"show"} variant="ternary" loading={loading} />
+                  <Button
+                    type="submit"
+                    title={"Post Property"}
+                    icon={"show"}
+                    variant="ternary"
+                    loading={loading}
+                  />
                 </div>
               </form>
             </Form>

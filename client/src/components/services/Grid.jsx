@@ -1,50 +1,53 @@
-import { assets } from '@/assets/assets';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { motion, useSpring, useTransform } from 'framer-motion';
+import { assets } from "@/assets/assets";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion, useSpring, useTransform } from "framer-motion";
 
 const Grid = () => {
   const propertyTypes = [
     {
-      type: 'farmland',
-      title: 'Farm Land',
-      description: 'Effortless Buying, Selling & Investing in Agricultural Land',
+      type: "farmland",
+      title: "Farm Land",
+      description:
+        "Effortless Buying, Selling & Investing in Agricultural Land",
       image: assets.home_3,
-      colSpan: 'col-span-1 md:row-span-3',
-      height: 'h-[15rem] sm:h-[18rem] md:h-[36rem]',
-      textAlign: 'text-right md:text-start'
+      colSpan: "col-span-1 md:row-span-3",
+      height: "h-[15rem] sm:h-[18rem] md:h-[36rem]",
+      textAlign: "text-right md:text-start",
     },
     {
-      type: 'organic',
-      title: 'Organic Farm',
-      description: 'Market-Ready Land for Organic Farming & Agri Ventures',
+      type: "organic",
+      title: "Organic Farm",
+      description: "Market-Ready Land for Organic Farming & Agri Ventures",
       image: assets.home_4,
-      colSpan: 'col-span-1 md:col-span-2 md:row-span-3',
-      height: 'h-[15rem] sm:h-[18rem] md:h-[36rem]',
-      textAlign: 'text-right md:text-start'
+      colSpan: "col-span-1 md:col-span-2 md:row-span-3",
+      height: "h-[15rem] sm:h-[18rem] md:h-[36rem]",
+      textAlign: "text-right md:text-start",
     },
     {
-      type: 'agricultureland',
-      title: 'Agriculture Land',
-      description: 'Smart Deals for Agricultural Landowners & Investors ',
+      type: "agricultureland",
+      title: "Agriculture Land",
+      description: "Smart Deals for Agricultural Landowners & Investors ",
       image: assets.home_5,
-      colSpan: 'col-span-1 md:col-span-2',
-      height: 'h-[15rem] sm:h-[18rem] md:h-[24rem]',
-      textAlign: 'text-right md:text-start'
+      colSpan: "col-span-1 md:col-span-2",
+      height: "h-[15rem] sm:h-[18rem] md:h-[24rem]",
+      textAlign: "text-right md:text-start",
     },
     {
-      type: 'farmhouse',
-      title: 'Farm House',
-      description: 'Sell and Find Idyllic French Farmhouses ',
+      type: "farmhouse",
+      title: "Farm House",
+      description: "Sell and Find Idyllic French Farmhouses ",
       image: assets.home_6,
-      colSpan: 'col-span-1',
-      height: 'h-[15rem] sm:h-[18rem] md:h-[24rem]',
-      textAlign: 'text-right'
-    }
+      colSpan: "col-span-1",
+      height: "h-[15rem] sm:h-[18rem] md:h-[24rem]",
+      textAlign: "text-right",
+    },
   ];
 
+  const [loaded, setLoaded] = useState(false);
+
   return (
-    <div className='py-6 md:py-10 xl:py-14 grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-2 md:gap-3 lg:gap-5'>
+    <div className="py-6 md:py-10 xl:py-14 grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-2 md:gap-3 lg:gap-5">
       {propertyTypes.map((property) => {
         const springX = useSpring(0, { stiffness: 60, damping: 5 });
         const springY = useSpring(0, { stiffness: 60, damping: 5 });
@@ -55,7 +58,8 @@ const Grid = () => {
 
         const handleMouseMove = (e) => {
           const { clientX, clientY, currentTarget } = e;
-          const { left, top, width, height } = currentTarget.getBoundingClientRect();
+          const { left, top, width, height } =
+            currentTarget.getBoundingClientRect();
           const x = ((clientX - (left + width / 2)) / width) * -20;
           const y = ((clientY - (top + height / 2)) / height) * -20;
 
@@ -79,16 +83,30 @@ const Grid = () => {
             <motion.img
               src={property.image}
               alt={property.title}
-              className='w-full h-full object-cover rounded-2xl scale-120'
+              className={`w-full h-full object-cover rounded-2xl scale-120 transition-all duration-700 ease-in-out ${
+                loaded ? "blur-0" : "blur-md"
+              }`}
+              loading="lazy"
+              onLoad={() => setLoaded(true)}
               style={{ x: transformX, y: transformY, scale }}
-              transition={{ type: 'spring', stiffness: 80, damping: 15 }}
+              transition={{ type: "spring", stiffness: 80, damping: 15 }}
             />
-            <div className='absolute inset-0 bg-black/40 rounded-2xl p-5 md:p-6'>
-              <div className={`h-full flex flex-col items-start justify-end md:justify-start gap-2 md:gap-3 duration-200 ease-in ${property.colSpan.includes('col-span-2') ? 'w-full md:w-1/2' : 'w-full'}`}>
-                <p className={`uppercase boska text-[#F6FCDF] font-normal text-xl md:text-3xl lg:text-[3.25rem] leading-tight w-full ${property.textAlign}`}>
+            <div className="absolute inset-0 bg-black/40 rounded-2xl p-5 md:p-6">
+              <div
+                className={`h-full flex flex-col items-start justify-end md:justify-start gap-2 md:gap-3 duration-200 ease-in ${
+                  property.colSpan.includes("col-span-2")
+                    ? "w-full md:w-1/2"
+                    : "w-full"
+                }`}
+              >
+                <p
+                  className={`uppercase boska text-[#F6FCDF] font-normal text-xl md:text-3xl lg:text-[3.25rem] leading-tight w-full ${property.textAlign}`}
+                >
                   {property.title}
                 </p>
-                <p className={`uppercase text-[#F6FCDF] font-light text-sm md:text-base lg:text-2xl leading-tight ${property.textAlign}`}>
+                <p
+                  className={`uppercase text-[#F6FCDF] font-light text-sm md:text-base lg:text-2xl leading-tight ${property.textAlign}`}
+                >
                   {property.description}
                 </p>
               </div>

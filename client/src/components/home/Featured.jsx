@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { assets } from '@/assets/assets'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import Button from '../button'
+import Button from '../Button'
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion'
 
