@@ -17,7 +17,7 @@ const List = () => {
 
   const fetchContacts = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/get-contact");
+      const response = await axios.get(`${import.meta.env.VITE_SERVER_DOMAIN}/get-contact`);
       setContacts(response.data);
     } catch (err) {
       console.error("Error fetching contacts:", err);
@@ -32,7 +32,7 @@ const List = () => {
       const contact = contacts.find((c) => c._id === id);
       const updatedStatus = !contact.seen;
 
-      await axios.patch(`http://localhost:3000/update-contact/${id}`, {
+      await axios.patch(`${import.meta.env.VITE_SERVER_DOMAIN}/update-contact/${id}`, {
         seen: updatedStatus,
       });
 
@@ -55,7 +55,7 @@ const List = () => {
   const deleteContact = async (id) => {
     setDeleteLoading(true);
     try {
-      await axios.delete(`http://localhost:3000/delete-contact/${id}`);
+      await axios.delete(`${import.meta.env.VITE_SERVER_DOMAIN}/delete-contact/${id}`);
       setContacts(contacts.filter((contact) => contact._id !== id));
       toast.success("Contact deleted successfully!");
     } catch (err) {

@@ -20,7 +20,7 @@ const Stats = () => {
 
     const fetchProperties = async () => {
         try {
-            const response = await fetch("http://localhost:3000/list-properties");
+            const response = await fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/list-properties`);
             if (!response.ok) throw new Error("Failed to fetch properties");
             const data = await response.json();
             setProperties(data.data || []);
@@ -61,7 +61,7 @@ const Stats = () => {
 
     const fetchContacts = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/get-contact");
+            const response = await axios.get(`${import.meta.env.VITE_SERVER_DOMAIN}/get-contact`);
             setContacts(response.data);
         } catch (err) {
             console.error("Error fetching contacts:", err);
@@ -73,7 +73,7 @@ const Stats = () => {
 
     const fetchRequest = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/get-post-property");
+            const response = await axios.get(`${import.meta.env.VITE_SERVER_DOMAIN}/get-post-property`);
             if (Array.isArray(response.data.posts)) {
                 setRequest(response.data.posts);
             } else {

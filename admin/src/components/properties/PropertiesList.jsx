@@ -32,7 +32,7 @@ const PropertiesList = ({
         if (searchQuery) params.append("search", searchQuery);
         console.log(statusFilter)
 
-        const url = `http://localhost:3000/list-properties?${params.toString()}`;
+        const url = `${import.meta.env.VITE_SERVER_DOMAIN}/list-properties?${params.toString()}`;
         const response = await fetch(url);
 
         if (!response.ok) {

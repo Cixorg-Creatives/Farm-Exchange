@@ -13,7 +13,7 @@ const List = () => {
     useEffect(() => {
         const fetchProperties = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/get-post-property');
+                const response = await axios.get(`${import.meta.env.VITE_SERVER_DOMAIN}/get-post-property`);
                 if (Array.isArray(response.data.posts)) {
                     setProperties(response.data.posts);
                 } else {
@@ -37,7 +37,7 @@ const List = () => {
             const property = properties.find(p => p._id === id);
             const newStatus = !property.seen;
 
-            const response = await axios.patch(`http://localhost:3000/update-post-status/${id}`, {
+            const response = await axios.patch(`${import.meta.env.VITE_SERVER_DOMAIN}/update-post-status/${id}`, {
                 seen: newStatus
             });
 
@@ -55,7 +55,7 @@ const List = () => {
     const deleteProperty = async (id) => {
         setDeleteLoading(true);
         try {
-            const response = await axios.post('http://localhost:3000/delete-post-property', { id });
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/delete-post-property`, { id });
             if (response.data.success) {
                 setProperties(properties.filter(property => property._id !== id));
                 toast.success("Post deleted successfully");

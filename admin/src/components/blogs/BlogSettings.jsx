@@ -33,7 +33,7 @@ const BlogSettings = ({ blog_id }) => {
         setIsDeleting(true);
         
         try {
-            const { data } = await axios.post('http://localhost:3000/delete-blog', { blog_id }, {
+            const { data } = await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/delete-blog`, { blog_id }, {
                 headers: {
                     'Authorization': `Bearer ${access_token}`
                 }

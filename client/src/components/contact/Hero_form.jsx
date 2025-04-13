@@ -77,7 +77,7 @@ const HeroForm = () => {
   const onSubmit = async (values) => {
     setLoading(true); // Start loader
     try {
-      const response = await axios.post("http://localhost:3000/contact-us", {
+      const response = await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/contact-us`, {
         full_name: values.fullName,
         email: values.email,
         phone: values.phone,

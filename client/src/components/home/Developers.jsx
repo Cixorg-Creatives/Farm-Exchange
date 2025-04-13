@@ -14,7 +14,7 @@ const Developers = () => {
   const fetchDevelopers = async () => {
     setLoading(true)
     try {
-      const response = await axios.get("http://localhost:3000/list", {
+      const response = await axios.get(`${import.meta.env.VITE_SERVER_DOMAIN}/list`, {
         params: { status: "published" },
       });
 

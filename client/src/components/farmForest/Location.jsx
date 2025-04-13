@@ -25,7 +25,7 @@ const Location = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:3000/get-properties/${propertyId}`
+          `${import.meta.env.VITE_SERVER_DOMAIN}/get-properties/${propertyId}`
         );
         
         if (!response.ok) {

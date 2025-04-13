@@ -67,7 +67,7 @@ const PostHero = () => {
     setMessage(null);
 
     try {
-      const { data } = await axios.post("http://localhost:3000/post-property", {
+      const { data } = await axios.post(`${import.meta.env.VITE_SERVER_DOMAIN}/post-property`, {
         full_name: values.fullName,
         email: values.email,
         phone: values.phone,

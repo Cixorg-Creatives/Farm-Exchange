@@ -13,7 +13,7 @@ const RecentlyOnboarded = () => {
   useEffect(() => {
     const fetchRecentProperties = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/list', {
+        const response = await axios.get(`${import.meta.env.VITE_SERVER_DOMAIN}/list`, {
           params: {
             sort: 'latest',
             status: 'published',

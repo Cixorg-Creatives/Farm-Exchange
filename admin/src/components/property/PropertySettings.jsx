@@ -11,7 +11,7 @@ const PropertySettings = ({ id }) => {
     const handleDelete = async () => {
         setDeleteLoading(true);
         try {
-            const response = await fetch(`http://localhost:3000/delete-properties/${id}`, {
+            const response = await fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/delete-properties/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

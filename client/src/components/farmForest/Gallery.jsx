@@ -12,7 +12,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/get-properties/${propertiesId}`);
+        const response = await fetch(`${import.meta.env.VITE_SERVER_DOMAIN}/get-properties/${propertiesId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch property');
         }

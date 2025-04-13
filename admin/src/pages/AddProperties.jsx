@@ -146,7 +146,7 @@ const AddProperties = () => {
     const fetchProperty = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/edit-properties/${propertyId}`
+          `${import.meta.env.VITE_SERVER_DOMAIN}/edit-properties/${propertyId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch property");
@@ -478,8 +478,8 @@ const AddProperties = () => {
 
       const method = propertyId ? "PUT" : "POST";
       const url = propertyId
-        ? `http://localhost:3000/edit-properties/${propertyId}`
-        : "http://localhost:3000/properties";
+        ? `${import.meta.env.VITE_SERVER_DOMAIN}/edit-properties/${propertyId}`
+        : `${import.meta.env.VITE_SERVER_DOMAIN}/properties`;
 
       const response = await fetch(url, {
         method,
