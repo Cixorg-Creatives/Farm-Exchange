@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { motion, useSpring, useTransform } from "framer-motion";
 
 const Grid = () => {
+  const [loaded, setLoaded] = useState(false);
   const propertyTypes = [
     {
       type: "farmland",
@@ -44,8 +45,6 @@ const Grid = () => {
     },
   ];
 
-  const [loaded, setLoaded] = useState(false);
-
   return (
     <div className="py-6 md:py-10 xl:py-14 grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr_1fr] gap-2 md:gap-3 lg:gap-5">
       {propertyTypes.map((property) => {
@@ -83,8 +82,8 @@ const Grid = () => {
             <motion.img
               src={property.image}
               alt={property.title}
-              className={`w-full h-full object-cover rounded-2xl scale-120 transition-all duration-700 ease-in-out ${
-                loaded ? "blur-0" : "blur-md"
+              className={`w-full h-full object-cover rounded-2xl scale-120 ${
+                loaded ? "blur-0" : "blur-md duration-700 ease-in-out"
               }`}
               loading="lazy"
               onLoad={() => setLoaded(true)}

@@ -82,8 +82,8 @@ const Grid = () => {
             <motion.img
               src={property.image}
               alt={property.title}
-              className={`w-full h-full object-cover rounded-2xl scale-120 transition-all duration-700 ease-in-out ${
-                loaded ? "blur-0" : "blur-md"
+              className={`w-full h-full object-cover rounded-2xl scale-120 ${
+                loaded ? "blur-0" : "blur-md duration-700 ease-in-out"
               }`}
               loading="lazy"
               onLoad={() => setLoaded(true)}
