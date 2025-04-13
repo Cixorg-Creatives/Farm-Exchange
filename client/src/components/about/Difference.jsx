@@ -138,7 +138,7 @@ const Difference = () => {
                   <motion.img
                     src={item.image}
                     alt="Floating Icon"
-                    className={`w-1/6 h-auto aspect-3/4 object-cover rounded-md lg:rounded-lg -translate-x-4/5 transition-all duration-700 ease-in-out ${
+                    className={`w-1/6 h-auto aspect-3/4 object-cover rounded-md lg:rounded-lg -translate-x-4/5 ${
                       loaded ? "blur-0" : "blur-md duration-700 ease-in-out"
                     }`}
                     loading="lazy"
