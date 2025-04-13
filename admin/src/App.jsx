@@ -15,6 +15,7 @@ import { lookInSession } from "./common/session";
 import EditProfile from "./pages/EditProfile";
 import { Toaster } from "react-hot-toast";
 import Property from "./pages/Property";
+import ScrollToTop from "./components/ScrollToTop";
 
 export const UserContext = createContext({});
 
@@ -31,6 +32,7 @@ const App = () => {
   return (
     <UserContext.Provider value={{ userAuth, setUserAuth }}>
       <Toaster />
+      <ScrollToTop />
       <div className="flex flex-col clashdisplay">
         {userAuth.access_token ? (
           <div>
