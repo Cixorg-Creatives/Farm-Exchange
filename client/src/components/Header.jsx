@@ -32,7 +32,7 @@ const Header = () => {
     };
 
     return (
-        <div className='bg-[#073D2C] flex items-center justify-between mt-3 py-1 px-7 md:mt-5 md:py-2 md:px-28 w-full h-fit'>
+        <div className='bg-gradient-to-b from-[#0A1901] to-[#073D2C] flex items-center justify-between mt-3 py-1 px-7 md:mt-5 md:py-2 md:px-28 w-full h-fit'>
             <Link onClick={handleLogoClick} to="/">
                 <img src={assets.logo} alt="" className='h-[57.6px] w-[54px] sm:h-[76.8px] sm:w-[71.91px]' />
             </Link>
