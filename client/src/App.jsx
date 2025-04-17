@@ -16,6 +16,8 @@ import Image from './pages/Image'
 import Video from './pages/Video'
 import PostProperty from './pages/PostProperty'
 import { Toaster } from 'react-hot-toast'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 
 const App = () => {
   return (
@@ -36,6 +38,8 @@ const App = () => {
         <Route path="/post-property" element={<PostProperty />} />
         <Route path="/properties" element={<Properties />} />
         <Route path="/properties/:propertiesId" element={<FarmForest />} />
+        <Route path='/privacy-policy' element={<Privacy />} />
+        <Route path='/terms-and-conditions' element={<Terms />} />
       </Routes>
       <Footer />
     </div>
