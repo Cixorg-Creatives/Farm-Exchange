@@ -42,10 +42,10 @@ const Faq = () => {
 
   return (
     <div className="py-6 md:py-10 xl:py-14">
-      <div className="flex items-start justify-between flex-row-reverse">
+      <div className="flex items-start justify-between flex-row-reverse relative">
         <div className="w-full lg:w-3/5 flex flex-col items-center gap-2 md:gap-3 lg:gap-4">
-          <h1 className="w-full font-medium text-[#31511E] text-xl md:text-3xl lg:text-6xl leading-tight mb-2 md:mb-3 lg:mb-4">
-            Frequently Asked Questions
+          <h1 className="w-full text-[#31511E] font-semibold text-[2.5rem] md:text-6xl lg:text-[5rem] leading-tight uppercase text-center lg:text-left mb-2 md:mb-3 lg:mb-4">
+            FAQ&apos;s
           </h1>
           {faqs.map((item, index) => (
             <div
@@ -85,7 +85,7 @@ const Faq = () => {
             </div>
           ))}
         </div>
-        <div className="w-1/3 flex-shrink-0 hidden lg:block">
+        <div className="sticky top-5 left-0 w-1/3 flex-shrink-0 hidden lg:block">
           <img
             src={assets.faq_1}
             alt="FAQ Illustration"
