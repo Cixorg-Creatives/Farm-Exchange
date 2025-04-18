@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
 const Location = () => {
-  const { propertyId } = useParams();
+  const { propertiesId } = useParams();
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(true);
   const [mapCenter, setMapCenter] = useState({ lat: 12.9716, lng: 77.5946 });
@@ -17,7 +17,7 @@ const Location = () => {
 
   useEffect(() => {
     const fetchProperty = async () => {
-      if (!propertyId) {
+      if (!propertiesId) {
         setLoading(false);
         return;
       }
@@ -25,7 +25,7 @@ const Location = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `${import.meta.env.VITE_SERVER_DOMAIN}/get-properties/${propertyId}`
+          `${import.meta.env.VITE_SERVER_DOMAIN}/get-properties/${propertiesId}`
         );
         
         if (!response.ok) {
@@ -49,7 +49,7 @@ const Location = () => {
     };
 
     fetchProperty();
-  }, [propertyId]);
+  }, [propertiesId]);
 
   const containerStyle = {
     width: "100%",
