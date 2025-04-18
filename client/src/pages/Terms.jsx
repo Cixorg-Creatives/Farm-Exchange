@@ -1,5 +1,5 @@
 import { assets } from '@/assets/assets'
-import React from 'react'
+import React, { useState } from 'react'
 
 const termsAndConditions = [
   {
@@ -70,10 +70,13 @@ const termsAndConditions = [
 
 
 const Terms = () => {
+
+  const [isLoaded, setIsLoaded] = useState(false)
+
   return (
     <div>
       <div className='relative'>
-        <img src={assets.journal_1} alt="" className='w-full h-auto aspect-3/1 object-cover' />
+        <img src={assets.journal_1} alt="" loading="lazy" onLoad={() => setIsLoaded(true)} className={`w-full h-auto aspect-3/1 object-cover transition-all duration-700 ease-in-out ${isLoaded ? 'blur-0' : 'blur-md'}`} />
         <div className='absolute inset-0 bg-black/60 flex items-center justify-center'>
           <h1 className='uppercase prata text-[#fff] font-semibold text-3xl md:text-6xl lg:text-[6.25rem] leading-tight'>Terms & Conditions</h1>
         </div>
