@@ -239,3 +239,9 @@
     @apply bg-[#F6FCDF] text-foreground;
   }
 }
+
+.inward-curve {
+  background-color: #F6FCDF;
+  -webkit-mask-image: radial-gradient(circle at top left, transparent 24px, black 24px);
+  mask-image: radial-gradient(circle at top left, transparent 24px, black 24px);
+}
