@@ -6,9 +6,9 @@ const generateURL = async (image) => {
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "myCloud");
-    data.append("cloud_name", "dmz3549lj");
+    data.append("cloud_name", import.meta.env.CLOUDINARY_CLOUD_NAME);
 
-    const res = await fetch('https://api.cloudinary.com/v1_1/dmz3549lj/image/upload', {
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${import.meta.env.CLOUDINARY_CLOUD_NAME}/image/upload`, {
         method: "POST",
         body: data
     })
